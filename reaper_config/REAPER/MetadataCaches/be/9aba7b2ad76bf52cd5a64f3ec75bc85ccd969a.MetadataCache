@@ -1,0 +1,76 @@
+C10018 C:\moozzlo\tests\Audio
+F 01-251015_1136-01.wav 5711584 0 1760517404 0
+D y 2025-10-15 s 96000 n 1 l 0:19.829
+D i 24
+F "test copy bug_stems-001.wav" 794544 0 1757494630 0
+D y 2025-09-10 s 44100 n 1 r 0:03.000
+D l 0:04.500 i 32
+F "test copy bug_stems-003.wav" 794544 0 1757494815 0
+D y 2025-09-10 s 44100 n 1 r 0:03.000
+D l 0:04.500 i 32
+F "test copy bug_stems_ - stem-001 render 001.wav" 598886 0 1757494677 0
+D y 2025-09-10 s 44100 n 1 l 0:04.500
+D i 24
+F "test copy bug_stems_ - stem-001.wav" 794544 0 1757494656 0
+D y 2025-09-10 s 44100 n 1 r 0:03.000
+D l 0:04.500 i 32
+F "test copy bug_stems_ - stem-003.wav" 794544 0 1757494842 0
+D y 2025-09-10 s 44100 n 1 r 0:03.000
+D l 0:04.500 i 32
+F "test copy bug_stems_123.wav" 794544 0 1757494903 0
+D y 2025-09-10 s 44100 n 1 r 0:03.000
+D l 0:04.500 i 32
+F "test copy bug_stems_Test name render 001.wav" 532736 0 1757495053 0
+D y 2025-09-10 s 44100 n 1 l 0:04.000
+D i 24
+F "test copy bug_stems_Test name render 002.wav" 532736 0 1757495454 0
+D y 2025-09-10 s 44100 n 1 l 0:04.000
+D i 24
+F "test copy bug_stems_Test name-001 render 001.wav" 532736 0 1757497577 0
+D y 2025-09-10 s 44100 n 1 l 0:04.000
+D i 24
+F "test copy bug_stems_Test name-001 render 002.wav" 532736 0 1757495408 0
+D y 2025-09-10 s 44100 n 1 l 0:04.000
+D i 24
+F "test copy bug_stems_Test name-001.wav" 706344 0 1757497568 0
+D y 2025-09-10 s 44100 n 1 r 0:04.000
+D l 0:04.000 i 32
+F "test copy bug_stems_Test name-002 render 001.wav" 532736 0 1757495417 0
+D y 2025-09-10 s 44100 n 1 l 0:04.000
+D i 24
+F "test copy bug_stems_Test name-002.wav" 706344 0 1757495229 0
+D y 2025-09-10 s 44100 n 1 r 0:04.000
+D l 0:04.000 i 32
+F "test copy bug_stems_Test name-003 render 001.wav" 532736 0 1757495516 0
+D y 2025-09-10 s 44100 n 1 l 0:04.000
+D i 24
+F "test copy bug_stems_Test name-003 render 002.wav" 532736 0 1757495613 0
+D y 2025-09-10 s 44100 n 1 l 0:04.000
+D i 24
+F "test copy bug_stems_Test name-003.wav" 706344 0 1757495510 0
+D y 2025-09-10 s 44100 n 1 r 0:04.000
+D l 0:04.000 i 32
+F "test copy bug_stems_Test name.wav" 706344 0 1757494959 0
+D y 2025-09-10 s 44100 n 1 r 0:04.000
+D l 0:04.000 i 32
+F "test copy bug_stems_Test name_001.wav" 706344 0 1757499415 0
+D y 2025-09-10 s 44100 n 1 r 0:04.000
+D l 0:04.000 i 32
+F "test copy bug_stems_Test name_002 copy 001.wav" 709144 0 1757499499 0
+D y 2025-09-10 s 44100 n 1 l 0:04.000
+D i 32
+F "test copy bug_stems_Test name_002.wav" 706344 0 1757499431 0
+D y 2025-09-10 s 44100 n 1 r 0:04.000
+D l 0:04.000 i 32
+F "test copy bug_stems_Test name_003 copy 001.wav" 709144 0 1757499507 0
+D y 2025-09-10 s 44100 n 1 l 0:04.000
+D i 32
+F "test copy bug_stems_Test name_003.wav" 706344 0 1757499433 0
+D y 2025-09-10 s 44100 n 1 r 0:04.000
+D l 0:04.000 i 32
+F "test copy bug_stems_Test name_004.wav" 1411944 0 1757499546 0
+D y 2025-09-10 s 44100 n 2 r 0:04.000
+D l 0:04.000 i 32
+F "test copy bug_stems_Test name_005.wav" 706344 0 1757499549 0
+D y 2025-09-10 s 44100 n 1 r 0:04.000
+D l 0:04.000 i 32

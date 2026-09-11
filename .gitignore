@@ -1,0 +1,8 @@
+# REAPER cache
+reaper_config/REAPER/ReaPack/cache/
+
+# REAPER third-party binaries
+reaper_config/REAPER/UserPlugins/
+
+# REAPER built-in/default themes
+reaper_config/REAPER/ColorThemes/Default_*.ReaperThemeZip

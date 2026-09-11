@@ -1,0 +1,67 @@
+C10018 "C:\moozzlo\brontomorph\9 morok\Audio"
+F morok-BASS_Fuzz.flac 15320638 0 1694783968 0
+D s 44100 n 1 l 3:38.526 i 24
+F morok-BASS_Sans-Ampeg-52.flac 13216252 0 1694783968 0
+D s 44100 n 1 l 3:38.526 i 24
+F morok-BASS_Sans-Ampeg-57.flac 13594186 0 1694783968 0
+D s 44100 n 1 l 3:38.526 i 24
+F morok-gt-LEAD1_808-6505-57.flac 12267248 0 1695982834 0
+D s 44100 n 1 l 3:42.316 i 24
+F morok-gt-LEAD2_808-6505-57.flac 5083060 0 1695982834 0
+D s 44100 n 1 l 3:42.316 i 24
+F morok-gt1_808-6505-57.flac 17573546 0 1695982834 0
+D s 44100 n 1 l 3:42.316 i 24
+F morok-gt1_Rect-112-57.flac 18247870 0 1695982834 0
+D s 44100 n 1 l 3:42.316 i 24
+F morok-gt2_808-6505-57.flac 19019944 0 1695982834 0
+D s 44100 n 1 l 3:42.316 i 24
+F morok-gt2_Rect-112-57.flac 18249183 0 1695982834 0
+D s 44100 n 1 l 3:42.316 i 24
+F morok-HH.flac 21869748 0 1628682208 0
+D s 44100 n 1 l 3:43.579 i 24
+F morok-Kick.flac 7297006 0 1698349198 0
+D s 44100 n 1 l 3:43.579 i 24
+F morok-OH_China.flac 20444078 0 1628682208 0
+D s 44100 n 1 l 3:43.579 i 24
+F morok-OHL.flac 19292725 0 1628682208 0
+D s 44100 n 1 l 3:43.579 i 24
+F morok-OHR.flac 19416347 0 1628682208 0
+D s 44100 n 1 l 3:43.579 i 24
+F morok-Ride.flac 20931797 0 1628682208 0
+D s 44100 n 1 l 3:43.579 i 24
+F morok-RoomL.flac 20013542 0 1628682208 0
+D s 44100 n 1 l 3:43.579 i 24
+F morok-RoomR.flac 19812194 0 1628682208 0
+D s 44100 n 1 l 3:43.579 i 24
+F morok-SnareBottom.flac 5002867 0 1628682208 0
+D s 44100 n 1 l 3:43.579 i 24
+F morok-SnareTop.flac 4766564 0 1628682208 0
+D s 44100 n 1 l 3:43.579 i 24
+F morok-Subkick.flac 2680666 0 1694867912 0
+D s 44100 n 1 l 3:43.579 i 24
+F morok-Tom1.flac 564725 0 1628682208 0
+D s 44100 n 1 l 3:43.579 i 24
+F morok-Tom2.flac 1036330 0 1628682208 0
+D s 44100 n 1 l 3:43.579 i 24
+F morok-Tom3.flac 2290841 0 1628687294 0
+D s 44100 n 1 l 3:43.579 i 24
+F morok-voc-Flanger.flac 2812347 0 1698348610 0
+D s 44100 n 2 l 2:21.474 i 24
+F morok-Vox_BACK.flac 2418029 0 1701110408 0
+D s 44100 n 1 l 2:37.895 i 24
+F morok-Vox_MAIN.flac 1726987 0 1701019790 0
+D s 44100 n 1 l 2:37.895 i 24
+F morok_stems-001.wav 87310216 0 1739878520 0
+D y 2025-02-18 s 48000 n 2 r 5:10.154
+D l 3:47.368 i 32
+F "morok_stems_ - stem.wav" 87310216 0 1739879262 0
+D y 2025-02-18 s 48000 n 2 r 5:10.154
+D l 3:47.368 i 32
+F "morok_stems_tom trigg flore.wav" 87310216 0 1738763356 0
+D y 2025-02-05 s 48000 n 2 r 5:10.154
+D l 3:47.368 i 32
+F "morok_stems_tom trigg rack.wav" 87310216 0 1738763356 0
+D y 2025-02-05 s 48000 n 2 r 5:10.154
+D l 3:47.368 i 32
+F "ruka take 7.2 (new OH).flac" 26820329 0 1738053339 0
+D s 44100 n 2 l 3:26.769 i 16

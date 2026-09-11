@@ -1,0 +1,4 @@
+Increasing suffix, track-by-track==[takename]-[inctrackorder]
+Increasing suffix, time order across all tracks==[takename]-[inctimeorder]
+Folder.Track.Increasing suffix==[foldername].[trackname].[inctrackorder]
+Strip file extension==[takenamenoext]

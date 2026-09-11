@@ -1,0 +1,155 @@
+C10018 "C:\moozzlo\brontomorph\6 ruka\Audio"
+F "07 Cannibal Corpse _ Heads Shoveled Off.flac" 30401529 0 1737548313 0
+D t "Cannibal Corpse / Heads Shoveled Off" a "Cannibal Corpse" b "Red Before Black" y 2017
+D g "Death Metal" s 44100 n 2 l 3:37.120
+D i 16 m 7
+F "Brontomorph - 2023_stems_polyn-organ - subproject.flac" 14119008 0 1737462360 0
+D s 48000 n 2 l 2:25.371 i 24
+F Hierophant.flac 57822604 0 1736926264 0
+D t Hierophant a Septicflesh b Neuromancer y 20220324
+D d https://www.youtube.com/watch?v=rnI2Mem-_sA s 48000 n 2 l 4:05.240
+D i 24
+F "Periphery - Everything Is Fine! (Official Audio).flac" 75295789 0 1736941768 0
+D t "Periphery - Everything Is Fine! (Official Audio)" a Periphery y 20230310 d https://www.youtube.com/watch?v=wQTUyzTA4Fw
+D s 48000 n 2 l 5:07.212 i 24
+F "polyn 2025-01-21 16_08_36 take 1.flac" 38119283 0 1737465464 0
+D s 44100 n 2 l 2:57.231 i 24
+F "polyn 2025-01-22 14_08_21 take 2.1.flac" 22426638 0 1737544603 0
+D s 44100 n 2 l 2:57.231 i 16
+F "polyn 2025-01-22 16_11_11 take 3 snare demo.flac" 18067308 0 1737551849 0
+D s 44100 n 2 l 2:11.077 i 16
+F polyn-BadaBoom.flac 355245 0 1694867908 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-BASS_Fuzz.flac 9753636 0 1694783962 0
+D s 44100 n 1 l 2:56.229 i 24
+F polyn-BASS_Sans-Ampeg-52.flac 9399425 0 1694783962 0
+D s 44100 n 1 l 2:56.229 i 24
+F polyn-BASS_Sans-Ampeg-57.flac 9675948 0 1694783962 0
+D s 44100 n 1 l 2:56.229 i 24
+F polyn-gt-CenterPad_808-6505-57.flac 4844159 0 1695983210 0
+D s 44100 n 1 l 2:25.371 i 24
+F polyn-gt1_808-6505-57.flac 11575263 0 1695982818 0
+D s 44100 n 1 l 2:56.229 i 24
+F polyn-gt1_Rect-112-57.flac 11937262 0 1695982818 0
+D s 44100 n 1 l 2:56.229 i 24
+F polyn-gt2_808-6505-57.flac 10977604 0 1695982818 0
+D s 44100 n 1 l 2:56.229 i 24
+F polyn-gt2_Rect-112-57.flac 11342098 0 1695982818 0
+D s 44100 n 1 l 2:56.229 i 24
+F polyn-HH.flac 13086761 0 1628833740 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-Kick.flac 10732805 0 1698349196 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-OH_China.flac 12998779 0 1628833740 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-OHL.flac 12422323 0 1628833740 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-OHR.flac 12313238 0 1628833740 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-Ride.flac 13184930 0 1628833740 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-RoomL.flac 12592259 0 1628833740 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-RoomR.flac 12316337 0 1628833740 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-SnareBottom.flac 5138887 0 1626784002 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-SnareBottomBlast.flac 610304 0 1628833740 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-SnareTop.flac 4828992 0 1626783998 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-SnareTopBlast.flac 551522 0 1628833740 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-Subkick.flac 1219625 0 1694867908 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-Tom1.flac 2167039 0 1628834318 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-Tom2.flac 1556685 0 1628834318 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-Tom3.flac 242290 0 1628834318 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-Vox_BACK.flac 4077230 0 1701110288 0
+D s 44100 n 1 l 2:56.229 i 24
+F polyn-Vox_MAIN.flac 7792432 0 1701019744 0
+D s 44100 n 1 l 2:56.229 i 24
+F "ruka 2025-01-15 18_13_16 take 1.wav" 54711874 0 1736954482 0
+D y 2025-01-15 s 44100 n 2 l 3:26.769
+D i 24
+F "ruka 3_stems_tom trigg rack-002.wav" 68057360 0 1737469112 0
+D y 2025-01-21 s 48000 n 2 r 5:17.538
+D l 2:57.231 i 32
+F "ruka 6_stems-001.wav" 79400128 0 1739866778 0
+D y 2025-02-18 s 48000 n 2 l 3:26.769
+D i 32
+F "ruka 6_stems.wav" 50692880 0 1739866215 0
+D y 2025-02-18 s 48000 n 2 r 6:02.758
+D l 2:12.011 i 32
+F "ruka 6_stems_ - stem-001.wav" 79400128 0 1739866847 0
+D y 2025-02-18 s 48000 n 2 l 3:26.769
+D i 32
+F "ruka 6_stems_ - stem.wav" 50692880 0 1739866344 0
+D y 2025-02-18 s 48000 n 2 r 6:02.758
+D l 2:12.011 i 32
+F "ruka take 5 (new bass+snare).flac" 27026403 0 1737557104 0
+D s 44100 n 2 l 3:26.769 i 16
+F "ruka take 6 (HH+GTRhardpan).flac" 27033906 0 1737901663 0
+D s 44100 n 2 l 3:26.769 i 16
+F ruka-BASS_Fuzz.flac 14292649 0 1694783950 0
+D s 44100 n 1 l 3:24.923 i 24
+F ruka-BASS_Sans-Ampeg-52.flac 13282512 0 1694783950 0
+D s 44100 n 1 l 3:24.923 i 24
+F ruka-BASS_Sans-Ampeg-57.flac 13666883 0 1694783950 0
+D s 44100 n 1 l 3:24.923 i 24
+F ruka-gt-CenterPad_808-6505-57.flac 1271932 0 1695983208 0
+D s 44100 n 1 l 1:50.769 i 24
+F ruka-gt1_808-6505-57.flac 16601864 0 1695982788 0
+D s 44100 n 1 l 3:27.692 i 24
+F ruka-gt1_add_808-6505-57.flac 3741301 0 1695982788 0
+D s 44100 n 1 l 3:27.692 i 24
+F ruka-gt1_Rect-112-57.flac 16009507 0 1695982788 0
+D s 44100 n 1 l 3:27.692 i 24
+F ruka-gt2_808-6505-57.flac 17638210 0 1695982788 0
+D s 44100 n 1 l 3:27.692 i 24
+F ruka-gt2_add_808-6505-57.flac 3739844 0 1695982788 0
+D s 44100 n 1 l 3:27.692 i 24
+F ruka-gt2_Rect-112-57.flac 17461315 0 1695982788 0
+D s 44100 n 1 l 3:27.692 i 24
+F ruka-HH.flac 19324428 0 1628846990 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-Kick.flac 10455728 0 1698349190 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-OH_China.flac 18900391 0 1628846994 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-OHL.flac 17507576 0 1628846992 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-OHR.flac 17381484 0 1628846992 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-Ride.flac 19135020 0 1628846992 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-RoomL.flac 18254252 0 1628846994 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-RoomR.flac 17846058 0 1628846994 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-SnareBottom.flac 6216417 0 1630144198 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-SnareTop.flac 5869989 0 1630144196 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-Subkick.flac 4133500 0 1694867900 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-Tom1.flac 781847 0 1630057322 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-Tom2.flac 3138953 0 1630057324 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-Tom3.flac 2992997 0 1630057324 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-Vox_BACK.flac 2722231 0 1701110192 0
+D s 44100 n 1 l 2:35.077 i 24
+F ruka-Vox_LO-pitch-glued-01.flac 1280435 0 1701106536 0
+D s 44100 n 1 l 2:56.229 i 24
+F ruka-Vox_LO-pitch-glued.flac 1175055 0 1701106526 0
+D s 44100 n 1 l 1:47.077 i 24
+F ruka-Vox_MAIN.flac 4708740 0 1701019662 0
+D s 44100 n 1 l 2:35.077 i 24
+F "Septic Flesh [Annubis].flac" 58861197 0 1736770508 0
+D t "Septic Flesh [Annubis]" a Stormblast2666 y 20080823 d https://www.youtube.com/watch?v=qFkkSDIkA4Y
+D s 48000 n 2 l 4:20.180 i 24

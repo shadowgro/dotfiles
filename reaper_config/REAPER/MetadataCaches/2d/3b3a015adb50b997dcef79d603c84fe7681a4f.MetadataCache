@@ -1,0 +1,51 @@
+C10018 "C:\YaD\Yandex.Disk\SWR EDIT\Poppury\Work Files"
+F "Collage - Donna Musica (Remastering 1997) [audiovk.com]-glued-01.wav" 8882544 0 1754935392 0
+D t "Donna Musica (Remastering 1997)" a Collage y 2025-08-11 s 44100
+D n 2 r 3:10.787 l 0:50.333 i 16
+F "Collage - Donna Musica (Remastering 1997) [audiovk.com]-glued.wav" 239364 0 1754934440 0
+D t "Donna Musica (Remastering 1997)" a Collage y 2025-08-11 s 44100
+D n 2 r 4:01.120 l 0:01.336 i 16
+F "Collage - Donna Musica (Remastering 1997) [audiovk.com].mp3" 7207856 0 1754915959 0
+D t "Donna Musica (Remastering 1997)" a Collage s 44100 n 2
+D l 3:00.089 i 320k
+F "DJ Bobo - Love Is All Around (1994 г.) [audiovk.com]-glued.wav" 4980262 0 1754937581 0
+D t "Love Is All Around (1994 г.)" a "DJ Bobo" y 2025-08-11 s 44100
+D n 2 r 6:47.986 l 0:28.211 i 16
+F "DJ Bobo - Love Is All Around (1994 г.) [audiovk.com].mp3" 10787674 0 1754915959 0
+D t "Love Is All Around (1994 г.)" a "DJ Bobo" s 44100 n 2
+D l 4:29.609 i 320k
+F "I've Got a Woman (2005 Remaster).flac" 19943785 0 1754918845 0
+D t "I've Got a Woman (2005 Remaster)" a "Ray Charles" b "Pure Genius: The Complete Atlantic Recordings 1952-1959" y 20141108
+D d https://www.youtube.com/watch?v=alQqMveYv0I s 44100 n 2 l 2:52.083
+D i 24
+F "La Bouche - You Won't Forget Me (Original) [audiovk.com]-glued-01.wav" 342338 0 1754920205 0
+D t "You Won't Forget Me (Original)" a "La Bouche" y 2025-08-11 s 44100
+D n 2 r 7:20.280 l 0:01.919 i 16
+F "La Bouche - You Won't Forget Me (Original) [audiovk.com]-glued-02.wav" 643866 0 1754921630 0
+D t "You Won't Forget Me (Original)" a "La Bouche" y 2025-08-11 s 44100
+D n 2 r 7:20.743 l 0:03.629 i 16
+F "La Bouche - You Won't Forget Me (Original) [audiovk.com]-glued.wav" 11390758 0 1754937417 0
+D t "You Won't Forget Me (Original)" a "La Bouche" y 2025-08-11 s 44100
+D n 2 r 5:28.785 l 1:04.552 i 16
+F "La Bouche - You Won't Forget Me (Original) [audiovk.com].mp3" 10278812 0 1754915959 0
+D t "You Won't Forget Me (Original)" a "La Bouche" s 44100 n 2
+D l 4:16.902 i 320k
+F "Michael Jackson - Billie Jean [audiovk.com].mp3" 11730162 0 1754915957 0
+D t "Billie Jean" a "Michael Jackson" s 44100 n 2
+D l 4:53.147 i 320k
+F "Mobi - Why Does My Heart Feel So Bad [audiovk.com]-glued.wav" 7400222 0 1754934323 0
+D t "Why Does My Heart Feel So Bad?" a Mobi y 2025-08-11 s 44100
+D n 2 r 2:16.526 l 0:41.709 i 16
+D j "mime:image/jpeg offset:3468 length:38908"
+F "Mobi - Why Does My Heart Feel So Bad [audiovk.com].mp3" 6444511 0 1754915957 0
+D t "Why Does My Heart Feel So Bad?" a Mobi s 44100 n 2
+D l 4:26.814 i 192k j "mime:image/jpeg offset:117 length:38908"
+F "Tanita Tikaram - Amore Si [audiovk.com]-glued.wav" 13049906 0 1754934121 0
+D t "Amore Si" a "Tanita Tikaram" y 2025-08-11 s 44100
+D n 2 r 0:39.092 l 1:13.853 i 16
+D j "mime:image/jpeg offset:3400 length:18458"
+F "Tanita Tikaram - Amore Si [audiovk.com].mp3" 9638991 0 1754915959 0
+D t "Amore Si" a "Tanita Tikaram" s 44100 n 2
+D l 4:00.432 i 320k j "mime:image/jpeg offset:105 length:18458"
+F "youtube+GetPOT video #Cru2vXuz7ck [TubeRipper.com].mp3" 5030444 0 1754935646 0
+D s 48000 n 2 l 5:14.376 i 128k

@@ -1,0 +1,266 @@
+config_version = 14
+
+[audio]
+enable_sounds = true
+
+[bar]
+order = [ "my_noctalia" ]
+
+    [bar.my_noctalia]
+    background_opacity = 0.29999999999999999
+    border = "primary"
+    border_width = 2.0
+    center = []
+    concave_edge_corners = false
+    end = [
+        "media",
+        "tray",
+        "notifications",
+        "clipboard",
+        "keyboard_layout",
+        "bluetooth",
+        "input_volume",
+        "volume",
+        "power_profile",
+        "battery",
+        "brightness",
+        "network",
+        "spacer_1",
+        "date",
+        "spacer_1",
+        "clock"
+    ]
+    font_family = "JetBrainsMonoNL Nerd Font Propo"
+    font_weight = 700
+    margin_ends = 20
+    position = "bottom"
+    radius_bottom_left = 12
+    radius_bottom_right = 12
+    scale = 1.1499999999999999
+    shadow = false
+    start = [
+        "session",
+        "control-center",
+        "wallpaper",
+        "screenshot",
+        "bar_2",
+        "spacer_1",
+        "workspaces",
+        "spacer_1",
+        "taskbar"
+    ]
+    thickness = 38
+
+[battery]
+warning_threshold = 20
+
+[control_center.calendar]
+show_events_card = false
+
+[[control_center.shortcuts]]
+type = "wifi"
+
+[[control_center.shortcuts]]
+type = "bluetooth"
+
+[[control_center.shortcuts]]
+type = "nightlight"
+
+[[control_center.shortcuts]]
+type = "notification"
+
+[[control_center.shortcuts]]
+type = "power_profile"
+
+[[control_center.shortcuts]]
+type = "caffeine"
+
+[dock]
+shadow = false
+
+[idle]
+behavior_order = [ "screen-off", "lock", "suspend" ]
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = false
+    timeout = 360.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 300.0
+
+    [idle.behavior.suspend]
+    action = "suspend"
+    enabled = true
+    lock_before_suspend = false
+    timeout = 600.0
+
+[lockscreen]
+fingerprint = false
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@eDP-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 898.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+[notification]
+filter_order = [ "filter" ]
+layer = "overlay"
+position = "bottom_right"
+
+[plugin_settings."noctalia/timer"]
+panel_placement = "floating"
+
+[plugin_settings."piero-93/battery-power-management"]
+battery_device = "BAT1"
+show_balanced_icon = true
+
+[plugin_settings."thepunkoff/pomodoro"]
+bypass-noctalia-sound-globals = true
+use-bundled-alarm-sound = true
+work-duration = 1
+
+[plugin_settings."yuuto/calculator"]
+panel_placement = "floating"
+
+[plugins]
+enabled = [ "yuuto/calculator" ]
+
+[shell]
+font_family = "JetBrainsMono Nerd Font"
+polkit_agent = true
+popup_shadows = false
+show_location = false
+
+    [shell.launcher]
+    compact = true
+
+    [shell.panel]
+    shadow = false
+
+[theme]
+builtin = "Gruvbox"
+community_palette = "Tokyo Night Storm"
+custom_palette = "my_noctalia"
+mode = "dark"
+source = "custom"
+wallpaper_scheme = "m3-content"
+
+    [theme.templates]
+    builtin_ids = [ "btop", "foot", "gtk3", "gtk4", "kitty", "mango", "qt" ]
+    community_ids = [ "telegram", "yazi" ]
+
+[wallpaper]
+directory = "/home/kirill/Downloads/wallpapers"
+
+    [wallpaper.default]
+    path = "/home/kirill/Downloads/wallpapers/wallhaven-4lvxjy_1920x1080.png"
+
+    [wallpaper.last]
+    path = "/home/kirill/Downloads/wallpapers/wallhaven-4lvxjy_1920x1080.png"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/kirill/Downloads/wallpapers/wallhaven-4lvxjy_1920x1080.png"
+
+    [[wallpaper.favorite]]
+    path = "/home/kirill/Downloads/wallpapers/869010-green-minimalist-wallpaper-top-free-green-minimalist-background.jpg"
+    theme_mode = "auto"
+
+    [[wallpaper.favorite]]
+    path = "/home/kirill/Downloads/wallpapers/869013-minimalist-green-wallpaper-top-free-minimalist-green-background.jpg"
+    theme_mode = "auto"
+
+    [[wallpaper.favorite]]
+    path = "/home/kirill/Downloads/wallpapers/wallhaven-1p55dw_1920x1080.png"
+    theme_mode = "auto"
+
+    [[wallpaper.favorite]]
+    custom_palette = "my_noctalia"
+    palette_source = "custom"
+    path = "/home/kirill/Downloads/wallpapers/wallhaven-4lvxjy_1920x1080.png"
+    theme_mode = "dark"
+
+[weather]
+enabled = false
+
+[widget.audio_visualizer]
+bands = 48
+mirrored = false
+show_when_idle = true
+width = 500
+
+[widget.bar_2]
+type = "yuuto/calculator:bar"
+
+[widget.battery]
+display_mode = "graphic"
+
+[widget.bluetooth]
+hide_when_adapter_off = true
+
+[widget.brightness]
+show_label = false
+
+[widget.date]
+format = "{:%d/%b}"
+
+[widget.input_volume]
+enabled = false
+show_label = false
+
+[widget.keyboard_layout]
+show_glyph = false
+
+[widget.launcher]
+enabled = false
+
+[widget.lock_keys]
+display = "full"
+
+[widget.media]
+enabled = false
+
+[widget.network]
+show_label = false
+vpn_status = "both"
+
+[widget.spacer_1]
+type = "spacer"
+
+[widget.workspaces]
+active_pill_size = 1.0
+hide_when_empty = true
