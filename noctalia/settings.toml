@@ -7,11 +7,14 @@ enable_sounds = true
 order = [ "my_noctalia" ]
 
     [bar.my_noctalia]
-    background_opacity = 0.29999999999999999
+    background_opacity = 0.29999999329447746
     border = "primary"
-    border_width = 2.0
+    border_width = 0
+    capsule_fill = "on_primary"
+    capsule_foreground = "primary"
+    capsule_opacity = 0.29999999329447746
     center = []
-    concave_edge_corners = false
+    concave_edge_corners = true
     end = [
         "media",
         "tray",
@@ -30,18 +33,19 @@ order = [ "my_noctalia" ]
         "spacer_1",
         "clock"
     ]
-    font_family = "JetBrainsMonoNL Nerd Font Propo"
+    font_family = "Maple Mono NF"
     font_weight = 700
-    margin_ends = 20
+    margin_ends = 0
     position = "bottom"
-    radius_bottom_left = 12
-    radius_bottom_right = 12
+    radius_bottom_left = 0
+    radius_bottom_right = 0
     scale = 1.1499999999999999
     shadow = false
     start = [
         "session",
         "control-center",
         "wallpaper",
+        "widget",
         "screenshot",
         "bar_2",
         "spacer_1",
@@ -75,15 +79,38 @@ type = "power_profile"
 [[control_center.shortcuts]]
 type = "caffeine"
 
+[desktop_widgets]
+enabled = false
+schema_version = 2
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
+
 [dock]
+auto_hide = true
+background_opacity = 0.29999999329447746
+border = "primary"
+border_width = 2.0
+concave_edge_corners = false
+icon_size = 32
+launcher_position = "start"
+magnification_scale = 2.0
+margin_edge = 4
+reserve_space = false
 shadow = false
+show_dots = true
 
 [idle]
 behavior_order = [ "screen-off", "lock", "suspend" ]
 
     [idle.behavior.lock]
     action = "lock"
-    enabled = false
+    enabled = true
     timeout = 360.0
 
     [idle.behavior.screen-off]
@@ -99,11 +126,12 @@ behavior_order = [ "screen-off", "lock", "suspend" ]
 
 [lockscreen]
 fingerprint = false
+lock_before_suspend = false
 
 [lockscreen_widgets]
-enabled = false
+enabled = true
 schema_version = 2
-widget_order = [ "lockscreen-login-box@eDP-1" ]
+widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-0000000000000001" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -114,7 +142,7 @@ widget_order = [ "lockscreen-login-box@eDP-1" ]
     box_height = 196.0
     box_width = 810.0
     cx = 960.0
-    cy = 898.0
+    cy = 702.0
     output = "eDP-1"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -137,6 +165,20 @@ widget_order = [ "lockscreen-login-box@eDP-1" ]
         show_unlock_hint = true
         show_weather = true
 
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 544.0
+    box_width = 800.0
+    cx = 960.0
+    cy = 428.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background = false
+
 [notification]
 filter_order = [ "filter" ]
 layer = "overlay"
@@ -144,6 +186,9 @@ position = "bottom_right"
 
 [plugin_settings."noctalia/timer"]
 panel_placement = "floating"
+
+[plugin_settings."oldirtty/color_picker"]
+hyprpicker-lowercase = true
 
 [plugin_settings."piero-93/battery-power-management"]
 battery_device = "BAT1"
@@ -158,24 +203,34 @@ work-duration = 1
 panel_placement = "floating"
 
 [plugins]
-enabled = [ "yuuto/calculator" ]
+enabled = [ "yuuto/calculator", "oldirtty/color_picker" ]
 
 [shell]
-font_family = "JetBrainsMono Nerd Font"
+app_icon_color = "#FFFFFF"
+app_icon_colorize = true
+font_family = "Maple Mono NF"
+panel_anchor_bar = "my_noctalia"
 polkit_agent = true
 popup_shadows = false
 show_location = false
+
+    [shell.greeter_sync]
+    auto_sync = true
 
     [shell.launcher]
     compact = true
 
     [shell.panel]
+    borders = false
     shadow = false
+
+    [shell.shadow]
+    direction = "down_right"
 
 [theme]
 builtin = "Gruvbox"
 community_palette = "Tokyo Night Storm"
-custom_palette = "my_noctalia"
+custom_palette = "my_noctalia.moon"
 mode = "dark"
 source = "custom"
 wallpaper_scheme = "m3-content"
@@ -188,13 +243,13 @@ wallpaper_scheme = "m3-content"
 directory = "/home/kirill/Downloads/wallpapers"
 
     [wallpaper.default]
-    path = "/home/kirill/Downloads/wallpapers/wallhaven-4lvxjy_1920x1080.png"
+    path = "/home/kirill/Downloads/wallpapers/wallhaven-mlgzzy_1920x1080.png"
 
     [wallpaper.last]
-    path = "/home/kirill/Downloads/wallpapers/wallhaven-4lvxjy_1920x1080.png"
+    path = "/home/kirill/Downloads/wallpapers/wallhaven-mlgzzy_1920x1080.png"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/kirill/Downloads/wallpapers/wallhaven-4lvxjy_1920x1080.png"
+    path = "/home/kirill/Downloads/wallpapers/wallhaven-mlgzzy_1920x1080.png"
 
     [[wallpaper.favorite]]
     path = "/home/kirill/Downloads/wallpapers/869010-green-minimalist-wallpaper-top-free-green-minimalist-background.jpg"
@@ -212,6 +267,12 @@ directory = "/home/kirill/Downloads/wallpapers"
     custom_palette = "my_noctalia"
     palette_source = "custom"
     path = "/home/kirill/Downloads/wallpapers/wallhaven-4lvxjy_1920x1080.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    custom_palette = "my_noctalia.moon"
+    palette_source = "custom"
+    path = "/home/kirill/Downloads/wallpapers/wallhaven-mlgzzy_1920x1080.png"
     theme_mode = "dark"
 
 [weather]
@@ -260,6 +321,12 @@ vpn_status = "both"
 
 [widget.spacer_1]
 type = "spacer"
+
+[widget.tray]
+hide_passive = false
+
+[widget.widget]
+type = "oldirtty/color_picker:widget"
 
 [widget.workspaces]
 active_pill_size = 1.0

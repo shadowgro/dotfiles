@@ -1,0 +1,115 @@
+C10018 "C:\moozzlo\brontomorph\demo\Brontomorph - 2023"
+F "Brontomorph - 2023_stems_polyn-organ - subproject.flac" 14119008 0 1737462360 0
+D s 48000 n 2 l 2:25.371 i 24
+F polyn-BadaBoom.flac 355245 0 1694867908 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-BASS_Fuzz.flac 9753636 0 1694783962 0
+D s 44100 n 1 l 2:56.229 i 24
+F polyn-BASS_Sans-Ampeg-52.flac 9399425 0 1694783962 0
+D s 44100 n 1 l 2:56.229 i 24
+F polyn-BASS_Sans-Ampeg-57.flac 9675948 0 1694783962 0
+D s 44100 n 1 l 2:56.229 i 24
+F polyn-gt-CenterPad_808-6505-57.flac 4844159 0 1695983210 0
+D s 44100 n 1 l 2:25.371 i 24
+F polyn-gt1_808-6505-57.flac 11575263 0 1695982818 0
+D s 44100 n 1 l 2:56.229 i 24
+F polyn-gt1_Rect-112-57.flac 11937262 0 1695982818 0
+D s 44100 n 1 l 2:56.229 i 24
+F polyn-gt2_808-6505-57.flac 10977604 0 1695982818 0
+D s 44100 n 1 l 2:56.229 i 24
+F polyn-gt2_Rect-112-57.flac 11342098 0 1695982818 0
+D s 44100 n 1 l 2:56.229 i 24
+F polyn-HH.flac 13086761 0 1628833740 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-Kick.flac 10732805 0 1698349196 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-OH_China.flac 12998779 0 1628833740 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-OHL.flac 12422323 0 1628833740 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-OHR.flac 12313238 0 1628833740 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-organ.rpp 334155 0 1736921112 0
+D p 230 n 2 l 59:27.307
+F polyn-Ride.flac 13184930 0 1628833740 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-RoomL.flac 12592259 0 1628833740 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-RoomR.flac 12316337 0 1628833740 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-SnareBottom.flac 5138887 0 1626784002 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-SnareBottomBlast.flac 610304 0 1628833740 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-SnareTop.flac 4828992 0 1626783998 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-SnareTopBlast.flac 551522 0 1628833740 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-Subkick.flac 1219625 0 1694867908 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-Tom1.flac 2167039 0 1628834318 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-Tom2.flac 1556685 0 1628834318 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-Tom3.flac 242290 0 1628834318 0
+D s 44100 n 1 l 2:59.657 i 24
+F polyn-Vox_BACK.flac 4077230 0 1701110288 0
+D s 44100 n 1 l 2:56.229 i 24
+F polyn-Vox_MAIN.flac 7792432 0 1701019744 0
+D s 44100 n 1 l 2:56.229 i 24
+F ruka-BASS_Fuzz.flac 14292649 0 1694783950 0
+D s 44100 n 1 l 3:24.923 i 24
+F ruka-BASS_Sans-Ampeg-52.flac 13282512 0 1694783950 0
+D s 44100 n 1 l 3:24.923 i 24
+F ruka-BASS_Sans-Ampeg-57.flac 13666883 0 1694783950 0
+D s 44100 n 1 l 3:24.923 i 24
+F ruka-gt-CenterPad_808-6505-57.flac 1271932 0 1695983208 0
+D s 44100 n 1 l 1:50.769 i 24
+F ruka-gt1_808-6505-57.flac 16601864 0 1695982788 0
+D s 44100 n 1 l 3:27.692 i 24
+F ruka-gt1_add_808-6505-57.flac 3741301 0 1695982788 0
+D s 44100 n 1 l 3:27.692 i 24
+F ruka-gt1_Rect-112-57.flac 16009507 0 1695982788 0
+D s 44100 n 1 l 3:27.692 i 24
+F ruka-gt2_808-6505-57.flac 17638210 0 1695982788 0
+D s 44100 n 1 l 3:27.692 i 24
+F ruka-gt2_add_808-6505-57.flac 3739844 0 1695982788 0
+D s 44100 n 1 l 3:27.692 i 24
+F ruka-gt2_Rect-112-57.flac 17461315 0 1695982788 0
+D s 44100 n 1 l 3:27.692 i 24
+F ruka-HH.flac 19324428 0 1628846990 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-Kick.flac 10455728 0 1698349190 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-OH_China.flac 18900391 0 1628846994 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-OHL.flac 17507576 0 1628846992 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-OHR.flac 17381484 0 1628846992 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-Ride.flac 19135020 0 1628846992 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-RoomL.flac 18254252 0 1628846994 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-RoomR.flac 17846058 0 1628846994 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-SnareBottom.flac 6216417 0 1630144198 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-SnareTop.flac 5869989 0 1630144196 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-Subkick.flac 4133500 0 1694867900 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-Tom1.flac 781847 0 1630057322 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-Tom2.flac 3138953 0 1630057324 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-Tom3.flac 2992997 0 1630057324 0
+D s 44100 n 1 l 3:26.769 i 24
+F ruka-Vox_BACK.flac 2722231 0 1701110192 0
+D s 44100 n 1 l 2:35.077 i 24
+F ruka-Vox_LO-pitch-glued-01.flac 1280435 0 1701106536 0
+D s 44100 n 1 l 2:56.229 i 24
+F ruka-Vox_LO-pitch-glued.flac 1175055 0 1701106526 0
+D s 44100 n 1 l 1:47.077 i 24
+F ruka-Vox_MAIN.flac 4708740 0 1701019662 0
+D s 44100 n 1 l 2:35.077 i 24

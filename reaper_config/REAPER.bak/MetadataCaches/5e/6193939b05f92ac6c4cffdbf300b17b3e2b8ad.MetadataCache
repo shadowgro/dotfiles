@@ -1,0 +1,101 @@
+C10018 "C:\moozzlo\brontomorph\5 monst\Audio"
+F "Alice in Chains - A Looking in View.flac" 89330769 0 1743323210 0
+D t "Alice in Chains - A Looking in View" a cnc24 y 20130513 d https://www.youtube.com/watch?v=YJluAKWjiUc
+D s 44100 n 2 l 7:06.156 i 24
+F "Brontomorph - 2024 - Relict_stems_Box - subproject.flac" 2638785 0 1739968076 0
+D s 48000 n 2 l 0:22.909 i 24
+F "Brontomorph - 2024 - Relict_stems_SeaAUDIO - subproject.flac" 2125471 0 1739968064 0
+D s 48000 n 2 l 3:33.818 i 24
+F Chokehold.flac 58986225 0 1733489354 0
+D t Chokehold a "Sleep Token" b "Take Me Back To Eden" y 20230216
+D d https://www.youtube.com/watch?v=8kf0DpAwK1A s 48000 n 2 l 5:04.023
+D i 24
+F "Heel to Toe.flac" 59621535 0 1732697140 0
+D t "Heel to Toe" a "Old Man Gloom" b "Seminar IX: Darkness of Being" y 20200322
+D d https://www.youtube.com/watch?v=6kPnD3KM4Bk s 48000 n 2 l 4:35.800
+D i 24
+F Hierophant.flac 57822604 0 1736926264 0
+D t Hierophant a Septicflesh b Neuromancer y 20220324
+D d https://www.youtube.com/watch?v=rnI2Mem-_sA s 48000 n 2 l 4:05.240
+D i 24
+F "monstr take 1.2.flac" 32237074 0 1740217151 0
+D s 44100 n 2 l 4:38.286 i 16
+F "monstr take 1.6 less brass .flac" 31942283 0 1744013701 0
+D s 44100 n 2 l 4:38.286 i 16
+F monstr-BASS_FLANGER-Fuzz.flac 528703 0 1698390692 0
+D s 44100 n 1 l 0:42.545 i 24
+F monstr-BASS_Fuzz.flac 16436481 0 1694783944 0
+D s 44100 n 1 l 4:08.727 i 24
+F monstr-BASS_Sans-Ampeg-52.flac 15513554 0 1694783944 0
+D s 44100 n 1 l 4:08.727 i 24
+F monstr-BASS_Sans-Ampeg-57.flac 15952530 0 1694783944 0
+D s 44100 n 1 l 4:08.727 i 24
+F monstr-gt-CenterPad_808-6505-57.flac 4736318 0 1695983206 0
+D s 44100 n 1 l 3:03.273 i 24
+F monstr-gt1_808-6505-57.flac 19439988 0 1695982774 0
+D s 44100 n 1 l 4:08.727 i 24
+F monstr-gt1_Rect-112-57.flac 20059850 0 1695982774 0
+D s 44100 n 1 l 4:08.727 i 24
+F monstr-gt2_808-6505-57.flac 18048389 0 1695982774 0
+D s 44100 n 1 l 4:08.727 i 24
+F monstr-gt2_Rect-112-57.flac 18650114 0 1695982774 0
+D s 44100 n 1 l 4:08.727 i 24
+F monstr-HH.flac 21199361 0 1626332358 0
+D s 44100 n 1 l 4:10.909 i 24
+F monstr-Kick.flac 15178265 0 1698349188 0
+D s 44100 n 1 l 4:10.909 i 24
+F monstr-OH_China.flac 21162495 0 1626332358 0
+D s 44100 n 1 l 4:10.909 i 24
+F monstr-OHL.flac 19941065 0 1626332358 0
+D s 44100 n 1 l 4:10.909 i 24
+F monstr-OHR.flac 19710813 0 1626332358 0
+D s 44100 n 1 l 4:10.909 i 24
+F monstr-Ride.flac 21819438 0 1626332358 0
+D s 44100 n 1 l 4:10.909 i 24
+F monstr-RoomL.flac 20535387 0 1626332360 0
+D s 44100 n 1 l 4:10.909 i 24
+F monstr-RoomR.flac 20030987 0 1626332358 0
+D s 44100 n 1 l 4:10.909 i 24
+F monstr-SnareBottom.flac 8648239 0 1628688586 0
+D s 44100 n 1 l 4:10.909 i 24
+F monstr-SnareBottomBlast.flac 1845694 0 1625642264 0
+D s 44100 n 1 l 4:10.909 i 24
+F monstr-SnareTop.flac 8087503 0 1628688582 0
+D s 44100 n 1 l 4:10.909 i 24
+F monstr-SnareTopBlast.flac 1663258 0 1625642264 0
+D s 44100 n 1 l 4:10.909 i 24
+F monstr-Tom1.flac 2563643 0 1626262206 0
+D s 44100 n 1 l 4:10.909 i 24
+F monstr-Tom2.flac 4946184 0 1626262214 0
+D s 44100 n 1 l 4:10.909 i 24
+F monstr-Tom3.flac 3453075 0 1626262218 0
+D s 44100 n 1 l 4:10.909 i 24
+F monstr-Vox_BACK.flac 3567955 0 1701110102 0
+D s 44100 n 1 l 4:08.727 i 24
+F monstr-Vox_LO-ADT-RENDER.flac 2573159 0 1702296406 0
+D s 44100 n 2 l 4:08.727 i 24
+F monstr-Vox_LO-pitch-glued.flac 920634 0 1701106516 0
+D s 44100 n 1 l 2:19.636 i 24
+F monstr-Vox_MAIN.flac 8475544 0 1701019602 0
+D s 44100 n 1 l 4:08.727 i 24
+F monstr_stems.wav 106862456 0 1739966249 0
+D y 2025-02-19 s 48000 n 2 r 5:10.154
+D l 4:38.286 i 32
+F "monstr_stems_ - stem.wav" 106862456 0 1739975470 0
+D y 2025-02-19 s 48000 n 2 r 5:10.154
+D l 4:38.286 i 32
+F "monstr_stems_tom trigg flore-004.wav" 77917832 0 1739967815 0
+D y 2025-02-19 s 48000 n 2 r 5:55.972
+D l 3:22.909 i 32
+F "monstr_stems_tom trigg flore-005.wav" 1781104 0 1739967882 0
+D y 2025-02-19 s 48000 n 2 r 9:16.427
+D l 0:04.636 i 32
+F "monstr_stems_tom trigg rack.wav" 106862456 0 1739967372 0
+D y 2025-02-19 s 48000 n 2 r 5:10.154
+D l 4:38.286 i 32
+F "Periphery - Everything Is Fine! (Official Audio).flac" 75295789 0 1736941768 0
+D t "Periphery - Everything Is Fine! (Official Audio)" a Periphery y 20230310 d https://www.youtube.com/watch?v=wQTUyzTA4Fw
+D s 48000 n 2 l 5:07.212 i 24
+F "Septic Flesh [Annubis].flac" 58861197 0 1736770508 0
+D t "Septic Flesh [Annubis]" a Stormblast2666 y 20080823 d https://www.youtube.com/watch?v=qFkkSDIkA4Y
+D s 48000 n 2 l 4:20.180 i 24

@@ -1,4 +1,5 @@
 -- @noindex
+
 -- ! OD_App
 OD_App = {
     logLevel = OD_Logger.LOG_LEVEL.NONE,
@@ -9,8 +10,8 @@ OD_App = {
                 error('OD_App:connect: object with name ' .. objectname .. ' already exists')
             end
         end
-        self[objectname] = o
-        o.app = self
+        self[objectname] = OD_DeepCopy(o)
+        self[objectname].app = self
     end
 }
 
@@ -35,32 +36,38 @@ function OD_Gui_App:init()
     if self.gui == nil then error('OD_App:new: gui is a required param') end
 end
 
-function OD_Gui_App:setHint(window, text, color, ctx)
+function OD_Gui_App:setHint(window, text, color, ctx, level)
+    local level = level or 0
     local ctx = ctx or self.gui.ctx
+    if self.hint[window] == nil then self.hint[window] = {} end
     color = color or 'hint'
     if (self.error or self.coPerform) and not (text == '') and text then
         self.hint[window] = {
             window = {}
         }
         if color then
-            r.ImGui_PushStyleColor(ctx, r.ImGui_Col_Text(), Gui.st.col[color])
+            r.ImGui_PushStyleColor(ctx, r.ImGui_Col_Text(), self.gui.st.col[color])
         end
         r.ImGui_SetTooltip(ctx, text)
         if color then
             r.ImGui_PopStyleColor(ctx)
         end
     else
-        self.hint[window] = {
-            text = text,
-            color = color
-        }
+        if not self.hint[window].lastFrame or (self.hint[window].lastFrame ~= ImGui.GetFrameCount(ctx)) or (level >= (self.hint[window].lastLevel or 0)) then
+            self.hint[window] = {
+                text = text,
+                color = color,
+                lastLevel = level,
+                lastFrame = ImGui.GetFrameCount(ctx)
+            }
+        end
     end
 end
 
-function OD_Gui_App:setHoveredHint(window, text, color, ctx)
+function OD_Gui_App:setHoveredHint(window, text, color, ctx, level)
     local ctx = ctx or self.gui.ctx
     if r.ImGui_IsItemHovered(ctx, r.ImGui_HoveredFlags_AllowWhenDisabled()) then
-        self:setHint(window, text, color, ctx)
+        self:setHint(window, text, color, ctx, level)
     end
 end
 
@@ -82,7 +89,17 @@ function OD_Gui_App:drawPopup(popupType, title, data)
 
         r.ImGui_SetNextWindowSize(ctx, 350, 110)
         r.ImGui_SetNextWindowPos(ctx, center[1], center[2], r.ImGui_Cond_Appearing(), 0.5, 0.5)
+        if self.gui.st.vars and self.gui.st.vars.popups then
+            self.gui:pushStyles(self.gui.st.vars.popups)
+        end
+        if self.gui.st.vars and self.gui.st.vars.popupsTitle then
+            self.gui:pushStyles(self.gui.st.vars.popupsTitle)
+        end
         if r.ImGui_BeginPopupModal(ctx, title, false, r.ImGui_WindowFlags_AlwaysAutoResize()) then
+            if self.gui.st.vars and self.gui.st.vars.popupsTitle then
+                self.gui:popStyles(self.gui.st.vars.popupsTitle)
+            end
+
             self.gui.popups.title = title
 
             if r.ImGui_IsWindowAppearing(ctx) then
@@ -115,6 +132,9 @@ function OD_Gui_App:drawPopup(popupType, title, data)
             end
             r.ImGui_EndPopup(ctx)
         end
+        if self.gui.st.vars and self.gui.st.vars.popups then
+            self.gui:popStyles(self.gui.st.vars.popups)
+        end
         return okPressed, self.gui.popups.singleInput.value
     elseif popupType == 'msg' then
         local okPressed = nil
@@ -126,12 +146,21 @@ function OD_Gui_App:drawPopup(popupType, title, data)
         local bottom_lines = 1
         local closeKey = data.closeKey or r.ImGui_Key_Enter()
         local cancelKey = data.cancelKey or r.ImGui_Key_Escape()
-
         r.ImGui_SetNextWindowSize(ctx, math.max(220, textWidth) +
-            r.ImGui_GetStyleVar(ctx, r.ImGui_StyleVar_WindowPadding()) * 4, textHeight + 90)
+        r.ImGui_GetStyleVar(ctx, r.ImGui_StyleVar_WindowPadding()) * 4, textHeight + 90 * (self.gui.scale or 1))
         r.ImGui_SetNextWindowPos(ctx, center[1], center[2], r.ImGui_Cond_Appearing(), 0.5, 0.5)
         r.ImGui_PushStyleVar(ctx, r.ImGui_StyleVar_WindowTitleAlign(), 0.5, 0.5)
-        if r.ImGui_BeginPopupModal(ctx, title, false, r.ImGui_WindowFlags_NoResize() + r.ImGui_WindowFlags_NoDocking()) then
+        r.ImGui_SetNextWindowFocus(ctx)
+                if self.gui.st.vars and self.gui.st.vars.popups then
+                    self.gui:pushStyles(self.gui.st.vars.popups)
+                end
+                if self.gui.st.vars and self.gui.st.vars.popupsTitle then
+                    self.gui:pushStyles(self.gui.st.vars.popupsTitle)
+                end
+                if r.ImGui_BeginPopupModal(ctx, title, false, r.ImGui_WindowFlags_NoResize() | r.ImGui_WindowFlags_NoDocking()) then
+            if self.gui.st.vars and self.gui.st.vars.popupsTitle then
+                self.gui:popStyles(self.gui.st.vars.popupsTitle)
+            end
             self.gui.popups.title = title
             local width = select(1, r.ImGui_GetContentRegionAvail(ctx))
             r.ImGui_PushItemWidth(ctx, width)
@@ -152,8 +181,7 @@ function OD_Gui_App:drawPopup(popupType, title, data)
                     r.ImGui_GetStyleVar(ctx, r.ImGui_StyleVar_FramePadding()) * 2
             end
             r.ImGui_SetCursorPosX(ctx, (windowWidth - buttonTextWidth) * .5);
-
-            if r.ImGui_Button(ctx, okButtonLabel) or r.ImGui_IsKeyPressed(ctx, closeKey) then
+            if r.ImGui_Button(ctx, okButtonLabel) or r.ImGui_Shortcut(ctx, closeKey) then
                 okPressed = true
                 r.ImGui_CloseCurrentPopup(ctx)
             end
@@ -167,6 +195,9 @@ function OD_Gui_App:drawPopup(popupType, title, data)
             end
 
             r.ImGui_EndPopup(ctx)
+        end
+        if self.gui.st.vars and self.gui.st.vars.popups then
+            self.gui:popStyles(self.gui.st.vars.popups)
         end
         r.ImGui_PopStyleVar(ctx)
         return okPressed
@@ -192,16 +223,14 @@ function OD_Gui_App:drawMsg()
 
         if rv then
             self.popup = {}
+            return rv
         end
     end
 end
 
 function OD_Gui_App:getHint(window)
-    if window == 'main' then
-        return self.hint[window].text, self.hint[window].color
-    else
-        return self.hint[window].text, self.hint[window].color
-    end
+    if self.hint[window] == nil then self.hint[window] = {} end
+    return self.hint[window].text, self.hint[window].color
 end
 
 -- ! OD_Perform_App

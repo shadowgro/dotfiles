@@ -1,11 +1,14 @@
 --[[
   @author Ilias-Timon Poulakis (FeedTheCat)
   @license MIT
-  @version 2.5.0
+  @version 2.6.0
   @provides [main=main,midi_editor] .
   @about Adds a little box to the MIDI editor that displays chord information
   @changelog
-    - Support detecting chords from multiple editable takes
+    - Improve behavior when explicit major is off (CM7 will still be displayed because C7 is defined)
+    - Add option to pin chord track to top of arrange (enabled by default)
+    - Option to reuse chord track now enabled by default
+    - Ensure that text on chord track items is stretched
 ]]
 local box_x_offs = 0
 local box_y_offs = 0
@@ -115,6 +118,7 @@ end
 
 local curr_chord_names
 local chord_names = {}
+local chord_name_map = {}
 
 -- Dyads
 chord_names['1 2'] = {expanded = ' minor 2nd', compact = 'm2'}
@@ -144,6 +148,7 @@ chord_names['1 24'] = {expanded = ' major 14th', compact = 'M14'}
 
 -- Major chords
 chord_names['1 5 8'] = {expanded = 'maj', compact = 'M'}
+chord_names['1 5 7'] = {expanded = 'majb5', compact = 'Mb5'}
 chord_names['1 8 12'] = {expanded = 'maj7 omit3', compact = 'M7(no3)'}
 chord_names['1 5 12'] = {expanded = 'maj7 omit5', compact = 'M7(no5)'}
 chord_names['1 5 8 12'] = {expanded = 'maj7', compact = 'M7'}
@@ -159,6 +164,10 @@ chord_names['1 8 10'] = {expanded = '6 omit3', compact = '6(no3)'}
 chord_names['1 5 8 10'] = {expanded = '6', compact = '6'}
 chord_names['1 3 5 10'] = {expanded = '6/9 omit5', compact = '6/9(no5)'}
 chord_names['1 3 5 8 10'] = {expanded = '6/9', compact = '6/9'}
+chord_names['1 5 7 12'] = {expanded = 'maj7#11 omit5', compact = 'M7#11(no5)'}
+chord_names['1 5 7 8 12'] = {expanded = 'maj7#11', compact = 'M7#11'}
+chord_names['1 3 5 7 12'] = {expanded = 'maj9#11 omit5', compact = 'M9#11(no5)'}
+chord_names['1 3 5 7 8 12'] = {expanded = 'maj9#11', compact = 'M9#11'}
 
 -- Dominant/Seventh
 chord_names['1 8 11'] = {expanded = '7 omit3', compact = '7(no3)'}
@@ -185,6 +194,8 @@ chord_names['1 4 5 9 11'] = {expanded = '7#5#9', compact = '7#5#9'}
 chord_names['1 4 5 7 8 11'] = {expanded = '7#9#11', compact = '7#9#11'}
 chord_names['1 2 5 8 10 11'] = {expanded = '13b9', compact = '13b9'}
 chord_names['1 3 5 7 8 10 11'] = {expanded = '13#11', compact = '13#11'}
+chord_names['1 4 5 8 10 11'] = {expanded = '13#9', compact = '13#9'}
+chord_names['1 3 5 9 11'] = {expanded = '9#5', compact = '9#5'}
 
 -- Suspended
 chord_names['1 6 8'] = {expanded = 'sus4', compact = 'sus4'}
@@ -192,7 +203,6 @@ chord_names['1 3 8'] = {expanded = 'sus2', compact = 'sus2'}
 chord_names['1 6 11'] = {expanded = '7sus4 omit5', compact = '7sus4(no5)'}
 chord_names['1 6 8 11'] = {expanded = '7sus4', compact = '7sus4'}
 chord_names['1 3 6 11'] = {expanded = '11 omit5', compact = '11(no5)'}
-chord_names['1 6 8 11'] = {expanded = '11 omit9', compact = '11(no9)'}
 chord_names['1 3 6 8 11'] = {expanded = '11', compact = '11'}
 
 -- Minor
@@ -219,6 +229,7 @@ chord_names['1 3 4 8 10'] = {expanded = 'm6/9', compact = 'm6/9'}
 chord_names['1 4 7'] = {expanded = 'dim', compact = 'dim'}
 chord_names['1 4 7 10'] = {expanded = 'dim7', compact = 'dim7'}
 chord_names['1 4 7 11'] = {expanded = 'm7b5', compact = 'm7b5'}
+chord_names['1 4 7 12'] = {expanded = 'dim/maj7', compact = 'dim/M7'}
 chord_names['1 2 4 8 11'] = {expanded = 'm7b9', compact = 'm7b9'}
 chord_names['1 2 4 7 11'] = {expanded = 'm7b5b9', compact = 'm7b5b9'}
 chord_names['1 2 4 11'] = {expanded = 'm7b9 omit5', compact = 'm7b9(no5)'}
@@ -238,7 +249,7 @@ chord_names['1 3 5'] = {expanded = 'maj add9 omit5', compact = 'M add9(no5)'}
 chord_names['1 3 5 8'] = {expanded = 'maj add9', compact = 'M add9'}
 chord_names['1 4 6 8'] = {expanded = 'm add11', compact = 'm add11'}
 chord_names['1 5 6 8'] = {expanded = 'maj add11', compact = 'M add11'}
-chord_names['1 5 10 11'] = {expanded = '7 add13', compact = '7 add13'}
+chord_names['1 5 10 11'] = {expanded = '7 add13 omit5', compact = '7 add13(no5)'}
 
 local degrees = {'I', 'II', 'II', 'III', 'III', 'IV', 'V', 'V', 'VI', 'VI',
     'VII', 'VII'}
@@ -259,7 +270,7 @@ local use_input = reaper.GetExtState(extname, 'input') ~= '0'
 local degree_mode = tonumber(reaper.GetExtState(extname, 'degree_only')) or 3
 
 local sel_mode = tonumber(reaper.GetExtState(extname, 'sel_mode')) or 2
-local use_compact = reaper.GetExtState(extname, 'compact') == '1'
+local use_compact = reaper.GetExtState(extname, 'compact') ~= '0'
 local use_inversions = reaper.GetExtState(extname, 'inversions') ~= '0'
 local use_omissions = reaper.GetExtState(extname, 'omissions') == '1'
 local use_major = reaper.GetExtState(extname, 'major') ~= '0'
@@ -270,15 +281,36 @@ local is_sharp_autodetect = false
 
 local chord_track_name = reaper.GetExtState(extname, 'chord_track_name')
 if chord_track_name == '' then chord_track_name = 'Chords' end
-local reuse_chord_track = reaper.GetExtState(extname, 'reuse_chord_track') == '1'
+local reuse_chord_track = reaper.GetExtState(extname, 'reuse_chord_track') ~= '0'
+local pin_chord_track = reaper.GetExtState(extname, 'pin_chord_track') ~= '0'
 
 function print(msg) reaper.ShowConsoleMsg(tostring(msg) .. '\n') end
 
+reaper.gmem_attach('mouse_pos')
+local mouse_pos_state = reaper.gmem_read(0)
+
+local function GetMousePosition()
+    local global_state = reaper.gmem_read(0)
+    if global_state > mouse_pos_state then
+        mouse_pos_state = global_state
+        return reaper.gmem_read(1), reaper.gmem_read(2)
+    else
+        mouse_pos_state = mouse_pos_state + 1
+        local x, y = reaper.GetMousePosition()
+        reaper.gmem_write(0, mouse_pos_state)
+        reaper.gmem_write(1, x)
+        reaper.gmem_write(2, y)
+        return x, y
+    end
+end
+
 function LoadChordNames()
     curr_chord_names = {}
+    chord_name_map = {}
     local key = use_compact and 'compact' or 'expanded'
     for inverval, names in pairs(chord_names) do
         curr_chord_names[inverval] = names[key]
+        chord_name_map[names[key]] = true
     end
 end
 LoadChordNames()
@@ -521,10 +553,14 @@ function BuildChordName(chord)
     if chord.name then return chord.name end
     local add = curr_chord_names[chord.key]
     if not use_omissions then
-        add = add:gsub(use_compact and '%(no%d+%)' or ' omit%d+', '')
+        local pattern = use_compact and '%(no%d+%)' or ' omit%d+'
+        add = add:gsub(pattern, '')
     end
     if not use_major then
-        add = add:gsub(use_compact and '^M(%s?)' or '^(%s?)majo?r?%s?', '%1')
+        local pattern = use_compact and '^M(%s?)' or '^(%s?)majo?r?%s?'
+        local new_add = add:gsub(pattern, '%1')
+        -- Only remove major notation if standalone chord does not exist (e.g. CM7, C7)
+        if not chord_name_map[new_add] then add = new_add end
     end
     local name = PitchToName(chord.root) .. add
     if use_inversions and chord.inversion_root then
@@ -561,6 +597,13 @@ function GetEditableTakes(hwnd)
     return takes
 end
 
+function GetSourcePPQLength(take)
+    local src = reaper.GetMediaItemTake_Source(take)
+    local src_length = reaper.GetMediaSourceLength(src)
+    local start_qn = reaper.MIDI_GetProjQNFromPPQPos(take, 0)
+    return reaper.MIDI_GetPPQPosFromProjQN(take, start_qn + src_length)
+end
+
 function GetEditableNotes(main_take, takes)
     if not main_take or #takes == 0 then return {} end
     local notes = {}
@@ -569,6 +612,7 @@ function GetEditableNotes(main_take, takes)
     local QNFromPPQ = reaper.MIDI_GetProjQNFromPPQPos
     local PPQFromQN = reaper.MIDI_GetPPQPosFromProjQN
     local PPQFromTime = reaper.MIDI_GetPPQPosFromProjTime
+    local GetItemInfo = reaper.GetMediaItemInfo_Value
 
     local is_timebase_source = reaper.GetToggleCommandStateEx(32060, 40470) == 1
 
@@ -577,19 +621,37 @@ function GetEditableNotes(main_take, takes)
 
         -- Get minimum item start position and maximum item end position
         local item = reaper.GetMediaItemTake_Item(take)
-        local length = reaper.GetMediaItemInfo_Value(item, 'D_LENGTH')
-        local start_pos = reaper.GetMediaItemInfo_Value(item, 'D_POSITION')
+        local length = GetItemInfo(item, 'D_LENGTH')
+        local start_pos = GetItemInfo(item, 'D_POSITION')
         local end_pos = start_pos + length
 
         local start_ppq = PPQFromTime(take, start_pos)
         local end_ppq = PPQFromTime(take, end_pos)
 
+        if not is_timebase_source and GetItemInfo(item, 'B_LOOPSRC') == 1 then
+            local src_ppq_length = GetSourcePPQLength(take)
+            if end_ppq - start_ppq >= src_ppq_length then
+                start_ppq = 0
+                end_ppq = src_ppq_length
+            else
+                start_ppq = start_ppq % src_ppq_length
+                end_ppq = end_ppq % src_ppq_length
+            end
+        end
+
         local _, note_cnt = reaper.MIDI_CountEvts(take)
         for i = 0, note_cnt - 1 do
             local _, sel, mute, sppq, eppq, _, pitch = GetNote(take, i)
+            local is_in_bounds = true
+            if not is_timebase_source then
+                if end_ppq < start_ppq then
+                    is_in_bounds = eppq > start_ppq or sppq < end_ppq
+                else
+                    is_in_bounds = eppq > start_ppq and sppq < end_ppq
+                end
+            end
             -- Filter out muted notes and notes that are outside item bounds
-            if not mute and (is_timebase_source or
-                    eppq > start_ppq and sppq < end_ppq) then
+            if not mute and is_in_bounds then
                 if not is_main_take then
                     -- Convert ppq from other takes to main take ppq
                     sppq = PPQFromQN(main_take, QNFromPPQ(take, sppq))
@@ -1059,7 +1121,9 @@ function GetTakeChunk(take, item_chunk)
 
     for _ = 0, tk do
         take_start_ptr = take_end_ptr
-        take_end_ptr = item_chunk:find('\nTAKE[%s\n]', take_start_ptr + 1)
+        if take_start_ptr then
+            take_end_ptr = item_chunk:find('\nTAKE[%s\n]', take_start_ptr + 1)
+        end
     end
     return item_chunk:sub(take_start_ptr, take_end_ptr)
 end
@@ -1124,6 +1188,12 @@ function ToggleReuseChordTrack()
     reuse_chord_track = not reuse_chord_track
     local state = reuse_chord_track and '1' or '0'
     reaper.SetExtState(extname, 'reuse_chord_track', state, 1)
+end
+
+function TogglePinChordTrack()
+    pin_chord_track = not pin_chord_track
+    local state = pin_chord_track and '1' or '0'
+    reaper.SetExtState(extname, 'pin_chord_track', state, 1)
 end
 
 function CreateChordTrack()
@@ -1194,6 +1264,9 @@ function CreateChordTrack()
         reaper.InsertTrackAtIndex(midi_track_num - 1, true)
         chord_track = reaper.GetTrack(0, midi_track_num - 1)
         GetSetTrackInfo(chord_track, 'P_NAME', chord_track_name, 1)
+        if pin_chord_track then
+            reaper.SetMediaTrackInfo_Value(chord_track, 'B_TCPPIN', 1)
+        end
     end
 
     local loops = 1
@@ -1280,6 +1353,15 @@ function CreateChordTrack()
 
                 local curr_start_pos = GetItemInfo(chord_item, 'D_POSITION')
                 SetItemInfo(chord_item, 'D_LENGTH', prev_end_pos - curr_start_pos)
+            end
+
+            local _, chunk = reaper.GetItemStateChunk(chord_item, '', false)
+            local flag = chunk:match('IMGRESOURCEFLAGS (%d+)')
+            if flag and tonumber(flag) & 16 ~= 16 then
+                local new_flag = tonumber(flag) | 16
+                local replace = ('IMGRESOURCEFLAGS %d'):format(new_flag)
+                chunk = chunk:gsub('IMGRESOURCEFLAGS %d+', replace, 1)
+                reaper.SetItemStateChunk(chord_item, chunk, true)
             end
             prev_name = name
             prev_chord_item = chord_item
@@ -1743,8 +1825,14 @@ function ShowChordBoxMenu()
                     title = 'Set track name...',
                     OnReturn = SetChordTrackName,
                 },
+                {separator = true},
                 {
-                    title = 'Reuse existing chord track',
+                    title = 'Pin track',
+                    OnReturn = TogglePinChordTrack,
+                    is_checked = pin_chord_track,
+                },
+                {
+                    title = 'Reuse existing track',
                     OnReturn = ToggleReuseChordTrack,
                     is_checked = reuse_chord_track,
                 },
@@ -2009,7 +2097,7 @@ function Main()
     end
     prev_take = take
 
-    local x, y = reaper.GetMousePosition()
+    local x, y = GetMousePosition()
     local hover_hwnd = reaper.JS_Window_FromPoint(x, y)
 
     if hover_hwnd == piano_pane and IsBitmapHovered(x, y, piano_pane) then

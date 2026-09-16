@@ -1,0 +1,70 @@
+{
+  "logo": {
+    "type": "file",
+    "source": "~/.config/fastfetch/reaper_ansi.txt",
+    // "color": { "1": "white" },
+    "padding": {
+      "top": 1
+      // "right": 6,
+      // "left": 2
+    }
+  },
+  "display": {
+    "separator": "  "
+  },
+  "modules": [
+    { "type": "custom", "format": "{#white}┌─ Software ───────────────────────────┐" },
+    { "type": "os",           "key": "{#white}│ {#blue} OS" },
+    { "type": "kernel",       "key": "{#white}│ {#blue} Kernel" },
+    { "type": "wm",           "key": "{#white}│ {#blue} WM" },
+    { "type": "de",           "key": "{#white}│ {#blue} DE" },
+    { "type": "terminal",     "key": "{#white}│ {#blue} Terminal" },
+    { "type": "shell",        "key": "{#white}│ {#blue} Shell" },
+    { "type": "packages",     "key": "{#white}│ {#blue}󰏖 Packages",     "format": "{all}" },
+    { "type": "wmtheme",      "key": "{#white}│ {#blue}󰉼 WM theme" },
+    { "type": "terminalfont", "key": "{#white}│ {#blue} Font" },
+    { "type": "colors",       "key": "{#white}│ {#blue}󰸌 Palette",      "symbol": "square" },
+    { "type": "custom", "format": "{#white}└──────────────────────────────────────┘" },
+
+    "break",
+
+    { "type": "custom", "format": "{#white}┌─ Hardware ───────────────────────────┐" },
+    { "type": "board",        "key": "{#white}│ {#green} Board" },
+    {
+        "type": "cpu",
+        "key": "{#white}│ {#green} CPU",
+        "showPeCoreCount": true,
+        "format": "{name}"
+    },
+    {
+        "type": "gpu",
+        "key": "{#white}│ {#green} GPU",
+        "detectionMethod": "pci",
+        "format": "{name}"
+    },
+    {
+        "type": "display",
+        "key": "{#white}│ {#green}󰍹 Display",
+        "format": "{width}x{height} {inch}\", {refresh-rate} Hz"
+    },
+    {
+        "type": "disk",
+        "key": "{#white}│ {#green}󰋊 Disk",
+        "format": "{size-used} / {size-total} ({size-percentage})"
+    },
+    { "type": "memory",       "key": "{#white}│ {#green} Memory" },
+    { "type": "swap",         "key": "{#white}│ {#green}󰓡 Swap" },
+    { "type": "custom", "format": "{#white}└──────────────────────────────────────┘" },
+
+    "break",
+
+    { "type": "custom", "format": "{#white}┌─ Status ─────────────────────────────┐" },
+    {
+      "type": "command",
+      "key": "{#white}│ {#light_red}󱦟 OS Age",
+      "text": "echo $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) days"
+    },
+    { "type": "uptime",       "key": "{#white}│ {#light_red}󱫐 Uptime" },
+    { "type": "custom", "format": "{#white}└──────────────────────────────────────┘" }
+  ]
+}

@@ -1,0 +1,13 @@
+C10018 "C:\moozzlo\Uchoba\6 dynamic processing"
+F "Beat (for expand).wav" 7347616 0 1702198354 0
+D y 2023-11-25 s 48000 n 2 l 0:25.510
+D i 24
+F "Drums (Parallel).wav" 7056736 0 1702198354 0
+D y 2023-11-27 s 48000 n 2 l 0:24.500
+D i 24
+F "Vox Reverb.wav" 5184736 0 1702198356 0
+D y 2023-11-27 s 48000 n 2 l 0:18.000
+D i 24
+F Vox.wav 5184736 0 1702198356 0
+D y 2023-11-27 s 48000 n 2 l 0:18.000
+D i 24

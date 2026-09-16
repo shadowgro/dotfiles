@@ -65,6 +65,29 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+
+  services.displayManager.noctalia-greeter = {
+    enable = true;
+    settings = {
+      cursor.size = 36;
+      keyboard = {
+        layout = "us";
+        numlock = true;
+      };
+      appearance = {
+        hide_logo = true;
+        wallpaper = {
+          path = "/var/lib/noctalia-greeter/blurred-image.png";
+          fill_mode = "crop"; # center | crop | fit | stretch | repeat
+        };
+      };
+    };
+    cursorTheme = {
+      package = pkgs.bibata-cursors-translucent;
+      name = "Bibata_Ghost";
+    };
+  };
+
   # Configure keymap in X11
   #   services.xserver.xkb = {
   #     layout = "us,ru";
@@ -99,9 +122,9 @@
   };
 
   environment.shellAliases = {
-    nixf = "cd ~/nixos-flake && sudo nixos-rebuild switch --flake .";
-    nixfb = "cd ~/nixos-flake && sudo nixos-rebuild boot --flake .";
-    nixfu = "cd ~/nixos-flake && nix flake update";
+    nixf = "cd ~/.dotfiles/nixos && sudo nixos-rebuild switch --flake .";
+    nixfb = "cd ~/.dotfiles/nixos && sudo nixos-rebuild boot --flake .";
+    nixfu = "cd ~/.dotfiles/nixos && nix flake update";
   };
 
   # for timeshift
@@ -113,6 +136,8 @@
   programs.niri.enable = true;
   programs.mango.enable = true;
   # services.cron.enable = true;
+  
+  # programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ]; # Packages providing GDK-Pixbuf modules, for cache generation
 
   # for filemanager
   services.gvfs.enable = true; # Mount, trash, and other functionalities
@@ -120,11 +145,11 @@
   services.udisks2.enable = true; # for auto-mount and other stuff
   # programs.dconf.enable = true; # for gtk apps
   # programs.thunar.enable = true;
-  # programs.xfconf.enable = true;
-  # programs.thunar.plugins = with pkgs; [
-  #   thunar-archive-plugin # Requires an Archive manager like file-roller, ark, etc
-  #   thunar-volman
-  # ];
+  programs.xfconf.enable = true;
+  programs.thunar.plugins = with pkgs; [
+    thunar-archive-plugin # Requires an Archive manager like file-roller, ark, etc
+    thunar-volman
+  ];
 
   # zsh
   users.defaultUserShell = pkgs.zsh;
@@ -164,7 +189,7 @@
   pwvucontrol         # Modern native PipeWire volume control
   pavucontrol         # Fallback for Pro Audio profile selection
   # easyeffects         # System-wide real-time EQ and effects
-  wineWow64Packages.yabridge
+  wineWow64Packages.stable
   winetricks
   yabridge
   yabridgectl
@@ -176,7 +201,6 @@
   alarm-clock-applet
   kdePackages.ark
   kdePackages.kbackup
-  kdePackages.ktorrent
   libreoffice-qt
   qbittorrent
   vlc
@@ -228,10 +252,14 @@
     QT_STYLE_OVERRIDE = "kvantum";
   };
   
-  environment.etc."timeshift/timeshift.json".source =
-    "/home/kirill/.dotfiles/timeshift/timeshift.json";
+  environment.etc = {
+    "timeshift/timeshift.json".source = "/home/kirill/.dotfiles/timeshift/timeshift.json";
+    "/var/lib/noctalia-greeter/blurred-image.png".source = "/home/kirill/Downloads/wallpapers/blurred-image.png";
+  };
   
   fonts.packages = with pkgs; [
+    maple-mono.NF
+    nunito
     annotation-mono
     nerd-fonts.jetbrains-mono
   ];

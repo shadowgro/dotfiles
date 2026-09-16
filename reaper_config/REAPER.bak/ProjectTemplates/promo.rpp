@@ -1,0 +1,965 @@
+<REAPER_PROJECT 0.1 "7.15/win64" 1714560499
+  RIPPLE 0
+  GROUPOVERRIDE 0 0 0
+  AUTOXFADE 129
+  ENVATTACH 0
+  POOLEDENVATTACH 0
+  MIXERUIFLAGS 11 53
+  PEAKGAIN 1
+  FEEDBACK 0
+  PANLAW 1
+  PROJOFFS 0 0 0
+  MAXPROJLEN 0 600
+  GRID 3199 8 1 8 1 0 0 0
+  TIMEMODE 1 5 -1 30 0 0 -1
+  VIDEO_CONFIG 720 1280 256
+  PANMODE 3
+  CURSOR 49.79320444893684
+  ZOOM 8.95768042514999 0 0
+  VZOOMEX 3.98644972 0
+  USE_REC_CFG 0
+  RECMODE 1
+  SMPTESYNC 0 30 100 40 1000 300 0 0 1 0 0
+  LOOP 0
+  LOOPGRAN 0 4
+  RECORD_PATH "" ""
+  <RECORD_CFG
+    ZXZhdxgAAA==
+  >
+  <APPLYFX_CFG
+  >
+  RENDER_FILE "C:\moozzlo\portfolio\ELECTRONIC 2 promo\ELECTRONIC 2 promo.mp4"
+  RENDER_FMT 0 2 44100
+  RENDER_1X 0
+  RENDER_RANGE 2 0 0 18 1000
+  RENDER_RESAMPLE 3 0 1
+  RENDER_ADDTOPROJ 0
+  RENDER_STEMS 0
+  RENDER_DITHER 0
+  TIMELOCKMODE 0
+  TEMPOENVLOCKMODE 1
+  ITEMMIX 0
+  DEFPITCHMODE 589824 0
+  TAKELANE 1
+  SAMPLERATE 44100 0 0
+  <RENDER_CFG
+    IEZNVwAAAAAAAAAAAAgAAAAAAACAAAAA0AIAAAAFAAAAAPBBAQAAAF8AAAAAAA==
+  >
+  LOCK 1
+  <METRONOME 6 2
+    VOL 0.25 0.125
+    FREQ 800 1600 1
+    BEATLEN 4
+    SAMPLES "" ""
+    PATTERN 2863311530 2863311529
+    MULT 1
+  >
+  GLOBAL_AUTO -1
+  TEMPO 127 4 4
+  PLAYRATE 1 0 0.25 4
+  SELECTION 53.71726585899806 0
+  SELECTION2 53.71726585899806 0
+  MASTERAUTOMODE 0
+  MASTERTRACKHEIGHT 0 0
+  MASTERPEAKCOL 16576
+  MASTERMUTESOLO 0
+  MASTERTRACKVIEW 0 0.6667 0.0181 0.5 0 0 0 0 0 0 -1 -1 0 0
+  MASTERHWOUT 0 0 1 0 0 0 0 -1
+  MASTER_NCH 2 2
+  MASTER_VOLUME 1 0 -1 -1 1
+  MASTER_FX 1
+  MASTER_SEL 0
+  <MASTERFXLIST
+    WNDRECT 24 52 740 484
+    SHOW 0
+    LASTSEL 3
+    DOCKED 0
+    BYPASS 0 0 0
+    <JS REJJ-v1.0.12/ReSpectrum.jsfx ""
+      6 0 0 0 3 1 0 0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    >
+    FLOATPOS 0 0 0 0
+    FXID {9BAA3A0E-60D7-4D2B-9B7F-920F9F089D5D}
+    WAK 0 2
+    BYPASS 0 0 0
+    <JS "ReaTeam JSFX/Utility/belovw_Goniometer.jsfx" ""
+      1 0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    >
+    FLOATPOS 0 0 0 0
+    FXID {A11FFD2E-EC27-4FE1-B1F8-66D51A9047EF}
+    WAK 0 2
+    BYPASS 0 0 0
+    <VST "VST3: Pro-L 2 (FabFilter)" "FabFilter Pro-L 2.vst3" 0 "" 1938458649{AFD92F729A0447B7B5E8D1D568DEA985} ""
+      GYiKc+5e7f4EAAAAAQAAAAAAAAACAAAAAAAAAAQAAAAAAAAACAAAAAAAAAACAAAAAQAAAAAAAAACAAAAAAAAAMcAAAABAAAAAAAQAA==
+      qwAAAAEAAABGYWJGAgAAAA8AAABEZWZhdWx0IFNldHRpbmcAAAAAIAAAAAAAAAAAAAAA7FE4PqR/0D5+jcY+AADAPgAAAD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAEAA
+      AAAAAAAAAAAAAAAAAAAAAAAAAACyQ70AAIA/AAAAAAAAgD8AAIA/AAAAQAAAwEAAAIA/AAAAAAAAAAAAAGDBAAAAAAAAgD8AAAAAAQAAAAEAAAAMAAAAAAAAAEZGZWQA
+      AAAAAACgPw==
+      AFByb2dyYW0gMQAQAAAA
+    >
+    PRESETNAME "Program 1"
+    FLOATPOS 468 148 1196 778
+    FXID {5A6C8F42-7715-4F4F-89C2-A84E8A960B06}
+    WAK 0 0
+  >
+  <MASTERPLAYSPEEDENV
+    EGUID {6E3B9C67-530A-4129-9D93-7D304B9402BC}
+    ACT 0 -1
+    VIS 0 1 1
+    LANEHEIGHT 0 0
+    ARM 0
+    DEFSHAPE 0 -1 -1
+  >
+  <TEMPOENVEX
+    EGUID {62EECD40-EB31-450D-90C3-56CEF64350C7}
+    ACT 0 -1
+    VIS 1 0 1
+    LANEHEIGHT 0 0
+    ARM 0
+    DEFSHAPE 1 -1 -1
+  >
+  MARKER 1 53.71726585899806 "" 0 0 1 R {7F447E38-249A-4713-8A5D-C8CD44D24B05} 0
+  <PROJBAY
+  >
+  <TRACK {0A38613F-8261-4865-90A8-CB42B405C490}
+    NAME ""
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 -1 0
+    SEL 0
+    REC 0 0 0 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {0A38613F-8261-4865-90A8-CB42B405C490}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+  >
+  <TRACK {E3298E46-255C-496A-9E16-50C3F4E93CA2}
+    NAME WET
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    FIXEDLANES 9 0 0 0
+    SEL 0
+    REC 0 0 0 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {E3298E46-255C-496A-9E16-50C3F4E93CA2}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+  >
+  <TRACK {7A69552E-6F8D-4D56-966D-C69155930C9D}
+    NAME DRY
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    FIXEDLANES 9 0 0 0
+    SEL 0
+    REC 0 0 0 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {7A69552E-6F8D-4D56-966D-C69155930C9D}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+      BYPASS 0 0 0
+      <VST "VST3: TR5 Stealth Limiter (IK Multimedia)" "TR5 Stealth Limiter.vst3" 0 "" 1456132600{5653545435333274723520737465616C} ""
+        +NHKVu5e7f4CAAAAAQAAAAAAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAAAAAAAEAgAAAEAAAD//xAA
+        AAgAAAEAAABWc3RXAAAACAAAAAEAAAAAQ2NuSwAAB+hGQkNoAAAAAlQ1MzIABQoDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHUDw/eG1sIHZl
+        cnNpb249IjEuMCIgZW5jb2Rpbmc9IlVURi04Ij8+DQoNCjxTZXNzaW9uIEN1cnJlbnRQcmVzZXQ9IiIgQ3VycmVudFNuYXBzaG90PSIwIj4NCiAgPFNsb3QgQnlwYXNz
+        PSIwIiBNb2RlbD0iOWNhNDYzMWYtODY3MC00NjdkLWEyNmMtNDI0Yzc0NmUyNGY5IiBTbmFwc2hvdElEPSIwIj4NCiAgICA8TW9kdWxlIElucHV0R2Fpbkw9IjEwLjA0
+        NjcwNzE1MzMyMDMxMiIgSW5wdXRHYWluUj0iMTAuMDQ2NzA3MTUzMzIwMzEyIg0KICAgICAgICAgICAgT3V0cHV0TGV2ZWxMPSItMC41MDcxNzU0NDU1NTY2NDEiIE91
+        dHB1dExldmVsUj0iLTAuNTA3MTc1NDQ1NTU2NjQxIg0KICAgICAgICAgICAgVW5pdHlHYWluTW9uaXRvcj0iMCIgSW5mcmFzb25pY0ZpbHRlcj0iMSIgT3ZlcnNhbXBs
+        aW5nPSI0WCIgRGl0aGVyaW5nPSJOb0RpdGgiDQogICAgICAgICAgICBNb2RlPSJNb2RlMSIgQ3VycmVudENoYW5uZWw9Ij0iIENoYW5uZWxNb2RlPSJML1IiLz4NCiAg
+        PC9TbG90Pg0KICA8U2xvdCBCeXBhc3M9IjAiIE1vZGVsPSI5Y2E0NjMxZi04NjcwLTQ2N2QtYTI2Yy00MjRjNzQ2ZTI0ZjkiIFNuYXBzaG90SUQ9IjEiPg0KICAgIDxN
+        b2R1bGUgSW5wdXRHYWluTD0iMC4xMDAwMDAwMDE0OTAxMTYiIElucHV0R2FpblI9IjAuMTAwMDAwMDAxNDkwMTE2Ig0KICAgICAgICAgICAgT3V0cHV0TGV2ZWxMPSIt
+        MC4xMDAwMDAwMDE0OTAxMTYiIE91dHB1dExldmVsUj0iLTAuMTAwMDAwMDAxNDkwMTE2Ig0KICAgICAgICAgICAgVW5pdHlHYWluTW9uaXRvcj0iMCIgSW5mcmFzb25p
+        Y0ZpbHRlcj0iMSIgT3ZlcnNhbXBsaW5nPSI0WCIgRGl0aGVyaW5nPSJOb0RpdGgiDQogICAgICAgICAgICBNb2RlPSJNb2RlMSIgQ3VycmVudENoYW5uZWw9Ij0iIENo
+        YW5uZWxNb2RlPSJML1IiLz4NCiAgPC9TbG90Pg0KICA8U2xvdCBCeXBhc3M9IjAiIE1vZGVsPSI5Y2E0NjMxZi04NjcwLTQ2N2QtYTI2Yy00MjRjNzQ2ZTI0ZjkiIFNu
+        YXBzaG90SUQ9IjIiPg0KICAgIDxNb2R1bGUgSW5wdXRHYWluTD0iMC4xMDAwMDAwMDE0OTAxMTYiIElucHV0R2FpblI9IjAuMTAwMDAwMDAxNDkwMTE2Ig0KICAgICAg
+        ICAgICAgT3V0cHV0TGV2ZWxMPSItMC4xMDAwMDAwMDE0OTAxMTYiIE91dHB1dExldmVsUj0iLTAuMTAwMDAwMDAxNDkwMTE2Ig0KICAgICAgICAgICAgVW5pdHlHYWlu
+        TW9uaXRvcj0iMCIgSW5mcmFzb25pY0ZpbHRlcj0iMSIgT3ZlcnNhbXBsaW5nPSI0WCIgRGl0aGVyaW5nPSJOb0RpdGgiDQogICAgICAgICAgICBNb2RlPSJNb2RlMSIg
+        Q3VycmVudENoYW5uZWw9Ij0iIENoYW5uZWxNb2RlPSJML1IiLz4NCiAgPC9TbG90Pg0KICA8U2xvdCBCeXBhc3M9IjAiIE1vZGVsPSI5Y2E0NjMxZi04NjcwLTQ2N2Qt
+        YTI2Yy00MjRjNzQ2ZTI0ZjkiIFNuYXBzaG90SUQ9IjMiPg0KICAgIDxNb2R1bGUgSW5wdXRHYWluTD0iMC4xMDAwMDAwMDE0OTAxMTYiIElucHV0R2FpblI9IjAuMTAw
+        MDAwMDAxNDkwMTE2Ig0KICAgICAgICAgICAgT3V0cHV0TGV2ZWxMPSItMC4xMDAwMDAwMDE0OTAxMTYiIE91dHB1dExldmVsUj0iLTAuMTAwMDAwMDAxNDkwMTE2Ig0K
+        ICAgICAgICAgICAgVW5pdHlHYWluTW9uaXRvcj0iMCIgSW5mcmFzb25pY0ZpbHRlcj0iMSIgT3ZlcnNhbXBsaW5nPSI0WCIgRGl0aGVyaW5nPSJOb0RpdGgiDQogICAg
+        ICAgICAgICBNb2RlPSJNb2RlMSIgQ3VycmVudENoYW5uZWw9Ij0iIENoYW5uZWxNb2RlPSJML1IiLz4NCiAgPC9TbG90Pg0KICA8R3VpU2NhbGUgU2NhbGVSYXRpb1dp
+        ZHRoPSIxLjEwMDAwMDAyMzg0MTg1OCIgU2NhbGVSYXRpb0hlaWdodD0iMS4xMDAwMDAwMjM4NDE4NTgiLz4NCjwvU2Vzc2lvbj4NCgAAAAAAAAAASlVDRVByaXZhdGVE
+        YXRhAAEBQnlwYXNzAAEBAwAdAAAAAAAAAEpVQ0VQcml2YXRlRGF0YQAAAAAAAAAA
+        AFByb2dyYW0gMQAQAAAA
+      >
+      FLOATPOS 507 507 1177 591
+      FXID {60D2601D-1242-4C31-BF12-3AE03973334B}
+      WAK 0 0
+    >
+  >
+  <TRACK {EC922094-CAAC-4335-82EA-220F909F4831}
+    NAME TEXT
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    FIXEDLANES 9 0 0 0
+    SEL 1
+    REC 0 0 0 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {EC922094-CAAC-4335-82EA-220F909F4831}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      SHOW 0
+      LASTSEL -1
+      DOCKED 0
+      BYPASS 0 0 0
+      <VIDEO_EFFECT "Video processor" ""
+        <CODE
+          |// Item fades affect video
+          |input_track(0) > 0 ? (
+          |  input_info(0,project_w,project_h,0,ta=0);
+          |  ta < 1 ? (
+          |    gfx_blit(input_next_item(0),1);
+          |    (gfx_a=ta)>0 ? gfx_blit(0,1);
+          |  );
+          |);
+        >
+        CODEPARM 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      >
+      PRESETNAME "Basic helpers: Item fades affect video"
+      FLOATPOS 0 0 0 0
+      FXID {9E5E4168-D56D-4D3C-A5C1-EDAE8998E0F8}
+      WAK 0 0
+    >
+    <ITEM
+      POSITION 0
+      SNAPOFFS 0
+      LENGTH 4.45377489141696
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 0 3.94776953867836 0 0 0 0 0
+      FADEOUT 0 0.17719925408 0 0 0 0 0
+      MUTE 0 0
+      SEL 1
+      IGUID {3A70C44F-438D-47E8-B7D9-BA72280581C8}
+      IID 21
+      NAME 04-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {CFA32C4E-2A8B-4A84-962C-D576C617E24F}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {4087E613-0AC2-4B77-AEFB-60702E41A041}
+        E 9050 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {0C59EF20-ECA1-4C80-A2E2-C80164EEDD49}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 1
+        VELLANE -1 101 0 0 1
+      >
+      <TAKEFX
+        WNDRECT 420 875 860 654
+        SHOW 0
+        LASTSEL -1
+        DOCKED 0
+        BYPASS 0 0 0
+        <VIDEO_EFFECT "Video processor" ""
+          <CODE
+            |// Text/timecode overlay
+            |#text="BEFORE"; // set to string to override
+            |font="Furura";
+            |
+            |//@param1:size 'text height' 0.05 0.01 0.2 0.1 0.001
+            |//@param2:ypos 'y position' 0.95 0 1 0.5 0.01
+            |//@param3:xpos 'x position' 0.5 0 1 0.5 0.01
+            |//@param4:border 'bg pad' 0.1 0 1 0.5 0.01
+            |//@param5:fgc 'text bright' 1.0 0 1 0.5 0.01
+            |//@param6:fga 'text alpha' 1.0 0 1 0.5 0.01
+            |//@param7:bgc 'bg bright' 0.75 0 1 0.5 0.01
+            |//@param8:bga 'bg alpha' 0.5 0 1 0.5 0.01
+            |//@param9:bgfit 'fit bg to text' 0 0 1 0.5 1
+            |//@param10:ignoreinput 'ignore input' 0 0 1 0.5 1
+            |
+            |//@param12:tc 'show timecode' 0 0 1 0.5 1
+            |//@param13:tcdf 'dropframe timecode' 0 0 1 0.5 1
+            |
+            |input = ignoreinput ? -2:0;
+            |project_wh_valid===0 ? input_info(input,project_w,project_h);
+            |gfx_a2=0;
+            |gfx_blit(input,1);
+            |gfx_setfont(size*project_h,font);
+            |tc>0.5 ? (
+            |  t = floor((project_time + project_timeoffs) * framerate + 0.0000001);
+            |  f = ceil(framerate);
+            |  tcdf > 0.5 && f != framerate ? (
+            |    period = floor(framerate * 600);
+            |    ds = floor(framerate * 60);
+            |    ds > 0 ? t += 18 * ((t / period)|0) + ((((t%period)-2)/ds)|0)*2;
+            |  );
+            |  sprintf(#text,"%02d:%02d:%02d:%02d",(t/(f*3600))|0,(t/(f*60))%60,(t/f)%60,t%f);
+            |) : strcmp(#text,"")==0 ? input_get_name(-1,#text);
+            |gfx_str_measure(#text,txtw,txth);
+            |b = (border*txth)|0;
+            |yt = ((project_h - txth - b*2)*ypos)|0;
+            |xp = (xpos * (project_w-txtw))|0;
+            |gfx_set(bgc,bgc,bgc,bga);
+            |bga>0?gfx_fillrect(bgfit?xp-b:0, yt, bgfit?txtw+b*2:project_w, txth+b*2);
+            |gfx_set(fgc,fgc,fgc,fga);
+            |gfx_str_draw(#text,xp,yt+b);
+          >
+          CODEPARM 0.145 0.95 0.5 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+        >
+        FLOATPOS 0 0 0 0
+        FXID {2CBAAFAC-DAA8-4A15-99A4-826318D23D5D}
+        WAK 0 0
+      >
+    >
+    <ITEM
+      POSITION 4.45338780328166
+      SNAPOFFS 0
+      LENGTH 8.050457557803
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 0 0.17626003541879 0 0 0 0 0
+      FADEOUT 0 0.3197934591076 0 0 0 0 0
+      MUTE 0 0
+      SEL 1
+      IGUID {22E8A237-BEF5-4116-AD62-9CB24A92EC89}
+      IID 23
+      NAME 04-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 0.00013977169433 0.00029585008634
+      PLAYRATE 0.53820598006644 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {CE41C4B5-F5B1-4D64-8885-0F10DF48E51F}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {72F51EC2-8BCA-41BF-9734-EE049B5FEDAF}
+        E 8805 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {A7079DA0-177A-49C1-A22F-3036CB400AF3}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 3
+        VELLANE -1 101 0 0 1
+      >
+      <TAKEFX
+        WNDRECT 420 637 860 892
+        SHOW 0
+        LASTSEL 0
+        DOCKED 0
+        BYPASS 0 0 0
+        <VIDEO_EFFECT "Video processor" ""
+          <CODE
+            |// Text/timecode overlay
+            |#text="AFTER"; // set to string to override
+            |font="Furura";
+            |
+            |//@param1:size 'text height' 0.05 0.01 0.2 0.1 0.001
+            |//@param2:ypos 'y position' 0.95 0 1 0.5 0.01
+            |//@param3:xpos 'x position' 0.5 0 1 0.5 0.01
+            |//@param4:border 'bg pad' 0.1 0 1 0.5 0.01
+            |//@param5:fgc 'text bright' 1.0 0 1 0.5 0.01
+            |//@param6:fga 'text alpha' 1.0 0 1 0.5 0.01
+            |//@param7:bgc 'bg bright' 0.75 0 1 0.5 0.01
+            |//@param8:bga 'bg alpha' 0.5 0 1 0.5 0.01
+            |//@param9:bgfit 'fit bg to text' 0 0 1 0.5 1
+            |//@param10:ignoreinput 'ignore input' 0 0 1 0.5 1
+            |
+            |//@param12:tc 'show timecode' 0 0 1 0.5 1
+            |//@param13:tcdf 'dropframe timecode' 0 0 1 0.5 1
+            |
+            |input = ignoreinput ? -2:0;
+            |project_wh_valid===0 ? input_info(input,project_w,project_h);
+            |gfx_a2=0;
+            |gfx_blit(input,1);
+            |gfx_setfont(size*project_h,font);
+            |tc>0.5 ? (
+            |  t = floor((project_time + project_timeoffs) * framerate + 0.0000001);
+            |  f = ceil(framerate);
+            |  tcdf > 0.5 && f != framerate ? (
+            |    period = floor(framerate * 600);
+            |    ds = floor(framerate * 60);
+            |    ds > 0 ? t += 18 * ((t / period)|0) + ((((t%period)-2)/ds)|0)*2;
+            |  );
+            |  sprintf(#text,"%02d:%02d:%02d:%02d",(t/(f*3600))|0,(t/(f*60))%60,(t/f)%60,t%f);
+            |) : strcmp(#text,"")==0 ? input_get_name(-1,#text);
+            |gfx_str_measure(#text,txtw,txth);
+            |b = (border*txth)|0;
+            |yt = ((project_h - txth - b*2)*ypos)|0;
+            |xp = (xpos * (project_w-txtw))|0;
+            |gfx_set(bgc,bgc,bgc,bga);
+            |bga>0?gfx_fillrect(bgfit?xp-b:0, yt, bgfit?txtw+b*2:project_w, txth+b*2);
+            |gfx_set(fgc,fgc,fgc,fga);
+            |gfx_str_draw(#text,xp,yt+b);
+          >
+          CODEPARM 0.145 0.95 0.5 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+        >
+        FLOATPOS 0 0 0 0
+        FXID {4DFAEDDA-4157-42FC-A57D-AF809742A82B}
+        WAK 0 0
+      >
+    >
+    <ITEM
+      POSITION 12.50246062991209
+      SNAPOFFS 0
+      LENGTH 7.42488651398769
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 0 0.25872265359176 0 0 0 0 0
+      FADEOUT 0 0.12154123532684 0 0 0 0 0
+      MUTE 0 0
+      SEL 1
+      IGUID {B28EAA9E-B1FE-43E5-8AC2-3254CBA5B809}
+      IID 24
+      NAME 04-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {41DDA65F-547A-4B01-9275-AF66C7ED8BA4}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {D3A9DBF2-8A92-4F29-90CC-EF6C645F439F}
+        E 15087 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {C0AFAE2C-95A0-48C9-B7E6-C0A6C37EEEE9}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 4
+        VELLANE -1 101 0 0 1
+      >
+      <TAKEFX
+        WNDRECT 420 875 860 654
+        SHOW 0
+        LASTSEL -1
+        DOCKED 0
+        BYPASS 0 0 0
+        <VIDEO_EFFECT "Video processor" ""
+          <CODE
+            |// Text/timecode overlay
+            |#text="BEFORE"; // set to string to override
+            |font="Furura";
+            |
+            |//@param1:size 'text height' 0.05 0.01 0.2 0.1 0.001
+            |//@param2:ypos 'y position' 0.95 0 1 0.5 0.01
+            |//@param3:xpos 'x position' 0.5 0 1 0.5 0.01
+            |//@param4:border 'bg pad' 0.1 0 1 0.5 0.01
+            |//@param5:fgc 'text bright' 1.0 0 1 0.5 0.01
+            |//@param6:fga 'text alpha' 1.0 0 1 0.5 0.01
+            |//@param7:bgc 'bg bright' 0.75 0 1 0.5 0.01
+            |//@param8:bga 'bg alpha' 0.5 0 1 0.5 0.01
+            |//@param9:bgfit 'fit bg to text' 0 0 1 0.5 1
+            |//@param10:ignoreinput 'ignore input' 0 0 1 0.5 1
+            |
+            |//@param12:tc 'show timecode' 0 0 1 0.5 1
+            |//@param13:tcdf 'dropframe timecode' 0 0 1 0.5 1
+            |
+            |input = ignoreinput ? -2:0;
+            |project_wh_valid===0 ? input_info(input,project_w,project_h);
+            |gfx_a2=0;
+            |gfx_blit(input,1);
+            |gfx_setfont(size*project_h,font);
+            |tc>0.5 ? (
+            |  t = floor((project_time + project_timeoffs) * framerate + 0.0000001);
+            |  f = ceil(framerate);
+            |  tcdf > 0.5 && f != framerate ? (
+            |    period = floor(framerate * 600);
+            |    ds = floor(framerate * 60);
+            |    ds > 0 ? t += 18 * ((t / period)|0) + ((((t%period)-2)/ds)|0)*2;
+            |  );
+            |  sprintf(#text,"%02d:%02d:%02d:%02d",(t/(f*3600))|0,(t/(f*60))%60,(t/f)%60,t%f);
+            |) : strcmp(#text,"")==0 ? input_get_name(-1,#text);
+            |gfx_str_measure(#text,txtw,txth);
+            |b = (border*txth)|0;
+            |yt = ((project_h - txth - b*2)*ypos)|0;
+            |xp = (xpos * (project_w-txtw))|0;
+            |gfx_set(bgc,bgc,bgc,bga);
+            |bga>0?gfx_fillrect(bgfit?xp-b:0, yt, bgfit?txtw+b*2:project_w, txth+b*2);
+            |gfx_set(fgc,fgc,fgc,fga);
+            |gfx_str_draw(#text,xp,yt+b);
+          >
+          CODEPARM 0.145 0.95 0.5 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+        >
+        FLOATPOS 0 0 0 0
+        FXID {BD4FD99A-D95F-4CA9-80FB-57A08CF8539E}
+        WAK 0 0
+      >
+    >
+    <ITEM
+      POSITION 19.92715312796645
+      SNAPOFFS 0
+      LENGTH 7.66217002474588
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 0 0.13586746842141 0 0 0 0 0
+      FADEOUT 0 0.3197934591076 0 0 0 0 0
+      MUTE 0 0
+      SEL 1
+      IGUID {DC16FFCE-9E04-4F10-8ACF-3FC502392D32}
+      IID 25
+      NAME 04-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 0.00047989961106 0.00101578751008
+      PLAYRATE 0.53820598006644 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {1126DC78-8885-4098-A0FC-40CA14C4FF42}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {B9A0959E-F4B2-4937-A6C1-38AF53DB4B0D}
+        E 8381 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {9796DAF8-ECC4-4641-B885-D3278B303432}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 5
+        VELLANE -1 101 0 0 1
+      >
+      <TAKEFX
+        WNDRECT 420 637 860 892
+        SHOW 0
+        LASTSEL 0
+        DOCKED 0
+        BYPASS 0 0 0
+        <VIDEO_EFFECT "Video processor" ""
+          <CODE
+            |// Text/timecode overlay
+            |#text="AFTER"; // set to string to override
+            |font="Furura";
+            |
+            |//@param1:size 'text height' 0.05 0.01 0.2 0.1 0.001
+            |//@param2:ypos 'y position' 0.95 0 1 0.5 0.01
+            |//@param3:xpos 'x position' 0.5 0 1 0.5 0.01
+            |//@param4:border 'bg pad' 0.1 0 1 0.5 0.01
+            |//@param5:fgc 'text bright' 1.0 0 1 0.5 0.01
+            |//@param6:fga 'text alpha' 1.0 0 1 0.5 0.01
+            |//@param7:bgc 'bg bright' 0.75 0 1 0.5 0.01
+            |//@param8:bga 'bg alpha' 0.5 0 1 0.5 0.01
+            |//@param9:bgfit 'fit bg to text' 0 0 1 0.5 1
+            |//@param10:ignoreinput 'ignore input' 0 0 1 0.5 1
+            |
+            |//@param12:tc 'show timecode' 0 0 1 0.5 1
+            |//@param13:tcdf 'dropframe timecode' 0 0 1 0.5 1
+            |
+            |input = ignoreinput ? -2:0;
+            |project_wh_valid===0 ? input_info(input,project_w,project_h);
+            |gfx_a2=0;
+            |gfx_blit(input,1);
+            |gfx_setfont(size*project_h,font);
+            |tc>0.5 ? (
+            |  t = floor((project_time + project_timeoffs) * framerate + 0.0000001);
+            |  f = ceil(framerate);
+            |  tcdf > 0.5 && f != framerate ? (
+            |    period = floor(framerate * 600);
+            |    ds = floor(framerate * 60);
+            |    ds > 0 ? t += 18 * ((t / period)|0) + ((((t%period)-2)/ds)|0)*2;
+            |  );
+            |  sprintf(#text,"%02d:%02d:%02d:%02d",(t/(f*3600))|0,(t/(f*60))%60,(t/f)%60,t%f);
+            |) : strcmp(#text,"")==0 ? input_get_name(-1,#text);
+            |gfx_str_measure(#text,txtw,txth);
+            |b = (border*txth)|0;
+            |yt = ((project_h - txth - b*2)*ypos)|0;
+            |xp = (xpos * (project_w-txtw))|0;
+            |gfx_set(bgc,bgc,bgc,bga);
+            |bga>0?gfx_fillrect(bgfit?xp-b:0, yt, bgfit?txtw+b*2:project_w, txth+b*2);
+            |gfx_set(fgc,fgc,fgc,fga);
+            |gfx_str_draw(#text,xp,yt+b);
+          >
+          CODEPARM 0.145 0.95 0.5 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+        >
+        FLOATPOS 0 0 0 0
+        FXID {D423F5F7-7CDB-4860-A42B-0278B6F07875}
+        WAK 0 0
+      >
+    >
+    <ITEM
+      POSITION 27.63385826768354
+      SNAPOFFS 0
+      LENGTH 7.55032960157128
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 0 0.4354630702856 0 0 0 0 0
+      FADEOUT 0 0.13364844792402 0 0 0 0 0
+      MUTE 0 0
+      SEL 1
+      IGUID {5E218508-C6D6-48AC-AD4B-FE205C2BC6AD}
+      IID 26
+      NAME 04-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {537224BC-3F0A-4103-8F80-F31E9FE9B7B4}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {1B5A1A13-1011-4C2D-AB70-2ABC3FC93B47}
+        E 15342 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {392D0737-DF39-40C7-8748-EE53E7030BB5}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 6
+        VELLANE -1 101 0 0 1
+      >
+      <TAKEFX
+        WNDRECT 420 875 860 654
+        SHOW 0
+        LASTSEL -1
+        DOCKED 0
+        BYPASS 0 0 0
+        <VIDEO_EFFECT "Video processor" ""
+          <CODE
+            |// Text/timecode overlay
+            |#text="BEFORE"; // set to string to override
+            |font="Furura";
+            |
+            |//@param1:size 'text height' 0.05 0.01 0.2 0.1 0.001
+            |//@param2:ypos 'y position' 0.95 0 1 0.5 0.01
+            |//@param3:xpos 'x position' 0.5 0 1 0.5 0.01
+            |//@param4:border 'bg pad' 0.1 0 1 0.5 0.01
+            |//@param5:fgc 'text bright' 1.0 0 1 0.5 0.01
+            |//@param6:fga 'text alpha' 1.0 0 1 0.5 0.01
+            |//@param7:bgc 'bg bright' 0.75 0 1 0.5 0.01
+            |//@param8:bga 'bg alpha' 0.5 0 1 0.5 0.01
+            |//@param9:bgfit 'fit bg to text' 0 0 1 0.5 1
+            |//@param10:ignoreinput 'ignore input' 0 0 1 0.5 1
+            |
+            |//@param12:tc 'show timecode' 0 0 1 0.5 1
+            |//@param13:tcdf 'dropframe timecode' 0 0 1 0.5 1
+            |
+            |input = ignoreinput ? -2:0;
+            |project_wh_valid===0 ? input_info(input,project_w,project_h);
+            |gfx_a2=0;
+            |gfx_blit(input,1);
+            |gfx_setfont(size*project_h,font);
+            |tc>0.5 ? (
+            |  t = floor((project_time + project_timeoffs) * framerate + 0.0000001);
+            |  f = ceil(framerate);
+            |  tcdf > 0.5 && f != framerate ? (
+            |    period = floor(framerate * 600);
+            |    ds = floor(framerate * 60);
+            |    ds > 0 ? t += 18 * ((t / period)|0) + ((((t%period)-2)/ds)|0)*2;
+            |  );
+            |  sprintf(#text,"%02d:%02d:%02d:%02d",(t/(f*3600))|0,(t/(f*60))%60,(t/f)%60,t%f);
+            |) : strcmp(#text,"")==0 ? input_get_name(-1,#text);
+            |gfx_str_measure(#text,txtw,txth);
+            |b = (border*txth)|0;
+            |yt = ((project_h - txth - b*2)*ypos)|0;
+            |xp = (xpos * (project_w-txtw))|0;
+            |gfx_set(bgc,bgc,bgc,bga);
+            |bga>0?gfx_fillrect(bgfit?xp-b:0, yt, bgfit?txtw+b*2:project_w, txth+b*2);
+            |gfx_set(fgc,fgc,fgc,fga);
+            |gfx_str_draw(#text,xp,yt+b);
+          >
+          CODEPARM 0.145 0.95 0.5 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+        >
+        FLOATPOS 0 0 0 0
+        FXID {BDD8A8A7-943A-402A-80FB-AEA38B9B6820}
+        WAK 0 0
+      >
+    >
+    <ITEM
+      POSITION 35.18436300044414
+      SNAPOFFS 0
+      LENGTH 14.60870218772272
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 0 0.14790043574785 0 0 0 0 0
+      FADEOUT 1 11.62826340183265 0 1 0 0 0
+      MUTE 0 0
+      SEL 1
+      IGUID {BFE41576-B899-4D33-8B85-70ACA8F53427}
+      IID 27
+      NAME 04-MIDI
+      VOLPAN 1 0 1 -1
+      SOFFS 0.00030788234901 0.00065168430538
+      PLAYRATE 0.53820598006644 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {7867C3B1-D9F5-427D-ABA4-02A4BCBF2F2F}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {ACBD4C87-70F2-4538-9DB6-76455ADAFC65}
+        E 15977 b0 7b 00
+        CCINTERP 32
+        CHASE_CC_TAKEOFFS 1
+        GUID {CD5ACC46-BCCA-48AA-AD78-4A0F485BF90F}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 7
+        VELLANE -1 101 0 0 1
+      >
+      <TAKEFX
+        WNDRECT 420 637 860 892
+        SHOW 0
+        LASTSEL 0
+        DOCKED 0
+        BYPASS 0 0 0
+        <VIDEO_EFFECT "Video processor" ""
+          <CODE
+            |// Text/timecode overlay
+            |#text="AFTER"; // set to string to override
+            |font="Furura";
+            |
+            |//@param1:size 'text height' 0.05 0.01 0.2 0.1 0.001
+            |//@param2:ypos 'y position' 0.95 0 1 0.5 0.01
+            |//@param3:xpos 'x position' 0.5 0 1 0.5 0.01
+            |//@param4:border 'bg pad' 0.1 0 1 0.5 0.01
+            |//@param5:fgc 'text bright' 1.0 0 1 0.5 0.01
+            |//@param6:fga 'text alpha' 1.0 0 1 0.5 0.01
+            |//@param7:bgc 'bg bright' 0.75 0 1 0.5 0.01
+            |//@param8:bga 'bg alpha' 0.5 0 1 0.5 0.01
+            |//@param9:bgfit 'fit bg to text' 0 0 1 0.5 1
+            |//@param10:ignoreinput 'ignore input' 0 0 1 0.5 1
+            |
+            |//@param12:tc 'show timecode' 0 0 1 0.5 1
+            |//@param13:tcdf 'dropframe timecode' 0 0 1 0.5 1
+            |
+            |input = ignoreinput ? -2:0;
+            |project_wh_valid===0 ? input_info(input,project_w,project_h);
+            |gfx_a2=0;
+            |gfx_blit(input,1);
+            |gfx_setfont(size*project_h,font);
+            |tc>0.5 ? (
+            |  t = floor((project_time + project_timeoffs) * framerate + 0.0000001);
+            |  f = ceil(framerate);
+            |  tcdf > 0.5 && f != framerate ? (
+            |    period = floor(framerate * 600);
+            |    ds = floor(framerate * 60);
+            |    ds > 0 ? t += 18 * ((t / period)|0) + ((((t%period)-2)/ds)|0)*2;
+            |  );
+            |  sprintf(#text,"%02d:%02d:%02d:%02d",(t/(f*3600))|0,(t/(f*60))%60,(t/f)%60,t%f);
+            |) : strcmp(#text,"")==0 ? input_get_name(-1,#text);
+            |gfx_str_measure(#text,txtw,txth);
+            |b = (border*txth)|0;
+            |yt = ((project_h - txth - b*2)*ypos)|0;
+            |xp = (xpos * (project_w-txtw))|0;
+            |gfx_set(bgc,bgc,bgc,bga);
+            |bga>0?gfx_fillrect(bgfit?xp-b:0, yt, bgfit?txtw+b*2:project_w, txth+b*2);
+            |gfx_set(fgc,fgc,fgc,fga);
+            |gfx_str_draw(#text,xp,yt+b);
+          >
+          CODEPARM 0.145 0.95 0.5 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+        >
+        FLOATPOS 0 0 0 0
+        FXID {4D4D16C9-E5B0-4F39-B4BF-06F820CBFC38}
+        WAK 0 0
+      >
+    >
+  >
+  <TRACK {D04B0350-5C08-4500-A5AA-7DF35809A68B}
+    NAME VIDEO
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    PANLAWFLAGS 3
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    FIXEDLANES 9 0 0 0
+    SEL 0
+    REC 0 0 0 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {D04B0350-5C08-4500-A5AA-7DF35809A68B}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 0 0
+    <FXCHAIN
+      WNDRECT 28 56 860 492
+      SHOW 0
+      LASTSEL 1
+      DOCKED 0
+      BYPASS 0 0 0
+      <VIDEO_EFFECT "Video processor" ""
+        <CODE
+          |// Item fades affect video
+          |input_track(0) > 0 ? (
+          |  input_info(0,project_w,project_h,0,ta=0);
+          |  ta < 1 ? (
+          |    gfx_blit(input_next_item(0),1);
+          |    (gfx_a=ta)>0 ? gfx_blit(0,1);
+          |  );
+          |);
+        >
+        CODEPARM 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      >
+      PRESETNAME "Basic helpers: Item fades affect video"
+      FLOATPOS 28 56 580 407
+      FXID {12546746-F410-4C0A-B271-3DF700BD5F7D}
+      WAK 0 0
+      BYPASS 0 0 0
+      <VIDEO_EFFECT "Video processor" ""
+        <CODE
+          |//Brightness/Contrast
+          |//@param1:brightness 'brightness' 0.0 -2 2
+          |//@param2:contrast 'contrast' 1.0 0 2
+          |//@param4:brightness2 'brightness pre' 0.0 -1 1
+          |//@param5:contrast2 'contrast big' 1.0 -50 50
+          |//@param7:saturation 'saturation-ish' 1.0 -10 10
+          |
+          |(cv=abs(contrast*contrast2)) > 1 ? cv = (cv-1)*4 + 1;
+          |cv=((2^cv)-1) * sign(contrast*contrast2);
+          |i=tab=0;
+          |loop(256,
+          |  v = i/256;
+          |  tab[i]=(v-0.5+brightness2)*cv+0.5+brightness;
+          |  tab[i+256]=tab[i+512]=0.5 + (v-0.5)*saturation;
+          |  i+=1;
+          |);
+          |
+          |input_info(0,project_w,project_h) || tab[0] > 0 ? (
+          |  colorspace!='YUY2' ? colorspace='YV12';
+          |  gfx_blit(0);
+          |  gfx_procrect(0,0,project_w,project_h,tab);
+          |);
+        >
+        CODEPARM 0 1 0 0 1 0 1 0 0 0.1 0.1 0.5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      >
+      PRESETNAME "Basic helpers: Brightness/Contrast"
+      FLOATPOS 171 624 580 332
+      FXID {FE4A32EC-C36A-4B90-8347-6ADBC5C56E55}
+      <PARMENV 6 -10 10 0 "saturation-ish / Brightness/Contrast - video processor"
+        EGUID {EBF71622-0C7D-487A-B6CE-C4348C0CE1A9}
+        ACT 1 -1
+        VIS 1 1 1
+        LANEHEIGHT 0 0
+        ARM 1
+        DEFSHAPE 0 -1 -1
+        PT 4.49238882 1 0
+        PT 5.96462585 1 0
+        PT 6.06462585 1 0
+        PT 9.24013606 1 0
+        PT 9.34013605 1 0
+      >
+      WAK 0 0
+      BYPASS 0 0 0
+      <VIDEO_EFFECT "Video processor" ""
+        <CODE
+          |// Track opacity/zoom/pan
+          |//@param1:opacity 'opacity' 1
+          |//@param2:zoom 'zoom' 0 -10 10 0
+          |//@param3:xoffs 'X offset' 0 -1 1 0
+          |//@param4:yoffs 'Y offset' 0 -1 1 0
+          |//@param5:rotate 'rotate' 0 -360 360 0 1
+          |//@param7:filter 'filter' 0 0 1 0.5 1
+          |//@param8:clear 'clear bg' 1 0 1 0.5 1
+          |//@param9:force_w 'force width' 0 0 2600 1024 2
+          |//@param10:force_h 'force height' 0 0 2600 1024 2
+          |//@param11:paspect 'preserve aspect' 1 0 1 0.5 1
+          |
+          |(bg_img=input_ismaster() ? -2 : input_track(0)) ? (
+          |  force_w &= -2; force_h &= -2;
+          |  force_w && !force_h ? force_h = (force_w * project_h / project_w)&-2;
+          |  force_h && !force_w ? force_w = (force_h * project_w / project_h)&-2;
+          |  force_w>0 && force_h>0 ? ( project_w=force_w; project_h=force_h );
+          |
+          |  w = opacity < 0.01 ? 0 : opacity > 0.99 ? 1 : opacity;
+          |  gfx_a2=0;
+          |  gfx_blit((w < 1 || clear < 0.5) ? bg_img : -2,1);
+          |
+          |  w > 0 ? (
+          |    gfx_mode = filter>0.5 ? 256 : 0;
+          |    gfx_a=w;
+          |    z = 10^(zoom/10);
+          |    dw = (project_w*z)&-2;
+          |    dh = (project_h*z)&-2;
+          |    x = (project_w - dw + xoffs*(project_w+dw))*.5;
+          |    y = (project_h - dh + yoffs*(project_h+dh))*.5;
+          |    rotate == 0 ? gfx_blit(0,paspect, x|0,y|0,dw,dh) : (
+          |      input_info(0,srcw,srch);
+          |      sc=2.0; sc2=sc*.5 - 0.5;
+          |      gfx_rotoblit(0,rotate*$pi/180,(x-dw*sc2)|0,(y-dh*sc2)|0,dw*sc,dh*sc, -srcw*sc2, -srch*sc2, srcw*sc, srch*sc);
+          |    );
+          |  );
+          |);
+        >
+        CODEPARM 1 0 0 -0.08 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      >
+      PRESETNAME "Basic helpers: Track opacity/zoom/pan"
+      FLOATPOS 28 56 580 407
+      FXID {82E33D0A-F8B0-42ED-95A9-50307BB2A211}
+      WAK 0 0
+    >
+  >
+  <EXTENSIONS
+    <SWSAUTOCOLOR
+      {00000000-0000-0000-0000-000000000000} 0 "" "" ""
+      {0A38613F-8261-4865-90A8-CB42B405C490} 0 "" "" ""
+      {E3298E46-255C-496A-9E16-50C3F4E93CA2} 0 "" "" ""
+      {7A69552E-6F8D-4D56-966D-C69155930C9D} 0 "" "" ""
+      {D04B0350-5C08-4500-A5AA-7DF35809A68B} 0 "" "" ""
+      {EC922094-CAAC-4335-82EA-220F909F4831} 0 "" "" ""
+    >
+  >
+  <EXTSTATE
+    <TIME
+      D 0
+      H 1
+      M 9
+      S 4
+    >
+  >
+>

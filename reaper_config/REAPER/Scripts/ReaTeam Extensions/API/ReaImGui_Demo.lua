@@ -588,11 +588,11 @@ function demo.ShowDemoWindow(open)
       local log_to_tty = ImGui.Button(ctx, 'Log To TTY'); ImGui.SameLine(ctx)
       local log_to_file = ImGui.Button(ctx, 'Log To File'); ImGui.SameLine(ctx)
       local log_to_clipboard = ImGui.Button(ctx, 'Log To Clipboard'); ImGui.SameLine(ctx)
-      ImGui.PushTabStop(ctx, false)
+      ImGui.PushItemFlag(ctx, ImGui.ItemFlags_NoTabStop, true)
       ImGui.SetNextItemWidth(ctx, 80.0)
       rv,config.logging.auto_open_depth =
         ImGui.SliderInt(ctx, 'Open Depth', config.logging.auto_open_depth, 0, 9)
-      ImGui.PopTabStop(ctx)
+      ImGui.PopItemFlag(ctx)
       ImGui.PopID(ctx)
 
       -- Start logging at the end of the function so that the buttons don't appear in the log
@@ -1040,6 +1040,9 @@ local function DemoWindowWidgetsColorAndPickers()
 
   ImGui.SeparatorText(ctx, 'Options')
   rv,widgets.colors.base_flags = ImGui.CheckboxFlags(ctx, 'ColorEditFlags_NoAlpha', widgets.colors.base_flags, ImGui.ColorEditFlags_NoAlpha)
+  if rv then
+    widgets.colors.rgba = widgets.colors.base_flags & ImGui.ColorEditFlags_NoAlpha ~= 0 and demo.RgbaToArgb(widgets.colors.rgba) or demo.ArgbToRgba(widgets.colors.rgba)
+  end
   rv,widgets.colors.base_flags = ImGui.CheckboxFlags(ctx, 'ColorEditFlags_AlphaOpaque', widgets.colors.base_flags, ImGui.ColorEditFlags_AlphaOpaque)
   rv,widgets.colors.base_flags = ImGui.CheckboxFlags(ctx, 'ColorEditFlags_AlphaNoBg', widgets.colors.base_flags, ImGui.ColorEditFlags_AlphaNoBg)
   rv,widgets.colors.base_flags = ImGui.CheckboxFlags(ctx, 'ColorEditFlags_AlphaPreviewHalf', widgets.colors.base_flags, ImGui.ColorEditFlags_AlphaPreviewHalf)
@@ -1052,10 +1055,11 @@ local function DemoWindowWidgetsColorAndPickers()
   ImGui.SameLine(ctx); demo.HelpMarker(
     'Click on the color square to open a color picker.\n\z
      Ctrl+click on individual component to input value.\n')
-  local argb = demo.RgbaToArgb(widgets.colors.rgba)
+  local has_alpha = widgets.colors.base_flags & ImGui.ColorEditFlags_NoAlpha == 0
+  local argb = has_alpha and demo.RgbaToArgb(widgets.colors.rgba) or widgets.colors.rgba
   rv,argb = ImGui.ColorEdit3(ctx, 'MyColor##1', argb, widgets.colors.base_flags)
   if rv then
-    widgets.colors.rgba = demo.ArgbToRgba(argb)
+    widgets.colors.rgba = has_alpha and demo.ArgbToRgba(argb) or argb
   end
 
   ImGui.Text(ctx, 'Color widget HSV with Alpha:')
@@ -1179,7 +1183,7 @@ local function DemoWindowWidgetsColorAndPickers()
   if widgets.colors.display_mode == 3 then flags = flags | ImGui.ColorEditFlags_DisplayHSV     end
   if widgets.colors.display_mode == 4 then flags = flags | ImGui.ColorEditFlags_DisplayHex     end
 
-  local has_alpha = flags & ImGui.ColorEditFlags_NoAlpha == 0
+  has_alpha = widgets.colors.color_picker_flags & ImGui.ColorEditFlags_NoAlpha == 0
   local color = has_alpha and widgets.colors.rgba or demo.RgbaToArgb(widgets.colors.rgba)
   local ref_color = has_alpha and widgets.colors.ref_color_rgba or demo.RgbaToArgb(widgets.colors.ref_color_rgba)
   rv,color = ImGui.ColorPicker4(ctx, 'MyColor##4', color, flags,

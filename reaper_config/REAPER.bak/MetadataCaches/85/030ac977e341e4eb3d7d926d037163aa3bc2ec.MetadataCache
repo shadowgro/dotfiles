@@ -1,0 +1,52 @@
+C10018 "C:\moozzlo\Uchoba\4 elementi zvokovih shem"
+F 19_LeadVox1.wav 33964006 0 1648143090 0
+D y 2022-03-24 s 44100 n 1 l 4:16.714
+D i 24
+F "elementi zvokovih shem_stems_Silver_bullet_130bpm_VOX.wav" 88261664 0 1701672418 0
+D y 2023-12-04 s 48000 n 2 r 0:04.615
+D l 3:49.846 i 32
+F "Master Meter (Tukan)_ReSpectrum_Goniometer_TR5 TEAC A-3340S_Rule Tec Heritage Pro_Pulsar Mu_Pulsar W495.wav" 60817980 0 1701618316 0
+D y 2023-12-03 s 44100 n 2 r 0:04.615
+D l 3:49.846 i 24
+F "SILVER BULLET_MIX.wav" 66283010 0 1701596028 0
+D y 2023-11-2 s 48000 n 2 r 1:00:06.461
+D l 3:49.846 i 24
+F "Silver_bullet_130bpm_AMB Spectre via master.wav" 60817980 0 1701673403 0
+D y 2023-12-04 s 44100 n 2 r 0:04.615
+D l 3:49.846 i 24
+F Silver_bullet_130bpm_AMB.wav 81093646 0 1701596030 0
+D y 2023-11-2 s 44100 n 2 r 1:00:06.461
+D l 3:49.846 i 32
+F "Silver_bullet_130bpm_BASS Spectre_Kelvin via master.wav" 60817980 0 1701673247 0
+D y 2023-12-04 s 44100 n 2 r 0:04.615
+D l 3:49.846 i 24
+F Silver_bullet_130bpm_BASS.wav 81093646 0 1701596036 0
+D y 2023-11-2 s 44100 n 2 r 1:00:06.461
+D l 3:49.846 i 32
+F "Silver_bullet_130bpm_DRUMS LG Drive_Kelvin_Pulsar W495 via master.wav" 60817980 0 1701673185 0
+D y 2023-12-04 s 44100 n 2 r 0:04.615
+D l 3:49.846 i 24
+F Silver_bullet_130bpm_DRUMS.wav 81093646 0 1701596044 0
+D y 2023-11-2 s 44100 n 2 r 1:00:06.461
+D l 3:49.846 i 32
+F "Silver_bullet_130bpm_FX Kelvin via master.wav" 60817980 0 1701673466 0
+D y 2023-12-04 s 44100 n 2 r 0:04.615
+D l 3:49.846 i 24
+F Silver_bullet_130bpm_FX.wav 81093646 0 1701596050 0
+D y 2023-11-2 s 44100 n 2 r 1:00:06.461
+D l 3:49.846 i 32
+F "Silver_bullet_130bpm_GTR True Iron via master.wav" 60817980 0 1701673339 0
+D y 2023-12-04 s 44100 n 2 r 0:04.615
+D l 3:49.846 i 24
+F Silver_bullet_130bpm_GTR.wav 81093646 0 1701596058 0
+D y 2023-11-2 s 44100 n 2 r 1:00:06.461
+D l 3:49.846 i 32
+F "Silver_bullet_130bpm_VOX Need Pre Trilogy_Gem Comp670 2.wav" 60817980 0 1701672840 0
+D y 2023-12-04 s 44100 n 2 r 0:04.615
+D l 3:49.846 i 24
+F "Silver_bullet_130bpm_VOX Need Pre Trilogy_Gem Comp670 via master.wav" 60817980 0 1701673529 0
+D y 2023-12-04 s 44100 n 2 r 0:04.615
+D l 3:49.846 i 24
+F Silver_bullet_130bpm_VOX.wav 81093646 0 1701596064 0
+D y 2023-11-2 s 44100 n 2 r 1:00:06.461
+D l 3:49.846 i 32

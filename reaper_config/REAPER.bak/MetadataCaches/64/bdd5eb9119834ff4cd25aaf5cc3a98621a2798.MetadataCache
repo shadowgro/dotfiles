@@ -1,0 +1,83 @@
+C10018 "C:\moozzlo\brontomorph\2 na bolote\Audio"
+F boloto-Acoustic_GT.flac 3724616 0 1694868662 0
+D s 44100 n 2 l 2:24.900 i 24
+F boloto-BadaBoom.flac 325870 0 1694867882 0
+D s 44100 n 1 l 4:09.300 i 24
+F boloto-BASS_Fuzz.flac 17274046 0 1694783920 0
+D s 44100 n 1 l 4:07.500 i 24
+F boloto-BASS_Sans-Ampeg-52.flac 16296202 0 1694783920 0
+D s 44100 n 1 l 4:07.500 i 24
+F boloto-BASS_Sans-Ampeg-57.flac 16732235 0 1694783920 0
+D s 44100 n 1 l 4:07.500 i 24
+F boloto-gt-CenterPad_808-6505-57.flac 4307664 0 1695983196 0
+D s 44100 n 1 l 2:56.400 i 24
+F boloto-gt1_808-6505-57.flac 19190694 0 1695982724 0
+D s 44100 n 1 l 4:07.500 i 24
+F boloto-gt1_add_808-6505-57.flac 4849502 0 1695983196 0
+D s 44100 n 1 l 2:56.400 i 24
+F boloto-gt1_Rect-112-57.flac 19804047 0 1695982724 0
+D s 44100 n 1 l 4:07.500 i 24
+F boloto-gt2_808-6505-57.flac 19288267 0 1695982724 0
+D s 44100 n 1 l 4:07.500 i 24
+F boloto-gt2_add_808-6505-57.flac 4893476 0 1695983196 0
+D s 44100 n 1 l 2:56.400 i 24
+F boloto-gt2_Rect-112-57.flac 19887027 0 1695982724 0
+D s 44100 n 1 l 4:07.500 i 24
+F boloto-HH.flac 24088153 0 1625650002 0
+D s 44100 n 1 l 4:09.300 i 24
+F boloto-Kick.flac 14677177 0 1698349178 0
+D s 44100 n 1 l 4:09.300 i 24
+F boloto-OH_China.flac 22993979 0 1625650002 0
+D s 44100 n 1 l 4:09.300 i 24
+F boloto-OHL.flac 21454372 0 1625650002 0
+D s 44100 n 1 l 4:09.300 i 24
+F boloto-OHR.flac 21787533 0 1625650002 0
+D s 44100 n 1 l 4:09.300 i 24
+F boloto-Ride.flac 23356758 0 1625650002 0
+D s 44100 n 1 l 4:09.300 i 24
+F boloto-RoomL.flac 22628929 0 1625650002 0
+D s 44100 n 1 l 4:09.300 i 24
+F boloto-RoomR.flac 22279081 0 1625650002 0
+D s 44100 n 1 l 4:09.300 i 24
+F boloto-SnareBottom.flac 13640124 0 1625122768 0
+D s 44100 n 1 l 4:09.300 i 24
+F boloto-SnareTop.flac 12581284 0 1625122764 0
+D s 44100 n 1 l 4:09.300 i 24
+F boloto-Subkick.flac 7222437 0 1694867882 0
+D s 44100 n 1 l 4:09.300 i 24
+F boloto-Tom1.flac 491671 0 1623068890 0
+D s 44100 n 1 l 4:09.300 i 24
+F boloto-Tom2.flac 536869 0 1623068890 0
+D s 44100 n 1 l 4:09.300 i 24
+F boloto-Tom3.flac 1265665 0 1624442556 0
+D s 44100 n 1 l 4:09.300 i 24
+F boloto-voc-Flanger.flac 4475034 0 1698348552 0
+D s 44100 n 2 l 2:25.800 i 24
+F boloto-VOX_BACK_(FIX).flac 4281615 0 1705253154 0
+D s 44100 n 1 l 3:18.900 i 24
+F boloto-Vox_LO-pitch-glued.flac 2412676 0 1701113058 0
+D s 44100 n 1 l 3:21.600 i 24
+F boloto-Vox_MAIN-glued.flac 8393185 0 1701885474 0
+D s 44100 n 1 l 3:21.600 i 24
+F "Brontomorph - 2024 - Relict_stems_BirdsAUDIO - subproject.flac" 3073243 0 1738238616 0
+D s 48000 n 2 l 4:30.000 i 24
+F "istochik take 2.flac" 40553067 0 1738249000 0
+D s 44100 n 2 l 5:09.913 i 16
+F "na bolote 2_stems.wav" 95731944 0 1739801400 0
+D y 2025-02-17 s 48000 n 2 r 5:10.154
+D l 4:09.300 i 32
+F "na bolote 2_stems_ - stem-001.wav" 94003944 0 1739801637 0
+D y 2025-02-17 s 48000 n 2 r 5:13.754
+D l 4:04.800 i 32
+F "na bolote 2_stems_ - stem-002.wav" 103680744 0 1739802137 0
+D y 2025-02-17 s 48000 n 2 r 5:10.154
+D l 4:30.000 i 32
+F "na bolote 2_stems_ - stem.wav" 94003944 0 1739801572 0
+D y 2025-02-17 s 48000 n 2 r 5:13.754
+D l 4:04.800 i 32
+F "na bolote take 2.flac" 33917752 0 1738669688 0
+D s 44100 n 2 l 4:26.400 i 16
+F "polyn take 6.flac" 22466001 0 1738258258 0
+D s 44100 n 2 l 2:57.231 i 16
+F "ruka take 7.2 (new OH).flac" 26820329 0 1738053339 0
+D s 44100 n 2 l 3:26.769 i 16

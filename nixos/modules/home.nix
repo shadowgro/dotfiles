@@ -18,21 +18,6 @@ let
   mkDotfileSymlink = path:
     config.lib.file.mkOutOfStoreSymlink
       "${config.home.homeDirectory}/.dotfiles/${path}";
-
-  # monochrome-icons = pkgs.runCommand "monochrome-icons" {} ''
-  #   theme="$out/share/icons/yet-another-monochrome-icon-set"
-  #   mkdir -p "$theme"
-  #   cp -r ${monochrome-icon-set}/. "$theme/"
-  #   chmod -R u+w "$theme"
-  #   rm -rf "$theme/places/scalable"
-  #   cp -r "$theme/places/scalable-outlined" "$theme/places/scalable"
-  #   rm -rf "$theme/places/scalable-outlined"
-  #   rm -rf "$theme/mimetypes/scalable"
-  #   cp -r "$theme/mimetypes/scalable-outlined" "$theme/mimetypes/scalable"
-  #   rm -rf "$theme/mimetypes/scalable-outlined"
-  #   ln -s time-admin.svg "$theme/apps/scalable/alarm-clock.svg"
-  #   ln -s org.gnome.World.PikaBackup.svg "$theme/apps/scalable/kbackup.svg"
-  # '';
    
 in
 
@@ -61,6 +46,7 @@ in
   		cursor_trail_decay = "0.1 0.4";
   		cursor_trail_start_threshold = 2;
   		background_opacity = "0.3";
+  		font_family = "Maple Mono NF";
   		font_size = "14.0";
   		scrollback_lines = 10000;
   		enable_audio_bell = false;
@@ -112,9 +98,6 @@ in
   #   QT_ICON_THEME_PATH = "${monochrome-icons}/share/icons";
   # };
 
-
-
-
   home.pointerCursor = {
     enable = true;
     package = pkgs.bibata-cursors-translucent;
@@ -129,18 +112,28 @@ in
     kdePackages.breeze-icons
     kdePackages.qtstyleplugin-kvantum
     libsForQt5.qtstyleplugin-kvantum
-    # Компактная замена стандартного REAPER с автоматическим подтягиванием GTK3
+    
     (pkgs.symlinkJoin {
       name = "reaper-with-gtk";
       paths = [ pkgs.reaper ];
       buildInputs = [ pkgs.makeWrapper ];
       postBuild = ''
         wrapProgram $out/bin/reaper \
-          --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ pkgs.gtk3 ]}" \
-          --prefix XDG_DATA_DIRS : "${pkgs.gtk3}/share:${pkgs.gnome-themes-extra}/share:${pkgs.adwaita-icon-theme}/share" \
-          --set GTK_THEME "Adwaita:dark"
+          --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ pkgs.gtk3 ]}"
       '';
     })
+    # Компактная замена стандартного REAPER с автоматическим подтягиванием GTK3
+    # (pkgs.symlinkJoin {
+    #   name = "reaper-with-gtk";
+    #   paths = [ pkgs.reaper ];
+    #   buildInputs = [ pkgs.makeWrapper ];
+    #   postBuild = ''
+    #     wrapProgram $out/bin/reaper \
+    #       --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ pkgs.gtk3 ]}" \
+    #       --prefix XDG_DATA_DIRS : "${pkgs.gtk3}/share:${pkgs.gnome-themes-extra}/share:${pkgs.adwaita-icon-theme}/share" \
+    #       --set GTK_THEME "Adwaita:dark"
+    #   '';
+    # })
 
     (pkgs.symlinkJoin {
       name = "thunar-x11";
@@ -156,15 +149,17 @@ in
 
   home.file = {
     ".config/mango/config.conf".source = mkDotfileSymlink "mango/config.conf";
-    ".config/mango/bindings.json".source = mkDotfileSymlink "mango/bindings.json";
+    ".config/micro/bindings.json".source = mkDotfileSymlink "micro/bindings.json";
     ".local/state/noctalia/settings.toml".source = mkDotfileSymlink "noctalia/settings.toml";
-    ".config/noctalia/palettes/my_noctalia.json".source = mkDotfileSymlink "noctalia/palettes/my_noctalia.json";
+    ".config/noctalia/palettes".source = mkDotfileSymlink "noctalia/palettes";
     ".p10k.zsh".source = mkDotfileSymlink "zsh/zsh-powerlevel10k/.p10k.zsh";
     ".config/Thunar/uca.xml".source = mkDotfileSymlink "Thunar/uca.xml";
     ".config/pcmanfm-qt/default/settings.conf".source = mkDotfileSymlink "pcmanfm-qt/settings.conf";
     ".config/REAPER".source = mkDotfileSymlink "reaper_config/REAPER";
+    ".wine/drive_c/users/kirill/AppData/Roaming/REAPER".source = mkDotfileSymlink "reaper_config/REAPER";
     ".config/Kvantum/OrchisDark".source = mkDotfileSymlink "themes/Orchis/Kvantum";
     ".local/share/icons/yet-another-monochrome-icon-set".source = mkDotfileSymlink "icons/yet-another-monochrome-icon-set";
+    ".config/fastfetch".source = mkDotfileSymlink "fastfetch";
       
     ".config/gtk-3.0/gtk.css".text = ''
         @import 'colors.css';
@@ -180,6 +175,7 @@ in
         box { background-color: transparent; }
         notebook { background-color: transparent; }
         .tiled *  { background-color: transparent; }
+        columnview { background-color: transparent; }
       '';
       
     ".config/gtk-4.0/gtk.css".text = ''
@@ -192,6 +188,19 @@ in
         messagedialog { background-color: transparent; }
         box { background-color: transparent; }
         notebook { background-color: transparent; }
+        columnview { background-color: transparent; }
+      '';
+
+    # wine-reaper
+    ".local/share/applications/REAPER(WINE).desktop".text = ''
+        [Desktop Entry]
+        Name=REAPER (WINE)
+        Exec=env WINEPREFIX=/home/kirill/.wine wine "/home/kirill/.wine/drive_c/Program Files/REAPER (x64)/reaper.exe"
+        Type=Application
+        StartupNotify=true
+        Path=/home/kirill/.wine/drive_c/ProgramData/Microsoft/Windows/Start Menu/Programs/REAPER (x64)
+        Icon=cockos-reaper
+        StartupWMClass=reaper.exe
       '';
     
     # поддержка визуальной темы
@@ -208,6 +217,21 @@ in
         Type=Application
         Categories=System;
       '';
+      
+    # временный joplin
+    ".local/share/applications/joplin.desktop".text = ''
+        [Desktop Entry]
+        Categories=Office
+        Comment=Joplin for Desktop
+        Exec=/home/kirill/joplin-test.sh
+        Icon=joplin
+        MimeType=x-scheme-handler/joplin
+        Name=Joplin
+        StartupWMClass=joplin-app-desktop
+        Type=Application
+        Version=1.5
+      '';
+    
     # меняю иконку.
     ".local/share/applications/AmneziaVPN.desktop".text = ''
         [Desktop Entry]
@@ -226,8 +250,8 @@ in
         Type=Application
         Name=Micro
         Comment=Micro text editor with terminal and colors
-         Exec=kitty -e sh -c "export TERM=xterm-256color; export COLTERM=truecolor; micro %F"
-        Icon=text-editor
+        Exec=kitty -e sh -c "export TERM=xterm-256color; export COLTERM=truecolor; micro %F"
+        Icon=micro
         Terminal=false
         MimeType=text/plain;
         Categories=TextEditor;Utility;

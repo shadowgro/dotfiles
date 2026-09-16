@@ -1,4 +1,4 @@
-# Generated for ReaImGui v0.10
+# Generated for ReaImGui v0.10.0.5
 
 from reaper_python import *
 

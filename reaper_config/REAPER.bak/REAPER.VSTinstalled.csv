@@ -1,0 +1,358 @@
+REAPER,VST/VSTi INSTALLED EXTRACTOR
+Version:,3.1 FERRETS
+by:,Tormy Van Cool
+Date:,2023-08-29 17:01:13
+
+CHECK,N.,INSTR.,VST/VSTi/AU/CLAP NAME (Manufacturer),FILE (VSTs) - INST-NotINST (AUs) - CLAP (for Clap Plugins)
+,1,,ReaCast (Cockos),reacast.dll
+,2,,ReaComp (Cockos),reacomp.dll
+,3,,ReaControlMIDI (Cockos),reacontrolmidi.dll
+,4,,ReaDelay (Cockos),readelay.dll
+,5,,ReaEQ (Cockos),reaeq.dll
+,6,,ReaFir (FFT EQ+Dynamics Processor) (Cockos),reafir.dll
+,7,,ReaGate (Cockos),reagate.dll
+,8,,ReaInsert (Cockos),reainsert.dll
+,9,,ReaLimit (Cockos),realimit.dll
+,10,,ReaNINJAM (Cockos),reaninjam.dll
+,11,,ReaPitch (Cockos),reapitch.dll
+,12,Instr.,ReaSamplOmatic5000 (Cockos)!!!VSTi,reasamplomatic.dll
+,13,,ReaStream (Cockos) (8ch),reastream.dll
+,14,,ReaSurround (Cockos),reasurround.dll
+,15,,ReaSurroundPan (Cockos),reasurround2.dll
+,16,Instr.,ReaSynDr (Cockos) (4 out)!!!VSTi,reasyndr.dll
+,17,Instr.,ReaSynth (Cockos)!!!VSTi,reasynth.dll
+,18,,ReaTune (Cockos),reatune.dll
+,19,,ReaVerb (Cockos),reaverb.dll
+,20,,ReaVerbate (Cockos),reaverbate.dll
+,21,,ReaVocode (Cockos),reavocode.dll
+,22,,ReaVoice (Cockos),reavoice.dll
+,23,,ReaXcomp (Cockos),reaxcomp.dll
+,24,Instr.,Kontakt (Native Instruments GmbH) (64 out)!!!VSTi,Kontakt.dll
+,25,Instr.,Superior Drummer 3 (Toontrack) (32 out)!!!VSTi,Superior_Drummer_3.dll
+,26,,Crystallizer (SoundToys),Crystallizer.dll
+,27,,Decapitator (SoundToys),Decapitator.dll
+,28,,Devil-Loc Deluxe (SoundToys),DevilLocDeluxe.dll
+,29,,EchoBoy (SoundToys),EchoBoy.dll
+,30,,Little AlterBoy (SoundToys),LittleAlterBoy.dll
+,31,,MicroShift (SoundToys),MicroShift.dll
+,32,,PanMan (SoundToys),PanMan.dll
+,33,,Radiator (SoundToys),Radiator.dll
+,34,,Tremolator (SoundToys),Tremolator.dll
+,35,,LX480 Complete (Relab Development),LX480Complete.dll
+,36,Instr.,CFX Concert Grand (Garritan)!!!VSTi,CFX_Concert_Grand_VST_x64.dll
+,37,,AIR Chorus (AIR Music Technology),AIRChorus_x64.dll
+,38,,AIR Compressor (AIR Music Technology),AIRCompressor_x64.dll
+,39,,AIR DiffuserDelay (AIR Music Technology),AIRDiffuserDelay_x64.dll
+,40,,AIR Distortion (AIR Music Technology),AIRDistortion_x64.dll
+,41,,AIR Dynamic Delay (AIR Music Technology),AIRDynamicDelay_x64.dll
+,42,,AIR Enhancer (AIR Music Technology),AIREnhancer_x64.dll
+,43,,AIR Ensemble (AIR Music Technology),AIREnsemble_x64.dll
+,44,,AIR FilterGate (AIR Music Technology),AIRFilterGate_x64.dll
+,45,,AIR Flanger (AIR Music Technology),AIRFlanger_x64.dll
+,46,,AIR FrequencyShifter (AIR Music Technology),AIRFrequencyShifter_x64.dll
+,47,,AIR Fuzz-Wah (AIR Music Technology),AIRFuzz_Wah_x64.dll
+,48,,AIR KillEQ (AIR Music Technology),AIRKillEQ_x64.dll
+,49,,AIR Lo-Fi (AIR Music Technology),AIRLo_Fi_x64.dll
+,50,,AIR Maximizer (AIR Music Technology),AIRMaximizer_x64.dll
+,51,,AIR Multi-Chorus (AIR Music Technology),AIRMulti_Chorus_x64.dll
+,52,,AIR Multi-Delay (AIR Music Technology),AIRMulti_Delay_x64.dll
+,53,,AIR Non-LinearReverb (AIR Music Technology),AIRNon_LinearReverb_x64.dll
+,54,,AIR ParametricEQ (AIR Music Technology),AIRParametricEQ_x64.dll
+,55,,AIR Phaser (AIR Music Technology),AIRPhaser_x64.dll
+,56,,AIR Pumper (AIR Music Technology),AIRPumper_x64.dll
+,57,,AIR Reverb (AIR Music Technology),AIRReverb_x64.dll
+,58,,AIR SaturationFilter (AIR Music Technology),AIRSaturationFilter_x64.dll
+,59,,AIR Spectral (AIR Music Technology),AIRSpectral_x64.dll
+,60,,AIR SpringReverb (AIR Music Technology),AIRSpringReverb_x64.dll
+,61,,AIR StereoWidth (AIR Music Technology),AIRStereoWidth_x64.dll
+,62,,AIR Talkbox (AIR Music Technology),AIRTalkbox_x64.dll
+,63,,AIR TubeDrive (AIR Music Technology),AIRTubeDrive_x64.dll
+,64,,AIR VintageFilter (AIR Music Technology),AIRVintageFilter_x64.dll
+,65,,Avalon VT-747SP (Kazrog),Avalon_VT_747SP.vst3
+,66,,Hyperspace (JMGSound),Hyperspace.vst3
+,67,,KirchhoffEQ (TBTECH),KirchhoffEQ_64_.vst3
+,68,Instr.,Kontakt (Native Instruments) (64 out)!!!VSTi,Kontakt.vst3
+,69,,ORANGE VOCODER SC (Zynaptiq),ORANGE_VOCODER_SC_VST3.vst3
+,70,,ORANGE VOCODER (Zynaptiq),ORANGE_VOCODER_VST3.vst3
+,71,,Youlean Loudness Meter 2 (Youlean) (10ch),Youlean_Loudness_Meter_2.vst3
+,72,,Cassette (Wavesfactory),Cassette.vst3
+,73,,Echo Cat (Wavesfactory),Echo_Cat.vst3
+,74,,Quantum (Wavesfactory),Quantum.vst3
+,75,,SnareBuzz (Wavesfactory),SnareBuzz.vst3
+,76,,Spectre (Wavesfactory),Spectre.vst3
+,77,,Trackspacer 2.5 (Wavesfactory),Trackspacer25.vst3
+,78,,Dawn (Wave Alchemy),Dawn.vst3
+,79,,Glow (Wave Alchemy),Glow.vst3
+,80,,Pulse (Wave Alchemy),Pulse.vst3
+,81,,Radiance (Wave Alchemy),Radiance.vst3
+,82,,V-Clip (Venn Audio),V_Clip.vst3
+,83,,Opal (UVI),Opal.vst3
+,84,Instr.,Superior Drummer 3 (Toontrack) (32 out)!!!VSTi,Superior_Drummer_3.vst3
+,85,,Kelvin (Tone Projects),Kelvin.vst3
+,86,Instr.,TAL-Drum (TAL-Togu Audio Line) (4->32ch)!!!VSTi,TAL_Drum.vst3
+,87,,T-De-Esser (Techivation),T_De_Esser.vst3
+,88,,Revoice Pro Link (Synchro Arts Ltd),RevoiceProLinkVST_64bit_.vst3
+,89,Instr.,Revoice Pro Monitor (Synchro Arts Ltd)!!!VSTi,RevoiceProMonitorVST_64bit_.vst3
+,90,,entropyEQ+ (sonible),entropyEQ_x64.vst3
+,91,,freiraum (sonible),freiraum_x64.vst3
+,92,,proximityEQ+ (sonible),proximityEQ_x64.vst3
+,93,,smartComp2 (sonible),smartcomp2.vst3
+,94,,smartEQ3 (sonible),smartEQ3.vst3
+,95,,smartEQlive (sonible),smartEQlive_x64.vst3
+,96,,smartLimit (sonible),smartlimit.vst3
+,97,,smartReverb (sonible),smartreverb_x64.vst3
+,98,,trueLevel (sonible),truelevel.vst3
+,99,,trueBalance (sonible),truebalance.vst3
+,100,,pureVerb (sonible),pureverb.vst3
+,101,,pureLimit (sonible),purelimit.vst3
+,102,,pureComp (sonible),purecomp.vst3
+,103,,Chandler Limited Curve Bender (Softube),Chandler_Limited_Curve_Bender.vst3
+,104,,Chandler Limited Germanium Comp (Softube),Chandler_Limited_Germanium_Comp.vst3
+,105,,Chandler Limited Zener Limiter (Softube),Chandler_Limited_Zener_Limiter.vst3
+,106,,Chandler Limited Zener-Bender (Softube),Chandler_Limited_Zener_Bender.vst3
+,107,,Drawmer 1973 (Softube),Drawmer_1973.vst3
+,108,,Drawmer S73 (Softube),Drawmer_S73.vst3
+,109,,Summit Audio TLA-100A (Softube),Summit_Audio_TLA_100A.vst3
+,110,,Tube-Tech CL 1B mk II (Softube),Tube_Tech_CL_1B_mk_II.vst3
+,111,,Tube-Tech Equalizers mk II (Softube),Tube_Tech_Equalizers_mk_II.vst3
+,112,,Valley People Dyna-mite Gate (Softube),Valley_People_Dyna_mite_Gate.vst3
+,113,,Valley People Dyna-mite Slam (Softube),Valley_People_Dyna_mite_Slam.vst3
+,114,,Valley People Dyna-mite (Softube),Valley_People_Dyna_mite.vst3
+,115,,Deelay (Sixth Sample),Deelay.vst3
+,116,,RRS AQ550 (Red Rock Sound),RRS_AQ550_VST3_64.vst3
+,117,,RRS AQ550b (Red Rock Sound),RRS_AQ550b_VST3_64.vst3
+,118,,RRS AQ560 (Red Rock Sound),RRS_AQ560_VST3_64.vst3
+,119,,RRS EQ3 (Red Rock Sound),RRS_EQ3_VST3_64.vst3
+,120,Instr.,RRS Ivoks (Red Rock Sound)!!!VSTi,RRS_Ivoks_VST3_64.vst3
+,121,,P11 Abyss (Pulsar Modular),P11_Abyss.vst3
+,122,,P42 Climax (Pulsar Modular),P42_Climax.vst3
+,123,,Pulsar 1178 (Pulsar),Pulsar_1178.vst3
+,124,,Pulsar 8200 (Pulsar),Pulsar_8200.vst3
+,125,,Pulsar Echorec (Pulsar),Pulsar_Echorec.vst3
+,126,,Pulsar Massive (Pulsar),Pulsar_Massive.vst3
+,127,,Pulsar Mu (Pulsar),Pulsar_Mu.vst3
+,128,,Pulsar Smasher (Pulsar),Pulsar_Smasher.vst3
+,129,,Ampeg SVTVR (Plugin Alliance),Ampeg_SVTVR.vst3
+,130,,Black Box Analog Design HG-2 (Plugin Alliance),Black_Box_Analog_Design_HG_2.vst3
+,131,,Gallien Krueger 800RB (Plugin Alliance),Gallien_Krueger_800RB.vst3
+,132,,LTL SILVER BULLET mk2 (Plugin Alliance),LTL_SILVER_BULLET_mk2.vst3
+,133,,NEOLD U17 (Plugin Alliance),NEOLD_U17.vst3
+,134,,NEOLD U2A (Plugin Alliance),NEOLD_U2A.vst3
+,135,,NEOLD V76U73 (Plugin Alliance),NEOLD_V76U73.vst3
+,136,,Purple Audio MC 77 (Plugin Alliance),Purple_Audio_MC_77.vst3
+,137,,SPL Vitalizer MK2-T (Plugin Alliance),SPL_Vitalizer_MK2_T.vst3
+,138,,Gem Comp LA (Overloud),Gem_Comp_LA_64.vst3
+,139,,Gem Comp670 (Overloud),Gem_Comp670_64.vst3
+,140,,Gem Comp76 (Overloud),Gem_Comp76_64.vst3
+,141,,Gem EQ84 (Overloud),Gem_EQ84_64.vst3
+,142,,Gem Modula (Overloud),Gem_Modula_64.vst3
+,143,,TH-U Slate (Overloud),TH_U_Slate_64.vst3
+,144,,TH-U (Overloud),TH_U_64.vst3
+,145,,soothe2 (oeksound),soothe2_x64.vst3
+,146,,spiff (oeksound),spiff_x64.vst3
+,147,,Need 31102 Console EQ (NoiseAsh Audio),Need_31102_Console_EQ.vst3
+,148,,Need 533 EQ (NoiseAsh Audio),Need_533_EQ.vst3
+,149,,Need 73 Console EQ (NoiseAsh Audio),Need_73_Console_EQ.vst3
+,150,,Need 81 Console EQ (NoiseAsh Audio),Need_81_Console_EQ.vst3
+,151,,Need 84 Console EQ (NoiseAsh Audio),Need_84_Console_EQ.vst3
+,152,,Need Pre 31102 (NoiseAsh Audio),Need_Pre_31102.vst3
+,153,,Need Pre Trilogy (NoiseAsh Audio),Need_Pre_Trilogy.vst3
+,154,,Rule Tec EQ1A (NoiseAsh Audio),Rule_Tec_EQ1A.vst3
+,155,,Rule Tec EQ5M (NoiseAsh Audio),Rule_Tec_EQ5M.vst3
+,156,,Rule Tec Heritage Pro (NoiseAsh Audio),Rule_Tec_Heritage_Pro.vst3
+,157,,Newfangled Elevate (Newfangled Audio),Newfangled_Elevate.vst3
+,158,,Newfangled EQuivocate (Newfangled Audio),Newfangled_EQuivocate.vst3
+,159,,Newfangled Punctuate (Newfangled Audio),Newfangled_Punctuate.vst3
+,160,,Newfangled Saturate (Newfangled Audio),Newfangled_Saturate.vst3
+,161,,Archetype Cory Wong (Neural DSP),Archetype_Cory_Wong.vst3
+,162,,Archetype Gojira (Neural DSP),Archetype_Gojira.vst3
+,163,,Parallax (Neural DSP) (mono),Parallax.vst3
+,164,,Ampbox (Mercuriall),Ampbox.vst3
+,165,,MBassador (MeldaProduction),MBassador.vst3
+,166,,MTuner (MeldaProduction),MTuner.vst3
+,167,,MStereoProcessor (MeldaProduction),MStereoProcessor.vst3
+,168,,MConvolutionEZ (MeldaProduction),MConvolutionEZ.vst3
+,169,,MFreqShifter (MeldaProduction),MFreqShifter.vst3
+,170,,MComb (MeldaProduction),MComb.vst3
+,171,,MSaturator (MeldaProduction),MSaturator.vst3
+,172,,MSaturatorMB (MeldaProduction),MSaturatorMB.vst3
+,173,,REFERENCE (Mastering the Mix),REFERENCE.vst3
+,174,,REF SEND (Mastering the Mix),REFSEND.vst3
+,175,,Lustrous Plates (LiquidSonics),Lustrous_Plates.vst3
+,176,,Reverberate (LiquidSonics),Reverberate.vst3
+,177,,Seventh Heaven Professional (LiquidSonics),Seventh_Heaven_Professional.vst3
+,178,,AR-1 (Kush Audio),AR_1.vst3
+,179,,LG Drive (Kush Audio),LG_Drive.vst3
+,180,,REDDI (Kush Audio),REDDI.vst3
+,181,,Efektor Whammo (Kuassa),EfektorWhammo.vst3
+,182,,Amplified Instrument Processor (Korneff Audio),Amplified_Instrument_Processor.vst3
+,183,,Echoleffe Tape Delay (Korneff Audio),Echoleffe_Tape_Delay.vst3
+,184,,Micro Digital Reverberator (Korneff Audio),Micro_Digital_Reverberator.vst3
+,185,,Pawn Shop Comp 2 (Korneff Audio),Pawn_Shop_Comp_2.vst3
+,186,,Talkback Limiter (Korneff Audio),Talkback_Limiter.vst3
+,187,,Carve EQ (Kilohearts),Carve_EQ.vst3
+,188,,Disperser (Kilohearts),Disperser.vst3
+,189,,Faturator (Kilohearts),Faturator.vst3
+,190,,kHs 3-Band EQ (Kilohearts),kHs_3_Band_EQ.vst3
+,191,,kHs Bitcrush (Kilohearts),kHs_Bitcrush.vst3
+,192,,kHs Channel Mixer (Kilohearts),kHs_Channel_Mixer.vst3
+,193,,kHs Chorus (Kilohearts),kHs_Chorus.vst3
+,194,,kHs Comb Filter (Kilohearts),kHs_Comb_Filter.vst3
+,195,,kHs Compressor (Kilohearts),kHs_Compressor.vst3
+,196,,kHs Convolver (Kilohearts),kHs_Convolver.vst3
+,197,,kHs Delay (Kilohearts),kHs_Delay.vst3
+,198,,kHs Distortion (Kilohearts),kHs_Distortion.vst3
+,199,,kHs Dual Delay (Kilohearts),kHs_Dual_Delay.vst3
+,200,,kHs Dynamics (Kilohearts),kHs_Dynamics.vst3
+,201,,kHs Ensemble (Kilohearts),kHs_Ensemble.vst3
+,202,,kHs Filter (Kilohearts),kHs_Filter.vst3
+,203,,kHs Flanger (Kilohearts),kHs_Flanger.vst3
+,204,,kHs Formant Filter (Kilohearts),kHs_Formant_Filter.vst3
+,205,,kHs Frequency Shifter (Kilohearts),kHs_Frequency_Shifter.vst3
+,206,,kHs Gain (Kilohearts),kHs_Gain.vst3
+,207,,kHs Gate (Kilohearts),kHs_Gate.vst3
+,208,,kHs Haas (Kilohearts),kHs_Haas.vst3
+,209,,kHs Ladder Filter (Kilohearts),kHs_Ladder_Filter.vst3
+,210,,kHs Limiter (Kilohearts),kHs_Limiter.vst3
+,211,,kHs Nonlinear Filter (Kilohearts),kHs_Nonlinear_Filter.vst3
+,212,,kHs Phase Distortion (Kilohearts),kHs_Phase_Distortion.vst3
+,213,,kHs Phaser (Kilohearts),kHs_Phaser.vst3
+,214,,kHs Pitch Shifter (Kilohearts),kHs_Pitch_Shifter.vst3
+,215,,kHs Resonator (Kilohearts),kHs_Resonator.vst3
+,216,,kHs Reverb (Kilohearts),kHs_Reverb.vst3
+,217,,kHs Reverser (Kilohearts),kHs_Reverser.vst3
+,218,,kHs Ring Mod (Kilohearts),kHs_Ring_Mod.vst3
+,219,,kHs Stereo (Kilohearts),kHs_Stereo.vst3
+,220,,kHs Tape Stop (Kilohearts),kHs_Tape_Stop.vst3
+,221,,kHs Trance Gate (Kilohearts),kHs_Trance_Gate.vst3
+,222,,kHs Transient Shaper (Kilohearts),kHs_Transient_Shaper.vst3
+,223,,Multipass (Kilohearts) (4->12ch),Multipass.vst3
+,224,Instr.,Phase Plant (Kilohearts)!!!VSTi,Phase_Plant.vst3
+,225,,Slice EQ (Kilohearts),Slice_EQ.vst3
+,226,,Snap Heap (Kilohearts),Snap_Heap.vst3
+,227,,Xtressor (Kiive Audio),Xtressor.vst3
+,228,,KClip3 (Kazrog),KClip3.vst3
+,229,,True 252 (Kazrog),True_252.vst3
+,230,,True Dynamics (Kazrog),True_Dynamics.vst3
+,231,,True Iron (Kazrog),True_Iron.vst3
+,232,Instr.,Initial 808 Studio II (Initial Audio)!!!VSTi,Initial_808_Studio_II.vst3
+,233,,TR5 Fame Studio Reverb (IK Multimedia),TR5_Fame_Studio_Reverb.vst3
+,234,,TR5 Joe Chiccarelli Vocal Strip (IK Multimedia),TR5_Joe_Chiccarelli_Vocal_Strip.vst3
+,235,,TR5 Stealth Limiter (IK Multimedia),TR5_Stealth_Limiter.vst3
+,236,,TR5 Sunset Sound Studio Reverb (IK Multimedia),TR5_Sunset_Sound_Studio_Reverb.vst3
+,237,,TR5 Tape Machine 24 (IK Multimedia),TR5_Tape_Machine_24.vst3
+,238,,TR5 Tape Machine 440 (IK Multimedia),TR5_Tape_Machine_440.vst3
+,239,,TR5 Tape Machine 80 (IK Multimedia),TR5_Tape_Machine_80.vst3
+,240,,TR5 Tape Machine 99 (IK Multimedia),TR5_Tape_Machine_99.vst3
+,241,,TR5 TASCAM 388 (IK Multimedia),TR5_TASCAM_388.vst3
+,242,,TR5 TASCAM PORTA ONE (IK Multimedia),TR5_TASCAM_PORTA_ONE.vst3
+,243,,TR5 TEAC A-3340S (IK Multimedia),TR5_TEAC_A_3340S.vst3
+,244,,TR5 TEAC A-6100 MKII (IK Multimedia),TR5_TEAC_A_6100_MKII.vst3
+,245,,TR5 The Farm Stone Room (IK Multimedia),TR5_The_Farm_Stone_Room.vst3
+,246,,GainMatch (LetiMix),GainMatch_VST3.vst3
+,247,,VCL-864U (Fuse Audio Labs),VCL_864U.vst3
+,248,,VCS-1 (Fuse Audio Labs),VCS_1.vst3
+,249,,VREV-140 (Fuse Audio Labs),VREV_140.vst3
+,250,,VREV-305 (Fuse Audio Labs),VREV_305.vst3
+,251,,Pro-C 2 (FabFilter),FabFilter_Pro_C_2.vst3
+,252,,Pro-DS (FabFilter),FabFilter_Pro_DS.vst3
+,253,,Pro-G (FabFilter),FabFilter_Pro_G.vst3
+,254,,Pro-L 2 (FabFilter),FabFilter_Pro_L_2.vst3
+,255,,Pro-MB (FabFilter),FabFilter_Pro_MB.vst3
+,256,,Pro-Q 3 (FabFilter),FabFilter_Pro_Q_3.vst3
+,257,,Pro-R (FabFilter),FabFilter_Pro_R.vst3
+,258,,Timeless 3 (FabFilter),FabFilter_Timeless_3.vst3
+,259,,Blackhole (Eventide),Blackhole.vst3
+,260,,Omnipressor (Eventide),Omnipressor.vst3
+,261,,ShimmerVerb (Eventide),ShimmerVerb.vst3
+,262,,Tverb (Eventide),Tverb.vst3
+,263,,Realphones (dSONIQ),Realphones_x64.vst3
+,264,,EQuality (DMGAudio),EQuality.vst3
+,265,,EQuilibrium (DMGAudio),EQuilibrium.vst3
+,266,,Essence (DMGAudio),Essence.vst3
+,267,,Expurgate (DMGAudio),Expurgate.vst3
+,268,,denise - Bad Tape 2 (denise),DeniseBadTape2.vst3
+,269,,denise - Bite Harder (denise),DeniseBiteHarder.vst3
+,270,,denise - Dragon Fire (denise),DeniseDragonFire.vst3
+,271,,Denise - God Mode (Denise),DeniseGodMode.vst3
+,272,,denise - Perfect Plate XL (denise),DenisePerfectPlateXL.vst3
+,273,,Denise - Perfect Room (Denise),DenisePerfectRoom.vst3
+,274,,denise - poltergate (denise),DenisePoltergate.vst3
+,275,,denise - Sub Generator (denise),DeniseSubGenerator.vst3
+,276,,MagicDeathEyeStereo (DDMF),MagicDeathEyeStereo_64.vst3
+,277,,Melodyne (Celemony),Melodyne.vst3
+,278,,ShaperBox 3 (Cableguys),ShaperBox_3.vst3
+,279,,Alborosie Dub Station (AudioThing),AlborosieDubStation.vst3
+,280,,Megaphone (AudioThing),Megaphone_x64.vst3
+,281,,Outer Space (AudioThing),OuterSpace_x64.vst3
+,282,,Reels (AudioThing),Reels.vst3
+,283,,Speakers (AudioThing),Speakers.vst3
+,284,,Springs (AudioThing),Springs.vst3
+,285,,Type A (AudioThing),TypeA_x64.vst3
+,286,,Type B (AudioThing),TypeB.vst3
+,287,,Valves (AudioThing),Valves.vst3
+,288,,Vinyl Strip (AudioThing),VinylStrip_x64.vst3
+,289,,Wires (AudioThing),Wires.vst3
+,290,,Big Goat (Audiority),Big_Goat.vst3
+,291,,Blue Face (Audiority),Blue_Face.vst3
+,292,,Chorus Ensembler (Audiority),Chorus_Ensembler.vst3
+,293,,Distortion 1 mkII (Audiority),Distortion_1_mkII.vst3
+,294,,Dr Drive (Audiority),Dr_Drive.vst3
+,295,,Dr Phase (Audiority),Dr_Phase.vst3
+,296,,Echoes T7E mkII (Audiority),Echoes_T7E_mkII.vst3
+,297,,Green Reaper (Audiority),Green_Reaper.vst3
+,298,,Heavy Pedal mkII (Audiority),Heavy_Pedal_mkII.vst3
+,299,,Klirrton Grindstein (Audiority),Klirrton_Grindstein.vst3
+,300,,L12X Solid State Amplifier (Audiority),L12X_Solid_State_Amplifier.vst3
+,301,,LDC2 Compander (Audiority),LDC2_Compander.vst3
+,302,,Octaver 82 (Audiority),Octaver_82.vst3
+,303,,Solidus Randy 250 (Audiority),Solidus_Randy_250.vst3
+,304,,Solidus VS8100 (Audiority),Solidus_VS8100.vst3
+,305,,Space Station UM282 (Audiority),Space_Station_UM282.vst3
+,306,,Bus FORCE (Arturia),Bus_FORCE.vst3
+,307,,Chorus DIMENSION-D (Arturia),Chorus_DIMENSION_D.vst3
+,308,,Chorus JUN-6 (Arturia),Chorus_JUN_6.vst3
+,309,,Comp DIODE-609 (Arturia),Comp_DIODE_609.vst3
+,310,,Comp FET-76 (Arturia),Comp_FET_76.vst3
+,311,,Comp TUBE-STA (Arturia),Comp_TUBE_STA.vst3
+,312,,Comp VCA-65 (Arturia),Comp_VCA_65.vst3
+,313,,Delay BRIGADE (Arturia),Delay_BRIGADE.vst3
+,314,,Delay ETERNITY (Arturia),Delay_ETERNITY.vst3
+,315,,Delay TAPE-201 (Arturia),Delay_TAPE_201.vst3
+,316,,Dist COLDFIRE (Arturia),Dist_COLDFIRE.vst3
+,317,,Dist OPAMP-21 (Arturia),Dist_OPAMP_21.vst3
+,318,,Dist TUBE-CULTURE (Arturia),Dist_TUBE_CULTURE.vst3
+,319,,Efx FRAGMENTS (Arturia),Efx_FRAGMENTS.vst3
+,320,,EQ SITRAL-295 (Arturia),EQ_SITRAL_295.vst3
+,321,,Filter M12 (Arturia),Filter_M12.vst3
+,322,,Filter MINI (Arturia),Filter_MINI.vst3
+,323,,Filter MS-20 (Arturia),Filter_MS_20.vst3
+,324,,Filter SEM (Arturia),Filter_SEM.vst3
+,325,,Flanger BL-20 (Arturia),Flanger_BL_20.vst3
+,326,,Phaser BI-TRON (Arturia),Phaser_BI_TRON.vst3
+,327,Instr.,Pigments (Arturia)!!!VSTi,Pigments.vst3
+,328,,Pre 1973 (Arturia),Pre_1973.vst3
+,329,,Pre TridA (Arturia),Pre_TridA.vst3
+,330,,Pre V76 (Arturia),Pre_V76.vst3
+,331,,Rev INTENSITY (Arturia),Rev_INTENSITY.vst3
+,332,,Rev LX-24 (Arturia),Rev_LX_24.vst3
+,333,,Rev PLATE-140 (Arturia),Rev_PLATE_140.vst3
+,334,,Rev SPRING-636 (Arturia),Rev_SPRING_636.vst3
+,335,,Tape MELLO-FI (Arturia),Tape_MELLO_FI.vst3
+,336,,Auto-Key (Antares),Auto_Key.vst3
+,337,,Auto-Tune Pro (Antares),Auto_Tune.vst3
+,338,,DeSibilizer (A.O.M.),DeSibilizer.vst3
+,339,,Invisible Limiter (A.O.M.),Invisible_Limiter.vst3
+,340,,Invisible Limiter G2 (A.O.M.),Invisible_Limiter_G2.vst3
+,341,,Invisible Limiter G3 (A.O.M.),Invisible_Limiter_G3.vst3
+,342,Instr.,Ample Guitar M (Ample Sound)!!!VSTi,Ample_Guitar_M.dll
+,343,,Gain Reduction (Joey Sturgis Tones),Gain_Reduction_Deluxe_v2.0.8.dll
+,344,,RC-20 Retro Color (XLN Audio),RC_20_Retro_Color.dll
+,345,,DrumReplacer (UVI),DrumReplacerVST.dll
+,346,Instr.,Falcon (UVI) (34 out)!!!VSTi,FalconVSTx64.dll
+,347,,Omega 458A (Kush Audio),Omega_458A.dll
+,348,,Omega A (Kush Audio),Omega_A.dll
+,349,,Omega N (Kush Audio),Omega_N.dll
+,350,,Omega TWK (Kush Audio),Omega_TWK.dll
+,351,,SampleGrabber v3 (Flux:: sound and picture development) (8ch),SampleGrabberV3.dll
+,352,,The Glue (Cytomic),The_Glue_64.dll

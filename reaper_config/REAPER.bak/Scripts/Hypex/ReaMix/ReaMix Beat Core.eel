@@ -1,0 +1,317 @@
+// ReaMix Beat Mapper Tool by Damien Stewart (Hypex)
+
+// November 23, 2016. V1.5.
+
+// Beat Mapper Core Routines.
+
+// Semi-automatic beat mapper. Takes a base BPM as a reference with a 
+// percentage of variance to work with and amount of beats to cover
+// per tempo marker. Will then scan over selected items in track 
+// starting from edit cursor or time selection and mark tempo changes
+// to the nearest transient within the BPM range calculated.
+
+// Inputs:
+// Base BPM Reference:    Base BPM as reference value.
+// Variance (Percentage): Amount that BPM ix expected to vary either way.
+// Beats per Marker:      Number of beats to cover per tempo marker.
+// Allowance (For errors) Number of beat misses to allow for.
+
+// Output:
+// Hopefully a fully tempo mapped selection of music! :-)
+
+
+// ReaMix Beat Core
+// Support file with core functionality
+
+
+//	The core function!
+
+function BeatMapper()
+(
+	ACTION_Next_Transient = 40375;
+	ACTION_Near_Transient = 40836;
+
+//	The following calculates a window of time to cover per tempo mark. Which will be based on what percentage the BPM
+//	can drop down to or jump up to. Divided into how many marks you want per measure. The next transient in this
+//	window will be located. Except if variance is zero which will specify the nearest transient within a 1 beat margin.
+
+	Percent ?
+	(
+		Transient_ACTION = ACTION_Next_Transient;
+		Variance = (Tempo * Percent) / 100;
+	)
+	:
+	(
+		Transient_ACTION = ACTION_Near_Transient;
+		Variance = 1;
+	);
+
+	MinBPM = Tempo - Variance;
+	MaxBPM = Tempo + Variance;
+	Seconds = BeatsPerMark * 60;
+	MinTime = Seconds / MaxBPM;
+	MaxTime = Seconds / MinBPM;
+	BPMTime = Seconds / Tempo;
+	Offset = Percent ? MinTime : Seconds / Tempo;
+
+
+//	Find selected item on timeline.
+
+	Item = GetSelectedMediaItem(0, 0);
+	ItemStart = GetMediaItemInfo_Value(Item, "D_POSITION");
+	ItemLength = GetMediaItemInfo_Value(Item, "D_LENGTH");
+
+	Take = GetActiveTake(Item);
+	TakeOffset = GetMediaItemTakeInfo_Value(Take, "D_STARTOFFS");
+
+
+//	Check if user has selected a range to scan. Else we limit ourselves to the item.
+
+	GetSet_LoopTimeRange(0, 0, RangeStart, RangeEnd, 0);
+	((RangeEnd > 0) && (RangeStart != RangeEnd)) ?
+	(
+		((Time < RangeStart) || (Time >= RangeEnd)) ?
+		(
+			Time = RangeStart;
+			SetEditCurPos(Time, 0, 0);
+		);
+
+		EndTime = RangeEnd;
+	)
+	:
+	(
+		EndTime = ItemStart + ItemLength;
+	);
+
+
+//	Just some stats we track
+
+	Hits = 0;
+	Misses = 0;
+	Beats = 0;
+	Bars = 0;
+	MiniBPM = MaxBPM;
+	MaxiBPM = MinBPM;
+	MeanBPM = 0;
+
+
+//	The core routine!
+
+	Undo_BeginBlock();
+
+	while (Time < EndTime)
+	(
+
+//	Here it is. The core of our beat mapper! Move to the next window of opportunity and detect a beat! :-D
+
+		SetEditCurPos(Time + Offset, 0, 0);
+		Main_OnCommand(Transient_ACTION, 0);
+		NextTime = GetCursorPosition();
+
+
+//	Check if beat detected is inside selection.
+
+		(NextTime < EndTime) ?
+
+
+//	Check if tempo map is inside bounds.
+
+		(
+			TempoTime = NextTime - Time;
+			((TempoTime > MinTime) && (TempoTime < MaxTime)) ?
+
+
+//	We have a map and add a marker to this time position.
+//	This may be an actual tempo marker, a normal marker a even a 
+//	stretch marker depending on which script the user called us from.
+
+			(
+				BPM = Seconds / TempoTime;
+
+//				BeatMark();
+				Eval("BeatMark();");
+
+//	Gather some statistics.
+
+				MeanBPM += BPM;
+				MiniBPM = min(MiniBPM, BPM);
+				MaxiBPM = max(MaxiBPM, BPM);
+				Hits += 1;
+				Beats += BeatsPerMark;
+			)
+			:
+
+
+//	Whoops. We missed. We'll just continue on from the next spot. Unless we reached the error allowance.
+
+			(
+				Misses += 1;
+				(Misses > Allowance) ?
+				(
+					NextTime = EndTime;
+				);
+
+				Beats ?
+				(
+					Bars += floor(Beats / BeatsPerBar);
+					Beats = 0;
+				);
+
+			);
+		);	
+
+		Time = NextTime;
+	);
+
+	Beats ? Bars += floor(Beats / BeatsPerBar);
+
+//	Back to reality. Our work is done. :-)
+
+	SetEditCurPos(Cursor, 1, 0);
+
+	Undo_EndBlock(Title, 0);
+);
+
+
+//	Print a few statistics for beats marked and averaged BPM. 
+	
+function Stats()
+(
+	Hits ?
+	(
+		sprintf(#Result, "Beats mapped: %d\nBeats missed: %d\nBars marked: %d\n\nBetween %f and %f BPM.\nWith an effective variance of %f %%.\n\nGiving an overall average of %f BPM.", Hits, Misses, Bars, MiniBPM, MaxiBPM, (max(abs(Tempo - MaxiBPM), abs(MiniBPM - Tempo)) * 100) / Tempo, MeanBPM / Hits);
+	)
+	:
+	(
+		sprintf(#Result, "No beats mapped!\n\nBeats missed: %d.", Misses);
+	);
+
+	MB(#Result, Title, 0);
+);
+
+
+// Prints an error message
+
+function Error(Msg)
+(
+	sprintf(#Message, "Error: %s.", Msg);
+	MB(#Message, Title, 0);
+	Error = 1;
+);
+
+
+// Check input values 
+
+function Check()
+(
+	Error = 0;
+
+	(Percent < 0) || (Percent > 100) ? Error("That Variance is ridiculous");
+
+	BeatsPerMark < BeatsPerBar ?
+	(
+		BeatsPerBar % BeatsPerMark ?  Error("Beats per Marker needs to be divisable into beats per bar");
+	)
+	:
+	(
+		BeatsPerMark % BeatsPerBar ? Error("Beats per Marker needs to be a multiple of beats per bar");
+	);
+
+
+	(Allowance < 0) || (Allowance >100) ? Error("Your Allowance is a bit silly");
+
+	!Error;
+);
+
+//	Gets variable settings for re-entry
+
+function GetSetting(Name, Default, Type)
+(
+	Setting = Default;
+	HasExtState(Section, Name) ? GetExtState(#String, Section, Name);
+	match(Type ? "%f" : "%d", #String, Setting);
+
+//	printf("G NS:%s N:%s S:%s V:%d\n", Section, Name, #String, Setting);
+
+	Setting;
+);
+
+//	Sets variable settings for re-entry
+
+function SetSetting(Name, Value, Type)
+(
+	sprintf(#String, Type ? "%f" : "%d", Value);
+	SetExtState(Section, Name, #String, 0);
+//	printf("S NS:%s N:%s S:%s V:%d\n",Section, Name, #String, Value);
+);
+
+//	Gets all settings
+
+function GetSettings()
+(
+	Tempo = GetSetting("Tempo", Tempo, 1);
+	Percent = GetSetting("Percent", 5, 1);
+	BeatsPerMark = GetSetting("BeatsPerMark", BeatsPerBar, 0);
+	Allowance = GetSetting("Allowance", Allowance, 0);
+);
+
+// 	Retrieves all settings
+
+function SetSettings()
+(
+	SetSetting("Tempo", Tempo, 1);
+	SetSetting("Percent", Percent, 1);
+	SetSetting("BeatsPerMark", BeatsPerMark, 0);
+	SetSetting("Allowance", Allowance, 0);
+);
+
+
+//	It all starts here.
+
+function BeatMap(Label) 
+(
+	Title = Label;
+	Section = "ReaMix-Beat-Mapper-Tool";
+
+//	Error checking. Make sure we have a selection.
+
+	(CountSelectedMediaItems(0) == 0) ?
+	(
+		Error("No items or time selected!");
+	)
+	:
+
+
+//	Grab the project tempo and time signature.
+
+	(
+		Cursor = GetCursorPosition();
+		Time = Cursor;
+//		GetProjectTimeSignature(Tempo, 0);
+		TimeMap_GetTimeSigAtTime(0, Time, BeatsPerBar, NotePerBeat, Tempo);
+
+//	Retrieve any previous settings
+
+	GetSettings();
+
+//	Query the user for exact settings to use
+	
+		sprintf(#Inputs, "%f,%f,%d,%d", Tempo, Percent, BeatsPerMark, Allowance);
+		GetUserInputs(Title, 4, "Base BPM Reference,Variance (Percentage),Beats per Marker,Allowance (For errors)", #Inputs) ?
+		(
+			match("%f,%f,%d,%d", #inputs, Tempo, Percent, BeatsPerMark, Allowance);
+
+			Check() ?
+			(
+// 	Store settings
+
+				SetSettings();
+	
+				BeatMapper();
+				Stats();	
+			);
+
+		);
+	);
+);
+

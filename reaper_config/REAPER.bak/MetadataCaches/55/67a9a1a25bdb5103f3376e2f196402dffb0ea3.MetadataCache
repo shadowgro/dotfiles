@@ -1,0 +1,94 @@
+C10018 "C:\moozzlo\examples\Candlebox_Happy Pills\Audio"
+F "Alice in Chains - A Looking in View.flac" 89330769 0 1743323210 0
+D t "Alice in Chains - A Looking in View" a cnc24 y 20130513 d https://www.youtube.com/watch?v=YJluAKWjiUc
+D s 44100 n 2 l 7:06.156 i 24
+F "Alice In Chains - Stone.flac" 61924842 0 1744980168 0
+D t "Alice In Chains - Stone" a "Alice In Chains" y 20130418 d https://www.youtube.com/watch?v=9KmYFY5oOvM
+D s 48000 n 2 l 4:47.463 i 24
+F "Bass-Active DI.wav" 29549058 0 1558006278 0
+D y 2019-04-0 s 48000 n 1 r 1:19:28.781
+D l 3:24.111 i 24
+F Bass-Amp-M80.wav 29549058 0 1558006280 0
+D y 2019-04-0 s 48000 n 1 r 1:19:28.781
+D l 3:24.111 i 24
+F Bass-Amp-U47.wav 29549058 0 1558006280 0
+D y 2019-04-0 s 48000 n 1 r 1:19:28.781
+D l 3:24.111 i 24
+F "Candlebox_Happy Pills take 1.wav" 53979136 0 1744729014 0
+D y 2025-04-15 s 44100 n 2 l 3:24.000
+D i 24
+F "Candlebox_Happy Pills take 2.wav" 53979136 0 1744989023 0
+D y 2025-04-18 s 44100 n 2 l 3:24.000
+D i 24
+F "Candlebox_Happy Pills take 3.1.wav" 54249502 0 1745058273 0
+D y 2025-04-19 s 44100 n 2 l 3:25.022
+D i 24
+F "Candlebox_Happy Pills take 3.3.wav" 54249502 0 1745313196 0
+D y 2025-04-22 s 44100 n 2 l 3:25.022
+D i 24
+F "Candlebox_Happy Pills take 3.wav" 54249502 0 1745057190 0
+D y 2025-04-19 s 44100 n 2 l 3:25.022
+D i 24
+F "Candlebox_Happy Pills_stems_Vocals-Kevin-Proto-001.wav" 163836584 0 1744983820 0
+D y 2025-04-18 s 48000 n 2 l 7:06.656
+D i 32
+F "Candlebox_Happy Pills_stems_Vocals-Kevin-Proto-002.wav" 16585816 0 1744984075 0
+D y 2025-04-18 s 48000 n 2 r 2:40.478
+D l 0:43.190 i 32
+F "Candlebox_Happy Pills_stems_Vocals-Kevin-Proto-003.wav" 16731760 0 1744984416 0
+D y 2025-04-18 s 48000 n 2 r 2:40.343
+D l 0:43.570 i 32
+F "Candlebox_Happy Pills_stems_Vocals-Kevin-Proto-004.wav" 163836584 0 1745055888 0
+D y 2025-04-19 s 48000 n 2 l 7:06.656
+D i 32
+F "Candlebox_Happy Pills_stems_Vocals-Kevin-Proto.wav" 79872744 0 1744725733 0
+D y 2025-04-15 s 48000 n 2 l 3:28.000
+D i 32
+F "Drums-Floor 2-M81.wav" 29549058 0 1558006282 0
+D y 2019-04-0 s 48000 n 1 r 1:19:28.781
+D l 3:24.111 i 24
+F Drums-Floor-M81.wav 29549058 0 1558006284 0
+D y 2019-04-0 s 48000 n 1 r 1:19:28.781
+D l 3:24.111 i 24
+F Drums-Hat-M60.wav 29549058 0 1558006286 0
+D y 2019-04-0 s 48000 n 1 r 1:19:28.781
+D l 3:24.111 i 24
+F "Drums-Kick In-M82.wav" 29549058 0 1558006286 0
+D y 2019-04-0 s 48000 n 1 r 1:19:28.781
+D l 3:24.111 i 24
+F "Drums-Kick Out-647.wav" 29549058 0 1558006288 0
+D y 2019-04-0 s 48000 n 1 r 1:19:28.781
+D l 3:24.111 i 24
+F Drums-Over-TF51.wav 59096854 0 1558006292 0
+D y 2019-05-1 s 48000 n 2 r 1:19:28.781
+D l 3:24.111 i 24
+F "Drums-Rack Tom-M81.wav" 29549058 0 1558006294 0
+D y 2019-04-0 s 48000 n 1 r 1:19:28.781
+D l 3:24.111 i 24
+F Drums-Room-M60.wav 59096854 0 1558006296 0
+D y 2019-05-1 s 48000 n 2 r 1:19:28.781
+D l 3:24.111 i 24
+F "Drums-Snare Bot-M81.wav" 29549058 0 1558006298 0
+D y 2019-04-0 s 48000 n 1 r 1:19:28.781
+D l 3:24.111 i 24
+F Drums-Snare-M80.wav 29549058 0 1558006300 0
+D y 2019-04-0 s 48000 n 1 r 1:19:28.781
+D l 3:24.111 i 24
+F "ELE GTR1 Dis-M80.wav" 29549058 0 1558006302 0
+D y 2019-04-0 s 48000 n 1 r 1:19:28.781
+D l 3:24.111 i 24
+F "ELE Guitar2 Dis-M81.wav" 29549058 0 1558006302 0
+D y 2019-04-0 s 48000 n 1 r 1:19:28.781
+D l 3:24.111 i 24
+F "MarcusBoeltz_ShutUpAndPlay_5 mix 7.21.wav" 41437096 0 1744022852 0
+D y 2025-04-07 s 44100 n 2 r 0:09.600
+D l 2:36.600 i 24
+F Vocals-Adam-Proto.wav 29549058 0 1558006304 0
+D y 2019-04-0 s 48000 n 1 r 1:19:28.781
+D l 3:24.111 i 24
+F Vocals-Brian-Proto.wav 29549058 0 1558006306 0
+D y 2019-04-0 s 48000 n 1 r 1:19:28.781
+D l 3:24.111 i 24
+F Vocals-Kevin-Proto.wav 29549058 0 1558006308 0
+D y 2019-04-0 s 48000 n 1 r 1:19:28.781
+D l 3:24.111 i 24

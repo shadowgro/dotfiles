@@ -1,0 +1,84 @@
+C10018 "C:\moozzlo\brontomorph\1 istochnik\Audio"
+F "Brontomorph - 2024 - Relict_stems_istochnik-synth - subproject.flac" 5418475 0 1738224639 0
+D s 48000 n 2 l 0:33.391 i 24
+F "istochik take 1.1.flac" 40524402 0 1738233943 0
+D s 44100 n 2 l 5:09.913 i 16
+F "istochik take 2.flac" 40553067 0 1738249000 0
+D s 44100 n 2 l 5:09.913 i 16
+F "istochik take 4.3.flac" 40426609 0 1740660711 0
+D s 44100 n 2 l 5:09.913 i 16
+F "istochnik 4_stems.wav" 119007352 0 1739797701 0
+D y 2025-02-17 s 48000 n 2 r 5:10.154
+D l 5:09.913 i 32
+F "istochnik 4_stems_ - stem.wav" 119007352 0 1739798484 0
+D y 2025-02-17 s 48000 n 2 r 5:10.154
+D l 5:09.913 i 32
+F "istochnik 4_stems_tom trigg flore.wav" 119007352 0 1739879464 0
+D y 2025-02-18 s 48000 n 2 r 5:10.154
+D l 5:09.913 i 32
+F "istochnik 4_stems_tom trigg rack-001.wav" 902312 0 1740659474 0
+D y 2025-02-27 s 48000 n 2 r 9:41.197
+D l 0:02.348 i 32
+F "istochnik 4_stems_tom trigg rack.wav" 119007352 0 1739879387 0
+D y 2025-02-18 s 48000 n 2 r 5:10.154
+D l 5:09.913 i 32
+F istochnik-BASS_Fuzz.flac 18512810 0 1694783912 0
+D s 44100 n 1 l 4:58.435 i 24
+F istochnik-BASS_Sans-Ampeg-52.flac 17467476 0 1694783912 0
+D s 44100 n 1 l 4:58.435 i 24
+F istochnik-BASS_Sans-Ampeg-57.flac 17949062 0 1694783912 0
+D s 44100 n 1 l 4:58.435 i 24
+F istochnik-gt-CenterPad_808-6505-57.flac 4356291 0 1695983190 0
+D s 44100 n 1 l 4:26.087 i 24
+F istochnik-gt-LEAD1_808-6505-57.flac 1649468 0 1695983582 0
+D s 44100 n 1 l 3:20.348 i 24
+F istochnik-gt1_808-6505-57.flac 23211432 0 1695982706 0
+D s 44100 n 1 l 5:09.913 i 24
+F istochnik-gt1_add_808-6505-57.flac 4361495 0 1695983190 0
+D s 44100 n 1 l 4:26.087 i 24
+F istochnik-gt1_Rect-112-57.flac 23961723 0 1695982706 0
+D s 44100 n 1 l 5:09.913 i 24
+F istochnik-gt2_808-6505-57.flac 24691790 0 1695982706 0
+D s 44100 n 1 l 5:09.913 i 24
+F istochnik-gt2_add_808-6505-57.flac 4360572 0 1695983190 0
+D s 44100 n 1 l 4:26.087 i 24
+F istochnik-gt2_Rect-112-57.flac 25521543 0 1695982706 0
+D s 44100 n 1 l 5:09.913 i 24
+F istochnik-HH.flac 27058928 0 1625417012 0
+D s 44100 n 1 l 5:04.174 i 24
+F istochnik-Kick.flac 15050608 0 1698349174 0
+D s 44100 n 1 l 5:04.174 i 24
+F istochnik-OH_China.flac 25576833 0 1625417012 0
+D s 44100 n 1 l 5:04.174 i 24
+F istochnik-OHL.flac 23899430 0 1625417012 0
+D s 44100 n 1 l 5:04.174 i 24
+F istochnik-OHR.flac 24004912 0 1625417012 0
+D s 44100 n 1 l 5:04.174 i 24
+F istochnik-Ride.flac 25894318 0 1625417012 0
+D s 44100 n 1 l 5:04.174 i 24
+F istochnik-RoomL.flac 25005444 0 1625417012 0
+D s 44100 n 1 l 5:04.174 i 24
+F istochnik-RoomR.flac 24569199 0 1625417012 0
+D s 44100 n 1 l 5:04.174 i 24
+F istochnik-SnareBottom.flac 10004454 0 1624712578 0
+D s 44100 n 1 l 5:04.174 i 24
+F istochnik-SnareTop.flac 9367375 0 1624712574 0
+D s 44100 n 1 l 5:04.174 i 24
+F istochnik-Subkick.flac 4597116 0 1694867876 0
+D s 44100 n 1 l 5:04.174 i 24
+F istochnik-Tom1.flac 1128194 0 1623063348 0
+D s 44100 n 1 l 5:04.174 i 24
+F istochnik-Tom2.flac 1233674 0 1623063348 0
+D s 44100 n 1 l 5:04.174 i 24
+F istochnik-Tom3.flac 2825482 0 1623063350 0
+D s 44100 n 1 l 5:04.174 i 24
+F istochnik-Vox_BACK.flac 3407827 0 1701109846 0
+D s 44100 n 1 l 4:27.130 i 24
+F istochnik-Vox_LO-pitch-glued.flac 645594 0 1701106050 0
+D s 44100 n 1 l 3:32.870 i 24
+F istochnik-Vox_MAIN-glued.flac 10663677 0 1701204778 0
+D s 44100 n 1 l 4:27.130 i 24
+F "polyn take 5 (new OH).flac" 18117479 0 1737991329 0
+D s 44100 n 2 l 2:12.011 i 16
+F "ruka take 7.2 (new OH).flac" 26820329 0 1738053339 0
+D s 44100 n 2 l 3:26.769 i 16
