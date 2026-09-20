@@ -6,6 +6,7 @@
       ./hardware-configuration.nix
       ./modules/audio-specialisation.nix
       ./modules/timeshift.nix
+      # ./modules/idle-lock.nix
     ];
 
   # Bootloader.
@@ -26,12 +27,34 @@
   # flakes ON
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  services.power-profiles-daemon.enable = true;
+  services.thermald.enable = true; # prevents overheating on Intel CPUs 
+  # services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
   services.logind.settings.Login = {
     HandleLidSwitch = "ignore";
     HandleLidSwitchExternalPower = "ignore";
     HandleLidSwitchDocked = "ignore";
+  };
+  
+  services.tlp = {
+    enable = true;
+    pd.enable = true;
+    settings = {
+  #     CPU_SCALING_GOVERNOR_ON_AC = "performance";
+  #     CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+  # 
+  #     CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+  #     CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+  # 
+  #     CPU_MIN_PERF_ON_AC = 0;
+  #     CPU_MAX_PERF_ON_AC = 100;
+  #     CPU_MIN_PERF_ON_BAT = 0;
+  #     CPU_MAX_PERF_ON_BAT = 20;
+  
+      # Optional helps save long term battery health
+      START_CHARGE_THRESH_BAT1 = 0; # 40 and below it starts to charge
+      STOP_CHARGE_THRESH_BAT1 = 80;  # 80 and above it stops charging
+    };
   };
 
   # bluetooth
@@ -65,6 +88,7 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  # services.xserver.libinput.enable = true; # Enable touchpad support (enabled default in most desktopManager).
 
   services.displayManager.noctalia-greeter = {
     enable = true;
@@ -76,10 +100,10 @@
       };
       appearance = {
         hide_logo = true;
-        wallpaper = {
-          path = "/var/lib/noctalia-greeter/blurred-image.png";
-          fill_mode = "crop"; # center | crop | fit | stretch | repeat
-        };
+        # wallpaper = {
+        #   path = "/var/lib/noctalia-greeter/blurred-image.png";
+        #   fill_mode = "crop"; # center | crop | fit | stretch | repeat
+        # };
       };
     };
     cursorTheme = {
@@ -109,16 +133,10 @@
     jack.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   users.users."kirill" = {
     isNormalUser = true;
     description = "kirill";
     extraGroups = [ "networkmanager" "wheel" "audio" ];
-  #   packages = with pkgs; [
-  # 
-  #   ];
   };
 
   environment.shellAliases = {
@@ -182,7 +200,7 @@
   environment.systemPackages = with pkgs; [
 
   # Audio
-  # reaper
+  reaper
   reaper-sws-extension
   reaper-reapack-extension
   qpwgraph            # Visual patchbay for PipeWire
@@ -204,8 +222,18 @@
   libreoffice-qt
   qbittorrent
   vlc
-  
-  inputs.zen-browser.packages.${stdenv.hostPlatform.system}.beta
+
+  (pkgs.symlinkJoin {
+    name = "zen-beta-nvidia";
+    paths = [
+      inputs.zen-browser.packages.${stdenv.hostPlatform.system}.beta
+      (pkgs.writeShellScriptBin "zen-beta" ''
+        exec /run/current-system/sw/bin/nvidia-offload \
+          ${inputs.zen-browser.packages.${stdenv.hostPlatform.system}.beta}/bin/zen-beta "$@"
+      '')
+    ];
+  })
+  # inputs.zen-browser.packages.${stdenv.hostPlatform.system}.beta
   tor-browser
   
   yandex-disk
@@ -215,22 +243,23 @@
   # Utils
   kitty
   micro
-  thunar
   pcmanfm-qt
+  thunar
+  # inputs.hyprfm.packages.${stdenv.hostPlatform.system}.default
   fzf
   yazi
   btop
   bat
   fastfetch
   git
-  hashdeep
+  # hashdeep
   hyprpicker
   ntfs3g
-  foot
+  # foot
   rar
   unrar
-
-  # inputs.hyprfm.packages.${stdenv.hostPlatform.system}.default
+  tlp-pd
+  power-profiles-daemon
 
   # Dependencies
   # lxmenu-data # for pcmanfm
@@ -259,9 +288,13 @@
   
   fonts.packages = with pkgs; [
     maple-mono.NF
-    nunito
-    annotation-mono
-    nerd-fonts.jetbrains-mono
+    comfortaa
+    roboto
+    # inter-nerdfont
+    # quicksand
+    # nunito
+    # annotation-mono
+    # nerd-fonts.jetbrains-mono
   ];
 
   # Настраиваем home-manager для пользователя root

@@ -13,8 +13,8 @@
       ];
 
       # Disable power-profiles-daemon to prevent conflicts with manual cpuFreqGovernor
-      services.power-profiles-daemon.enable = pkgs.lib.mkForce false;
-      powerManagement.cpuFreqGovernor = "performance";
+      # services.power-profiles-daemon.enable = pkgs.lib.mkForce false;
+      # powerManagement.cpuFreqGovernor = "performance";
 
       # musnix setup
       musnix.enable = true;

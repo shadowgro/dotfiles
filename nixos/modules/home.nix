@@ -112,17 +112,22 @@ in
     kdePackages.breeze-icons
     kdePackages.qtstyleplugin-kvantum
     libsForQt5.qtstyleplugin-kvantum
+
+    # (pkgs.symlinkJoin {
+    #   name = "reaper-nvidia";
+    #   paths = [
+    #     pkgs.reaper
+    #     (pkgs.writeShellScriptBin "reaper" ''
+    #       export LD_LIBRARY_PATH="${lib.makeLibraryPath [ pkgs.gtk3 ]}:''${LD_LIBRARY_PATH:-}"
+    #       export XDG_DATA_DIRS="${pkgs.gtk3}/share:${pkgs.gnome-themes-extra}/share:${pkgs.adwaita-icon-theme}/share:''${XDG_DATA_DIRS:-}"
+    # 
+    #       exec /run/current-system/sw/bin/nvidia-offload \
+    #         ${pkgs.reaper}/bin/reaper "$@"
+    #     '')
+    #   ];
+    # })
     
-    (pkgs.symlinkJoin {
-      name = "reaper-with-gtk";
-      paths = [ pkgs.reaper ];
-      buildInputs = [ pkgs.makeWrapper ];
-      postBuild = ''
-        wrapProgram $out/bin/reaper \
-          --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ pkgs.gtk3 ]}"
-      '';
-    })
-    # Компактная замена стандартного REAPER с автоматическим подтягиванием GTK3
+    
     # (pkgs.symlinkJoin {
     #   name = "reaper-with-gtk";
     #   paths = [ pkgs.reaper ];
@@ -135,15 +140,15 @@ in
     #   '';
     # })
 
-    (pkgs.symlinkJoin {
-      name = "thunar-x11";
-      paths = [ pkgs.thunar ];
-      buildInputs = [ pkgs.makeWrapper ];
-      postBuild = ''
-        wrapProgram $out/bin/thunar \
-          --set GDK_BACKEND x11
-      '';
-    })
+    # (pkgs.symlinkJoin {
+    #   name = "thunar-x11";
+    #   paths = [ pkgs.thunar ];
+    #   buildInputs = [ pkgs.makeWrapper ];
+    #   postBuild = ''
+    #     wrapProgram $out/bin/thunar \
+    #       --set GDK_BACKEND x11
+    #   '';
+    # })
     
   ];
 
@@ -195,7 +200,7 @@ in
     ".local/share/applications/REAPER(WINE).desktop".text = ''
         [Desktop Entry]
         Name=REAPER (WINE)
-        Exec=env WINEPREFIX=/home/kirill/.wine wine "/home/kirill/.wine/drive_c/Program Files/REAPER (x64)/reaper.exe"
+        Exec=env WINEPREFIX=/home/kirill/.wine nvidia-offload wine "/home/kirill/.wine/drive_c/Program Files/REAPER (x64)/reaper.exe"
         Type=Application
         StartupNotify=true
         Path=/home/kirill/.wine/drive_c/ProgramData/Microsoft/Windows/Start Menu/Programs/REAPER (x64)
@@ -271,72 +276,5 @@ in
       ln -sf "${pkgs.reaper-sws-extension}/UserPlugins/reaper_sws-x86_64.so" "$TARGET_DIR/"
     '';
   };
-
-  # поддержка визуальной темы
-  # home.file.".local/share/applications/timeshift-gtk.desktop".text = ''
-  #   [Desktop Entry]
-  #   Name=Timeshift
-  #   Comment=System restore utility
-  #   Exec=sh -c "run0 --setenv=DISPLAY=$DISPLAY --setenv=XAUTHORITY=$XAUTHORITY --setenv=WAYLAND_DISPLAY=$WAYLAND_DISPLAY --setenv=XDG_RUNTIME_DIR=/run/user/$(id -u) timeshift-gtk"
-  #   Icon=timeshift
-  #   GenericName[ru_RU]=Программа для восстановления системы
-  #   GenericName=System Restore Utility
-  #   Keywords=backup;btrfs;rsync;
-  #   Terminal=false
-  #   Type=Application
-  #   Categories=System;
-  # '';
-
-  # меняю иконку.
-  # xdg.dataFile."applications/AmneziaVPN.desktop".text = ''
-  #       [Desktop Entry]
-  #       Type=Application
-  #       Name=AmneziaVPN
-  #       Version=1.0
-  #       Comment=Client of your self-hosted VPN
-  #       Exec=AmneziaVPN
-  #       Icon=AmneziaVPN
-  #       Categories=Network;Qt;Security;
-  #       Terminal=false
-  #     '';
-
-  # xdg.dataFile."applications/org.kde.kbackup.desktop".text = ''
-  #       [Desktop Entry]
-  #       Type=Application
-  #       Exec=kbackup %f
-  #       Icon=org.gnome.World.PikaBackup
-  #       X-DocPath=kbackup/index.html
-  #       MimeType=text/x-kbp;
-  #       Categories=Qt;KDE;Utility;Archiving;
-  #       Keywords=backup;archiving;
-  #       Name=KBackup
-  #       GenericName=Backup Program
-  #       Comment=Backup your data with an easy to use user interface
-  #   '';
   
-  # xdg.dataFile."applications/alarm-clock-applet.desktop".text = ''
-  #    [Desktop Entry]
-  #    Name=Alarm Clock
-  #    Comment=Wake up in the morning
-  #    Icon=time-admin
-  #    Exec=alarm-clock-applet
-  #    Terminal=false
-  #    Type=Application
-  #    Categories=GNOME;GTK;Utility;
-  #    X-Ubuntu-Gettext-Domain=alarm-clock
-  #   '';
-
-  # запуск через kitty
-  # home.file.".local/share/applications/micro.desktop".text = ''
-  #   [Desktop Entry]
-  #   Type=Application
-  #   Name=Micro
-  #   Comment=Micro text editor with terminal and colors
-  #   Exec=kitty -e sh -c "export TERM=xterm-256color; export COLORTERM=truecolor; micro %F"
-  #   Icon=text-editor
-  #   Terminal=false
-  #   MimeType=text/plain;
-  #   Categories=TextEditor;Utility;
-  # '';
-
 }

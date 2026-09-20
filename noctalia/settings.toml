@@ -9,12 +9,12 @@ order = [ "my_noctalia" ]
     [bar.my_noctalia]
     background_opacity = 0.29999999329447746
     border = "primary"
-    border_width = 0
+    border_width = 2.0
     capsule_fill = "on_primary"
     capsule_foreground = "primary"
     capsule_opacity = 0.29999999329447746
-    center = []
-    concave_edge_corners = true
+    center = [ "cpu", "temp", "network_rx", "network_tx", "ram" ]
+    concave_edge_corners = false
     end = [
         "media",
         "tray",
@@ -35,10 +35,10 @@ order = [ "my_noctalia" ]
     ]
     font_family = "Maple Mono NF"
     font_weight = 700
-    margin_ends = 0
+    margin_ends = 20
     position = "bottom"
-    radius_bottom_left = 0
-    radius_bottom_right = 0
+    radius_bottom_left = 12
+    radius_bottom_right = 12
     scale = 1.1499999999999999
     shadow = false
     start = [
@@ -141,8 +141,8 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 196.0
     box_width = 810.0
-    cx = 960.0
-    cy = 702.0
+    cx = 960.00006103515625
+    cy = 701.99993896484375
     output = "eDP-1"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -168,7 +168,7 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
     box_height = 544.0
     box_width = 800.0
-    cx = 960.0
+    cx = 960.00006103515625
     cy = 428.0
     output = "eDP-1"
     placement_height = 1080.0
@@ -180,8 +180,13 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
         background = false
 
 [notification]
+background_opacity = 0.29999999329447746
 filter_order = [ "filter" ]
 layer = "overlay"
+position = "bottom_right"
+
+[osd]
+background_opacity = 0.29999999329447746
 position = "bottom_right"
 
 [plugin_settings."noctalia/timer"]
@@ -208,7 +213,7 @@ enabled = [ "yuuto/calculator", "oldirtty/color_picker" ]
 [shell]
 app_icon_color = "#FFFFFF"
 app_icon_colorize = true
-font_family = "Maple Mono NF"
+font_family = "Comfortaa Medium"
 panel_anchor_bar = "my_noctalia"
 polkit_agent = true
 popup_shadows = false
@@ -319,8 +324,20 @@ enabled = false
 show_label = false
 vpn_status = "both"
 
+[widget.network_rx]
+stat = "gpu_usage"
+
+[widget.network_tx]
+stat = "gpu_temp"
+
+[widget.ram]
+enabled = false
+
 [widget.spacer_1]
 type = "spacer"
+
+[widget.sysmon]
+stat = "cpu_freq"
 
 [widget.tray]
 hide_passive = false
