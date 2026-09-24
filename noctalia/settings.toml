@@ -13,7 +13,7 @@ order = [ "my_noctalia" ]
     capsule_fill = "on_primary"
     capsule_foreground = "primary"
     capsule_opacity = 0.29999999329447746
-    center = [ "cpu", "temp", "network_rx", "network_tx", "ram" ]
+    center = [ "cpu", "temp", "sysmon", "network_rx", "network_tx", "ram" ]
     concave_edge_corners = false
     end = [
         "media",
@@ -106,17 +106,25 @@ shadow = false
 show_dots = true
 
 [idle]
-behavior_order = [ "screen-off", "lock", "suspend" ]
+behavior_order = [ "idle", "idle-behavior", "lock", "suspend" ]
+
+    [idle.behavior.idle]
+    action = "command"
+    command = "mmsg dispatch sleep_monitor,eDP-1"
+    enabled = false
+    resume_command = "mmsg dispatch wakeup_monitor,eDP-1"
+    timeout = 15.0
+
+    [idle.behavior.idle-behavior]
+    action = "screen_off"
+    enabled = true
+    locked_timeout = 30.0
+    timeout = 300.0
 
     [idle.behavior.lock]
     action = "lock"
     enabled = true
     timeout = 360.0
-
-    [idle.behavior.screen-off]
-    action = "screen_off"
-    enabled = true
-    timeout = 300.0
 
     [idle.behavior.suspend]
     action = "suspend"
@@ -126,7 +134,6 @@ behavior_order = [ "screen-off", "lock", "suspend" ]
 
 [lockscreen]
 fingerprint = false
-lock_before_suspend = false
 
 [lockscreen_widgets]
 enabled = true
@@ -141,7 +148,7 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 196.0
     box_width = 810.0
-    cx = 960.00006103515625
+    cx = 960.00018310546875
     cy = 701.99993896484375
     output = "eDP-1"
     placement_height = 1080.0
@@ -168,7 +175,7 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
     box_height = 544.0
     box_width = 800.0
-    cx = 960.00006103515625
+    cx = 960.00018310546875
     cy = 428.0
     output = "eDP-1"
     placement_height = 1080.0
@@ -213,6 +220,7 @@ enabled = [ "yuuto/calculator", "oldirtty/color_picker" ]
 [shell]
 app_icon_color = "#FFFFFF"
 app_icon_colorize = true
+button_borders = false
 font_family = "Comfortaa Medium"
 panel_anchor_bar = "my_noctalia"
 polkit_agent = true
@@ -242,7 +250,7 @@ wallpaper_scheme = "m3-content"
 
     [theme.templates]
     builtin_ids = [ "btop", "foot", "gtk3", "gtk4", "kitty", "mango", "qt" ]
-    community_ids = [ "telegram", "yazi" ]
+    community_ids = [ "fzf", "yazi" ]
 
 [wallpaper]
 directory = "/home/kirill/Downloads/wallpapers"
@@ -337,7 +345,9 @@ enabled = false
 type = "spacer"
 
 [widget.sysmon]
+enabled = false
 stat = "cpu_freq"
+visualization = "graph"
 
 [widget.tray]
 hide_passive = false

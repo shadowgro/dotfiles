@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, ... }:
+{ pkgs, ... }:
 
 {
   imports =
@@ -6,16 +6,20 @@
       ./hardware-configuration.nix
       ./modules/audio-specialisation.nix
       ./modules/timeshift.nix
+      ./modules/file-managers.nix
       # ./modules/idle-lock.nix
     ];
 
   # Bootloader.
   # boot.extraModulePackages = with config.boot.kernelPackages; [ ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot = {
+    enable = true;
+    consoleMode = "max";
+  };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.blacklistedKernelModules = [ "nouveau" ];
-  boot.supportedFilesystems = [ "ntfs" ];
+  # boot.supportedFilesystems = [ "ntfs" ];
 
   networking.hostName = "nixos-btw"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -27,7 +31,7 @@
   # flakes ON
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  services.thermald.enable = true; # prevents overheating on Intel CPUs 
+  services.thermald.enable = true; # prevents overheating on Intel CPUs
   # services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
   services.logind.settings.Login = {
@@ -35,22 +39,22 @@
     HandleLidSwitchExternalPower = "ignore";
     HandleLidSwitchDocked = "ignore";
   };
-  
+
   services.tlp = {
     enable = true;
     pd.enable = true;
     settings = {
-  #     CPU_SCALING_GOVERNOR_ON_AC = "performance";
-  #     CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-  # 
-  #     CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-  #     CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-  # 
-  #     CPU_MIN_PERF_ON_AC = 0;
-  #     CPU_MAX_PERF_ON_AC = 100;
-  #     CPU_MIN_PERF_ON_BAT = 0;
-  #     CPU_MAX_PERF_ON_BAT = 20;
-  
+      # CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      # CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+
+      # CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      # CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+
+      # CPU_MIN_PERF_ON_AC = 0;
+      # CPU_MAX_PERF_ON_AC = 100;
+      # CPU_MIN_PERF_ON_BAT = 0;
+      # CPU_MAX_PERF_ON_BAT = 20;
+
       # Optional helps save long term battery health
       START_CHARGE_THRESH_BAT1 = 0; # 40 and below it starts to charge
       STOP_CHARGE_THRESH_BAT1 = 80;  # 80 and above it stops charging
@@ -87,6 +91,15 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+
+  # xdg.portal = {
+  #   enable = true;
+  #   extraPortals = [
+  #     pkgs.kdePackages.xdg-desktop-portal-kde
+  #     pkgs.xdg-desktop-portal-wlr
+  #   ];
+  #   config.common.default = [ "kde" ];
+  # };
 
   # services.xserver.libinput.enable = true; # Enable touchpad support (enabled default in most desktopManager).
 
@@ -145,29 +158,23 @@
     nixfu = "cd ~/.dotfiles/nixos && nix flake update";
   };
 
-  # for timeshift
-  security.run0.enable = true;
-
   # Enable programs
   programs.firefox.enable = true;
   programs.amnezia-vpn.enable = true;
   programs.niri.enable = true;
   programs.mango.enable = true;
-  # services.cron.enable = true;
-  
-  # programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ]; # Packages providing GDK-Pixbuf modules, for cache generation
 
   # for filemanager
-  services.gvfs.enable = true; # Mount, trash, and other functionalities
-  services.tumbler.enable = true; # Thumbnail support for images
-  services.udisks2.enable = true; # for auto-mount and other stuff
+  # services.gvfs.enable = true; # Mount, trash, and other functionalities
+  # services.tumbler.enable = true; # Thumbnail support for images
+  # services.udisks2.enable = true; # for auto-mount and other stuff
   # programs.dconf.enable = true; # for gtk apps
   # programs.thunar.enable = true;
-  programs.xfconf.enable = true;
-  programs.thunar.plugins = with pkgs; [
-    thunar-archive-plugin # Requires an Archive manager like file-roller, ark, etc
-    thunar-volman
-  ];
+  # programs.xfconf.enable = true; # for thunar
+  # programs.thunar.plugins = with pkgs; [
+  #   thunar-archive-plugin # Requires an Archive manager like file-roller, ark, etc
+  #   thunar-volman
+  # ];
 
   # zsh
   users.defaultUserShell = pkgs.zsh;
@@ -176,7 +183,7 @@
     enable = true;
     enableCompletion = true;
     autosuggestions.enable = true;
-    syntaxHighlighting = { 
+    syntaxHighlighting = {
       enable = true;
       styles = {
         path = "fg=default";
@@ -199,93 +206,108 @@
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
 
-  # Audio
-  reaper
-  reaper-sws-extension
-  reaper-reapack-extension
-  qpwgraph            # Visual patchbay for PipeWire
-  pwvucontrol         # Modern native PipeWire volume control
-  pavucontrol         # Fallback for Pro Audio profile selection
-  # easyeffects         # System-wide real-time EQ and effects
-  wineWow64Packages.stable
-  winetricks
-  yabridge
-  yabridgectl
+    # Audio
+    reaper
+    reaper-sws-extension
+    reaper-reapack-extension
+    qpwgraph            # Visual patchbay for PipeWire
+    pwvucontrol         # Modern native PipeWire volume control
+    pavucontrol         # Fallback for Pro Audio profile selection
+    # easyeffects         # System-wide real-time EQ and effects
+    wineWow64Packages.stable
+    winetricks
+    yabridge
+    yabridgectl
 
-  # Programs
-  timeshift
-  keepassxc
-  amnezia-vpn
-  alarm-clock-applet
-  kdePackages.ark
-  kdePackages.kbackup
-  libreoffice-qt
-  qbittorrent
-  vlc
+    # Programs
+    # timeshift
+    keepassxc
+    amnezia-vpn
+    alarm-clock-applet
+    # kdePackages.ark
+    # kdePackages.kbackup
+    # libreoffice-qt
+    qbittorrent
+    vlc
+    inkscape
+    zed-editor
 
-  (pkgs.symlinkJoin {
-    name = "zen-beta-nvidia";
-    paths = [
-      inputs.zen-browser.packages.${stdenv.hostPlatform.system}.beta
-      (pkgs.writeShellScriptBin "zen-beta" ''
-        exec /run/current-system/sw/bin/nvidia-offload \
-          ${inputs.zen-browser.packages.${stdenv.hostPlatform.system}.beta}/bin/zen-beta "$@"
-      '')
-    ];
-  })
-  # inputs.zen-browser.packages.${stdenv.hostPlatform.system}.beta
-  tor-browser
-  
-  yandex-disk
-  joplin-desktop
-  telegram-desktop
+    # inputs.zen-browser.packages.${stdenv.hostPlatform.system}.beta
+    tor-browser
 
-  # Utils
-  kitty
-  micro
-  pcmanfm-qt
-  thunar
-  # inputs.hyprfm.packages.${stdenv.hostPlatform.system}.default
-  fzf
-  yazi
-  btop
-  bat
-  fastfetch
-  git
-  # hashdeep
-  hyprpicker
-  ntfs3g
-  # foot
-  rar
-  unrar
-  tlp-pd
-  power-profiles-daemon
+    yandex-disk
+    # joplin-desktop
+    telegram-desktop
 
-  # Dependencies
-  # lxmenu-data # for pcmanfm
-  # shared-mime-info # for pcmanfm
-  ffmpegthumbnailer # for pcmanfm
-  gvfs
-  wl-clipboard # for micro
-  kdePackages.plasma-integration # for qt apps
-  # xauth
-  # glib
+    # Utils
+    # kitty
+    # foot
+    # micro
+    # pcmanfm-qt
+    # kdePackages.dolphin
+    # thunar
+    # inputs.hyprfm.packages.${stdenv.hostPlatform.system}.default
+    # nautilus
+    # nemo
+    # yazi
+    # fzf
+    # btop
+    # bat
+    # fastfetch
+    # git
+    # hashdeep
+    hyprpicker
+    # ntfs3g
+    # rar
+    # unrar
+    # file-roller
+    # xarchiver
+    tlp-pd
+    power-profiles-daemon
 
-  # Environment
-  orchis-theme
-  noctalia
+    # Dependencies
+    # lxmenu-data # for pcmanfm
+    # shared-mime-info # for pcmanfm
+    # ffmpegthumbnailer # for pcmanfm
+    # gvfs
+    # wl-clipboard # for micro
+    # xclip # for wine
+    # kdePackages.plasma-integration # for qt apps
+    # xauth
+    # glib
+    nil # for zed
+    nixd # for zed
+    # lxqt.pcmanfm-qt
+    # lxqt.libfm-qt
+    # lxqt.lxqt-menu-data
+
+    # Environment
+    orchis-theme
+    noctalia
   ];
 
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "kde";
     QT_STYLE_OVERRIDE = "kvantum";
   };
-  
-  environment.etc = {
-    "timeshift/timeshift.json".source = "/home/kirill/.dotfiles/timeshift/timeshift.json";
-    "/var/lib/noctalia-greeter/blurred-image.png".source = "/home/kirill/Downloads/wallpapers/blurred-image.png";
-  };
-  
+
+  # nixpkgs.overlays = [
+  #   (final: prev: {
+  #     lxqt = prev.lxqt // {
+  #       pcmanfm-qt = prev.lxqt.pcmanfm-qt.overrideAttrs (old: {
+  #         patches = (old.patches or []) ++ [
+  #           ./patches/pcmanfm-qt-hide-toolbar-actions.patch
+  #         ];
+  #       });
+  #     };
+  #   })
+  # ];
+
+  # environment.etc = {
+  #   "timeshift/timeshift.json".source = "/home/kirill/.dotfiles/timeshift/timeshift.json";
+  #   "xdg/menus/applications.menu".source = "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
+  # };
+
   fonts.packages = with pkgs; [
     maple-mono.NF
     comfortaa
@@ -297,8 +319,7 @@
     # nerd-fonts.jetbrains-mono
   ];
 
-  # Настраиваем home-manager для пользователя root
-  home-manager.users.root = { config, pkgs, ... }: {
+  home-manager.users.root = { pkgs, ... }: {
     home.stateVersion = "26.05";
     gtk = {
       enable = true;
@@ -308,8 +329,8 @@
       };
     };
   };
-  
-  system.activationScripts.copyGtkConfigForRoot = {
+
+  system.activationScripts.copyConfigsForRoot = {
     text = ''
       mkdir -p /root/.config
       if [ -d /home/kirill/.config/gtk-3.0 ]; then
@@ -318,6 +339,12 @@
       if [ -d /home/kirill/.config/micro ]; then
         cp -r /home/kirill/.config/micro /root/.config/
       fi
+      if [ -f /home/kirill/.p10k.zsh ]; then
+        cp /home/kirill/.p10k.zsh /root/
+      fi
+      cat > /root/.zshrc <<'EOF'
+      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+      EOF
     '';
     deps = [];
   };
@@ -373,4 +400,3 @@
   system.stateVersion = "26.05"; # Did you read the comment?
 
 }
-

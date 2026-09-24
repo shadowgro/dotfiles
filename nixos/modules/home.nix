@@ -1,73 +1,92 @@
 { config, pkgs, lib, inputs, ... }:
 
 let
-  orchis-kde = pkgs.fetchFromGitHub {
-    owner = "vinceliuice";
-    repo = "Orchis-kde";
-    rev = "main";
-    hash = "sha256-mO1AVrnXNdg3Rftj0cQWef/RrBgSDy5kaMHagwKywEo=";
-  };
-  
-  monochrome-icon-set = pkgs.fetchFromBitbucket {
-    owner = "dirn-typo";
-    repo = "yet-another-monochrome-icon-set";
-    rev = "main";
-    hash = "sha256-7CN5G8nYZM9qxFMRyWDIlJC0SjN7SnLQ5RUVaP1y0hc=";
-  };
+  # orchis-kde = pkgs.fetchFromGitHub {
+  #   owner = "vinceliuice";
+  #   repo = "Orchis-kde";
+  #   rev = "main";
+  #   hash = "sha256-mO1AVrnXNdg3Rftj0cQWef/RrBgSDy5kaMHagwKywEo=";
+  # };
+
+  # monochrome-icon-set = pkgs.fetchFromBitbucket {
+  #   owner = "dirn-typo";
+  #   repo = "yet-another-monochrome-icon-set";
+  #   rev = "main";
+  #   hash = "sha256-+9nRIn1xfjSCuf3E18IeCX/nPSvaQNQynjT/OCKHosM=";
+  # };
 
   mkDotfileSymlink = path:
     config.lib.file.mkOutOfStoreSymlink
       "${config.home.homeDirectory}/.dotfiles/${path}";
-   
+
 in
 
 {
-  
+
   home.username = "kirill";
   home.homeDirectory = "/home/kirill";
 
   home.stateVersion = "26.05";
 
-#   imports = [
-#     inputs.mango.hmModules.mango
-#   ];
+  imports = [
+    ./joplin.nix
+    ./clip-bridge.nix
+    ./micro.nix
+    ./terminals.nix
+  ];
 
-  home.sessionVariables = {
-    # EDITOR = "emacs";
-  };
+  # home.sessionVariables = {
+  #   EDITOR = "zed-editor";
+  # };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  programs.kitty = {
-  	enable = true;
-  	settings = {
-  		cursor_trail = 1;
-  		cursor_trail_decay = "0.1 0.4";
-  		cursor_trail_start_threshold = 2;
-  		background_opacity = "0.3";
-  		font_family = "Maple Mono NF";
-  		font_size = "14.0";
-  		scrollback_lines = 10000;
-  		enable_audio_bell = false;
-  		include = "themes/noctalia.conf";
-  		confirm_os_window_close = 0;
-  	};
-  };
+  # programs.kitty = {
+  # 	enable = true;
+  # 	package = pkgs.symlinkJoin {
+  # 	    name = "kitty-nvidia";
+  # 	    paths = [ pkgs.kitty ];
 
-  programs.micro = {
-  	enable = true;
-  	settings = {
-  		colorscheme = "simple";
-  		history = 100;
-  		hlsearch = true;
-  		savecursor = true;
-  		savehistory = true;
-  		scrollspeed = 3;
-  		softwrap = true;
-  		wordwrap = true;
-  	};
-  };
+  # 	    nativeBuildInputs = [ pkgs.makeWrapper ];
+
+  # 	    postBuild = ''
+  # 	      mv "$out/bin/kitty" "$out/bin/kitty-real"
+
+  # 	      makeWrapper "$out/bin/kitty-real" "$out/bin/kitty" \
+  # 	        --set __NV_PRIME_RENDER_OFFLOAD 1 \
+  # 	        --set __NV_PRIME_RENDER_OFFLOAD_PROVIDER NVIDIA-G0 \
+  # 	        --set __GLX_VENDOR_LIBRARY_NAME nvidia \
+  # 	        --set __VK_LAYER_NV_optimus NVIDIA_only
+  # 	    '';
+  # 	  };
+  # 	settings = {
+  # 		cursor_trail = 1;
+  # 		cursor_trail_decay = "0.1 0.4";
+  # 		cursor_trail_start_threshold = 2;
+  # 		background_opacity = "0.3";
+  # 		font_family = "Maple Mono NF";
+  # 		font_size = "14.0";
+  # 		scrollback_lines = 10000;
+  # 		enable_audio_bell = false;
+  # 		include = "themes/noctalia.conf";
+  # 		confirm_os_window_close = 0;
+  # 	};
+  # };
+
+  # programs.foot = {
+  #   enable = true;
+  #   settings = {
+  #     main = {
+  #       include = "~/.config/foot/themes/noctalia";
+  #       font = "Maple Mono NF:size=14";
+  #     };
+  #     colors-dark = {
+  #       alpha = "0.3";
+  #       background = "2C2C2C";
+  #     };
+  #   };
+  # };
 
   gtk = {
     enable = true;
@@ -90,8 +109,8 @@ in
     };
   };
 
-  
-  # home.sessionVariables = { 
+
+  # home.sessionVariables = {
     # QT_STYLE_OVERRIDE = "kvantum";
     # XDG_DATA_DIRS = "${monochrome-icons}/share:${config.home.profileDirectory}/share:$XDG_DATA_DIRS";
   #   QS_ICON_THEME = "yet-another-monochrome-icon-set";
@@ -113,6 +132,20 @@ in
     kdePackages.qtstyleplugin-kvantum
     libsForQt5.qtstyleplugin-kvantum
 
+    (pkgs.symlinkJoin {
+        name = "zen-beta-nvidia";
+        paths = [ inputs.zen-browser.packages.${stdenv.hostPlatform.system}.beta ];
+        postBuild = ''
+          rm "$out/bin/zen-beta"
+          cat > "$out/bin/zen-beta" <<'EOF'
+      #!/bin/sh
+      exec /run/current-system/sw/bin/nvidia-offload \
+        ${inputs.zen-browser.packages.${stdenv.hostPlatform.system}.beta}/bin/zen-beta "$@"
+      EOF
+          chmod +x "$out/bin/zen-beta"
+        '';
+      })
+
     # (pkgs.symlinkJoin {
     #   name = "reaper-nvidia";
     #   paths = [
@@ -120,14 +153,14 @@ in
     #     (pkgs.writeShellScriptBin "reaper" ''
     #       export LD_LIBRARY_PATH="${lib.makeLibraryPath [ pkgs.gtk3 ]}:''${LD_LIBRARY_PATH:-}"
     #       export XDG_DATA_DIRS="${pkgs.gtk3}/share:${pkgs.gnome-themes-extra}/share:${pkgs.adwaita-icon-theme}/share:''${XDG_DATA_DIRS:-}"
-    # 
+    #
     #       exec /run/current-system/sw/bin/nvidia-offload \
     #         ${pkgs.reaper}/bin/reaper "$@"
     #     '')
     #   ];
     # })
-    
-    
+
+
     # (pkgs.symlinkJoin {
     #   name = "reaper-with-gtk";
     #   paths = [ pkgs.reaper ];
@@ -149,12 +182,11 @@ in
     #       --set GDK_BACKEND x11
     #   '';
     # })
-    
+
   ];
 
   home.file = {
     ".config/mango/config.conf".source = mkDotfileSymlink "mango/config.conf";
-    ".config/micro/bindings.json".source = mkDotfileSymlink "micro/bindings.json";
     ".local/state/noctalia/settings.toml".source = mkDotfileSymlink "noctalia/settings.toml";
     ".config/noctalia/palettes".source = mkDotfileSymlink "noctalia/palettes";
     ".p10k.zsh".source = mkDotfileSymlink "zsh/zsh-powerlevel10k/.p10k.zsh";
@@ -165,35 +197,52 @@ in
     ".config/Kvantum/OrchisDark".source = mkDotfileSymlink "themes/Orchis/Kvantum";
     ".local/share/icons/yet-another-monochrome-icon-set".source = mkDotfileSymlink "icons/yet-another-monochrome-icon-set";
     ".config/fastfetch".source = mkDotfileSymlink "fastfetch";
-      
+
     ".config/gtk-3.0/gtk.css".text = ''
         @import 'colors.css';
         @import url("noctalia.css");
-        .thunar { background-color: rgba(44, 44, 44, 0.3); }
         .thunar * { background-color: transparent; }
-        .thunar .popup { background-color: rgba(44, 44, 44, 1.0); }
+        # .thunar { background-color: rgba(44, 44, 44, 0.3); }
+        # .thunar .popup { background-color: rgba(44, 44, 44, 1.0); }
         window { background-color: rgba(44, 44, 44, 0.3); }
+        menu { background-color: rgba(44, 44, 44, 1); }
+        .menubar { background-color: rgba(44, 44, 44, 1); }
+        tooltip { background-color: rgba(44, 44, 44, 1); }
+        popover.background { background-color: rgba(44, 44, 44, 1); }
+        # menu menuitem:hover { background-color: rgba(44, 44, 44, 1); }
+        dialog { background-color: rgba(44, 44, 44, 0.3); }
+        .titlebar { background-color: rgba(44, 44, 44, 0.3); }
+        menubar { background-color: transparent }
+        .sidebar { background-color: transparent; }
         treeview { background-color: transparent; }
         toolbar { background-color: transparent; }
         button { background-color: transparent; }
         messagedialog { background-color: transparent; }
         box { background-color: transparent; }
         notebook { background-color: transparent; }
-        .tiled *  { background-color: transparent; }
+        # .tiled * { background-color: transparent; }
         columnview { background-color: transparent; }
+        headerbar { background-color: transparent; }
+        frame { background-color: transparent; }
       '';
-      
+
     ".config/gtk-4.0/gtk.css".text = ''
         @import 'colors.css';
         @import url("noctalia.css");
         window { background-color: rgba(44, 44, 44, 0.3); }
+        .content-pane { background-color: transparent }
+        .sidebar-pane { background-color: transparent }
+        dialog { background-color: rgba(44, 44, 44, 0.3); }
+        .titlebar { background-color: transparent; }
+        .sidebar { background-color: transparent; }
         treeview { background-color: transparent; }
         toolbar { background-color: transparent; }
-        button { background-color: transparent; }
         messagedialog { background-color: transparent; }
-        box { background-color: transparent; }
         notebook { background-color: transparent; }
         columnview { background-color: transparent; }
+        headerbar { background-color: transparent; }
+        frame { background-color: transparent; }
+        banner * { background-color: transparent; }
       '';
 
     # wine-reaper
@@ -207,7 +256,7 @@ in
         Icon=cockos-reaper
         StartupWMClass=reaper.exe
       '';
-    
+
     # поддержка визуальной темы
     ".local/share/applications/timeshift-gtk.desktop".text = ''
         [Desktop Entry]
@@ -222,21 +271,7 @@ in
         Type=Application
         Categories=System;
       '';
-      
-    # временный joplin
-    ".local/share/applications/joplin.desktop".text = ''
-        [Desktop Entry]
-        Categories=Office
-        Comment=Joplin for Desktop
-        Exec=/home/kirill/joplin-test.sh
-        Icon=joplin
-        MimeType=x-scheme-handler/joplin
-        Name=Joplin
-        StartupWMClass=joplin-app-desktop
-        Type=Application
-        Version=1.5
-      '';
-    
+
     # меняю иконку.
     ".local/share/applications/AmneziaVPN.desktop".text = ''
         [Desktop Entry]
@@ -276,5 +311,5 @@ in
       ln -sf "${pkgs.reaper-sws-extension}/UserPlugins/reaper_sws-x86_64.so" "$TARGET_DIR/"
     '';
   };
-  
+
 }

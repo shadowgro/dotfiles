@@ -99,7 +99,6 @@ in {
           ;;
   
         *open*)
-          sleep 2
           ${mmsgBin} dispatch wakeup_monitor,eDP-1
           ;;
       esac

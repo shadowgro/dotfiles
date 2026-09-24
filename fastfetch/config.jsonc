@@ -20,7 +20,7 @@
     { "type": "de",           "key": "{#white}{#blue} DE" },
     { "type": "terminal",     "key": "{#white}{#blue} Terminal" },
     { "type": "shell",        "key": "{#white}{#blue} Shell" },
-    { "type": "packages",     "key": "{#white}{#blue}󰏖 Packages",     "format": "{all}" },
+    // { "type": "packages",     "key": "{#white}{#blue}󰏖 Packages",     "format": "{all}" },
     { "type": "wmtheme",      "key": "{#white}{#blue}󰉼 WM theme" },
     { "type": "terminalfont", "key": "{#white}{#blue} Font" },
     { "type": "colors",       "key": "{#white}{#blue}󰸌 Palette",      "symbol": "square" },
