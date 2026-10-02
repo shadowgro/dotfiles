@@ -5,8 +5,8 @@ LOCKFILE="/tmp/noctalia-mango-toggle.lock"
 exec 9>"$LOCKFILE"
 flock -n 9 || exit 0
 
-NOCTALIA="$HOME/.dotfiles/noctalia/settings.toml"
-MANGO="$HOME/.dotfiles/mango/config.conf"
+NOCTALIA="$HOME/.dotfiles/modules/noctalia/settings.toml"
+MANGO="$HOME/.dotfiles/modules/mango/config.conf"
 
 if grep -qE '^ *border_width *= *0(\.0)?$' "$NOCTALIA"; then
 

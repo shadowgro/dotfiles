@@ -1,5 +1,5 @@
-reaper_config/REAPER/ReaPack/cache/
-reaper_config/REAPER/UserPlugins/
-reaper_config/REAPER/ColorThemes/Default_*.ReaperThemeZip
+modules/reaper/REAPER/ReaPack/cache/
+modules/reaper/REAPER/UserPlugins/
+modules/reaper/REAPER/ColorThemes/Default_*.ReaperThemeZip
 
-pcmanfm-qt/settings.conf #он его все время обновляет
+modules/pcmanfm-qt/settings.conf #он его все время обновляет

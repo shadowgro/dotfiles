@@ -1,0 +1,1920 @@
+; ♣ ********* ♣ MAGIC CLOVER ♣ ********* ♣
+
+
+
+; *********GENERAL*********
+
+
+
+version 7.0
+use_pngs 1
+use_overlays 0
+tcp_showborders 0
+mcp_showborders 0
+transport_showborders 0
+
+tinttcp 1834
+peaksedges 0
+
+tcp_vupeakwidth 1
+mcp_vupeakheight 1
+mcp_mastervupeakheight 2
+no_meter_reclbl 1
+
+tcp_heights 7 22 38 54
+tcp_master_minheight 54
+envcp_min_height 16
+mcp_min_height 204
+
+tcp_voltext_flags 1
+tcp_master_voltext_flags 1
+mcp_voltext_flags 1
+mcp_master_voltext_flags 1
+
+item_volknobfg 000000 b4b4b4 000000
+tcp_vol_zeroline ff878787
+tcp_pan_zeroline ff878787
+mcp_vol_zeroline ff878787
+mcp_pan_zeroline ff878787
+trans_speed_zeroline ff878787
+
+warnings all
+
+
+
+; *********COLOR MACROS*********
+
+
+
+set labelcolor [243 243 243 252]
+set labelcoloralt [207 207 207 252]
+set labelcolordim [180 180 180 252]
+
+set mrc ?recarm [171 171 171 252 252 252 252 252] [171 171 171 225 252 252 252 252]
+set mscut ?recarm [252 135 135 198] [90 90 90 198]
+set mscub ?recarm [252 135 135 153] [90 90 90 99]
+set msclt [243 243 243 216 18 18 18 216]
+set msclb [153 153 153 180 18 18 18 180]
+
+set mmrc [171 171 171 252 252 252 252 252]
+set mmscut [90 90 90 252]
+set mmscub [90 90 90 225]
+set mmsclt [243 243 243 243 9 18 27 243]
+set mmsclb [153 153 153 225 9 18 27 225]
+
+set custom_col [trackcolor_r trackcolor_g trackcolor_b]
+set luma + + * 0.299 [trackcolor_r] * 0.587 [trackcolor_g] * 0.114 [trackcolor_b]
+set swapLuma 130
+set pushLuma 90
+
+macro colorsmart element
+set element ?trackcolor_valid + custom_col luma{0}<swapLuma{0} luma{0}<pushLuma{0} [180 180 180] [108 108 108] [-180 -180 -180] labelcoloralt
+endmacro
+
+macro colorsmartlabel element
+set element ?track_selected labelcolor ?trackcolor_valid + custom_col luma{0}<swapLuma{0} luma{0}<pushLuma{0} [117 117 117] [72 72 72] [18 18 18]
+endmacro
+
+
+
+; *********FONT SLOTS*********
+
+
+
+;Volume/pan label font = info bar below tpc + icons text
+;WALTER font 1 = track number
+;WALTER font 2 = rec input label + envelope label
+;WALTER font 3 = FX + parameters + sends list
+;WALTER font 4 = transport BPM + time signature
+;WALTER font 5 = transport time selection
+;WALTER font 6 = track name + play rate
+;WALTER font 7 = vol/pan/wid labels
+;WALTER font 8 = unused
+;WALTER font 9 = unused
+;WALTER font 10 = unused
+;WALTER font 11 = unused
+;WALTER font 12 = unused
+;WALTER font 13 = unused
+;WALTER font 14 = unused
+;WALTER font 15 = unused
+;WALTER font 16 = unused
+;Timeline font = arrange and midi rulers
+;Transport status font = transport time/beats/samples/frames
+;Media item label font = item labels
+
+
+
+; *********THEME ADJUSTER*********
+
+
+
+adjuster_script "Default_7.0_theme_adjuster.lua"
+
+define_parameter fake1 '' 0
+define_parameter fake2 '' 0
+define_parameter fake3 '***GENERAL***' 0
+define_parameter fake4 '' 0
+define_parameter fake5 'APPLY CUSTOM COLOR TO LABELS' 1
+define_parameter Labcolor 'On | Off' 1 0 1
+define_parameter fake6 '' 0
+define_parameter fake7 '' 0
+define_parameter fake8 '***TRACK CONTROL PANEL***' 0
+define_parameter fake9 '' 0
+define_parameter fake10 'ALWAYS SHOW RECORDING CONTROLS' 1
+define_parameter RecontrolTCP 'On | Off' 0 0 1
+define_parameter fake11 'VERTICALLY RESIZABLE METERS' 1
+define_parameter Metersize 'On | Off' 1 0 1
+define_parameter fake12 'VERTICALLY RESIZABLE VOLUME/PAN/WIDTH CONTROLS' 1
+define_parameter Volpanwid 'On | Off' 1 0 1
+define_parameter fake13 'ALIGN CONTROLS WHEN USING FOLDERS' 1
+define_parameter Alignment 'On | Off' 0 0 1
+define_parameter fake14 'GROUP SENDS TOGETHER WITH FX (both must be enabled)' 1
+define_parameter Groupsends 'On | Off' 0 0 1
+define_parameter fake15 'SHOW FX PARAMETERS IN FX LIST (for fx slots, leave it off)' 1
+define_parameter Parameters 'On | Off' 0 0 1
+define_parameter fake16 'FX LIST POSITION (when fx list is visible)' 1
+define_parameter FXlist '0:Bottom | 1:Left | 2:Center | 3:Right | 4:Reverse' 3 0 4
+define_parameter fake17 'FX LIST COLUMNS WIDTH (when fully populated)' 1
+define_parameter Column '1:Small | 2:Medium | 3:Large' 2 1 3
+define_parameter fake18 'SENDS LIST MAXIMUM COLUMNS (when fully populated)' 1
+define_parameter SendColumns '1 to 3' 2 1 3
+define_parameter fake19 'ALIGN TRACK NAME, RECORD INPUT, & ENVELOPE NAME' 1
+define_parameter Labalign '1:Left | 2:Center | 3:Right' 2 1 3
+define_parameter fake20 'FIXED LANES TOGGLE BUTTON (when size permits)' 1
+define_parameter Fixedlanes '0:Off | 1:Selected tracks only | 2:On' 1 0 2
+define_parameter fake21 'TCP MODE' 1
+define_parameter Minimal '1:Default | 2:Minimal | 3:Hybrid (by selection)' 1 1 3
+define_parameter fake22 '' 0
+define_parameter fake23 '' 0
+define_parameter fake24 '***MIXER CONTROL PANEL***' 0
+define_parameter fake25 '' 0
+define_parameter fake26 'ALWAYS SHOW RECORDING CONTROLS' 1
+define_parameter RecontrolMCP 'On | Off' 0 0 1
+define_parameter fake27 'SIDEBAR SIZE' 1
+define_parameter SidebarS '0:Off' 0 0 450
+define_parameter fake28 'DINAMIC SIDEBAR (only for selected tracks)' 1
+define_parameter Sidebar 'On | Off' 0 0 1
+define_parameter fake29 'FX RACK LAYOUT SIZE' 1
+define_parameter Racksize '' 50 0 450
+define_parameter fake30 '' 0
+define_parameter fake31 '' 0
+define_parameter fake32 '***MIXER MASTER***' 0
+define_parameter fake33 '' 0
+define_parameter fake34 'LAYOUT' 1
+define_parameter MLayout '1:Small | 2: Default | 3:Extra Large' 2 1 3
+define_parameter fake35 'SIDEBAR SIZE' 1
+define_parameter SidebarSM '0:Off' 0 0 450
+
+
+
+; ------------------------ CUSTOM CONTROLS ------------------------
+
+
+
+custom tcp.custom.lanes "" 42430 "Toggle fixed lanes for this track" custom_lanes
+custom tcp.custom.addlane "" 42647 "Add empty lane at bottom" custom_addlane
+custom tcp.custom.dellane "" 42648 "Delete lane at bottom of track (including media items)" custom_dellane
+custom trans.custom.adjuster "" 42234 "Show Theme Adjuster / Color controls" custom_adjuster
+custom tcp.custom.lastinfolder "" "0" "" "custom_lastinfolder"
+custom mcp.custom.lastinfolder "" "0" "" "custom_lastinfoldermcp"
+
+
+
+; *********GLOBAL LAYOUTS*********
+
+
+
+GlobalLayout "Untinted"
+
+
+
+; *********TCP*********
+
+
+
+; FOLDER ALIGNMENT
+tcp_folderindent 8
+def tcpindent 8
+def tcpind 4
+set tcpmaxind - * maxfolderdepth [tcpindent] * folderdepth [tcpindent]
+set tcpmaxind2 - * maxfolderdepth [tcpindent 0 -tcpind] * folderdepth [tcpindent 0 -tcpind]
+set tcpmaxind3 - * maxfolderdepth [tcpind 0 -tcpind] * folderdepth [tcpind 0 -tcpind]
+set tcpmaxind4 - * maxfolderdepth [0 0 tcpind] * folderdepth [0 0 tcpind]
+set tcpmaxind5 - * maxfolderdepth [tcpind] * folderdepth [tcpind]
+set tcpmaxind6 - * maxfolderdepth [-tcpind] * folderdepth [-tcpind]
+set tcpmaxind7 - * maxfolderdepth [0 0 -tcpind] * folderdepth [0 0 -tcpind]
+set tcpmaxind !Alignment [0]
+set tcpmaxind2 !Alignment - * maxfolderdepth [0 0 tcpind] * folderdepth [0 0 tcpind]
+set tcpmaxind3 !Alignment ?tcp_fxlist_enabled FXlist==1 Minimal==1 - * maxfolderdepth [0 0 -tcpind] * folderdepth [0 0 -tcpind]
+set tcpmaxind3 !Alignment ?tcp_fxlist_enabled FXlist==1 Minimal==3 ?track_selected - * maxfolderdepth [0 0 -tcpind] * folderdepth [0 0 -tcpind]
+set tcpmin * +:1:-1 maxfolderdepth folderdepth [0 0 tcpindent]
+set w_ind + + w * folderdepth [tcpindent] * maxfolderdepth [-tcpindent]
+
+; DEFAULT
+clear tcp.*
+front tcp.fxbyp tcp.folder tcp.foldercomp tcp.custom.lanes tcp.custom.addlane tcp.custom.dellane tcp.custom.lastinfolder
+set tcp.size + tcpmin [643 200 252 0]
+set tcp.custom.lanes h<85 [0] Fixedlanes==2 [628 3 11 9 1 0 1] Fixedlanes==1 ?track_selected [628 3 11 9 1 0 1] [0] ?trackfixedlanes ?track_selected [628 3 11 9 1 0 1]
+set tcp.custom.addlane h<85 [0] ?trackfixedlanes ?track_selected [628 17 11 9 1 0 1]
+set tcp.custom.dellane h<85 [0] ?trackfixedlanes ?track_selected [628 28 11 9 1 0 1]
+set tcp.volume.fadermode [1]
+set tcp.pan.fadermode [1]
+set tcp.width.fadermode [1]
+set tcp.meter.vu.div [1]
+set tcp.trackidx folderstate==1 h<28 [0] [624 93 19 15 1 0.5 1 0.5]  folderstate<0 h<28 [0] h<37 [624 4 19 15 1 0 1 0] [624 92 19 15 1 0.5 1 0.5] h<18 [0] h<37 [624 4 19 15 1 0 1 0] [624 92 19 15 1 0.5 1 0.5]
+set tcp.folder folderstate==1 h<28 [0] h<37 [628 190 11 9 1 1 1 1] [628 187 11 9 1 1 1 1] folderstate<0 h<18 [0] h<28 [628 95 11 9 1 0.5 1 0.5] [628 187 11 9 1 1 1 1] h<28 [0] [628 187 11 9 1 1 1 1] 
+set tcp.foldercomp h<18 [0] h<28 [628 94 11 10 1 0.5 1 0.5] h<37 [628 1 11 10 1 0 1 0] Fixedlanes==2 h<85 [628 4 11 10 1 0 1 0] [628 174 11 10 1 1 1 1] Fixedlanes==1 h<85 [628 4 11 10 1 0 1 0] ?track_selected [628 174 11 10 1 1 1 1] [628 4 11 10 1 0 1 0] h<85 [628 4 11 10 1 0 1 0] ?track_selected ?trackfixedlanes [628 174 11 10 1 1 1 1] [628 4 11 10 1 0 1 0] [628 4 11 10 1 0 1 0]
+set tcp.custom.lastinfolder folderstate<0 [-1 197 624 3 0 1 1 1]
+set tcp.recarm + tcpmaxind h<18 [0] [2 4 21 13]
+set tcp.recmon + tcpmaxind ?recarm h<18 [0] [22 4 21 13]
+set tcp.recmode + tcpmaxind ?recarm h<37 [0] [2 19 21 13]
+set tcp.fxin + tcpmaxind ?recarm h<37 [0] [22 19 21 13]
+set tcp.recinput + tcpmaxind2 ?recarm h<53 [0] [45 19 239 13 0 0 0.5]
+set tcp.label + tcpmaxind2 ?recarm h<18 [0] h<37 w_ind{x}<320 [45 3 228 15 0 0 0.5 0] w_ind{x}<386 [45 3 195 15 0 0 0.5 0] w_ind{x}<452 [45 3 162 15 0 0 0.5 0] [45 3 129 15 0 0 0.5 0] [45 3 239 15 0 0 0.5 0] h<18 [0] h<37 w_ind{x}<320 [25 3 248 15 0 0 0.5 0] w_ind{x}<386 [25 3 215 15 0 0 0.5 0] w_ind{x}<452 [25 3 182 15 0 0 0.5 0] [25 3 149 15 0 0 0.5 0] [25 3 259 15 0 0 0.5 0]
+set tcp.meter ?recarm h<18 [619 1 4 4 1 0 1 0] h<37 w_ind{x}<320 + tcpmaxind5 [277 8 5 5 0.5 0 0.5 0] w_ind{x}<386 + tcpmaxind5 [244 8 5 5 0.5 0 0.5 0] w_ind{x}<452 + tcpmaxind5 [211 8 5 5 0.5 0 0.5 0] + tcpmaxind5 [178 8 5 5 0.5 0 0.5 0] h<53 + tcpmaxind2 [57 20 226 11 0 0 0.5 0] + tcpmaxind2 [14 36 269 11 0 0 0.5 0] h<18 [619 1 4 4 1 0 1 0] h<37 w_ind{x}<320 + tcpmaxind5 [277 8 5 5 0.5 0 0.5 0] w_ind{x}<386 + tcpmaxind5 [244 8 5 5 0.5 0 0.5 0] w_ind{x}<452 + tcpmaxind5 [211 8 5 5 0.5 0 0.5 0] + tcpmaxind5 [178 8 5 5 0.5 0 0.5 0] + tcpmaxind2 [14 20 269 11 0 0 0.5 0]
+set tcp.phase + tcpmaxind ?recarm h<37 [0] h<53 [45 19 14 13] [2 35 14 13] h<37 [0] [2 19 14 13]
+set tcp.mute h<18 [0] [520 4 21 13 1 0 1 0]
+set tcp.solo h<18 [0] [540 4 21 13 1 0 1 0]
+set tcp.io h<18 [0] [560 4 21 13 1 0 1 0]
+set tcp.env h<18 [0] [580 4 21 13 1 0 1 0]
+set tcp.fx h<18 [0] [600 4 21 13 1 0 1 0]
+set tcp.fxbyp h<18 [0] [611 4 10 13 1 0 1 0]
+set tcp.volume h<18 [0] h<37 w_ind{x}<320 [0] w_ind{x}<386 + tcpmaxind5 [253 4 31 13 0.5 0 0.5 0] w_ind{x}<452 + tcpmaxind5 [220 4 31 13 0.5 0 0.5 0] + tcpmaxind5 [187 4 31 13 0.5 0 0.5 0] [520 19 31 13 1 0 1 0]
+set tcp.pan h<18 [0] h<37 w_ind{x}<386 [0] w_ind{x}<452 + tcpmaxind5 [253 4 31 13 0.5 0 0.5 0] + tcpmaxind5 [220 4 31 13 0.5 0 0.5 0] [555 19 31 13 1 0 1 0]
+set tcp.width h<18 [0] h<37 w_ind{x}<452 [0] + tcpmaxind5 [253 4 31 13 0.5 0 0.5 0] [590 19 31 13 1 0 1 0]
+set tcp.fxparm ?tcp_fxlist_enabled + tcpmaxind3 h<18 [0] [287 2 230 195 0.5 0 1 1]
+set tcp.fxparm.visflags !Groupsends [0 0 -1]
+set tcp.fxparm.visflags !Parameters [-1 0 -1]
+set tcp.fxparm.visflags ?Groupsends !Parameters [-1]
+set tcp.fxembed ?tcp_fxlist_enabled + tcpmaxind2 ?recarm h<69 [0] [2 50 282 153 0 0 0.5 1] h<53 [0] [2 35 282 168 0 0 0.5 1]
+
+; ALWAYS SHOW RECORDING CONTROLS
+set tcp.recmon ?RecontrolTCP + tcpmaxind h<18 [0] [22 4 21 13]
+set tcp.label ?RecontrolTCP + tcpmaxind2 h<18 [0] h<37 w_ind{x}<320 [45 3 228 15 0 0 0.5 0] w_ind{x}<386 [45 3 195 15 0 0 0.5 0] w_ind{x}<452 [45 3 162 15 0 0 0.5 0] [45 3 129 15 0 0 0.5 0] [45 3 239 15 0 0 0.5 0]
+set tcp.meter ?RecontrolTCP h<18 [619 1 4 4 1 0 1 0] h<37 w_ind{x}<320 + tcpmaxind5 [277 8 5 5 0.5 0 0.5 0] w_ind{x}<386 + tcpmaxind5 [244 8 5 5 0.5 0 0.5 0] w_ind{x}<452 + tcpmaxind5 [211 8 5 5 0.5 0 0.5 0] + tcpmaxind5 [178 8 5 5 0.5 0 0.5 0] h<53 + tcpmaxind2 [57 20 226 11 0 0 0.5 0] + tcpmaxind2 [14 36 269 11 0 0 0.5 0]
+set tcp.phase ?RecontrolTCP + tcpmaxind h<37 [0] h<53 [45 19 14 13] [2 35 14 13]
+set tcp.recmode ?RecontrolTCP + tcpmaxind h<37 [0] [2 19 21 13]
+set tcp.fxin ?RecontrolTCP + tcpmaxind h<37 [0] [22 19 21 13]
+set tcp.recinput ?RecontrolTCP + tcpmaxind2 h<53 [0] [45 19 239 13 0 0 0.5]
+set tcp.fxembed ?RecontrolTCP + tcpmaxind2 h<69 [0] [2 50 282 153 0 0 0.5 1]
+
+; DEDICATED SENDS LIST
+set tcp.sendlist ?tcp_sends_enabled !Volpanwid h<53 [0] [519 34 103 163 1 0 1 1]
+set tcp.sendlist ?tcp_sends_enabled ?Volpanwid h<53 [0] h<85 [519 34 103 163 1 0 1 1] h<133 [519 66 103 131 1 0 1 1] h<229 [519 114 103 83 1 0 1 1] [519 196 103 1 1 0.5 1 1]
+set tcp.sendlist ?Groupsends ?tcp_fxlist_enabled [0]
+
+; RESIZABLE METERS/VOL/PAN/WID
+set tcp.phase ?Metersize + tcpmaxind ?recarm h<37 [0] h<53 [45 19 14 13] h<69 [2 35 14 13] tcp_fxembed<1 [2 35 14 161 0 0 0 1] [2 35 14 13] h<37 [0] h<53 [2 19 14 13] tcp_fxembed<1 [2 19 14 177 0 0 0 1] [2 19 14 13]
+set tcp.meter ?Metersize ?recarm h<18 [619 1 4 4 1 0 1 0] h<37 w_ind{x}<320 + tcpmaxind5 [277 8 5 5 0.5 0 0.5 0] w_ind{x}<386 + tcpmaxind5 [244 8 5 5 0.5 0 0.5 0] w_ind{x}<452 + tcpmaxind5 [211 8 5 5 0.5 0 0.5 0] + tcpmaxind5 [178 8 5 5 0.5 0 0.5 0] h<53 + tcpmaxind2 [57 20 226 11 0 0 0.5 0] h<69 + tcpmaxind2 [14 36 269 11 0 0 0.5 0] tcp_fxembed<1 + tcpmaxind2 [14 36 269 159 0 0 0.5 1] + tcpmaxind2 [14 36 269 11 0 0 0.5 0] h<18 [619 1 4 4 1 0 1 0] h<37 w_ind{x}<320 + tcpmaxind5 [277 8 5 5 0.5 0 0.5 0] w_ind{x}<386 + tcpmaxind5 [244 8 5 5 0.5 0 0.5 0] w_ind{x}<452 + tcpmaxind5 [211 8 5 5 0.5 0 0.5 0] + tcpmaxind5 [178 8 5 5 0.5 0 0.5 0] h<53 + tcpmaxind2 [14 20 269 11 0 0 0.5 0] tcp_fxembed<1 + tcpmaxind2 [14 20 269 175 0 0 0.5 1] + tcpmaxind2 [14 20 269 11 0 0 0.5 0]
+set tcp.phase ?Metersize ?RecontrolTCP + tcpmaxind h<37 [0] h<53 [45 19 14 13] h<69 [2 35 14 13] tcp_fxembed<1 [2 35 14 161 0 0 0 1] [2 35 14 13]
+set tcp.meter ?Metersize ?RecontrolTCP h<18 [619 1 4 4 1 0 1 0] h<37 w_ind{x}<320 + tcpmaxind5 [277 8 5 5 0.5 0 0.5 0] w_ind{x}<386 + tcpmaxind5 [244 8 5 5 0.5 0 0.5 0] w_ind{x}<452 + tcpmaxind5 [211 8 5 5 0.5 0 0.5 0] + tcpmaxind5 [178 8 5 5 0.5 0 0.5 0] h<53 + tcpmaxind2 [57 20 226 11 0 0 0.5 0] h<69 + tcpmaxind2 [14 36 269 11 0 0 0.5 0] tcp_fxembed<1 + tcpmaxind2 [14 36 269 159 0 0 0.5 1] + tcpmaxind2 [14 36 269 11 0 0 0.5 0]
+set tcp.volume.fadermode ?Volpanwid h<229 [1] [0]
+set tcp.volume ?Volpanwid h<18 [0] h<37 w_ind{x}<320 [0] w_ind{x}<386 + tcpmaxind5 [253 4 31 13 0.5 0 0.5 0] w_ind{x}<452 + tcpmaxind5 [220 4 31 13 0.5 0 0.5 0] + tcpmaxind5 [187 4 31 13 0.5 0 0.5 0] h<69 [520 19 31 13 1 0 1 0] h<117 [542 49 57 13 1 0 1 0] h<229 [542 88 57 13 1 0 1 0] [564 91 15 105 1 0 1 1]
+set tcp.pan ?Volpanwid h<18 [0] h<37 w_ind{x}<386 [0] w_ind{x}<452 + tcpmaxind5 [253 4 31 13 0.5 0 0.5 0] + tcpmaxind5 [220 4 31 13 0.5 0 0.5 0] h<69 [555 19 31 13 1 0 1 0] h<117 [542 19 57 13 1 0 1 0] [542 32 57 13 1 0 1 0]
+set tcp.width ?Volpanwid h<18 [0] h<37 w_ind{x}<452 [0] + tcpmaxind5 [253 4 31 13 0.5 0 0.5 0] h<69 [590 19 31 13 1 0 1 0] h<117 [542 34 57 13 1 0 1 0] [542 60 57 13 1 0 1 0]
+set tcp.volume.label ?Volpanwid h<117 [0] [542 75 57 13 1 0 1 0]
+set tcp.pan.label ?Volpanwid h<117 [0] [542 19 57 13 1 0 1 0]
+set tcp.width.label ?Volpanwid h<117 [0] [542 47 57 13 1 0 1 0]
+set tcp.volume.fadermode ?Volpanwid !Groupsends ?tcp_sends_enabled h<229 [1] [0]
+set tcp.volume ?Volpanwid !Groupsends ?tcp_sends_enabled h<18 [0] h<37 w_ind{x}<320 [0] w_ind{x}<386 + tcpmaxind5 [253 4 31 13 0.5 0 0.5 0] w_ind{x}<452 + tcpmaxind5 [220 4 31 13 0.5 0 0.5 0] + tcpmaxind5 [187 4 31 13 0.5 0 0.5 0] h<85 [520 19 31 13 1 0 1 0] h<133 [542 49 57 13 1 0 1 0] h<229 [542 88 57 13 1 0 1 0] [564 91 15 103 1 0 1 0.5]
+set tcp.pan ?Volpanwid !Groupsends ?tcp_sends_enabled h<18 [0] h<37 w_ind{x}<386 [0] w_ind{x}<452 + tcpmaxind5 [253 4 31 13 0.5 0 0.5 0] + tcpmaxind5 [220 4 31 13 0.5 0 0.5 0] h<85 [555 19 31 13 1 0 1 0] h<133 [542 19 57 13 1 0 1 0] [542 32 57 13 1 0 1 0]
+set tcp.width ?Volpanwid !Groupsends ?tcp_sends_enabled h<18 [0] h<37 w_ind{x}<452 [0] + tcpmaxind5 [253 4 31 13 0.5 0 0.5 0] h<85 [590 19 31 13 1 0 1 0] h<133 [542 34 57 13 1 0 1 0] [542 60 57 13 1 0 1 0]
+set tcp.volume.label ?Volpanwid !Groupsends ?tcp_sends_enabled h<133 [0] [542 75 57 13 1 0 1 0]
+set tcp.pan.label ?Volpanwid !Groupsends ?tcp_sends_enabled h<133 [0] [542 19 57 13 1 0 1 0]
+set tcp.width.label ?Volpanwid !Groupsends ?tcp_sends_enabled h<133 [0] [542 47 57 13 1 0 1 0]
+; IF FX DISABLED, GROUP AND SENDS ENABLED
+set tcp.volume.fadermode ?Volpanwid ?Groupsends !tcp_fxlist_enabled ?tcp_sends_enabled h<229 [1] [0]
+set tcp.volume ?Volpanwid ?Groupsends !tcp_fxlist_enabled ?tcp_sends_enabled h<18 [0] h<37 w_ind{x}<320 [0] w_ind{x}<386 + tcpmaxind5 [253 4 31 13 0.5 0 0.5 0] w_ind{x}<452 + tcpmaxind5 [220 4 31 13 0.5 0 0.5 0] + tcpmaxind5 [187 4 31 13 0.5 0 0.5 0] h<85 [520 19 31 13 1 0 1 0] h<133 [542 49 57 13 1 0 1 0] h<229 [542 88 57 13 1 0 1 0] [564 91 15 103 1 0 1 0.5]
+set tcp.pan ?Volpanwid ?Groupsends !tcp_fxlist_enabled ?tcp_sends_enabled h<18 [0] h<37 w_ind{x}<386 [0] w_ind{x}<452 + tcpmaxind5 [253 4 31 13 0.5 0 0.5 0] + tcpmaxind5 [220 4 31 13 0.5 0 0.5 0] h<85 [555 19 31 13 1 0 1 0] h<133 [542 19 57 13 1 0 1 0] [542 32 57 13 1 0 1 0]
+set tcp.width ?Volpanwid ?Groupsends !tcp_fxlist_enabled ?tcp_sends_enabled h<18 [0] h<37 w_ind{x}<452 [0] + tcpmaxind5 [253 4 31 13 0.5 0 0.5 0] h<85 [590 19 31 13 1 0 1 0] h<133 [542 34 57 13 1 0 1 0] [542 60 57 13 1 0 1 0]
+set tcp.volume.label ?Volpanwid ?Groupsends !tcp_fxlist_enabled ?tcp_sends_enabled h<133 [0] [542 75 57 13 1 0 1 0]
+set tcp.pan.label ?Volpanwid ?Groupsends !tcp_fxlist_enabled ?tcp_sends_enabled h<133 [0] [542 19 57 13 1 0 1 0]
+set tcp.width.label ?Volpanwid ?Groupsends !tcp_fxlist_enabled ?tcp_sends_enabled h<133 [0] [542 47 57 13 1 0 1 0]
+
+; MINIMAL
+set tcp.label Minimal==2 + tcpmaxind2 ?recarm h<18 [0] w_ind{x}<320 [45 92 237 15 0 0.5 0.5 0.5] w_ind{x}<386 [45 92 204 15 0 0.5 0.5 0.5] w_ind{x}<452 [45 92 171 15 0 0.5 0.5 0.5] [45 92 138 15 0 0.5 0.5 0.5] ?RecontrolTCP h<18 [0] w_ind{x}<320 [45 92 237 15 0 0.5 0.5 0.5] w_ind{x}<386 [45 92 204 15 0 0.5 0.5 0.5] w_ind{x}<452 [45 92 171 15 0 0.5 0.5 0.5] [45 92 138 15 0 0.5 0.5 0.5] h<18 [0] w_ind{x}<320 [25 92 257 15 0 0.5 0.5 0.5] w_ind{x}<386 [25 92 224 15 0 0.5 0.5 0.5] w_ind{x}<452 [25 92 191 15 0 0.5 0.5 0.5] [25 92 158 15 0 0.5 0.5 0.5]
+set tcp.volume.fadermode Minimal==2 [1]
+set tcp.volume Minimal==2 h<18 [0] w_ind{x}<320 [0] w_ind{x}<386 + tcpmaxind5 [253 93 31 13 0.5 0.5 0.5 0.5] w_ind{x}<452 + tcpmaxind5 [220 93 31 13 0.5 0.5 0.5 0.5] + tcpmaxind5 [187 93 31 13 0.5 0.5 0.5 0.5]
+set tcp.pan Minimal==2 h<18 [0] w_ind{x}<386 [0] w_ind{x}<452 + tcpmaxind5 [253 93 31 13 0.5 0.5 0.5 0.5] + tcpmaxind5 [220 93 31 13 0.5 0.5 0.5 0.5]
+set tcp.width Minimal==2 h<18 [0] w_ind{x}<452 [0] + tcpmaxind5 [253 93 31 13 0.5 0.5 0.5 0.5]
+set tcp.phase Minimal==2 h<18 [0] + tcpmaxind5 [288 93 14 13 0.5 0.5 0.5 0.5]
+set tcp.meter Minimal==2 h<18 [619 1 4 4 1 0 1 0] + tcpmaxind3 [300 94 215 11 0.5 0.5 1 0.5]
+set tcp.recarm Minimal==2 + [0 89 0 0 0 0.5 0 0.5]
+set tcp.recmon Minimal==2 + [0 89 0 0 0 0.5 0 0.5]
+set tcp.mute Minimal==2 + [0 89 0 0 0 0.5 0 0.5]
+set tcp.solo Minimal==2 + [0 89 0 0 0 0.5 0 0.5]
+set tcp.io Minimal==2 + [0 89 0 0 0 0.5 0 0.5]
+set tcp.env Minimal==2 + [0 89 0 0 0 0.5 0 0.5]
+set tcp.fx Minimal==2 + [0 89 0 0 0 0.5 0 0.5]
+set tcp.fxbyp Minimal==2 + [0 89 0 0 0 0.5 0 0.5]
+set tcp.label !FXlist Minimal==2  + + tcpmaxind4 [0 0 -233 0 0 0 -0.5]
+set tcp.volume !FXlist Minimal==2 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5] h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.volume ?tcp_fxlist_enabled FXlist==1 Minimal==2 h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.volume ?tcp_fxlist_enabled FXlist==3 Minimal==2 h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.volume ?tcp_fxlist_enabled FXlist==4 Minimal==2 h>36 + - - [854 0 0 0 1.5 0 1.5] tcpmaxind tcpmaxind5
+set tcp.pan !FXlist Minimal==2 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5] h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.pan ?tcp_fxlist_enabled FXlist==1 Minimal==2 h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.pan ?tcp_fxlist_enabled FXlist==3 Minimal==2 h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.pan ?tcp_fxlist_enabled FXlist==4 Minimal==2 h>36 + - - [854 0 0 0 1.5 0 1.5] tcpmaxind tcpmaxind5
+set tcp.width !FXlist Minimal==2 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5] h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.width ?tcp_fxlist_enabled FXlist==1 Minimal==2 h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.width ?tcp_fxlist_enabled FXlist==3 Minimal==2 h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.width ?tcp_fxlist_enabled FXlist==4 Minimal==2 h>36 + - - [854 0 0 0 1.5 0 1.5] tcpmaxind tcpmaxind5
+set tcp.meter !FXlist Minimal==2 h>17 + + tcpmaxind5 [-233 0 0 0 -0.5] h>36 + + + tcpmaxind6 tcpmaxind4 [233 0 -233 0 0.5]
+set tcp.meter ?tcp_fxlist_enabled FXlist==1 Minimal==2 h>17 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set tcp.meter ?tcp_fxlist_enabled FXlist==3 Minimal==2 h>17 + [104]
+set tcp.meter ?tcp_fxlist_enabled FXlist==4 Minimal==2 h>17 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set tcp.phase ?tcp_fxlist_enabled FXlist==1 Minimal==2 h>17 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set tcp.phase ?tcp_fxlist_enabled FXlist==3 Minimal==2 h>17 + [104]
+set tcp.phase ?tcp_fxlist_enabled FXlist==4 Minimal==2 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set tcp.volume.label Minimal==2 [0]
+set tcp.pan.label Minimal==2 [0]
+set tcp.width.label Minimal==2 [0]
+set tcp.fxin Minimal==2 [0]
+set tcp.recinput Minimal==2 [0]
+set tcp.recmode Minimal==2 [0]
+set tcp.fxparm Minimal==2 [0]
+set tcp.fxembed Minimal==2 [0]
+set tcp.sendlist Minimal==2 [0]
+set tcp.label Minimal==3 !track_selected + tcpmaxind2 ?recarm h<18 [0] w_ind{x}<320 [45 92 237 15 0 0.5 0.5 0.5] w_ind{x}<386 [45 92 204 15 0 0.5 0.5 0.5] w_ind{x}<452 [45 92 171 15 0 0.5 0.5 0.5] [45 92 138 15 0 0.5 0.5 0.5] ?RecontrolTCP h<18 [0] w_ind{x}<320 [45 92 237 15 0 0.5 0.5 0.5] w_ind{x}<386 [45 92 204 15 0 0.5 0.5 0.5] w_ind{x}<452 [45 92 171 15 0 0.5 0.5 0.5] [45 92 138 15 0 0.5 0.5 0.5] h<18 [0] w_ind{x}<320 [25 92 257 15 0 0.5 0.5 0.5] w_ind{x}<386 [25 92 224 15 0 0.5 0.5 0.5] w_ind{x}<452 [25 92 191 15 0 0.5 0.5 0.5] [25 92 158 15 0 0.5 0.5 0.5]
+set tcp.volume.fadermode Minimal==3 !track_selected [1]
+set tcp.volume Minimal==3 !track_selected h<18 [0] w_ind{x}<320 [0] w_ind{x}<386 + tcpmaxind5 [253 93 31 13 0.5 0.5 0.5 0.5] w_ind{x}<452 + tcpmaxind5 [220 93 31 13 0.5 0.5 0.5 0.5] + tcpmaxind5 [187 93 31 13 0.5 0.5 0.5 0.5]
+set tcp.pan Minimal==3 !track_selected h<18 [0] w_ind{x}<386 [0] w_ind{x}<452 + tcpmaxind5 [253 93 31 13 0.5 0.5 0.5 0.5] + tcpmaxind5 [220 93 31 13 0.5 0.5 0.5 0.5]
+set tcp.width Minimal==3 !track_selected h<18 [0] w_ind{x}<452 [0] + tcpmaxind5 [253 93 31 13 0.5 0.5 0.5 0.5]
+set tcp.phase Minimal==3 !track_selected h<18 [0] + tcpmaxind5 [288 93 14 13 0.5 0.5 0.5 0.5]
+set tcp.meter Minimal==3 !track_selected h<18 [619 1 4 4 1 0 1 0] + tcpmaxind3 [300 94 215 11 0.5 0.5 1 0.5]
+set tcp.recarm Minimal==3 !track_selected + [0 89 0 0 0 0.5 0 0.5]
+set tcp.recmon Minimal==3 !track_selected + [0 89 0 0 0 0.5 0 0.5]
+set tcp.mute Minimal==3 !track_selected + [0 89 0 0 0 0.5 0 0.5]
+set tcp.solo Minimal==3 !track_selected + [0 89 0 0 0 0.5 0 0.5]
+set tcp.io Minimal==3 !track_selected + [0 89 0 0 0 0.5 0 0.5]
+set tcp.env Minimal==3 !track_selected + [0 89 0 0 0 0.5 0 0.5]
+set tcp.fx Minimal==3 !track_selected + [0 89 0 0 0 0.5 0 0.5]
+set tcp.fxbyp Minimal==3 !track_selected + [0 89 0 0 0 0.5 0 0.5]
+set tcp.label !FXlist Minimal==3 !track_selected + + tcpmaxind4 [0 0 -233 0 0 0 -0.5]
+set tcp.volume !FXlist Minimal==3 !track_selected + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5] h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.volume ?tcp_fxlist_enabled FXlist==1 Minimal==3 !track_selected h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.volume ?tcp_fxlist_enabled FXlist==3 Minimal==3 !track_selected h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.volume ?tcp_fxlist_enabled FXlist==4 Minimal==3 !track_selected h>36 + - - [854 0 0 0 1.5 0 1.5] tcpmaxind tcpmaxind5
+set tcp.pan !FXlist Minimal==3 !track_selected + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5] h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.pan ?tcp_fxlist_enabled FXlist==1 Minimal==3 !track_selected h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.pan ?tcp_fxlist_enabled FXlist==3 Minimal==3 !track_selected h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.pan ?tcp_fxlist_enabled FXlist==4 Minimal==3 !track_selected h>36 + - - [854 0 0 0 1.5 0 1.5] tcpmaxind tcpmaxind5
+set tcp.width !FXlist Minimal==3 !track_selected + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5] h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.width ?tcp_fxlist_enabled FXlist==1 Minimal==3 !track_selected h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.width ?tcp_fxlist_enabled FXlist==3 Minimal==3 !track_selected h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.width ?tcp_fxlist_enabled FXlist==4 Minimal==3 !track_selected h>36 + - - [854 0 0 0 1.5 0 1.5] tcpmaxind tcpmaxind5
+set tcp.meter !FXlist Minimal==3 !track_selected h>17 + + tcpmaxind5 [-233 0 0 0 -0.5] h>36 + + + tcpmaxind6 tcpmaxind4 [233 0 -233 0 0.5]
+set tcp.meter ?tcp_fxlist_enabled FXlist==1 Minimal==3 !track_selected h>17 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set tcp.meter ?tcp_fxlist_enabled FXlist==3 Minimal==3 !track_selected h>17 + [104]
+set tcp.meter ?tcp_fxlist_enabled FXlist==4 Minimal==3 !track_selected h>17 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set tcp.phase ?tcp_fxlist_enabled FXlist==1 Minimal==3 !track_selected h>17 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set tcp.phase ?tcp_fxlist_enabled FXlist==3 Minimal==3 !track_selected h>17 + [104]
+set tcp.phase ?tcp_fxlist_enabled FXlist==4 Minimal==3 !track_selected + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set tcp.volume.label Minimal==3 !track_selected [0]
+set tcp.pan.label Minimal==3 !track_selected [0]
+set tcp.width.label Minimal==3 !track_selected [0]
+set tcp.fxin Minimal==3 !track_selected [0]
+set tcp.recinput Minimal==3 !track_selected [0]
+set tcp.recmode Minimal==3 !track_selected [0]
+set tcp.fxparm Minimal==3 !track_selected [0]
+set tcp.fxembed Minimal==3 !track_selected [0]
+set tcp.sendlist Minimal==3 !track_selected [0]
+
+; NO FX LIST
+set tcp.size ?FXlist !tcp_fxlist_enabled Minimal==1 + [0 0 -38]
+set tcp.label ?FXlist !tcp_fxlist_enabled Minimal==1 + + tcpmaxind7 [0 0 233 0 0 0 0.5]
+set tcp.recinput ?FXlist !tcp_fxlist_enabled Minimal==1 + + tcpmaxind7 [0 0 233 0 0 0 0.5]
+set tcp.volume ?FXlist !tcp_fxlist_enabled Minimal==1 h<37 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.pan ?FXlist !tcp_fxlist_enabled Minimal==1 h<37 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.width ?FXlist !tcp_fxlist_enabled Minimal==1 h<37 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==1 !Metersize + tcpmaxind2 + tcpmaxind7 h<53 [0] [1 34 517 163 0 0 1 1]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==1 ?recarm !Metersize + tcpmaxind2 + tcpmaxind7 h<69 [0] [1 50 517 147 0 0 1 1]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==1 ?RecontrolTCP !Metersize + tcpmaxind2 + tcpmaxind7 h<69 [0] [1 50 517 147 0 0 1 1]
+set tcp.fxembed ?FXlist !tcp_fxlist_enabled Minimal==1 ?tcp_fxembed !Metersize + tcpmaxind3 h<53 [0] [255 35 262 168 0.5 0 1 1]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==1 ?tcp_fxembed !Metersize + tcpmaxind2 h<53 [0] [1 34 252 163 0 0 0.5 1]
+set tcp.fxembed ?FXlist !tcp_fxlist_enabled Minimal==1 ?recarm ?tcp_fxembed !Metersize + tcpmaxind3 h<69 [0] [255 51 262 152 0.5 0 1 1]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==1 ?recarm ?tcp_fxembed !Metersize + tcpmaxind2 h<69 [0] [1 50 252 147 0 0 0.5 1]
+set tcp.fxembed ?FXlist !tcp_fxlist_enabled Minimal==1 ?RecontrolTCP ?tcp_fxembed !Metersize + tcpmaxind3 h<69 [0] [255 51 262 152 0.5 0 1 1]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==1 ?RecontrolTCP ?tcp_fxembed !Metersize + tcpmaxind2 h<69 [0] [1 50 252 147 0 0 0.5 1]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==1 ?Metersize + tcpmaxind2 + tcpmaxind7 h<53 [0] [1 107 517 90 0 0.5 1 1]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==1 ?recarm ?Metersize + tcpmaxind2 + tcpmaxind7 h<69 [0] [1 123 517 74 0 0.5 1 1]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==1 ?RecontrolTCP ?Metersize + tcpmaxind2 + tcpmaxind7 h<69 [0] [1 123 517 74 0 0.5 1 1]
+set tcp.fxembed ?FXlist !tcp_fxlist_enabled Minimal==1 ?tcp_fxembed ?Metersize + tcpmaxind3 h<53 [0] [255 108 262 95 0.5 0.5 1 1]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==1 ?tcp_fxembed ?Metersize + tcpmaxind2 h<53 [0] [1 107 252 90 0 0.5 0.5 1]
+set tcp.fxembed ?FXlist !tcp_fxlist_enabled Minimal==1 ?recarm ?tcp_fxembed ?Metersize + tcpmaxind3 h<69 [0] [255 124 262 79 0.5 0.5 1 1]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==1 ?recarm ?tcp_fxembed ?Metersize + tcpmaxind2 h<69 [0] [1 123 252 74 0 0.5 0.5 1]
+set tcp.fxembed ?FXlist !tcp_fxlist_enabled Minimal==1 ?RecontrolTCP ?tcp_fxembed ?Metersize + tcpmaxind3 h<69 [0] [255 124 262 79 0.5 0.5 1 1]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==1 ?RecontrolTCP ?tcp_fxembed ?Metersize + tcpmaxind2 h<69 [0] [1 123 252 74 0 0.5 0.5 1]
+set tcp.phase ?FXlist !tcp_fxlist_enabled Minimal==1 ?Metersize + tcpmaxind ?recarm h<37 [0] h<53 [45 19 14 13] h<69 [2 35 14 13] [2 35 14 86 0 0 0 0.5] h<37 [0] h<55 [2 19 14 13] [2 19 14 86 0 0 0 0.5]
+set tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==1 ?Metersize ?recarm h<18 [619 1 4 4 1 0 1 0] h<37 w_ind{x}<320 + tcpmaxind5 [277 8 5 5 0.5 0 0.5 0] w_ind{x}<386 + tcpmaxind5 [244 8 5 5 0.5 0 0.5 0] w_ind{x}<452 + tcpmaxind5 [211 8 5 5 0.5 0 0.5 0] + tcpmaxind5 [178 8 5 5 0.5 0 0.5 0] h<53 + tcpmaxind2 [57 20 226 11 0 0 0.5 0] h<69 + tcpmaxind2 [14 36 269 11 0 0 0.5 0] + tcpmaxind2 [14 36 269 84 0 0 0.5 0.5] h<18 [619 1 4 4 1 0 1 0] h<37 w_ind{x}<320 + tcpmaxind5 [277 8 5 5 0.5 0 0.5 0] w_ind{x}<386 + tcpmaxind5 [244 8 5 5 0.5 0 0.5 0] w_ind{x}<452 + tcpmaxind5 [211 8 5 5 0.5 0 0.5 0] + tcpmaxind5 [178 8 5 5 0.5 0 0.5 0] h<55 + tcpmaxind2 [14 20 269 11 0 0 0.5 0] + tcpmaxind2 [14 20 269 84 0 0 0.5 0.5]
+set tcp.phase ?FXlist !tcp_fxlist_enabled Minimal==1 ?Metersize ?RecontrolTCP + tcpmaxind h<37 [0] h<53 [45 19 14 13] h<69 [2 35 14 13] [2 35 14 86 0 0 0 0.5]
+set tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==1 ?Metersize ?RecontrolTCP h<18 [619 1 4 4 1 0 1 0] h<37 w_ind{x}<320 + tcpmaxind5 [277 8 5 5 0.5 0 0.5 0] w_ind{x}<386 + tcpmaxind5 [244 8 5 5 0.5 0 0.5 0] w_ind{x}<452 + tcpmaxind5 [211 8 5 5 0.5 0 0.5 0] + tcpmaxind5 [178 8 5 5 0.5 0 0.5 0] h<53 + tcpmaxind2 [57 20 226 11 0 0 0.5 0] h<69 + tcpmaxind2 [14 36 269 11 0 0 0.5 0] + tcpmaxind2 [14 36 269 84 0 0 0.5 0.5]
+set tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==1 h>17 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5] h>36 + + + tcpmaxind5 tcpmaxind7 [-233 0 233 0 -0.5]
+set tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==1 Minimal==2 h<18 [619 1 4 4 1 0 1 0] + tcpmaxind3 [300 94 215 11 0.5 0.5 1 0.5]
+set tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==1 Minimal==3 !track_selected h<18 [619 1 4 4 1 0 1 0] + tcpmaxind3 [300 94 215 11 0.5 0.5 1 0.5]
+set tcp.phase ?FXlist !tcp_fxlist_enabled Minimal==1 Minimal==2 h<18 [0] + tcpmaxind5 [288 93 14 13 0.5 0.5 0.5 0.5]
+set tcp.phase ?FXlist !tcp_fxlist_enabled Minimal==1 Minimal==3 !track_selected h<18 [0] + tcpmaxind5 [288 93 14 13 0.5 0.5 0.5 0.5]
+set tcp.fxembed ?FXlist !tcp_fxlist_enabled Minimal==1 Minimal==2 [0]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==1 Minimal==2 [0]
+set tcp.fxembed ?FXlist !tcp_fxlist_enabled Minimal==1 Minimal==3 !track_selected [0]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==1 Minimal==3 !track_selected [0]
+; IF MINIMAL = 3
+set tcp.size ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected Minimal==1 + [0 0 -38]
+set tcp.label ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected + + tcpmaxind7 [0 0 233 0 0 0 0.5]
+set tcp.recinput ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected + + tcpmaxind7 [0 0 233 0 0 0 0.5]
+set tcp.volume ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected h<37 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.pan ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected h<37 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.width ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected h<37 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected !Metersize + tcpmaxind2 + tcpmaxind7 h<53 [0] [1 34 517 163 0 0 1 1]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected ?recarm !Metersize + tcpmaxind2 + tcpmaxind7 h<69 [0] [1 50 517 147 0 0 1 1]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected ?RecontrolTCP !Metersize + tcpmaxind2 + tcpmaxind7 h<69 [0] [1 50 517 147 0 0 1 1]
+set tcp.fxembed ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected ?tcp_fxembed !Metersize + tcpmaxind3 h<53 [0] [255 35 262 168 0.5 0 1 1]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected ?tcp_fxembed !Metersize + tcpmaxind2 h<53 [0] [1 34 252 163 0 0 0.5 1]
+set tcp.fxembed ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected ?recarm ?tcp_fxembed !Metersize + tcpmaxind3 h<69 [0] [255 51 262 152 0.5 0 1 1]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected ?recarm ?tcp_fxembed !Metersize + tcpmaxind2 h<69 [0] [1 50 252 147 0 0 0.5 1]
+set tcp.fxembed ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected ?RecontrolTCP ?tcp_fxembed !Metersize + tcpmaxind3 h<69 [0] [255 51 262 152 0.5 0 1 1]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected ?RecontrolTCP ?tcp_fxembed !Metersize + tcpmaxind2 h<69 [0] [1 50 252 147 0 0 0.5 1]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected ?Metersize + tcpmaxind2 + tcpmaxind7 h<53 [0] [1 107 517 90 0 0.5 1 1]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected ?recarm ?Metersize + tcpmaxind2 + tcpmaxind7 h<69 [0] [1 123 517 74 0 0.5 1 1]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected ?RecontrolTCP ?Metersize + tcpmaxind2 + tcpmaxind7 h<69 [0] [1 123 517 74 0 0.5 1 1]
+set tcp.fxembed ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected ?tcp_fxembed ?Metersize + tcpmaxind3 h<53 [0] [255 108 262 95 0.5 0.5 1 1]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected ?tcp_fxembed ?Metersize + tcpmaxind2 h<53 [0] [1 107 252 90 0 0.5 0.5 1]
+set tcp.fxembed ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected ?recarm ?tcp_fxembed ?Metersize + tcpmaxind3 h<69 [0] [255 124 262 79 0.5 0.5 1 1]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected ?recarm ?tcp_fxembed ?Metersize + tcpmaxind2 h<69 [0] [1 123 252 74 0 0.5 0.5 1]
+set tcp.fxembed ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected ?RecontrolTCP ?tcp_fxembed ?Metersize + tcpmaxind3 h<69 [0] [255 124 262 79 0.5 0.5 1 1]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected ?RecontrolTCP ?tcp_fxembed ?Metersize + tcpmaxind2 h<69 [0] [1 123 252 74 0 0.5 0.5 1]
+set tcp.phase ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected ?Metersize + tcpmaxind ?recarm h<37 [0] h<53 [45 19 14 13] h<69 [2 35 14 13] [2 35 14 86 0 0 0 0.5] h<37 [0] h<55 [2 19 14 13] [2 19 14 86 0 0 0 0.5]
+set tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected ?Metersize ?recarm h<18 [619 1 4 4 1 0 1 0] h<37 w_ind{x}<320 + tcpmaxind5 [277 8 5 5 0.5 0 0.5 0] w_ind{x}<386 + tcpmaxind5 [244 8 5 5 0.5 0 0.5 0] w_ind{x}<452 + tcpmaxind5 [211 8 5 5 0.5 0 0.5 0] + tcpmaxind5 [178 8 5 5 0.5 0 0.5 0] h<53 + tcpmaxind2 [57 20 226 11 0 0 0.5 0] h<69 + tcpmaxind2 [14 36 269 11 0 0 0.5 0] + tcpmaxind2 [14 36 269 84 0 0 0.5 0.5] h<18 [619 1 4 4 1 0 1 0] h<37 w_ind{x}<320 + tcpmaxind5 [277 8 5 5 0.5 0 0.5 0] w_ind{x}<386 + tcpmaxind5 [244 8 5 5 0.5 0 0.5 0] w_ind{x}<452 + tcpmaxind5 [211 8 5 5 0.5 0 0.5 0] + tcpmaxind5 [178 8 5 5 0.5 0 0.5 0] h<55 + tcpmaxind2 [14 20 269 11 0 0 0.5 0] + tcpmaxind2 [14 20 269 84 0 0 0.5 0.5]
+set tcp.phase ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected ?Metersize ?RecontrolTCP + tcpmaxind h<37 [0] h<53 [45 19 14 13] h<69 [2 35 14 13] [2 35 14 86 0 0 0 0.5]
+set tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected ?Metersize ?RecontrolTCP h<18 [619 1 4 4 1 0 1 0] h<37 w_ind{x}<320 + tcpmaxind5 [277 8 5 5 0.5 0 0.5 0] w_ind{x}<386 + tcpmaxind5 [244 8 5 5 0.5 0 0.5 0] w_ind{x}<452 + tcpmaxind5 [211 8 5 5 0.5 0 0.5 0] + tcpmaxind5 [178 8 5 5 0.5 0 0.5 0] h<53 + tcpmaxind2 [57 20 226 11 0 0 0.5 0] h<69 + tcpmaxind2 [14 36 269 11 0 0 0.5 0] + tcpmaxind2 [14 36 269 84 0 0 0.5 0.5]
+set tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected h>17 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5] h>36 + + + tcpmaxind5 tcpmaxind7 [-233 0 233 0 -0.5]
+set tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected Minimal==2 h<18 [619 1 4 4 1 0 1 0] + tcpmaxind3 [300 94 215 11 0.5 0.5 1 0.5]
+set tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected Minimal==3 !track_selected h<18 [619 1 4 4 1 0 1 0] + tcpmaxind3 [300 94 215 11 0.5 0.5 1 0.5]
+set tcp.phase ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected Minimal==2 h<18 [0] + tcpmaxind5 [288 93 14 13 0.5 0.5 0.5 0.5]
+set tcp.phase ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected Minimal==3 !track_selected h<18 [0] + tcpmaxind5 [288 93 14 13 0.5 0.5 0.5 0.5]
+set tcp.fxembed ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected Minimal==2 [0]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected Minimal==2 [0]
+set tcp.fxembed ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected Minimal==3 !track_selected [0]
+set tcp.fxparm ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected Minimal==3 !track_selected [0]
+
+; BOTTOM FX LIST
+set tcp.size !FXlist Minimal==1 + [0 0 -38]
+set tcp.label !FXlist + + tcpmaxind7 [0 0 233 0 0 0 0.5]
+set tcp.recinput !FXlist + + tcpmaxind7 [0 0 233 0 0 0 0.5]
+set tcp.volume !FXlist h<37 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.pan !FXlist h<37 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.width !FXlist h<37 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.fxparm !FXlist !Metersize + tcpmaxind2 + tcpmaxind7 h<53 [0] [1 34 517 163 0 0 1 1]
+set tcp.fxparm !FXlist ?recarm !Metersize + tcpmaxind2 + tcpmaxind7 h<69 [0] [1 50 517 147 0 0 1 1]
+set tcp.fxparm !FXlist ?RecontrolTCP !Metersize + tcpmaxind2 + tcpmaxind7 h<69 [0] [1 50 517 147 0 0 1 1]
+set tcp.fxembed !FXlist ?tcp_fxembed !Metersize + tcpmaxind3 h<53 [0] [255 35 262 168 0.5 0 1 1]
+set tcp.fxparm !FXlist ?tcp_fxembed !Metersize + tcpmaxind2 h<53 [0] [1 34 252 163 0 0 0.5 1]
+set tcp.fxembed !FXlist ?recarm ?tcp_fxembed !Metersize + tcpmaxind3 h<69 [0] [255 51 262 152 0.5 0 1 1]
+set tcp.fxparm !FXlist ?recarm ?tcp_fxembed !Metersize + tcpmaxind2 h<69 [0] [1 50 252 147 0 0 0.5 1]
+set tcp.fxembed !FXlist ?RecontrolTCP ?tcp_fxembed !Metersize + tcpmaxind3 h<69 [0] [255 51 262 152 0.5 0 1 1]
+set tcp.fxparm !FXlist ?RecontrolTCP ?tcp_fxembed !Metersize + tcpmaxind2 h<69 [0] [1 50 252 147 0 0 0.5 1]
+set tcp.fxparm !FXlist ?Metersize + tcpmaxind2 + tcpmaxind7 h<53 [0] [1 107 517 90 0 0.5 1 1]
+set tcp.fxparm !FXlist ?recarm ?Metersize + tcpmaxind2 + tcpmaxind7 h<69 [0] [1 123 517 74 0 0.5 1 1]
+set tcp.fxparm !FXlist ?RecontrolTCP ?Metersize + tcpmaxind2 + tcpmaxind7 h<69 [0] [1 123 517 74 0 0.5 1 1]
+set tcp.fxembed !FXlist ?tcp_fxembed ?Metersize + tcpmaxind3 h<53 [0] [255 108 262 95 0.5 0.5 1 1]
+set tcp.fxparm !FXlist ?tcp_fxembed ?Metersize + tcpmaxind2 h<53 [0] [1 107 252 90 0 0.5 0.5 1]
+set tcp.fxembed !FXlist ?recarm ?tcp_fxembed ?Metersize + tcpmaxind3 h<69 [0] [255 124 262 79 0.5 0.5 1 1]
+set tcp.fxparm !FXlist ?recarm ?tcp_fxembed ?Metersize + tcpmaxind2 h<69 [0] [1 123 252 74 0 0.5 0.5 1]
+set tcp.fxembed !FXlist ?RecontrolTCP ?tcp_fxembed ?Metersize + tcpmaxind3 h<69 [0] [255 124 262 79 0.5 0.5 1 1]
+set tcp.fxparm !FXlist ?RecontrolTCP ?tcp_fxembed ?Metersize + tcpmaxind2 h<69 [0] [1 123 252 74 0 0.5 0.5 1]
+set tcp.phase !FXlist ?Metersize + tcpmaxind ?recarm h<37 [0] h<53 [45 19 14 13] h<69 [2 35 14 13] [2 35 14 86 0 0 0 0.5] h<37 [0] h<55 [2 19 14 13] [2 19 14 86 0 0 0 0.5]
+set tcp.meter !FXlist ?Metersize ?recarm h<18 [619 1 4 4 1 0 1 0] h<37 w_ind{x}<320 + tcpmaxind5 [277 8 5 5 0.5 0 0.5 0] w_ind{x}<386 + tcpmaxind5 [244 8 5 5 0.5 0 0.5 0] w_ind{x}<452 + tcpmaxind5 [211 8 5 5 0.5 0 0.5 0] + tcpmaxind5 [178 8 5 5 0.5 0 0.5 0] h<53 + tcpmaxind2 [57 20 226 11 0 0 0.5 0] h<69 + tcpmaxind2 [14 36 269 11 0 0 0.5 0] + tcpmaxind2 [14 36 269 84 0 0 0.5 0.5] h<18 [619 1 4 4 1 0 1 0] h<37 w_ind{x}<320 + tcpmaxind5 [277 8 5 5 0.5 0 0.5 0] w_ind{x}<386 + tcpmaxind5 [244 8 5 5 0.5 0 0.5 0] w_ind{x}<452 + tcpmaxind5 [211 8 5 5 0.5 0 0.5 0] + tcpmaxind5 [178 8 5 5 0.5 0 0.5 0] h<55 + tcpmaxind2 [14 20 269 11 0 0 0.5 0] + tcpmaxind2 [14 20 269 84 0 0 0.5 0.5]
+set tcp.phase !FXlist ?Metersize ?RecontrolTCP + tcpmaxind h<37 [0] h<53 [45 19 14 13] h<69 [2 35 14 13] [2 35 14 86 0 0 0 0.5]
+set tcp.meter !FXlist ?Metersize ?RecontrolTCP h<18 [619 1 4 4 1 0 1 0] h<37 w_ind{x}<320 + tcpmaxind5 [277 8 5 5 0.5 0 0.5 0] w_ind{x}<386 + tcpmaxind5 [244 8 5 5 0.5 0 0.5 0] w_ind{x}<452 + tcpmaxind5 [211 8 5 5 0.5 0 0.5 0] + tcpmaxind5 [178 8 5 5 0.5 0 0.5 0] h<53 + tcpmaxind2 [57 20 226 11 0 0 0.5 0] h<69 + tcpmaxind2 [14 36 269 11 0 0 0.5 0] + tcpmaxind2 [14 36 269 84 0 0 0.5 0.5]
+set tcp.meter !FXlist h>17 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5] h>36 + + + tcpmaxind5 tcpmaxind7 [-233 0 233 0 -0.5]
+set tcp.meter !FXlist Minimal==2 h<18 [619 1 4 4 1 0 1 0] + tcpmaxind3 [300 94 215 11 0.5 0.5 1 0.5]
+set tcp.meter !FXlist Minimal==3 !track_selected h<18 [619 1 4 4 1 0 1 0] + tcpmaxind3 [300 94 215 11 0.5 0.5 1 0.5]
+set tcp.phase !FXlist Minimal==2 h<18 [0] + tcpmaxind5 [288 93 14 13 0.5 0.5 0.5 0.5]
+set tcp.phase !FXlist Minimal==3 !track_selected h<18 [0] + tcpmaxind5 [288 93 14 13 0.5 0.5 0.5 0.5]
+set tcp.fxembed !FXlist Minimal==2 [0]
+set tcp.fxparm !FXlist Minimal==2 [0]
+set tcp.fxembed !FXlist Minimal==3 !track_selected [0]
+set tcp.fxparm !FXlist Minimal==3 !track_selected [0]
+
+; LEFT FX LIST
+set tcpmaxind5 !Alignment ?tcp_fxlist_enabled FXlist==1 Minimal==1 [0]
+set tcpmaxind5 !Alignment ?tcp_fxlist_enabled FXlist==1 Minimal==3 ?track_selected [0]
+set tcp.recarm ?tcp_fxlist_enabled FXlist==1 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.recmon ?tcp_fxlist_enabled FXlist==1 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.label ?tcp_fxlist_enabled FXlist==1 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.phase ?tcp_fxlist_enabled FXlist==1 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.meter ?tcp_fxlist_enabled FXlist==1 h>17 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.volume ?tcp_fxlist_enabled FXlist==1 h<37 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.pan ?tcp_fxlist_enabled FXlist==1 h<37 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.width ?tcp_fxlist_enabled FXlist==1 h<37 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.fxin ?tcp_fxlist_enabled FXlist==1 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.recinput ?tcp_fxlist_enabled FXlist==1 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.recmode ?tcp_fxlist_enabled FXlist==1 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.fxembed ?tcp_fxlist_enabled FXlist==1 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.fxparm ?tcp_fxlist_enabled FXlist==1 + + tcpmaxind5 [-285 0 0 0 -0.5 0 -0.5]
+
+; RIGHT FX LIST
+set tcp.fx ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5]
+set tcp.fxbyp ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5]
+set tcp.env ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5]
+set tcp.io ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5]
+set tcp.mute ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5]
+set tcp.solo ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5]
+set tcp.volume ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5] h<37 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.pan ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5] h<37 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.width ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5] h<37 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.volume.label ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5]
+set tcp.pan.label ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5]
+set tcp.width.label ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5]
+set tcp.fxparm ?tcp_fxlist_enabled FXlist==3 + [104]
+set tcp.sendlist ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5]
+
+; REVERSE TCP
+set tcp.recarm ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind6 [336 0 0 0 0.5 0 0.5]
+set tcp.recmon ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind6 [336 0 0 0 0.5 0 0.5]
+set tcp.label ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind6 [336 0 0 0 0.5 0 0.5]
+set tcp.phase ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind6 [336 0 0 0 0.5 0 0.5]
+set tcp.meter ?tcp_fxlist_enabled FXlist==4 h>17 + + tcpmaxind6 [336 0 0 0 0.5 0 0.5]
+set tcp.volume ?tcp_fxlist_enabled FXlist==4 h<37 + - - [336 0 0 0 0.5 0 0.5] tcpmaxind tcpmaxind5
+set tcp.pan ?tcp_fxlist_enabled FXlist==4 h<37 + - - [336 0 0 0 0.5 0 0.5] tcpmaxind tcpmaxind5
+set tcp.width ?tcp_fxlist_enabled FXlist==4 h<37 + - - [336 0 0 0 0.5 0 0.5] tcpmaxind tcpmaxind5
+set tcp.fxin ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind6 [336 0 0 0 0.5 0 0.5]
+set tcp.recinput ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind6 [336 0 0 0 0.5 0 0.5]
+set tcp.recmode ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind6 [336 0 0 0 0.5 0 0.5]
+set tcp.fxembed ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind6 [336 0 0 0 0.5 0 0.5]
+set tcp.fxparm ?tcp_fxlist_enabled FXlist==4 + + + tcpmaxind tcpmaxind6 [-181 0 0 0 -0.5 0 -0.5]
+set tcp.fx ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set tcp.fxbyp ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set tcp.env ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set tcp.io ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set tcp.mute ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set tcp.solo ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set tcp.volume ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1] h<37 + [518 0 0 0 1 0 1]
+set tcp.pan ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1] h<37 + [518 0 0 0 1 0 1]
+set tcp.width ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1] h<37 + [518 0 0 0 1 0 1]
+set tcp.volume.label ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set tcp.pan.label ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set tcp.width.label ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set tcp.sendlist ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+
+;FX OFF
+set tcp.fxparm !tcp_fxlist_enabled [0]
+set tcp.fxembed !tcp_fxlist_enabled [0]
+
+; MARGIN
+set tcp.margin [1]
+set tcp.label.margin Labalign==1 [3 0 3] Labalign==2 [3 0 3 0 0.5] Labalign==3 [3 0 3 0 1]
+set tcp.recinput.margin + tcp.label.margin [0 0 8]
+set tcp.trackidx.margin [0 0 0 0 0.5]
+set tcp.volume.label.margin [0 1 0 0 0.5]
+set tcp.pan.label.margin tcp.volume.label.margin
+set tcp.width.label.margin tcp.volume.label.margin
+set tcp.fxparm.margin [3 0 5 0 0 0 0.5]
+set tcp.sendlist.margin [5]
+set tcp.custom.lanes.margin [0 0 0 0 .5]
+set tcp.custom.addlane.margin [0 0 0 0 .5]
+set tcp.custom.dellane.margin [0 0 0 3 .5]
+
+; FONT
+set tcp.trackidx.font [1]
+set tcp.recinput.font [2]
+set tcp.fxparm.font Column==3 w_ind{x}<269 [3 16 23 9999 1 0 0 3] w_ind{x}<293 [3 16 29 9999 1 0 0 3] w_ind{x}<325 [3 16 37 9999 1 0 0 3] w_ind{x}<369 [3 16 47 9999 1 0 0 3] w_ind{x}<426 [3 16 62 9999 1 0 0 3] [3 16 81 9999 1 0 0 3]
+set tcp.fxparm.font Column==2 w_ind{x}<269 [3 16 23 9999 1 0 0 3] [3 16 29 9999 1 0 0 3]
+set tcp.fxparm.font Column==1 [3 16 16 9999 1 0 0 3]
+set tcp.fxparm.font !FXlist Column==3 [3 16 58 85 1 0 0 3]
+set tcp.fxparm.font !FXlist Column==2 [3 16 37 85 1 0 0 3]
+set tcp.fxparm.font !FXlist Column==1 [3 16 18 85 1 0 0 3]
+set tcp.sendlist.font SendColumns==1 [3 16 60 9999] SendColumns==2 [3 16 42 9999] SendColumns==3 [3 16 29 9999]
+set tcp.label.font [6]
+set tcp.volume.label.font [7]
+set tcp.pan.label.font tcp.volume.label.font
+set tcp.width.label.font tcp.volume.label.font
+set tcp.custom.lanes.font [1]
+set tcp.custom.addlane.font tcp.custom.lanes.font
+set tcp.custom.dellane.font tcp.custom.lanes.font
+
+; COLOR
+colorsmartlabel tcp.label.color
+set tcp.label.color !Labcolor track_selected==1 labelcolor labelcoloralt
+colorsmartlabel tcp.recinput.color
+set tcp.recinput.color !Labcolor ?recarm [255 170 170] track_selected==1 labelcoloralt labelcolordim
+colorsmartlabel tcp.volume.label.color
+set tcp.volume.label.color !Labcolor track_selected==1 labelcolor labelcolordim
+set tcp.pan.label.color tcp.volume.label.color
+set tcp.width.label.color tcp.volume.label.color
+colorsmart tcp.trackidx.color
+set tcp.meter.readout.color ?recarm mrc h<70 [0] mrc
+set tcp.meter.rmsreadout.color ?recarm mrc h<70 [0] mrc
+set tcp.meter.scale.color.unlit.top ?recarm mscut h<70 [0] mscut
+set tcp.meter.scale.color.unlit.bottom ?recarm mscub h<70 [0] mscub
+set tcp.meter.scale.color.lit.top ?recarm mmsclt h<70 [0] msclt
+set tcp.meter.scale.color.lit.bottom ?recarm mmsclb h<70 [0] msclb
+set tcp.fxembedheader.color [162 198 198]
+colorsmart tcp.custom.lanes.color
+colorsmart tcp.custom.addlane.color
+colorsmart tcp.custom.dellane.color
+
+
+Layout "Default"
+set tcp.dragdropinfo
+
+Layout "Default - Fader Blue" "blue"
+set tcp.dragdropinfo
+Layout "Default - Fader Green" "green"
+set tcp.dragdropinfo
+Layout "Default - Fader Pink" "pink"
+set tcp.dragdropinfo
+Layout "Default - Fader Red" "red"
+set tcp.dragdropinfo
+Layout "Default - Fader Yellow" "yellow"
+set tcp.dragdropinfo
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+
+EndLayout
+
+
+Layout "Untinted" "untinted"
+set tcp.dragdropinfo
+
+Layout "Untinted - Fader Blue" "untinted blue"
+set tcp.dragdropinfo
+Layout "Untinted - Fader Green" "untinted green"
+set tcp.dragdropinfo
+Layout "Untinted - Fader Pink" "untinted pink"
+set tcp.dragdropinfo
+Layout "Untinted - Fader Red" "untinted red"
+set tcp.dragdropinfo
+Layout "Untinted - Fader Yellow" "untinted yellow"
+set tcp.dragdropinfo
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+
+EndLayout
+
+
+Layout "Full Track Meter"
+set tcp.recarm [0]
+set tcp.recmon [0]
+set tcp.recmode [0]
+set tcp.fxin [0]
+set tcp.recinput [0]
+set tcp.label [0]
+set tcp.phase + tcpmaxind h<18 [0] [2 2 14 194 0 0 0 1]
+set tcp.meter !Alignment + tcpmaxind h<18 [14 1 606 2 0 0 1] [14 3 606 192 0 0 1 1] + - * maxfolderdepth [tcpindent 0 -tcpindent] * folderdepth [tcpindent 0 -tcpindent] h<18 [14 1 606 2 0 0 1] [14 3 606 192 0 0 1 1]
+set tcp.mute [0]
+set tcp.solo [0]
+set tcp.io [0]
+set tcp.env [0]
+set tcp.fx [0]
+set tcp.fxbyp [0]
+set tcp.volume [0]
+set tcp.pan [0]
+set tcp.width [0]
+set tcp.fxparm [0]
+set tcp.fxembed [0]
+set tcp.sendlist [0]
+set tcp.meter.readout.color ?recarm mrc mrc
+set tcp.meter.rmsreadout.color ?recarm mrc mrc
+set tcp.meter.scale.color.unlit.top ?recarm mscut mscut
+set tcp.meter.scale.color.unlit.bottom ?recarm mscub mscub
+set tcp.meter.scale.color.lit.top ?recarm mmsclt msclt
+set tcp.meter.scale.color.lit.bottom ?recarm mmsclb msclb
+
+Layout "Untinted Full Track Meter" "untinted"
+set tcp.dragdropinfo
+EndLayout
+
+EndLayout
+
+
+Layout "Meter First"
+def jump 17
+set tcp.margin + [0 jump]
+set tcp.phase + tcpmaxind + [0 -jump] [2 2 14 16]
+set tcp.meter !Alignment + tcpmaxind + [0 -jump] [14 3 606 14 0 0 1] + - * maxfolderdepth [tcpindent 0 -tcpindent] * folderdepth [tcpindent 0 -tcpindent] + [0 -jump] h<1 [14 1 606 2 0 0 1] [14 3 606 14 0 0 1]
+set tcp.label h<37 + [0 0 11]
+set tcp.trackidx folderstate==1 h<11 [0] h<52 [624 85 19 15 1 0.5 1 0.5] [624 -8 19 200 1 0 1 1] folderstate<0 h<11 [0] h<20 [624 -13 19 15 1 0 1 0] h<52 [624 84 19 15 1 0.5 1 0.5] [624 -8 19 200 1 0 1 1] h<20 [624 -13 19 15 1 0 1 0] h<52 [624 84 19 15 1 0.5 1 0.5] [624 -8 19 200 1 0 1 1]
+set tcp.folder folderstate==1 h<11 [0] h<20 [628 190 11 9 1 1 1 1] [628 187 11 9 1 1 1 1] folderstate<0 h<11 [628 87 11 9 1 0.5 1 0.5] [628 187 11 9 1 1 1 1] h<11 [0] [628 187 11 9 1 1 1 1]
+set tcp.foldercomp h<11 [628 85 11 10 1 0.5 1 0.5] h<20 [628 -16 11 10 1 0 1 0] h<52 [628 -13 11 10 1 0 1 0] [628 -13 11 10 1 0 1 0]
+set tcp.custom.lanes + [0 -jump]
+set tcp.custom.addlane + [0 -jump]
+set tcp.custom.dellane + [0 -jump]
+set tcp.meter.readout.color ?recarm mrc mrc
+set tcp.meter.rmsreadout.color ?recarm mrc mrc
+set tcp.meter.scale.color.unlit.top ?recarm mscut mscut
+set tcp.meter.scale.color.unlit.bottom ?recarm mscub mscub
+set tcp.meter.scale.color.lit.top ?recarm mmsclt msclt
+set tcp.meter.scale.color.lit.bottom ?recarm mmsclb msclb
+set tcp.fxembed + [0 -15 0 15]
+set tcp.fxparm !FXlist + [0 -15 0 15]
+set tcp.fxembed !FXlist ?Metersize + [0 -73 0 73 0 -.5]
+set tcp.fxparm !FXlist ?Metersize + [0 -73 0 73 0 -.5]
+
+; MINIMAL
+set tcp.mute Minimal==2 [0]
+set tcp.solo Minimal==2 [0]
+set tcp.label Minimal==2 [0]
+set tcp.volume Minimal==2 [0]
+set tcp.env Minimal==2 [0]
+set tcp.pan Minimal==2 [0]
+set tcp.width Minimal==2 [0]
+set tcp.fxbyp Minimal==2 [0]
+set tcp.fx Minimal==2 [0]
+set tcp.io Minimal==2 [0]
+set tcp.recarm Minimal==2 [0]
+set tcp.recmon Minimal==2 [0]
+set tcp.phase Minimal==2 + [0 97 0 0 0 .5 0 .5]
+set tcp.meter Minimal==2 + [0 97 0 0 0 .5 0 .5]
+set tcp.mute Minimal==3 !track_selected [0]
+set tcp.solo Minimal==3 !track_selected [0]
+set tcp.label Minimal==3 !track_selected [0]
+set tcp.volume Minimal==3 !track_selected [0]
+set tcp.env Minimal==3 !track_selected [0]
+set tcp.pan Minimal==3 !track_selected [0]
+set tcp.width Minimal==3 !track_selected [0]
+set tcp.fxbyp Minimal==3 !track_selected [0]
+set tcp.fx Minimal==3 !track_selected [0]
+set tcp.io Minimal==3 !track_selected [0]
+set tcp.recarm Minimal==3 !track_selected [0]
+set tcp.recmon Minimal==3 !track_selected [0]
+set tcp.phase Minimal==3 !track_selected + [0 97 0 0 0 .5 0 .5]
+set tcp.meter Minimal==3 !track_selected + [0 97 0 0 0 .5 0 .5]
+
+Layout "Meter First - Fader Blue" "blue"
+set tcp.dragdropinfo
+Layout "Meter First - Fader Green" "green"
+set tcp.dragdropinfo
+Layout "Meter First - Fader Pink" "pink"
+set tcp.dragdropinfo
+Layout "Meter First - Fader Red" "red"
+set tcp.dragdropinfo
+Layout "Meter First - Fader Yellow" "yellow"
+set tcp.dragdropinfo
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+
+Layout "Untinted Meter First" "untinted"
+set tcp.dragdropinfo
+
+Layout "Untinted Meter First - Fader Blue" "untinted blue"
+set tcp.dragdropinfo
+Layout "Untinted Meter First - Fader Green" "untinted green"
+set tcp.dragdropinfo
+Layout "Untinted Meter First - Fader Pink" "untinted pink"
+set tcp.dragdropinfo
+Layout "Untinted Meter First - Fader Red" "untinted red"
+set tcp.dragdropinfo
+Layout "Untinted Meter First - Fader Yellow" "untinted yellow"
+set tcp.dragdropinfo
+
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+
+EndLayout
+
+EndLayout
+
+
+Layout "Separator" "sep"
+clear tcp.*
+set tcp.size + tcpmin [643 200 252 0]
+set tcp.label h<18 [0] [1 2 623 196 0 0 1 1]
+set tcp.label.margin [0 0 0 0 0.5]
+colorsmart tcp.label.color
+set tcp.folder folderstate==1 h<28 [0] [628 187 11 9 1 1 1 1] folderstate<0 h<18 [0] h<28 [628 95 11 9 1 0.5 1 0.5] [628 187 11 9 1 1 1 1] h<28 [0] [628 187 11 9 1 1 1 1]
+set tcp.foldercomp h<18 [0] h<28 [628 94 11 10 1 0.5 1 0.5] [628 4 11 10 1 0 1 0]
+set tcp.margin [1]
+EndLayout
+
+
+Layout "VCA" "vca"
+set tcp.label + tcpmaxind2 h<18 [0] h<37 w_ind{x}<250 [2 3 282 15 0 0 0.5] w_ind{x}<386 [2 3 248 15 0 0 0.5 0] w_ind{x}<452 [2 3 215 15 0 0 0.5 0] [2 3 182 15 0 0 0.5 0] [2 84 282 30 0 0.5 0.5 0.5]
+set tcp.volume.label + tcpmaxind3 h<18 [0] h<37 [287 3 230 15 0.5 0 1] [287 84 230 30 0.5 0.5 1 0.5]
+set tcp.mute h<18 [0] h<37 [520 4 21 13 1 0 1 0] [520 85 21 13 1 0.5 1 0.5]
+set tcp.solo h<18 [0] h<37 [540 4 21 13 1 0 1 0] [540 85 21 13 1 0.5 1 0.5]
+set tcp.phase h<18 [0] h<37 [580 4 21 13 1 0 1 0] [580 85 21 13 1 0.5 1 0.5]
+set tcp.env h<18 [0] h<37 [600 4 21 13 1 0 1 0] [600 85 21 13 1 0.5 1 0.5]
+set tcp.volume.fadermode [1]
+set tcp.volume h<18 [0] h<37 w_ind{x}<250 [0] w_ind{x}<386 + tcpmaxind5 [253 4 31 13 0.5 0 0.5 0] w_ind{x}<452 + tcpmaxind5 [220 4 31 13 0.5 0 0.5 0] + tcpmaxind5 [187 4 31 13 0.5 0 0.5 0] [520 100 31 13 1 0.5 1 0.5]
+set tcp.pan h<18 [0] h<37 w_ind{x}<386 [0] w_ind{x}<452 + tcpmaxind5 [253 4 31 13 0.5 0 0.5 0] + tcpmaxind5 [220 4 31 13 0.5 0 0.5 0] [555 100 31 13 1 0.5 1 0.5]
+set tcp.width h<18 [0] h<37 w_ind{x}<452 [0] + tcpmaxind5 [253 4 31 13 0.5 0 0.5 0] [590 100 31 13 1 0.5 1 0.5]
+set tcp.pan.label [0]
+set tcp.width.label [0]
+set tcp.meter [0]
+set tcp.io [0]
+set tcp.recarm [0]
+set tcp.fx [0]
+set tcp.fxbyp [0]
+set tcp.recmon [0]
+set tcp.fxin [0]
+set tcp.recinput [0]
+set tcp.recmode [0]
+set tcp.fxembed [0]
+set tcp.fxparm [0]
+set tcp.sendlist [0]
+
+; MINIMAL
+set tcp.label Minimal==2 + tcpmaxind2 h<18 [0] w_ind{x}<250 [2 92 282 15 0 0.5 0.5 0.5] w_ind{x}<386 [2 92 248 15 0 0.5 0.5 0.5] w_ind{x}<452 [2 92 215 15 0 0.5 0.5 0.5] [2 92 182 15 0 0.5 0.5 0.5]
+set tcp.volume.label Minimal==2 + tcpmaxind3 h<18 [0] [287 92 230 15 0.5 0.5 1 0.5]
+set tcp.mute  Minimal==2 h<18 [0] [520 93 21 13 1 0.5 1 0.5]
+set tcp.solo Minimal==2 h<18 [0] [540 93 21 13 1 0.5 1 0.5]
+set tcp.phase Minimal==2 h<18 [0] [580 93 21 13 1 0.5 1 0.5]
+set tcp.env Minimal==2 h<18 [0] [600 93 21 13 1 0.5 1 0.5]
+set tcp.volume Minimal==2 h<18 [0] w_ind{x}<250 [0] w_ind{x}<386 + tcpmaxind5 [253 93 31 13 0.5 0.5 0.5 0.5] w_ind{x}<452 + tcpmaxind5 [220 93 31 13 0.5 0.5 0.5 0.5] + tcpmaxind5 [187 93 31 13 0.5 0.5 0.5 0.5]
+set tcp.pan Minimal==2 h<18 [0] w_ind{x}<386 [0] w_ind{x}<452 + tcpmaxind5 [253 93 31 13 0.5 0.5 0.5 0.5] + tcpmaxind5 [220 93 31 13 0.5 0.5 0.5 0.5]
+set tcp.width Minimal==2 h<18 [0] w_ind{x}<452 [0] + tcpmaxind5 [253 93 31 13 0.5 0.5 0.5 0.5]
+set tcp.label Minimal==3 !track_selected + tcpmaxind2 h<18 [0] w_ind{x}<250 [2 92 282 15 0 0.5 0.5 0.5] w_ind{x}<386 [2 92 248 15 0 0.5 0.5 0.5] w_ind{x}<452 [2 92 215 15 0 0.5 0.5 0.5] [2 92 182 15 0 0.5 0.5 0.5]
+set tcp.volume.label Minimal==3 !track_selected + tcpmaxind3 h<18 [0] [287 92 230 15 0.5 0.5 1 0.5]
+set tcp.mute  Minimal==3 !track_selected h<18 [0] [520 93 21 13 1 0.5 1 0.5]
+set tcp.solo Minimal==3 !track_selected h<18 [0] [540 93 21 13 1 0.5 1 0.5]
+set tcp.phase Minimal==3 !track_selected h<18 [0] [580 93 21 13 1 0.5 1 0.5]
+set tcp.env Minimal==3 !track_selected h<18 [0] [600 93 21 13 1 0.5 1 0.5]
+set tcp.volume Minimal==3 !track_selected h<18 [0] w_ind{x}<250 [0] w_ind{x}<386 + tcpmaxind5 [253 93 31 13 0.5 0.5 0.5 0.5] w_ind{x}<452 + tcpmaxind5 [220 93 31 13 0.5 0.5 0.5 0.5] + tcpmaxind5 [187 93 31 13 0.5 0.5 0.5 0.5]
+set tcp.pan Minimal==3 !track_selected h<18 [0] w_ind{x}<386 [0] w_ind{x}<452 + tcpmaxind5 [253 93 31 13 0.5 0.5 0.5 0.5] + tcpmaxind5 [220 93 31 13 0.5 0.5 0.5 0.5]
+set tcp.width Minimal==3 !track_selected h<18 [0] w_ind{x}<452 [0] + tcpmaxind5 [253 93 31 13 0.5 0.5 0.5 0.5]
+
+; LEFT FX LIST
+set tcp.label ?tcp_fxlist_enabled FXlist==1 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.volume.label ?tcp_fxlist_enabled FXlist==1 + + tcpmaxind5 [-285 0 0 0 -0.5 0 -0.5]
+set tcp.volume ?tcp_fxlist_enabled FXlist==1 h<37 + [233 0 0 0 0.5 0 0.5]
+set tcp.volume ?tcp_fxlist_enabled FXlist==1 h<37 ?Alignment + tcpmaxind6
+set tcp.pan ?tcp_fxlist_enabled FXlist==1 h<37 + [233 0 0 0 0.5 0 0.5]
+set tcp.pan ?tcp_fxlist_enabled FXlist==1 h<37 ?Alignment + tcpmaxind6
+set tcp.width ?tcp_fxlist_enabled FXlist==1 h<37 + [233 0 0 0 0.5 0 0.5]
+set tcp.width ?tcp_fxlist_enabled FXlist==1 h<37 ?Alignment + tcpmaxind6
+set tcp.volume ?tcp_fxlist_enabled FXlist==1 Minimal==2 h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.pan ?tcp_fxlist_enabled FXlist==1 Minimal==2 h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.width ?tcp_fxlist_enabled FXlist==1 Minimal==2 h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.volume.label ?tcp_fxlist_enabled FXlist==1 Minimal==2 !Alignment + + tcpmaxind6 tcpmaxind6
+set tcp.volume ?tcp_fxlist_enabled FXlist==1 Minimal==2 !Alignment h<37 + tcpmaxind6
+set tcp.pan ?tcp_fxlist_enabled FXlist==1 Minimal==2 !Alignment h<37 + tcpmaxind6
+set tcp.width ?tcp_fxlist_enabled FXlist==1 Minimal==2 !Alignment h<37 + tcpmaxind6
+set tcp.volume ?tcp_fxlist_enabled FXlist==1 Minimal==3 !track_selected h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.pan ?tcp_fxlist_enabled FXlist==1 Minimal==3 !track_selected h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.width ?tcp_fxlist_enabled FXlist==1 Minimal==3 !track_selected h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.volume.label ?tcp_fxlist_enabled FXlist==1 Minimal==3 !track_selected !Alignment + + tcpmaxind6 tcpmaxind6
+set tcp.volume ?tcp_fxlist_enabled FXlist==1 Minimal==3 !track_selected !Alignment h<37 + tcpmaxind6
+set tcp.pan ?tcp_fxlist_enabled FXlist==1 Minimal==3 !track_selected !Alignment h<37 + tcpmaxind6
+set tcp.width ?tcp_fxlist_enabled FXlist==1 Minimal==3 !track_selected !Alignment h<37 + tcpmaxind6
+
+; RIGHT FX LIST
+set tcp.mute ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5]
+set tcp.solo ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5]
+set tcp.phase ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5]
+set tcp.env ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5]
+set tcp.volume ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5] h<37 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.pan ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5] h<37 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.width ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5] h<37 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.volume.label ?tcp_fxlist_enabled FXlist==3 + [104]
+set tcp.volume ?tcp_fxlist_enabled FXlist==3 Minimal==2 h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.pan ?tcp_fxlist_enabled FXlist==3 Minimal==2 h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.width ?tcp_fxlist_enabled FXlist==3 Minimal==2 h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.volume ?tcp_fxlist_enabled FXlist==3 Minimal==3 !track_selected h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.pan ?tcp_fxlist_enabled FXlist==3 Minimal==3 !track_selected h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set tcp.width ?tcp_fxlist_enabled FXlist==3 Minimal==3 !track_selected h>36 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+
+; REVERSE TCP
+set tcp.label ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind6 [336 0 0 0 0.5 0 0.5]
+set tcp.volume ?tcp_fxlist_enabled FXlist==4 h<37 + - - [336 0 0 0 0.5 0 0.5] tcpmaxind tcpmaxind5
+set tcp.pan ?tcp_fxlist_enabled FXlist==4 h<37 + - - [336 0 0 0 0.5 0 0.5] tcpmaxind tcpmaxind5
+set tcp.width ?tcp_fxlist_enabled FXlist==4 h<37 + - - [336 0 0 0 0.5 0 0.5] tcpmaxind tcpmaxind5
+set tcp.volume.label ?tcp_fxlist_enabled FXlist==4 + + + tcpmaxind tcpmaxind6 [-181 0 0 0 -0.5 0 -0.5]
+set tcp.phase ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set tcp.env ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set tcp.io ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set tcp.mute ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set tcp.solo ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set tcp.volume ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1] h<37 + [518 0 0 0 1 0 1]
+set tcp.pan ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1] h<37 + [518 0 0 0 1 0 1]
+set tcp.width ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1] h<37 + [518 0 0 0 1 0 1]
+set tcp.volume ?tcp_fxlist_enabled FXlist==4 Minimal==2 h>36 + - - [854 0 0 0 1.5 0 1.5] tcpmaxind tcpmaxind5
+set tcp.pan ?tcp_fxlist_enabled FXlist==4 Minimal==2 h>36 + - - [854 0 0 0 1.5 0 1.5] tcpmaxind tcpmaxind5
+set tcp.width ?tcp_fxlist_enabled FXlist==4 Minimal==2 h>36 + - - [854 0 0 0 1.5 0 1.5] tcpmaxind tcpmaxind5
+set tcp.volume ?tcp_fxlist_enabled FXlist==4 Minimal==3 !track_selected h>36 + - - [854 0 0 0 1.5 0 1.5] tcpmaxind tcpmaxind5
+set tcp.pan ?tcp_fxlist_enabled FXlist==4 Minimal==3 !track_selected h>36 + - - [854 0 0 0 1.5 0 1.5] tcpmaxind tcpmaxind5
+set tcp.width ?tcp_fxlist_enabled FXlist==4 Minimal==3 !track_selected h>36 + - - [854 0 0 0 1.5 0 1.5] tcpmaxind tcpmaxind5
+
+
+Layout "VCA - Fader Blue" "vca blue"
+set tcp.dragdropinfo
+Layout "VCA - Fader Green" "vca green"
+set tcp.dragdropinfo
+Layout "VCA - Fader Pink" "vca pink"
+set tcp.dragdropinfo
+Layout "VCA - Fader Red" "vca red"
+set tcp.dragdropinfo
+Layout "VCA - Fader Yellow" "vca yellow"
+set tcp.dragdropinfo
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+
+Layout "Untinted VCA" "untinted vca"
+set tcp.dragdropinfo
+
+Layout "Untinted VCA - Fader Blue" "untinted vca blue"
+set tcp.dragdropinfo
+Layout "Untinted VCA - Fader Green" "untinted vca green"
+set tcp.dragdropinfo
+Layout "Untinted VCA - Fader Pink" "untinted vca pink"
+set tcp.dragdropinfo
+Layout "Untinted VCA - Fader Red" "untinted vca red"
+set tcp.dragdropinfo
+Layout "Untinted VCA - Fader Yellow" "untinted vca yellow"
+set tcp.dragdropinfo
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+
+EndLayout
+
+EndLayout
+
+
+Layout "VCA - Long Fader" "vca"
+set tcpmaxind3 !Alignment ?tcp_fxlist_enabled FXlist==1 Minimal==1 - * maxfolderdepth [tcpind 0 -tcpind] * folderdepth [tcpind 0 -tcpind]
+set tcpmaxind3 !Alignment ?tcp_fxlist_enabled FXlist==1 Minimal==3 ?track_selected - * maxfolderdepth [tcpind 0 -tcpind] * folderdepth [tcpind 0 -tcpind]
+set tcp.mute + tcpmaxind h<18 [0] h<37 [2 93 21 13 0 0.5 0 0.5] [2 85 21 13 0 0.5 0 0.5]
+set tcp.solo + tcpmaxind h<18 [0] h<37 [22 93 21 13 0 0.5 0 0.5] [22 85 21 13 0 0.5 0 0.5]
+set tcp.label + tcpmaxind2 h<18 [0] h<37 [45 92 239 15 0 0.5 0.5 0.5] [45 84 239 31 0 0.5 0.5 0.5]
+set tcp.volume.fadermode [0]
+set tcp.volume + tcpmaxind3 h<18 [0] h<37 [288 92 333 15 0.5 0.5 1 0.5] [288 84 333 15 0.5 0.5 1 0.5]
+set tcp.phase + tcpmaxind h<37 [0] [2 101 21 13 0 0.5 0 0.5]
+set tcp.env + tcpmaxind h<37 [0] [22 101 21 13 0 0.5 0 0.5]
+set tcp.volume.label + tcpmaxind3 h<37 [0] [288 100 264 15 0.5 0.5 1 0.5]
+set tcp.pan h<37 [0] [555 101 31 13 1 0.5 1 0.5]
+set tcp.width h<37 [0] [589 101 31 13 1 0.5 1 0.5]
+set tcp.pan.label [0]
+set tcp.width.label [0]
+set tcp.meter [0]
+set tcp.io [0]
+set tcp.recarm [0]
+set tcp.fx [0]
+set tcp.fxbyp [0]
+set tcp.recmon [0]
+set tcp.fxin [0]
+set tcp.recinput [0]
+set tcp.recmode [0]
+set tcp.fxembed [0]
+set tcp.fxparm [0]
+set tcp.sendlist [0]
+
+; MINIMAL
+set tcp.mute  Minimal==2 + tcpmaxind h<18 [0] [2 93 21 13 0 0.5 0 0.5]
+set tcp.solo Minimal==2 + tcpmaxind h<18 [0] [22 93 21 13 0 0.5 0 0.5]
+set tcp.label Minimal==2 + tcpmaxind2 h<18 [0] [45 92 239 15 0 0.5 0.5 0.5]
+set tcp.volume Minimal==2 + tcpmaxind3 h<18 [0] [288 92 333 15 0.5 0.5 1 0.5]
+set tcp.phase Minimal==2 [0]
+set tcp.env Minimal==2 [0]
+set tcp.volume.label Minimal==2 [0]
+set tcp.pan Minimal==2 [0]
+set tcp.width Minimal==2 [0]
+set tcp.mute  Minimal==3 !track_selected + tcpmaxind h<18 [0] [2 93 21 13 0 0.5 0 0.5]
+set tcp.solo Minimal==3 !track_selected + tcpmaxind h<18 [0] [22 93 21 13 0 0.5 0 0.5]
+set tcp.label Minimal==3 !track_selected + tcpmaxind2 h<18 [0] [45 92 239 15 0 0.5 0.5 0.5]
+set tcp.volume Minimal==3 !track_selected + tcpmaxind3 h<18 [0] [288 92 333 15 0.5 0.5 1 0.5]
+set tcp.phase Minimal==3 !track_selected [0]
+set tcp.env Minimal==3 !track_selected [0]
+set tcp.volume.label Minimal==3 !track_selected [0]
+set tcp.pan Minimal==3 !track_selected [0]
+set tcp.width Minimal==3 !track_selected [0]
+
+Layout "VCA - Long Fader Blue" "vca blue"
+set tcp.dragdropinfo
+Layout "VCA - Long Fader Green" "vca green"
+set tcp.dragdropinfo
+Layout "VCA - Long Fader Pink" "vca pink"
+set tcp.dragdropinfo
+Layout "VCA - Long Fader Red" "vca red"
+set tcp.dragdropinfo
+Layout "VCA - Long Fader Yellow" "vca yellow"
+set tcp.dragdropinfo
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+
+Layout "Untinted VCA - Long Fader" "untinted vca"
+set tcp.dragdropinfo
+
+Layout "Untinted VCA - Long Fader Blue" "untinted vca blue"
+set tcp.dragdropinfo
+Layout "Untinted VCA - Long Fader Green" "untinted vca green"
+set tcp.dragdropinfo
+Layout "Untinted VCA - Long Fader Pink" "untinted vca pink"
+set tcp.dragdropinfo
+Layout "Untinted VCA - Long Fader Red" "untinted vca red"
+set tcp.dragdropinfo
+Layout "Untinted VCA - Long Fader Yellow" "untinted vca yellow"
+set tcp.dragdropinfo
+
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+
+EndLayout
+
+EndLayout
+
+
+
+; *********MASTER TCP*********
+
+
+
+; DEFAULT
+clear master.tcp.*
+front master.tcp.fxbyp
+set master.tcp.size tcp.size
+set master.tcp.volume.fadermode tcp.volume.fadermode
+set master.tcp.pan.fadermode tcp.pan.fadermode
+set master.tcp.width.fadermode tcp.width.fadermode
+set master.tcp.meter.vu.div tcp.meter.vu.div
+set master.tcp.label tcp.label
+set master.tcp.meter + tcpmaxind2 ?tcp_fxembed [3 20 280 11 0 0 0.5 0] [3 20 280 30 0 0 0.5 0]
+set master.tcp.volume tcp.volume
+set master.tcp.volume.label tcp.volume.label
+set master.tcp.pan tcp.pan
+set master.tcp.pan.label tcp.pan.label
+set master.tcp.width tcp.width
+set master.tcp.width.label tcp.width.label
+set master.tcp.fx tcp.fx
+set master.tcp.fxbyp tcp.fxbyp
+set master.tcp.mono tcp.recarm
+set master.tcp.io tcp.io
+set master.tcp.mute tcp.mute
+set master.tcp.solo tcp.solo
+set master.tcp.env tcp.env
+set master.tcp.fxparm tcp.fxparm
+set master.tcp.fxparm.visflags tcp.fxparm.visflags
+set master.tcp.sendlist tcp.sendlist
+set master.tcp.fxembed tcp.fxembed
+
+; ALWAYS SHOW RECORDING CONTROLS
+set master.tcp.label ?RecontrolTCP + [-20 0 20]
+set master.tcp.meter ?RecontrolTCP + tcpmaxind2 ?tcp_fxembed [3 20 280 28 0 0 0.5 0] [3 20 280 30 0 0 0.5 0]
+
+; RESIZABLE METERS/VOL/PAN/WID
+set master.tcp.meter ?Metersize + tcpmaxind2 [3 20 280 176 0 0 0.5 1]
+set master.tcp.meter ?Metersize ?tcp_fxembed + tcpmaxind2 [3 20 280 11 0 0 0.5 0]
+set master.tcp.meter ?Metersize ?tcp_fxembed ?RecontrolTCP + tcpmaxind2 [3 20 280 27 0 0 0.5 0]
+
+; MINIMAL
+set master.tcp.meter Minimal==2 + tcpmaxind3 [289 94 226 11 0.5 0.5 1 0.5]
+set master.tcp.meter !FXlist Minimal==2 + + tcpmaxind4 [0 0 -233]
+set master.tcp.meter ?tcp_fxlist_enabled FXlist==1 Minimal==2 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set master.tcp.meter ?tcp_fxlist_enabled FXlist==3 Minimal==2 + [104]
+set master.tcp.meter ?tcp_fxlist_enabled FXlist==4 Minimal==2 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set master.tcp.meter Minimal==3 !track_selected + tcpmaxind3 [289 94 226 11 0.5 0.5 1 0.5]
+set master.tcp.meter !FXlist Minimal==3 !track_selected + + tcpmaxind4 [0 0 -233]
+set master.tcp.meter ?tcp_fxlist_enabled FXlist==1 Minimal==3 !track_selected + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set master.tcp.meter ?tcp_fxlist_enabled FXlist==3 Minimal==3 !track_selected + [104]
+set master.tcp.meter ?tcp_fxlist_enabled FXlist==4 Minimal==3 !track_selected + + tcpmaxind [-518 0 0 0 -1 0 -1]
+
+; NO FX LIST
+set master.tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==1 + tcpmaxind2 [3 20 280 11 0 0 0.5 0]
+set master.tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==1 ?Metersize + tcpmaxind2 [3 20 280 84 0 0 0.5 0.5]
+set master.tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==1 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5] h>36 + + + tcpmaxind5 tcpmaxind7 [-233 0 233 0 -0.5]
+set master.tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==1 Minimal==2 + tcpmaxind3 [289 94 226 11 0.5 0.5 1 0.5]
+set master.tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==1 Minimal==3 !track_selected + tcpmaxind3 [289 94 226 11 0.5 0.5 1 0.5]
+set master.tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==1 ?RecontrolTCP + [0 0 0 16]
+set master.tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==1 Minimal==2 ?RecontrolTCP + [0 0 0 -16]
+set master.tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==1 Minimal==3 !track_selected ?RecontrolTCP + [0 0 0 -16]
+; IF MINIMAL = 3
+set master.tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected + tcpmaxind2 [3 20 280 11 0 0 0.5 0]
+set master.tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected ?Metersize + tcpmaxind2 [3 20 280 84 0 0 0.5 0.5]
+set master.tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected + + tcpmaxind6 [233 0 0 0 0.5 0 0.5] h>36 + + + tcpmaxind5 tcpmaxind7 [-233 0 233 0 -0.5]
+set master.tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected Minimal==2 + tcpmaxind3 [289 94 226 11 0.5 0.5 1 0.5]
+set master.tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected Minimal==3 !track_selected + tcpmaxind3 [289 94 226 11 0.5 0.5 1 0.5]
+set master.tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected ?RecontrolTCP + [0 0 0 16]
+set master.tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected Minimal==2 ?RecontrolTCP + [0 0 0 -16]
+set master.tcp.meter ?FXlist !tcp_fxlist_enabled Minimal==3 ?track_selected Minimal==3 !track_selected ?RecontrolTCP + [0 0 0 -16]
+
+; BOTTOM FX LIST
+set master.tcp.meter !FXlist + tcpmaxind2 [3 20 280 11 0 0 0.5 0]
+set master.tcp.meter !FXlist ?Metersize + tcpmaxind2 [3 20 280 84 0 0 0.5 0.5]
+set master.tcp.meter !FXlist + + tcpmaxind6 [233 0 0 0 0.5 0 0.5] h>36 + + + tcpmaxind5 tcpmaxind7 [-233 0 233 0 -0.5]
+set master.tcp.meter !FXlist Minimal==2 + tcpmaxind3 [289 94 226 11 0.5 0.5 1 0.5]
+set master.tcp.meter !FXlist Minimal==3 !track_selected + tcpmaxind3 [289 94 226 11 0.5 0.5 1 0.5]
+set master.tcp.meter !FXlist ?RecontrolTCP + [0 0 0 16]
+set master.tcp.meter !FXlist Minimal==2 ?RecontrolTCP + [0 0 0 -16]
+set master.tcp.meter !FXlist Minimal==3 !track_selected ?RecontrolTCP + [0 0 0 -16]
+
+; LEFT FX LIST
+set master.tcp.meter ?tcp_fxlist_enabled FXlist==1 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+
+; REVERSE TCP
+set master.tcp.meter ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind6 [336 0 0 0 0.5 0 0.5]
+
+; MARGIN
+set master.tcp.margin tcp.margin
+set master.tcp.label.margin tcp.label.margin
+set master.tcp.volume.label.margin tcp.volume.label.margin
+set master.tcp.pan.label.margin tcp.volume.label.margin
+set master.tcp.width.label.margin tcp.volume.label.margin
+set master.tcp.fxparm.margin tcp.fxparm.margin
+set master.tcp.sendlist.margin tcp.sendlist.margin
+
+; FONT
+set master.tcp.fxparm.font tcp.fxparm.font
+set master.tcp.sendlist.font tcp.sendlist.font
+set master.tcp.label.font tcp.label.font
+set master.tcp.volume.label.font tcp.volume.label.font
+set master.tcp.pan.label.font tcp.volume.label.font
+set master.tcp.width.label.font tcp.volume.label.font
+
+; COLOR
+set master.tcp.label.color tcp.label.color
+set master.tcp.volume.label.color tcp.volume.label.color
+set master.tcp.pan.label.color tcp.pan.label.color
+set master.tcp.width.label.color tcp.width.label.color
+set master.tcp.meter.readout.color mmrc
+set master.tcp.meter.rmsreadout.color mmrc
+set master.tcp.meter.scale.color.unlit.top mmscut
+set master.tcp.meter.scale.color.unlit.bottom mmscub
+set master.tcp.meter.scale.color.lit.top mmsclt
+set master.tcp.meter.scale.color.lit.bottom mmsclb
+set master.tcp.fxembedheader.color tcp.fxembedheader.color
+
+
+
+; *********ENVELOPES*********
+
+
+
+; DEFAULT
+clear envcp.*
+set envcp.size tcp.size
+set tcpmaxind5 !Alignment ?tcp_fxlist_enabled FXlist==1 Minimal==1 - * maxfolderdepth [tcpind] * folderdepth [tcpind]
+set tcpmaxind5 !Alignment ?tcp_fxlist_enabled FXlist==1 Minimal==3 ?track_selected - * maxfolderdepth [tcpind] * folderdepth [tcpind]
+set envcp.fader.fadermode h<172 [1] [0]
+set envcp.arm + tcpmaxind h<15 [0] [2 93 21 13 0 0.5 0 0.5]
+set envcp.label + tcpmaxind2 h<15 [0] [25 93 259 13 0 0.5 0.5 0.5]
+set envcp.bypass h<15 [0] [520 93 21 13 1 0.5 1 0.5]
+set envcp.hide h<15 [0] [540 93 21 13 1 0.5 1 0.5]
+set envcp.bypass envcp_type==4 h>29 + [0 -7]
+set envcp.hide envcp_type==4 h>29 + [0 -7]
+set envcp.learn h<30 [0] [520 100 21 13 1 0.5 1 0.5]
+set envcp.mod h<30 [0] [540 100 21 13 1 0.5 1 0.5]
+set envcp.fader h<15 [0] h<172 [592 93 29 13 1 0.5 1 0.5] [599 0 15 199 1 0 1 1]
+set envcp.value + tcpmaxind3 h<15 [0] [287 93 230 13 0.5 0.5 1 0.5]
+
+; MINIMAL
+set envcp.fader.fadermode Minimal==2 [1]
+set envcp.fader Minimal==2 h<15 [0] [592 93 29 13 1 0.5 1 0.5]
+set envcp.fader.fadermode Minimal==3 !track_selected [1]
+set envcp.fader Minimal==3 !track_selected h<15 [0] [592 93 29 13 1 0.5 1 0.5]
+set envcp.learn Minimal==2 [0]
+set envcp.mod Minimal==2 [0]
+set envcp.learn Minimal==3 !track_selected [0]
+set envcp.mod Minimal==3 !track_selected [0]
+set envcp.bypass Minimal==2 envcp_type==4 h>29 + [0 7]
+set envcp.hide Minimal==2 envcp_type==4 h>29 + [0 7]
+set envcp.bypass Minimal==3 !track_selected envcp_type==4 h>29 + [0 7]
+set envcp.hide Minimal==3 !track_selected envcp_type==4 h>29 + [0 7]
+
+; LEFT FX LIST
+set envcp.arm ?tcp_fxlist_enabled FXlist==1 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set envcp.label ?tcp_fxlist_enabled FXlist==1 + + tcpmaxind6 [233 0 0 0 0.5 0 0.5]
+set envcp.value ?tcp_fxlist_enabled FXlist==1 + + tcpmaxind5 [-285 0 0 0 -0.5 0 -0.5]
+set envcp.value ?tcp_fxlist_enabled FXlist==1 !Alignment + tcpmaxind6
+set envcp.value ?tcp_fxlist_enabled FXlist==1 Minimal==2 !Alignment + tcpmaxind6
+set envcp.value ?tcp_fxlist_enabled FXlist==1 Minimal==3 !track_selected !Alignment + tcpmaxind6
+
+; RIGHT FX LIST
+set envcp.fader ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5]
+set envcp.bypass ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5]
+set envcp.hide ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5]
+set envcp.learn ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5]
+set envcp.mod ?tcp_fxlist_enabled FXlist==3 + + tcpmaxind5 [-233 0 0 0 -0.5 0 -0.5]
+set envcp.value ?tcp_fxlist_enabled FXlist==3 + [104]
+
+; REVERSE TCP
+set envcp.arm ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind6 [336 0 0 0 0.5 0 0.5]
+set envcp.label ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind6 [336 0 0 0 0.5 0 0.5]
+set envcp.value ?tcp_fxlist_enabled FXlist==4 + + + tcpmaxind tcpmaxind6 [-181 0 0 0 -0.5 0 -0.5]
+set envcp.fader ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set envcp.bypass ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set envcp.hide ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set envcp.learn ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+set envcp.mod ?tcp_fxlist_enabled FXlist==4 + + tcpmaxind [-518 0 0 0 -1 0 -1]
+
+; MARGIN
+set envcp.margin ?tcp_iconsize [1 0 tcp_iconsize] tcp.margin
+set envcp.label.margin + tcp.label.margin [0 0 8]
+set envcp.value.margin [6 1 6 0 0.5]
+
+; FONT
+set envcp.label.font [2]
+set envcp.value.font [-1]
+
+; COLOR
+set envcp.label.color tcp.label.color
+set envcp.value.color tcp.volume.label.color
+
+
+
+; *********MCP*********
+
+
+
+; FOLDER INDENTATION
+def indent -6
+
+; FOLDER ALIGNMENT
+set ind / indent 2
+set indplus * indent -1
+set mcpind * folderdepth [0 indent]
+set mcpind2 * folderdepth [0 0 0 indent]
+set mcpmaxind * maxfolderdepth [0 indent]
+set mcpmaxindlab * maxfolderdepth [0 indent 0 indplus]
+set mcpmaxind2 * maxfolderdepth [0 0 0 indent]
+set mcpmaxindhalf * maxfolderdepth [0 ind]
+set mcpmaxindhalf2 * maxfolderdepth [0 0 0 ind]
+set mcpmaxindhalf3 * maxfolderdepth [0 ind 0 ind]
+set h_maxind + h * maxfolderdepth [indent]
+
+; DEFAULT
+clear mcp.*
+front mcp.fxbyp mcp.folder mcp.label mcp.custom.lastinfolder
+set mcp.size [60 501]
+set mcp.volume.fadermode h_maxind{x}<192 [1] [0]
+set mcp.pan.fadermode [1]
+set mcp.width.fadermode [1]
+set mcp.meter.vu.div [1]
+set mcp.extmixer.mode [0]
+set mcp.extmixer.position [0]
+set mcp.trackidx [0 1 60 13]
+set mcp.folder [46 3 11 9]
+set mcp.custom.lastinfolder folderstate<0 + mcpind2 [59 15 3 492 1 0 1 1]
+set mcp.fx [19 15 21 13]
+set mcp.fxbyp [30 15 10 13]
+set mcp.mute [8 30 21 13]
+set mcp.solo [30 30 21 13]
+set mcp.io [8 44 21 13]
+set mcp.env [30 44 21 13]
+set mcp.meter h_maxind{x}<450 + mcpmaxind2 [40 103 17 354 0 0 0 1] + mcpmaxindhalf2 [2 60 55 153 0 0 0 0.5]
+set mcp.phase h_maxind{x}<152 [0] h_maxind{x}<450 + mcpmaxind [39 456 19 13 0 1 0 1] + mcpmaxindhalf [1 211 57 13 0 0.5 0 0.5]
+set mcpos h_maxind{x}<450 [1 59 0 0] + mcpmaxindhalf [1 225 0 0 0 0.5 0 0.5]
+set mcp.pan.label + mcpos h_maxind{x}<450 [0] [0 0 57 13]
+set mcp.pan + mcpos h_maxind{x}<450 [0 0 57 13] [0 13 57 13]
+set mcp.width.label + mcpos h_maxind{x}<450 [0] [0 27 57 13]
+set mcp.width + mcpos h_maxind{x}<450 [0 14 57 13] [0 40 57 13]
+set mcp.volume.label + mcpos h_maxind{x}<192 [0] h_maxind{x}<450 [0 28 57 13] [0 54 57 13]
+set mcp.volume h_maxind{x}<192 [1 87 57 13] h_maxind{x}<450 + mcpmaxind2 [23 102 15 367 0 0 0 1] + mcpmaxindhalf3 [23 294 15 175 0 0.5 0 1]
+set mcp.recarm h_maxind{x}<192 [0] + mcpmaxind ?recarm [1 414 21 13 0 1 0 1] ?RecontrolMCP [1 414 21 13 0 1 0 1] [20 471 21 13 0 1 0 1]
+set mcp.recmon h_maxind{x}<192 [0] + mcpmaxind ?recarm [1 428 21 13 0 1 0 1] ?RecontrolMCP [1 428 21 13 0 1 0 1]
+set mcp.recmode h_maxind{x}<192 [0] + mcpmaxind ?recarm [1 442 21 13 0 1 0 1] ?RecontrolMCP [1 442 21 13 0 1 0 1]
+set mcp.fxin h_maxind{x}<192 [0] + mcpmaxind ?recarm [1 456 21 13 0 1 0 1] ?RecontrolMCP [1 456 21 13 0 1 0 1]
+set mcp.recinput h_maxind{x}<192 [0] + mcpmaxind ?recarm [1 470 57 13 0 1 0 1] ?RecontrolMCP [1 470 57 13 0 1 0 1]
+set mcp.label + + mcpmaxindlab mcpind2 [0 484 60 16 0 1 0 1]
+
+; AUTO FOLDER
+set mcp.size folderstate==1 + [3]
+set mcp.size folderstate<0 + [2]
+set mcp.trackidx folderstate==1 + [0 0 3]
+set mcp.folder folderstate==1 + [3]
+set mcp.fx folderstate==1 + [3]
+set mcp.fxbyp folderstate==1 + [3]
+set mcp.mute folderstate==1 + [3]
+set mcp.solo folderstate==1 + [3]
+set mcp.io folderstate==1 + [3]
+set mcp.env folderstate==1 + [3]
+set mcp.meter folderstate==1 + [3]
+set mcp.phase folderstate==1 + [3]
+set mcp.pan.label folderstate==1 + [3]
+set mcp.pan folderstate==1 + [3]
+set mcp.width.label folderstate==1 + [3]
+set mcp.width folderstate==1 + [3]
+set mcp.volume.label folderstate==1 + [3]
+set mcp.volume folderstate==1 + [3]
+set mcp.recarm folderstate==1 + [3]
+set mcp.recmon folderstate==1 + [3]
+set mcp.recmode folderstate==1 + [3]
+set mcp.fxin folderstate==1 + [3]
+set mcp.recinput folderstate==1 + [3]
+set mcp.label folderstate==1 + [3]
+set mcp.label folderstate<0 + [0 0 2]
+
+; SIDEBAR
+set sbpad [0 0 2]
+set mcp.size ?SidebarS ?Sidebar track_selected==1 + [SidebarS]
+set mcp.extmixer.mode ?SidebarS ?Sidebar track_selected==1 [1]
+set mcp.extmixer.position ?SidebarS ?Sidebar track_selected==1 + mcpmaxind2 + sbpad [59 15 SidebarS 470 0 0 0 1]
+set mcp.label ?SidebarS ?Sidebar track_selected==1 + [0 0 SidebarS]
+set mcp.trackidx ?SidebarS ?Sidebar track_selected==1 + [0 0 SidebarS]
+set mcp.folder ?SidebarS ?Sidebar track_selected==1 + [SidebarS]
+set mcp.custom.lastinfolder ?SidebarS ?Sidebar track_selected==1 + [SidebarS]
+set mcp.size ?SidebarS !Sidebar + [SidebarS]
+set mcp.extmixer.mode ?SidebarS !Sidebar [1]
+set mcp.extmixer.position ?SidebarS !Sidebar + mcpmaxind2 + sbpad [59 15 SidebarS 470 0 0 0 1]
+set mcp.label ?SidebarS !Sidebar + [0 0 SidebarS]
+set mcp.trackidx ?SidebarS !Sidebar + [0 0 SidebarS]
+set mcp.folder ?SidebarS !Sidebar + [SidebarS]
+set mcp.custom.lastinfolder ?SidebarS !Sidebar + [SidebarS]
+set mcp.extmixer.position folderstate==1 ?SidebarS ?Sidebar track_selected==1 + [3]
+set mcp.extmixer.position folderstate==1 ?SidebarS !Sidebar + [3]
+
+; MARGIN
+set mcp.recinput.margin [3 0 12 0 0.5]
+set mcp.volume.label.margin tcp.volume.label.margin
+set mcp.pan.label.margin tcp.volume.label.margin
+set mcp.width.label.margin tcp.volume.label.margin
+set mcp.trackidx.margin tcp.trackidx.margin
+set mcp.label.margin [2 1 3 0 0.5]
+set mcp.fxlist.margin [4 0 4 0 0.5]
+set mcp.fxparm.margin [4 0 4]
+set mcp.sendlist.margin [5 0 5]
+
+; FONT
+set mcp.trackidx.font tcp.trackidx.font
+set mcp.recinput.font tcp.recinput.font
+set mcp.fxlist.font [3 18]
+set mcp.fxparm.font [3 0 0 0 1]
+set mcp.sendlist.font [3 18]
+set mcp.label.font tcp.label.font
+set mcp.volume.label.font tcp.volume.label.font
+set mcp.pan.label.font tcp.volume.label.font
+set mcp.width.label.font tcp.volume.label.font
+
+; COLOR
+set mcp.label.color tcp.label.color
+set mcp.trackidx.color tcp.trackidx.color
+set mcp.recinput.color tcp.recinput.color
+set mcp.volume.label.color tcp.volume.label.color
+set mcp.pan.label.color tcp.pan.label.color
+set mcp.width.label.color tcp.width.label.color
+set mcp.meter.readout.color mrc
+set mcp.meter.rmsreadout.color mrc
+set mcp.meter.scale.color.unlit.top mscut
+set mcp.meter.scale.color.unlit.bottom mscub
+set mcp.meter.scale.color.lit.top msclt
+set mcp.meter.scale.color.lit.bottom msclb
+
+
+Layout "Default"
+set mcp.margin
+
+Layout "Default - Fader Blue" "blue"
+set mcp.margin
+Layout "Default - Fader Green" "green"
+set mcp.margin
+Layout "Default - Fader Pink" "pink"
+set mcp.margin
+Layout "Default - Fader Red" "red"
+set mcp.margin
+Layout "Default - Fader Yellow" "yellow"
+set mcp.margin
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+
+EndLayout
+
+
+Layout "Untinted" "untinted"
+set mcp.margin
+
+Layout "Untinted - Fader Blue" "untinted blue"
+set mcp.margin
+Layout "Untinted - Fader Green" "untinted green"
+set mcp.margin
+Layout "Untinted - Fader Pink" "untinted pink"
+set mcp.margin
+Layout "Untinted - Fader Red" "untinted red"
+set mcp.margin
+Layout "Untinted - Fader Yellow" "untinted yellow"
+set mcp.margin
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+
+EndLayout
+
+
+Layout "FX Rack"
+clear mcp.*
+front mcp.fxbyp mcp.folder mcp.label mcp.custom.lastinfolder
+set mcp.size + [60 501] [Racksize]
+set mcp.extmixer.mode [1]
+set mcp.extmixer.position + + mcpmaxind2 [0 30 61 454 0 0 0 1] [0 0 Racksize]
+set mcp.trackidx + [0 1 60 13] [0 0 Racksize]
+set FXRack + Racksize 40
+set mcp.folder + [6 3 11 9] [FXRack]
+set mcp.custom.lastinfolder folderstate<0 + mcpind2 + [Racksize] [59 15 3 492 1 0 1 1]
+set FXRack2 / Racksize 2
+set mcp.fx + [20 15 21 13] [FXRack2]
+set mcp.fxbyp + [31 15 10 13] [FXRack2]
+set mcp.label + + + mcpmaxindlab mcpind2 [0 484 60 16 0 1 0 1] [0 0 Racksize]
+
+; MARGIN
+set mcp.trackidx.margin [0 0 0 0 0.5]
+set mcp.label.margin [2 0 3 0 0.5]
+set mcp.fxlist.margin [5 0 5 0 0.5]
+set mcp.fxparm.margin [5 0 5]
+set mcp.sendlist.margin [5 0 5]
+
+; FONT
+set mcp.label.font [6]
+set mcp.trackidx.font [1]
+set mcp.fxlist.font [3 22]
+set mcp.fxparm.font [3 22 0 0 1]
+set mcp.sendlist.font [3 22]
+
+; COLOR
+colorsmart mcp.label.color
+set mcp.label.color !Labcolor track_selected==1 labelcolor labelcoloralt
+colorsmart mcp.trackidx.color
+
+; AUTO FOLDER
+set mcp.size folderstate==1 + [3]
+set mcp.size folderstate<0 + [2]
+set mcp.extmixer.position folderstate==1 + [3]
+set mcp.trackidx folderstate==1 + [0 0 3]
+set mcp.folder folderstate==1 + [3]
+set mcp.fx folderstate==1 + [3]
+set mcp.fxbyp folderstate==1 + [3]
+set mcp.label folderstate==1 + [3]
+set mcp.label folderstate<0 + [0 0 2]
+
+Layout "Untinted FX Rack" "untinted"
+set mcp.margin
+EndLayout
+
+EndLayout
+
+
+Layout "Large"
+set mcp.size + [54]
+set mcp.trackidx + [0 0 54]
+set mcp.folder + [54]
+set mcp.fx + [27]
+set mcp.fxbyp + [27]
+set mcp.mute + [27]
+set mcp.solo + [27]
+set mcp.io + [27]
+set mcp.env + [27]
+set mcp.meter + [27 0 27] h_maxind{x}>449 + [-27 0 27]
+set mcp.phase + [27 0 27] h_maxind{x}>449 + [-27 0 27]
+set mcp.pan.label + [0 0 54]
+set mcp.width.label + [0 0 54]
+set mcp.volume.label + [0 0 54]
+set mcp.pan + [0 0 54]
+set mcp.width + [0 0 54]
+set mcp.volume + [27]
+set mcp.volume h_maxind{x}<192 + [-27 0 54] 
+set mcp.recarm + [27]
+set mcp.recarm ?recarm + [-14]
+set mcp.recarm ?RecontrolMCP + [-14]
+set mcp.recarm ?RecontrolMCP ?recarm + [14]
+set mcp.recmon + [13]
+set mcp.recmode + [13]
+set mcp.fxin + [13]
+set mcp.recinput + [0 0 54]
+set mcp.label + [0 0 54]
+
+; SIDEBAR
+set mcp.extmixer.position ?SidebarS ?Sidebar track_selected==1 + [54]
+set mcp.extmixer.position ?SidebarS !Sidebar + [54]
+
+Layout "Large - Fader Blue" "blue"
+set mcp.margin
+Layout "Large - Fader Green" "green"
+set mcp.margin
+Layout "Large - Fader Pink" "pink"
+set mcp.margin
+Layout "Large - Fader Red" "red"
+set mcp.margin
+Layout "Large - Fader Yellow" "yellow"
+set mcp.margin
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+
+Layout "Untinted Large" "untinted"
+set mcp.margin
+
+Layout "Untinted Large - Fader Blue" "untinted blue"
+set mcp.margin
+Layout "Untinted Large - Fader Green" "untinted green"
+set mcp.margin
+Layout "Untinted Large - Fader Pink" "untinted pink"
+set mcp.margin
+Layout "Untinted Large - Fader Red" "untinted red"
+set mcp.margin
+Layout "Untinted Large - Fader Yellow" "untinted yellow"
+set mcp.margin
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+
+EndLayout
+
+
+Layout "Separator" "sep"
+clear mcp.*
+front mcp.folder
+set mcp.size [20 300]
+set mcp.label h_maxind{x}<16 + mcpind [0 283 20 16 0 1 0 1] + mcpind2 [0 0 20 299 0 0 1 1]
+set mcp.label.margin [2 2 2 2 0.5]
+colorsmart mcp.label.color
+set mcp.folder h_maxind{x}>30 [4 3 11 9]
+
+; SIDEBAR
+set mcp.extmixer.mode ?SidebarS !Sidebar [1]
+
+EndLayout
+
+
+Layout "Small" "small"
+set mcp.size + [-22]
+set mcp.trackidx + [0 0 -22]
+set mcp.folder + [-21]
+set mcp.fx + [-11]
+set mcp.fxbyp + [-11]
+set mcp.mute + [-6 0 -5]
+set mcp.solo + [-11 0 -5]
+set mcp.io + [-6 0 -5]
+set mcp.env + [-11 0 -5]
+set mcp.meter + [0 0 -22] h_maxind{x}<450 + [-15 0 15]
+set mcp.phase + [0 0 -22] h_maxind{x}<450 + [-15 0 15]
+set mcp.pan.label + [1 0 -24]
+set mcp.pan + [2 0 -26]
+set mcp.width.label + [1 0 -24]
+set mcp.width + [2 0 -26]
+set mcp.volume.label + [1 0 -24]
+set mcp.volume.label ?recarm h_maxind{x}<250 [0]
+set mcp.volume.label ?RecontrolMCP h_maxind{x}<250 [0]
+set mcp.volume.fadermode ?recarm h_maxind{x}<250 [1] [0]
+set mcp.volume.fadermode ?RecontrolMCP h_maxind{x}<250 [1] [0]
+set mcp.volume ?recarm h_maxind{x}<250 [3 87 31 13] h_maxind{x}<450 + mcpmaxind2 [8 102 15 310 0 0 0 1] + mcpmaxindhalf3 [11 294 15 118 0 0.5 0 1] h_maxind{x}<192 [3 87 31 13] h_maxind{x}<450 + mcpmaxind2 [8 102 15 367 0 0 0 1] + mcpmaxindhalf3 [11 294 15 175 0 0.5 0 1]
+set mcp.volume ?RecontrolMCP h_maxind{x}<250 [3 87 31 13]
+set mcp.volume ?RecontrolMCP h_maxind{x}>249 + [0 0 0 -57]
+set mcp.volume ?RecontrolMCP h_maxind{x}>249 ?recarm + [0 0 0 57]
+set mcp.volume folderstate==1 + [3]
+set mcp.recarm + [-12]
+set mcp.recarm ?recarm + [12] h_maxind{x}>449 + [7]
+set mcp.recarm ?RecontrolMCP + [12] h_maxind{x}>449 + [7]
+set mcp.recarm ?RecontrolMCP ?recarm + [-12] h_maxind{x}>449 + [-7]
+set mcp.recmon h_maxind{x}>449 + [7]
+set mcp.recmode h_maxind{x}>449 + [7]
+set mcp.fxin h_maxind{x}>449 + [7]
+set mcp.recinput + [0 0 -22]
+set mcp.label + [0 0 -22]
+
+; SIDEBAR
+set mcp.extmixer.position ?SidebarS ?Sidebar track_selected==1 + [-22]
+set mcp.extmixer.position ?SidebarS !Sidebar + [-22]
+
+Layout "Small - Fader Blue" "small blue"
+set mcp.margin
+Layout "Small - Fader Green" "small green"
+set mcp.margin
+Layout "Small - Fader Pink" "small pink"
+set mcp.margin
+Layout "Small - Fader Red" "small red"
+set mcp.margin
+Layout "Small - Fader Yellow" "small yellow"
+set mcp.margin
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+
+Layout "Untinted Small" "untinted small"
+set mcp.margin
+
+Layout "Untinted Small - Fader Blue" "untinted small blue"
+set mcp.margin
+Layout "Untinted Small - Fader Green" "untinted small green"
+set mcp.margin
+Layout "Untinted Small - Fader Pink" "untinted small pink"
+set mcp.margin
+Layout "Untinted Small - Fader Red" "untinted small red"
+set mcp.margin
+Layout "Untinted Small - Fader Yellow" "untinted small yellow"
+set mcp.margin
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+
+EndLayout
+
+
+Layout "VCA" "vca"
+set mcp.size [34 501]
+set mcp.trackidx [0 1 34 13]
+set mcp.folder [21 3 11 9]
+set mcp.mute [6 16 21 13]
+set mcp.solo [6 30 21 13]
+set mcp.env [6 44 21 13]
+set mcp.pan.label h_maxind{x}<450 [0] [1 59 31 13]
+set mcp.pan h_maxind{x}<450 [1 59 31 13] [1 72 31 13]
+set mcp.width.label h_maxind{x}<450 [0] [1 86 31 13]
+set mcp.width h_maxind{x}<450 [1 73 31 13] [1 99 31 13]
+set mcp.volume h_maxind{x}<192 [1 87 31 13] h_maxind{x}<450 + mcpmaxind2 [9 102 15 367 0 0 0 1] + mcpmaxind2 [9 128 15 341 0 0 0 1]
+set mcp.volume.label h_maxind{x}<192 [0] h_maxind{x}<450 [1 87 31 13] [1 113 31 13]
+set mcp.phase h_maxind{x}<192 [0] + mcpmaxind [10 471 13 13 0 1 0 1]
+set mcp.label + + mcpmaxindlab mcpind2 [0 484 34 16 0 1 0 1]
+set mcp.fx [0]
+set mcp.fxbyp [0]
+set mcp.meter [0]
+set mcp.recmon [0]
+set mcp.recarm [0]
+set mcp.fxin [0]
+set mcp.recmode [0]
+set mcp.io [0]
+set mcp.recinput [0]
+
+; AUTO FOLDER
+set mcp.size folderstate==1 + [3]
+set mcp.trackidx folderstate==1 + [0 0 3]
+set mcp.mute folderstate==1 + [3]
+set mcp.solo folderstate==1 + [3]
+set mcp.env folderstate==1 + [3]
+set mcp.phase folderstate==1 + [3]
+set mcp.pan.label folderstate==1 + [3]
+set mcp.width.label folderstate==1 + [3]
+set mcp.volume.label folderstate==1 + [3]
+set mcp.pan folderstate==1 + [3]
+set mcp.width folderstate==1 + [3]
+set mcp.folder folderstate==1 + [3]
+set mcp.volume folderstate==1 + [3]
+set mcp.meter folderstate==1 + [3]
+set mcp.label folderstate==1 + [3]
+;set mcp.label folderstate==1 folderdepth<1 + [0 0 0 -2]
+
+; SIDEBAR
+set mcp.extmixer.mode ?SidebarS !Sidebar [1]
+set mcp.extmixer.position ?SidebarS !Sidebar [0]
+
+Layout "VCA - Fader Blue" "vca blue"
+set mcp.margin
+Layout "VCA - Fader Green" "vca green"
+set mcp.margin
+Layout "VCA - Fader Pink" "vca pink"
+set mcp.margin
+Layout "VCA - Fader Red" "vca red"
+set mcp.margin
+Layout "VCA - Fader Yellow" "vca yellow"
+set mcp.margin
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+
+Layout "Untinted VCA" "untinted vca"
+set mcp.margin
+
+Layout "Untinted VCA - Fader Blue" "untinted vca blue"
+set mcp.margin
+Layout "Untinted VCA - Fader Green" "untinted vca green"
+set mcp.margin
+Layout "Untinted VCA - Fader Pink" "untinted vca pink"
+set mcp.margin
+Layout "Untinted VCA - Fader Red" "untinted vca red"
+set mcp.margin
+Layout "Untinted VCA - Fader Yellow" "untinted vca yellow"
+set mcp.margin
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+EndLayout
+
+EndLayout
+
+
+
+; *********MASTER MCP*********
+
+
+
+; DEFAULT
+clear master.mcp.*
+front master.mcp.fxbyp master.mcp.label
+set master.mcp.volume.fadermode [1]
+set master.mcp.pan.fadermode [1]
+set master.mcp.width.fadermode [1]
+set master.mcp.extmixer.mode [0]
+set master.mcp.extmixer.position [0]
+set master.mcp.meter.vu.div [1]
+set master.mcp.meter.vu.rmsdiv [1]
+set master.mcp.size [61 501]
+set master.mcp.fx [20 0 21 13]
+set master.mcp.fxbyp [31 0 10 13]
+set master.mcp.mono [9 15 21 13]
+set master.mcp.menubutton [31 15 21 13]
+set master.mcp.mute [9 30 21 13]
+set master.mcp.solo [31 30 21 13]
+set master.mcp.env [31 44 21 13]
+set master.mcp.io [9 44 21 13]
+set master.mcp.pan.label h<450 [0] [2 59 57 13]
+set master.mcp.pan h<450 [2 59 57 13] [2 72 57 13]
+set master.mcp.width.label h<450 [0] [2 86 57 13]
+set master.mcp.width h<450 [2 73 57 13] [2 99 57 13]
+set master.mcp.volume.label h<450 [0] [2 113 57 13]
+set master.mcp.volume h<450 [2 87 57 13] [2 126 57 13]
+set master.mcp.meter h<450 [3 103 55 379 0 0 0 1] [3 142 55 340 0 0 0 1]
+set master.mcp.label [0 484 61 17 0 1 0 1]
+
+; SIDEBAR
+set master.mcp.size ?SidebarSM + [SidebarSM]
+set master.mcp.extmixer.mode ?SidebarSM [1]
+set master.mcp.extmixer.position ?SidebarSM [60 0 SidebarSM 485 0 0 0 1]
+set master.mcp.label ?SidebarSM + [0 0 SidebarSM]
+
+; MARGIN
+set master.mcp.label.margin [0 1 0 0 0.5]
+set master.mcp.pan.label.margin mcp.pan.label.margin
+set master.mcp.width.label.margin mcp.width.label.margin
+set master.mcp.volume.label.margin mcp.volume.label.margin
+set master.mcp.fxlist.margin mcp.fxlist.margin
+set master.mcp.fxparm.margin mcp.fxparm.margin
+set master.mcp.sendlist.margin mcp.sendlist.margin
+
+; FONT
+set master.mcp.trackidx.font mcp.trackidx.font
+set master.mcp.recinput.font mcp.recinput.font
+set master.mcp.fxparm.font mcp.fxparm.font
+set master.mcp.fxlist.font mcp.fxlist.font
+set master.mcp.sendlist.font mcp.sendlist.font
+set master.mcp.label.font mcp.label.font
+set master.mcp.volume.label.font mcp.volume.label.font
+set master.mcp.pan.label.font mcp.volume.label.font
+set master.mcp.width.label.font mcp.volume.label.font
+
+; COLOR
+set master.mcp.label.color mcp.label.color
+set master.mcp.pan.label.color mcp.pan.label.color
+set master.mcp.width.label.color mcp.width.label.color
+set master.mcp.volume.label.color mcp.volume.label.color
+set master.mcp.meter.readout.color mmrc
+set master.mcp.meter.rmsreadout.color mmrc
+set master.mcp.meter.scale.color.unlit.top mmscut
+set master.mcp.meter.scale.color.unlit.bottom mmscub
+set master.mcp.meter.scale.color.lit.top mmsclt
+set master.mcp.meter.scale.color.lit.bottom mmsclb
+
+
+;Layout Default
+set master.mcp.volume.fadermode MLayout==2 [0]
+set master.mcp.size MLayout==2 + [67]
+set master.mcp.fx MLayout==2 [53 0 21 13]
+set master.mcp.fxbyp MLayout==2 [64 0 10 13]
+set master.mcp.mono MLayout==2 [42 15 21 13]
+set master.mcp.menubutton MLayout==2 [64 15 21 13]
+set master.mcp.mute MLayout==2 [12 30 21 13]
+set master.mcp.solo MLayout==2 [94 30 21 13]
+set master.mcp.io MLayout==2 [12 44 21 13]
+set master.mcp.env MLayout==2 [94 44 21 13]
+set master.mcp.pan MLayout==2 [35 30 57 13]
+set master.mcp.width MLayout==2 [35 44 57 13]
+set master.mcp.pan.label MLayout==2 [44 59 40 13]
+set master.mcp.width.label MLayout==2 [86 59 39 13]
+set master.mcp.volume.label MLayout==2 [3 59 39 13]
+set master.mcp.volume MLayout==2 [4 74 15 408 0 0 0 1]
+set master.mcp.meter MLayout==2 [23 74 101 407 0 0 0 1]
+set master.mcp.label MLayout==2 + [0 0 67]
+; SIDEBAR
+set master.mcp.extmixer.position MLayout==2 ?SidebarSM + [67]
+
+
+;Super Large
+set master.mcp.volume.fadermode MLayout==3 [0]
+set master.mcp.size MLayout==3 + [131]
+set master.mcp.fx MLayout==3 [84 0 21 13]
+set master.mcp.fxbyp MLayout==3 [95 0 10 13]
+set master.mcp.mono MLayout==3 [74 15 21 13]
+set master.mcp.menubutton MLayout==3 [96 15 21 13]
+set master.mcp.mute MLayout==3 [17 30 21 13]
+set master.mcp.solo MLayout==3 [153 30 21 13]
+set master.mcp.io MLayout==3 [17 44 21 13]
+set master.mcp.env MLayout==3 [153 44 21 13]
+set master.mcp.pan MLayout==3 [40 30 111 13]
+set master.mcp.width MLayout==3 [40 44 111 13]
+set master.mcp.pan.label MLayout==3 [65 59 62 13]
+set master.mcp.width.label MLayout==3 [129 59 60 13]
+set master.mcp.volume.label MLayout==3 [3 59 60 13]
+set master.mcp.volume MLayout==3 [4 74 15 408 0 0 0 1]
+set master.mcp.meter MLayout==3 [23 74 165 407 0 0 0 1]
+set master.mcp.label MLayout==3 + [0 0 131]
+; SIDEBAR
+set master.mcp.extmixer.position MLayout==3 ?SidebarSM + [131]
+
+
+
+; *********TRANSPORT*********
+
+
+
+; SIZES
+clear trans.*
+front trans.rate.fader
+set trans.size [999 99]
+set trans.size.minmax [223 35 9999 140]
+set trans.size.dockedheight w<373 [140] w<775 [105] w<1023 [70] [35]
+set trans.rate.fader.fadermode [0]
+
+; CONTROLS
+set trbus trans_flags&1 w<373 [388 0 0 0 0.5 0 0.5] w<775 [0] w<1023 [388 0 0 0 0.5 0 0.5] [388 0 0 0 0.5 0 0.5] [0]
+set trans.rew + trbus [5 6 23 23]
+set trans.fwd + trbus [27 6 23 23]
+set trans.play + trbus [55 3 29 29]
+set trans.pause + trbus [83 3 29 29]
+set trans.stop + trbus [111 3 29 29]
+set trans.rec + trbus [139 3 29 29]
+set trans.automode + trbus [173 6 23 23]
+set trans.repeat + trbus [195 6 23 23]
+
+; STATUS
+set trans.status w<373 [2 35 995 31 0 0 1] w<775 [222 2 775 31 0 0 1] w<1023 [222 2 388 31 0 0 0.5] [222 2 290 31 0 0 0.5]
+set trans.status trans_flags&4 w>1022 + [0 0 -46]
+set trans.status trans_flags&1 w<373 [2 35 995 31 0 0 1] w<775 [222 2 775 31 0 0 1] w<1023 [2 2 387 31 0 0 0.5] [98 2 290 31 0 0 0.5]
+set trans.status trans_flags&1 trans_flags&4 w>1022 + [47 0 -47]
+
+; SELECTION
+set trans.sel w<373 [2 68 995 31 0 0 1] w<775 [2 35 995 31 0 0 1] w<1023 [614 2 383 31 0.5 0 1] [614 2 356 31 0.5 0 1]
+set trans.sel trans_flags&2 w>1022 + [0 0 -116]
+set trans.sel trans_flags&1 w<373 [2 68 995 31 0 0 1] w<775 [2 35 995 31 0 0 1] w<1023 [611 2 386 31 0.5 0 1] [611 2 359 31 0.5 0 1]
+set trans.sel trans_flags&1 trans_flags&2 + [0 0 -118]
+set trans.sel trans_flags&1 trans_flags&2 w<1023 + [0 0 118]
+
+; TIME
+set transtime trans_flags&4 [0] w<1023 [0] [46]
+set trans.bpm.edit + transtime w<373 [47 102 47 29] w<775 [47 69 47 29] w<1023 [47 36 47 29] [516 3 47 29 0.5 0 0.5]
+set trans.bpm.tap + transtime w<373 [1 102 47 29] w<775 [1 69 47 29] w<1023 [1 36 47 29] [470 3 47 29 0.5 0 0.5]
+set trans.curtimesig trans_flags&4 w<373 [95 102 43 29] w<775 [95 69 43 29] w<1023 [95 36 43 29] [564 3 43 29 0.5 0 0.5] [0]
+set trans.bpm.edit trans_flags&1 w<373 [47 102 47 29] w<775 [47 69 47 29] w<1023 [47 36 47 29] [47 3 47 29]
+set trans.bpm.tap trans_flags&1 w<373 [1 102 47 29] w<775 [1 69 47 29] w<1023 [1 36 47 29] [1 3 47 29]
+set trans.curtimesig trans_flags&1 trans_flags&4 w<373 [95 102 43 29] w<775 [95 69 43 29] w<1023 [95 36 43 29] [95 3 43 29] [0]
+
+; RATE
+set trans.rate trans_flags&2 w<285 [0] w<373 [878 101 85 17 1 0 1] w<775 [878 68 85 17 1 0 1] w<1023 [878 35 85 17 1 0 1] [876 0 85 17 1 0 1] [0]
+set trans.rate.fader trans_flags&2 w<285 [0] w<373 [856 117 112 13 1 0 1] w<775 [856 84 112 13 1 0 1] w<1023 [856 51 112 13 1 0 1] [856 16 112 13 1 0 1] [0]
+
+; THEME ADJUSTER
+set trans.custom.adjuster w<373 [972 107 23 23 1 0 1] w<775 [972 75 23 23 1 0 1] w<1023 [972 41 23 23 1 0 1] [972 6 23 23 1 0 1]
+
+; MARGIN
+set trans.status.margin [9 3 9 2 0.5]
+set trans.bpm.edit.margin [0 0 0 0 0.5]
+set trans.bpm.tap.margin [0 0 0 0 0.5]
+set trans.sel.margin [3 0 3 0 0.5]
+set trans.rate.margin [0 0 0 0 0.5]
+
+; FONT
+set trans.sel.font [5]
+set trans.rate.font [6]
+set trans.bpm.tap.font [4]
+set trans.bpm.edit.font [4]
+set trans.curtimesig.font [4]
+
+; COLOR
+set trans.bpm.tap.color labelcolordim
+set trans.bpm.edit.color labelcolordim
+set trans.rate.fader.color labelcolordim
+set trans.rate.color labelcolordim
+set trans.curtimesig.color + labelcolordim [0 0 0 0 120 120 120]
+set trans.sel.color [180 180 180 252 207 234 225 81]
+
+
+Layout "Borderless" "sep"
+set trans.sel.color [180 180 180 252]
+EndLayout

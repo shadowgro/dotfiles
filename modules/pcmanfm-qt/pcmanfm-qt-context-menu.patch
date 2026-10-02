@@ -1,0 +1,18 @@
+--- a/pcmanfm/view.cpp
++++ b/pcmanfm/view.cpp
+@@ -116,6 +116,15 @@
+     menu->setConfirmTrash(app->settings().confirmTrash());
+     menu->setUseTrash(app->settings().useTrash());
+ 
++    if(MainWindow* mainWindow = qobject_cast<MainWindow*>(window())) {
++        if(QAction* action = mainWindow->findChild<QAction*>(QStringLiteral("actionCopyFullPath"))) {
++            menu->insertAction(menu->separator1(), action);
++        }
++        if(QAction* action = mainWindow->findChild<QAction*>(QStringLiteral("actionOpenAsAdmin"))) {
++            menu->insertAction(menu->separator1(), action);
++        }
++    }
++
+     // add some more menu items for dirs
+     bool all_native = true;
+     bool all_directory = true;

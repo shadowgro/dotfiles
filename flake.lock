@@ -1,0 +1,147 @@
+{
+  "nodes": {
+    "clip-bridge-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1786353051,
+        "narHash": "sha256-HyofP8YyV6c2q/H2Qm44MoG8cihZU/E40ei6LG2Kar8=",
+        "owner": "noctisynth",
+        "repo": "clip-bridge",
+        "rev": "4f4ea8a7bf6112e23fe1d393064345288071712c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctisynth",
+        "repo": "clip-bridge",
+        "type": "github"
+      }
+    },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790911008,
+        "narHash": "sha256-r7KBcjLlw7LzuvCYUU1V50L81uf+0YgHTCnhymTwwpw=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "a439f71e75b94c88300022045713c790c79ba007",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "master",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "home-manager_2": {
+      "inputs": {
+        "nixpkgs": [
+          "zen-browser",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1789430117,
+        "narHash": "sha256-t+U1mijItLJ64xZOifpfQ17kpAL73nU7pDI48ScacVc=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "cda90fd8838825c689fde9d3f3b4e937937790df",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "musnix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1777848538,
+        "narHash": "sha256-Dj51C0NWsglqRrCpdmMr2nFiYacFOid1Tor4H9yG2HY=",
+        "owner": "musnix",
+        "repo": "musnix",
+        "rev": "8548782f0d1d0928daa3fffde8a008f72219a3f3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "musnix",
+        "repo": "musnix",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1790822859,
+        "narHash": "sha256-69xHQhAeMAD2wDXO7T2pcOZIF9Sga2W+JkmY2a11Ops=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "c59305bab2065cfecc4944690d9eedbb56f3a9fa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "clip-bridge-src": "clip-bridge-src",
+        "home-manager": "home-manager",
+        "musnix": "musnix",
+        "nixpkgs": "nixpkgs",
+        "yet-another-monochrome-icon-set": "yet-another-monochrome-icon-set",
+        "zen-browser": "zen-browser"
+      }
+    },
+    "yet-another-monochrome-icon-set": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1789752653,
+        "narHash": "sha256-+9nRIn1xfjSCuf3E18IeCX/nPSvaQNQynjT/OCKHosM=",
+        "ref": "refs/heads/main",
+        "rev": "367da5db6c03ac581e7105da071f2b961d587a2a",
+        "revCount": 60,
+        "type": "git",
+        "url": "https://bitbucket.org/dirn-typo/yet-another-monochrome-icon-set.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://bitbucket.org/dirn-typo/yet-another-monochrome-icon-set.git"
+      }
+    },
+    "zen-browser": {
+      "inputs": {
+        "home-manager": "home-manager_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790843055,
+        "narHash": "sha256-rTDYMyiKgVNiL7sAc2LMr7zw3n3eC5YR+IGblzDdQQk=",
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
+        "rev": "a2cb59515204ebe895f73cce387b811a78b3c032",
+        "type": "github"
+      },
+      "original": {
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
