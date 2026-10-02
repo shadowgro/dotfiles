@@ -7,4 +7,4 @@ modules/reaper/REAPER/OSC/
 modules/reaper/REAPER/ReaImGui/
 modules/reaper/REAPER/ReaPack/cache/
 modules/reaper/REAPER/UserPlugins/
-modules/pcmanfm-qt/settings.conf #он его все время обновляет
+modules/pcmanfm-qt/settings.conf
