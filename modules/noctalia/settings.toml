@@ -9,12 +9,12 @@ order = [ "my_noctalia" ]
     [bar.my_noctalia]
     background_opacity = 0.29999999329447746
     border = "primary"
-    border_width = 2.0
+    border_width = 0
     capsule_fill = "on_primary"
     capsule_foreground = "primary"
     capsule_opacity = 0.29999999329447746
     center = [ "cpu", "temp", "sysmon", "network_rx", "network_tx", "ram" ]
-    concave_edge_corners = false
+    concave_edge_corners = true
     end = [
         "media",
         "tray",
@@ -35,10 +35,10 @@ order = [ "my_noctalia" ]
     ]
     font_family = "Maple Mono NF"
     font_weight = 700
-    margin_ends = 20
+    margin_ends = 0
     position = "bottom"
-    radius_bottom_left = 12
-    radius_bottom_right = 12
+    radius_bottom_left = 0
+    radius_bottom_right = 0
     scale = 1.1499999999999999
     shadow = false
     start = [

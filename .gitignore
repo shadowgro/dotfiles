@@ -1,4 +1,10 @@
+modules/reaper/REAPER/ColorThemes/Default_*.ReaperThemeZip
+modules/reaper/REAPER/Data/
+modules/reaper/REAPER/Effects/
+modules/reaper/REAPER/Grooves/
+modules/reaper/REAPER/MetadataCaches/
+modules/reaper/REAPER/OSC/
+modules/reaper/REAPER/ReaImGui/
 modules/reaper/REAPER/ReaPack/cache/
 modules/reaper/REAPER/UserPlugins/
-modules/reaper/REAPER/ColorThemes/Default_*.ReaperThemeZip
 modules/pcmanfm-qt/settings.conf #он его все время обновляет
