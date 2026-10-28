@@ -20,6 +20,7 @@
   environment.systemPackages = with pkgs; [
     ffmpegthumbnailer
     file-roller
+    rar
   ];
   home-manager.users.kirill = {
       xdg.configFile."Thunar/uca.xml".source = ./uca.xml;

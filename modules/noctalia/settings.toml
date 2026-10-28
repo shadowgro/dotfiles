@@ -1,7 +1,9 @@
-config_version = 14
+config_version = 16
 
 [audio]
+enable_overdrive = true
 enable_sounds = true
+sound_volume = 0.69999998435378075
 
 [bar]
 order = [ "my_noctalia" ]
@@ -9,14 +11,12 @@ order = [ "my_noctalia" ]
     [bar.my_noctalia]
     background_opacity = 0.29999999329447746
     border = "primary"
-    border_width = 0
     capsule_fill = "on_primary"
     capsule_foreground = "primary"
     capsule_opacity = 0.29999999329447746
     center = [ "cpu", "temp", "sysmon", "network_rx", "network_tx", "ram" ]
     concave_edge_corners = true
     end = [
-        "media",
         "tray",
         "notifications",
         "clipboard",
@@ -37,8 +37,11 @@ order = [ "my_noctalia" ]
     font_weight = 700
     margin_ends = 0
     position = "bottom"
+    radius = 0
     radius_bottom_left = 0
     radius_bottom_right = 0
+    radius_top_left = 0
+    radius_top_right = 0
     scale = 1.1499999999999999
     shadow = false
     start = [
@@ -47,7 +50,7 @@ order = [ "my_noctalia" ]
         "wallpaper",
         "widget",
         "screenshot",
-        "bar_2",
+        "bar",
         "spacer_1",
         "workspaces",
         "spacer_1",
@@ -106,20 +109,33 @@ shadow = false
 show_dots = true
 
 [idle]
-behavior_order = [ "idle", "idle-behavior", "lock", "suspend" ]
+behavior_order = [ "idle-behavior", "lock", "suspend", "idle", "idle-behavior-2", "idle-behavior-3" ]
+pre_action_fade_seconds = 0
 
     [idle.behavior.idle]
     action = "command"
     command = "mmsg dispatch sleep_monitor,eDP-1"
     enabled = false
     resume_command = "mmsg dispatch wakeup_monitor,eDP-1"
-    timeout = 15.0
+    timeout = 10.0
 
     [idle.behavior.idle-behavior]
     action = "screen_off"
     enabled = true
     locked_timeout = 30.0
     timeout = 300.0
+
+    [idle.behavior.idle-behavior-2]
+    action = "command"
+    command = "noctalia msg session lock"
+    enabled = false
+    timeout = 12.0
+
+    [idle.behavior.idle-behavior-3]
+    action = "command"
+    command = "systemctl suspend"
+    enabled = false
+    timeout = 15.0
 
     [idle.behavior.lock]
     action = "lock"
@@ -134,6 +150,7 @@ behavior_order = [ "idle", "idle-behavior", "lock", "suspend" ]
 
 [lockscreen]
 fingerprint = false
+transition_duration = 800
 
 [lockscreen_widgets]
 enabled = true
@@ -148,8 +165,8 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 196.0
     box_width = 810.0
-    cx = 960.00018310546875
-    cy = 701.99993896484375
+    cx = 960.000244140625
+    cy = 701.9998779296875
     output = "eDP-1"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -157,7 +174,7 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
@@ -168,6 +185,7 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
         show_keyboard_layout = true
         show_login_button = true
         show_media = true
+        show_password_reveal = true
         show_session_buttons = true
         show_unlock_hint = true
         show_weather = true
@@ -175,7 +193,7 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
     box_height = 544.0
     box_width = 800.0
-    cx = 960.00018310546875
+    cx = 960.000244140625
     cy = 428.0
     output = "eDP-1"
     placement_height = 1080.0
@@ -188,34 +206,26 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
 
 [notification]
 background_opacity = 0.29999999329447746
+border_color = "primary"
+border_width = 2.0
 filter_order = [ "filter" ]
 layer = "overlay"
 position = "bottom_right"
 
 [osd]
 background_opacity = 0.29999999329447746
+border_color = "primary"
+border_width = 2.0
 position = "bottom_right"
 
 [plugin_settings."noctalia/timer"]
+alarm = true
 panel_placement = "floating"
 
 [plugin_settings."oldirtty/color_picker"]
-hyprpicker-lowercase = true
-
-[plugin_settings."piero-93/battery-power-management"]
-battery_device = "BAT1"
-show_balanced_icon = true
-
-[plugin_settings."thepunkoff/pomodoro"]
-bypass-noctalia-sound-globals = true
-use-bundled-alarm-sound = true
-work-duration = 1
-
-[plugin_settings."yuuto/calculator"]
-panel_placement = "floating"
 
 [plugins]
-enabled = [ "yuuto/calculator", "oldirtty/color_picker" ]
+enabled = [ "oldirtty/color_picker", "noctalia/timer" ]
 
     [[plugins.source]]
     kind = "git"
@@ -226,11 +236,6 @@ enabled = [ "yuuto/calculator", "oldirtty/color_picker" ]
     kind = "git"
     location = "https://github.com/noctalia-dev/community-plugins"
     name = "community"
-
-    [[plugins.source]]
-    kind = "path"
-    location = "~/.config/noctalia/plugins/joplin-icon-test"
-    name = "test"
 
 [shell]
 app_icon_color = "#FFFFFF"
@@ -248,6 +253,7 @@ show_location = false
 
     [shell.launcher]
     compact = true
+    default_view = "all"
 
     [shell.panel]
     borders = false
@@ -255,36 +261,38 @@ show_location = false
     transparency_mode = "glass"
 
 [theme]
-builtin = "Gruvbox"
+builtin = "Ayu"
 community_palette = "Tokyo Night Storm"
 custom_palette = "my_noctalia.moon"
 mode = "dark"
 source = "custom"
-wallpaper_scheme = "m3-content"
+wallpaper_scheme = "vibrant"
 
     [theme.templates]
     builtin_ids = [ "btop", "foot", "gtk3", "gtk4", "kitty", "mango", "qt" ]
-    community_ids = [ "fzf", "yazi" ]
+    community_ids = [ "telegram", "superfile", "yazi" ]
 
 [wallpaper]
 directory = "/home/kirill/Downloads/wallpapers"
 
     [wallpaper.default]
-    path = "/home/kirill/Downloads/wallpapers/wallhaven-mlgzzy_1920x1080.png"
+    path = "/home/kirill/Downloads/wallpapers/wallhaven-01rvv9_1920x1080.png"
 
     [wallpaper.last]
-    path = "/home/kirill/Downloads/wallpapers/wallhaven-mlgzzy_1920x1080.png"
+    path = "/home/kirill/Downloads/wallpapers/wallhaven-01rvv9_1920x1080.png"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/kirill/Downloads/wallpapers/wallhaven-mlgzzy_1920x1080.png"
+    path = "/home/kirill/Downloads/wallpapers/wallhaven-01rvv9_1920x1080.png"
 
     [[wallpaper.favorite]]
     path = "/home/kirill/Downloads/wallpapers/869010-green-minimalist-wallpaper-top-free-green-minimalist-background.jpg"
     theme_mode = "auto"
 
     [[wallpaper.favorite]]
+    palette_source = "wallpaper"
     path = "/home/kirill/Downloads/wallpapers/869013-minimalist-green-wallpaper-top-free-minimalist-green-background.jpg"
-    theme_mode = "auto"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
 
     [[wallpaper.favorite]]
     path = "/home/kirill/Downloads/wallpapers/wallhaven-1p55dw_1920x1080.png"
@@ -302,6 +310,12 @@ directory = "/home/kirill/Downloads/wallpapers"
     path = "/home/kirill/Downloads/wallpapers/wallhaven-mlgzzy_1920x1080.png"
     theme_mode = "dark"
 
+    [[wallpaper.favorite]]
+    custom_palette = "my_noctalia.moon"
+    palette_source = "custom"
+    path = "/home/kirill/Downloads/wallpapers/wallhaven-qrp5wr_1920x1080.png"
+    theme_mode = "dark"
+
 [weather]
 enabled = false
 
@@ -311,8 +325,9 @@ mirrored = false
 show_when_idle = true
 width = 500
 
-[widget.bar_2]
-type = "yuuto/calculator:bar"
+[widget.bar]
+show_idle_on_horizontal = false
+type = "noctalia/timer:bar"
 
 [widget.battery]
 display_mode = "graphic"
@@ -322,6 +337,9 @@ hide_when_adapter_off = true
 
 [widget.brightness]
 show_label = false
+
+[widget.clock]
+tooltip_format = "{:%H:%M:%S}"
 
 [widget.date]
 format = "{:%d/%b}"

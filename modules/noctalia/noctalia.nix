@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+  # imports = [
+  #   inputs.noctalia.nixosModules.default
+  # ];
+
   programs.noctalia.enable = true;
 
   services.xserver.enable = true;

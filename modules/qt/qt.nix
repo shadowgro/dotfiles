@@ -16,9 +16,19 @@
   #   })
   # ];
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.kdePackages.xdg-desktop-portal-kde
+      pkgs.xdg-desktop-portal-wlr
+    ];
+    config.common.default = [ "kde" ];
+  };
+
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "kde";
     QT_STYLE_OVERRIDE = "kvantum";
+    PLASMA_INTEGRATION_USE_PORTAL = "1";
     # QS_ICON_THEME = "yet-another-monochrome-icon-set";
     # QT_ICON_THEME_PATH = "${pkgs.yamis}";
   };

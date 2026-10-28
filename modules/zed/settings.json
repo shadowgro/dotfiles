@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "auto_update": false,
   "cli_default_open_behavior": "existing_window",
   "default_open_behavior": "new_window",
   "cursor_blink": true,
@@ -18,9 +19,10 @@
   "text_rendering_mode": "platform_default",
   "inline_code_actions": true,
   "relative_line_numbers": "disabled",
+  "soft_wrap": "editor_width",
   "gutter": {
     "git_gutter_width": "default",
-    "folds": true,
+    "folds": false,
     "min_line_number_digits": 0,
     "bookmarks": false,
     "breakpoints": false,
@@ -43,7 +45,7 @@
   "buffer_font_weight": 400,              // Font weight in CSS units [100-900]
   "buffer_line_height": "standard",
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "One Light",
     "dark": "Ayu Dark",
   },
@@ -111,6 +113,7 @@
           "minimap.thumb.background": "#2C2C2C4D",
           "minimap.thumb.hover_background": "#2C2C2C66",
           "minimap.thumb.active_background": "#2C2C2C66",
+          "terminal.background": "#2C2C2C00",
           "players": [
             {
               "cursor": "#d8dee9",

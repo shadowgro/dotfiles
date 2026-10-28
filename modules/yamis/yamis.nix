@@ -12,10 +12,6 @@
           cp -r . $out/
 
           ln -s \
-            $out/status/scalable/alarm-clock-panel.svg \
-            $out/apps/scalable/alarm-clock.svg
-
-          ln -s \
             $out/apps/scalable/hdspmixer.svg \
             $out/apps/scalable/com.saivert.pwvucontrol.svg
 

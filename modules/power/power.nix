@@ -1,7 +1,7 @@
 { pkgs, ...}:
 
 {
-  services.thermald.enable = true; # prevents overheating on Intel CPUs
+  # services.thermald.enable = true; # prevents overheating on Intel CPUs
   # services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
 

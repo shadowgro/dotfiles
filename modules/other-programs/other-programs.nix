@@ -1,10 +1,7 @@
 { pkgs, ... }:
 
 {
-  nixpkgs.config.allowUnfree = true;
-
   programs.firefox.enable = true;
-  programs.niri.enable = true;
 
   environment.systemPackages = with pkgs; [
 
@@ -12,23 +9,30 @@
     winetricks
 
     keepassxc
-    alarm-clock-applet
     # libreoffice-qt
     qbittorrent
-    vlc
+    mpv
     inkscape
     tor-browser
-    yandex-disk
     telegram-desktop
+    hyprpicker
 
+    #CLI
     yazi
+    superfile
     fzf
+    television
+    fd
     btop
     bat
     git
-    # hashdeep
-    hyprpicker
+    github-cli
+    nix-search-tv
     ntfs3g # flash-drive care
+    cliamp
+    timr-tui
+    tealdeer
+    yandex-disk
+    # hashdeep
   ];
-
 }

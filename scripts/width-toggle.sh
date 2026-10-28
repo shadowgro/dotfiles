@@ -24,7 +24,7 @@ if grep -qE '^ *border_width *= *0(\.0)?$' "$NOCTALIA"; then
     sed -i \
         -e 's/^no_border_when_single=1$/no_border_when_single=0/' \
         -e 's/^scroller_structs=0$/scroller_structs=20/' \
-        -e 's/^smartgaps=1$/smartgaps=0/' \
+        -e 's/^smart_gaps=1$/smart_gaps=0/' \
         "$MANGO"
 
 else
@@ -43,7 +43,7 @@ else
     sed -i \
         -e 's/^no_border_when_single=0$/no_border_when_single=1/' \
         -e 's/^scroller_structs=20$/scroller_structs=0/' \
-        -e 's/^smartgaps=0$/smartgaps=1/' \
+        -e 's/^smart_gaps=0$/smart_gaps=1/' \
         "$MANGO"
 
 fi

@@ -11,6 +11,7 @@
       ./modules/foot/foot.nix
       # ./modules/idle-lock.nix
       ./modules/gtk/gtk.nix
+      ./modules/hyprland/hyprland.nix
       ./modules/joplin/joplin.nix
       ./modules/kitty/kitty.nix
       ./modules/mango/mango.nix
@@ -22,6 +23,7 @@
       ./modules/power/power.nix
       ./modules/qt/qt.nix
       ./modules/reaper/reaper.nix
+      ./modules/searxng/searxng.nix
       ./modules/specs/audio-specialisation.nix
       ./modules/thunar/thunar.nix
       ./modules/timeshift/timeshift.nix
@@ -37,6 +39,7 @@
   boot.loader.systemd-boot = {
     enable = true;
     consoleMode = "max";
+    configurationLimit = 20;
   };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.blacklistedKernelModules = [ "nouveau" ];
@@ -80,15 +83,7 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    # libinput.enable = true; # Enable touchpad support (enabled default in most desktopManager).
-    # xkb = {
-    #   layout = "us,ru";
-    #   variant = "";
-    #   options = "terminate:alt_shift";
-  };
-
+  services.xserver.enable = true;
 
   users.users."kirill" = {
     isNormalUser = true;
@@ -97,15 +92,19 @@
   };
 
   environment.shellAliases = {
-    nixf = "cd ~/.dotfiles && sudo nixos-rebuild switch --flake .";
-    nixfb = "cd ~/.dotfiles && sudo nixos-rebuild boot --flake .";
-    nixfu = "cd ~/.dotfiles && nix flake update";
+    nixf = "cd ~/.dotfiles && sudo nixos-rebuild switch --flake . && noctalia msg notification-show 'Rebuild finished' ";
+    nixfb = "cd ~/.dotfiles && sudo nixos-rebuild boot --flake . && noctalia msg notification-show 'Rebuild finished' ";
+    nixfu = "cd ~/.dotfiles && nix flake update && noctalia msg notification-show 'Update finished' ";
+    nixlg = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
+    nixdg = "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations";
+    nixcg = "nix-store --gc && noctalia msg notification-show 'Garbage collected' ";
+    nixo = "nix-store --optimise && noctalia msg notification-show 'Storage optimised' ";
   };
 
   fonts.packages = with pkgs; [
     maple-mono.NF
     comfortaa
-    roboto
+    # roboto
     # annotation-mono
     # nerd-fonts.jetbrains-mono
   ];

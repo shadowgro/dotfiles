@@ -1,6 +1,10 @@
-{pkgs, ... }:
+{pkgs, inputs, ... }:
 
 {
+  imports = [
+    inputs.musnix.nixosModules.musnix
+  ];
+
     specialisation = {
     audio.configuration = {
 

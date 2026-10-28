@@ -13,6 +13,7 @@
     ffmpegthumbnailer
     file-roller
     xarchiver
+    rar
     # kdePackages.plasma-integration # for qt apps
   ];
 
