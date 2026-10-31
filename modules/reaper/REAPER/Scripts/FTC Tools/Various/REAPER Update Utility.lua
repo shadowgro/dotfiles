@@ -172,6 +172,16 @@ function ExecProcess(cmd, timeout)
     return ret or '', exit_code
 end
 
+-- Write state markers synchronously. REAPER's ExecProcess timeout -2
+-- starts a process asynchronously and can return 259 (STILL_ACTIVE).
+-- The main loop may otherwise read the step file before cmd.exe creates it.
+function WriteStep(value)
+    local _, exit_code = ExecProcess('echo ' .. value .. ' > ' .. step_path, 0)
+    if exit_code ~= 0 then
+        Log('Failed to write step marker:', value, 'Exit code:', exit_code)
+    end
+end
+
 function ExecInstall(install_cmd)
     if settings.dialog_install.enabled then
         local msg =
@@ -456,7 +466,7 @@ function ShowHistoryMenu()
     if ret > 0 then
         user_dlink = flat_menu_list[ret].link
         install_version = flat_menu_list[ret].version
-        ExecProcess('echo download > ' .. step_path)
+        WriteStep('download')
         show_buttons = false
     end
 end
@@ -670,7 +680,7 @@ function DrawVersionHistoryButton(x, y, is_main)
             else
                 show_buttons = false
                 task = 'Fetching old versions...'
-                ExecProcess('echo get_history > ' .. step_path)
+                WriteStep('get_history')
             end
         end
         click = {}
@@ -711,7 +721,7 @@ function DrawChangelogButton(x, y, is_main)
             show_buttons = false
             task = 'Checking forum for post...'
             local type = is_main and 'main' or 'dev'
-            ExecProcess('echo get_' .. type .. '_changelog > ' .. step_path)
+            WriteStep('get_' .. type .. '_changelog')
         end
         click = {}
     end
@@ -764,7 +774,7 @@ function DrawInstallButton(x, y, w, h, version, dlink)
         if is_hover and dlink ~= '' then
             user_dlink = dlink
             install_version = version
-            ExecProcess('echo download > ' .. step_path)
+            WriteStep('download')
             show_buttons = false
         end
         click = {}
@@ -1349,23 +1359,23 @@ function Main()
             if char == 109 then
                 user_dlink = main_dlink
                 install_version = main_version
-                ExecProcess('echo download > ' .. step_path)
+                WriteStep('download')
                 show_buttons = false
             end
             -- User hotkey 'd'
             if char == 100 then
                 user_dlink = dev_dlink
                 install_version = dev_version
-                ExecProcess('echo download > ' .. step_path)
+                WriteStep('download')
                 show_buttons = false
             end
             -- User hotkey 'M'
             if char == 77 then
-                ExecProcess('echo get_main_changelog > ' .. step_path)
+                WriteStep('get_main_changelog')
             end
             -- User hotkey 'D'
             if char == 68 then
-                ExecProcess('echo get_dev_changelog > ' .. step_path)
+                WriteStep('get_dev_changelog')
             end
         end
         -- Draw content
@@ -1563,5 +1573,5 @@ reaper.atexit(function()
 end)
 
 -- Trigger the first step (steps are triggered by writing to the step file)
-ExecProcess('echo check_update > ' .. step_path)
+WriteStep('check_update')
 reaper.defer(Main)

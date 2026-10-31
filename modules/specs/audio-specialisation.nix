@@ -5,14 +5,14 @@
     inputs.musnix.nixosModules.musnix
   ];
 
-    specialisation = {
+  specialisation = {
     audio.configuration = {
 
       boot.kernelPackages = pkgs.lib.mkForce pkgs.linuxPackages_xanmod_latest;
       boot.kernelParams = [
         "threadirqs"
         "preempt=full"
-#         "amd_pstate=active"         # Zen 4/5: active mode provides best EPP and responsiveness
+        # "amd_pstate=active"         # Zen 4/5: active mode provides best EPP and responsiveness
         "usbcore.autosuspend=-1"    # Prevent USB audio interface sleep
       ];
 
@@ -22,9 +22,9 @@
 
       # musnix setup
       musnix.enable = true;
-#       musnix.rtcqs.enable = true;
-#       musnix.kernel.realtime = true;
-#       security.allowSimultaneousMultithreading = false;
+      # musnix.rtcqs.enable = true;
+      # musnix.kernel.realtime = true;
+      # security.allowSimultaneousMultithreading = true;
 
       services.pipewire = {
         wireplumber.enable = true;
@@ -38,40 +38,40 @@
           };
         };
 
-#         wireplumber.extraConfig."99-disable-suspend" = {
-#           "monitor.alsa.rules" = [{
-#             matches = [
-#               { "node.name" = "~alsa_input.*"; }
-#               { "node.name" = "~alsa_output.*"; }
-#             ];
-#             actions = {
-#               update-props = {
-#                 "session.suspend-timeout-seconds" = 0;
-#               };
-#             };
-#           }];
-#         };
+        # wireplumber.extraConfig."99-disable-suspend" = {
+        #   "monitor.alsa.rules" = [{
+        #     matches = [
+        #       { "node.name" = "~alsa_input.*"; }
+        #       { "node.name" = "~alsa_output.*"; }
+        #     ];
+        #     actions = {
+        #       update-props = {
+        #         "session.suspend-timeout-seconds" = 0;
+        #       };
+        #     };
+        #   }];
+        # };
 
-          # Allow unlimited memlock and high rtprio for real-time audio buffers
-          # security.pam.loginLimits = [
-          #   { domain = "@audio"; item = "memlock"; type = "-"; value = "unlimited"; }
-          #   { domain = "@audio"; item = "rtprio"; type = "-"; value = "99"; }
-          #   { domain = "@audio"; item = "nice"; type = "-"; value = "-19"; }
-          # ];
+        # Allow unlimited memlock and high rtprio for real-time audio buffers
+        # security.pam.loginLimits = [
+        #   { domain = "@audio"; item = "memlock"; type = "-"; value = "unlimited"; }
+        #   { domain = "@audio"; item = "rtprio"; type = "-"; value = "99"; }
+        #   { domain = "@audio"; item = "nice"; type = "-"; value = "-19"; }
+        # ];
 
-          # Plugin Search Paths
-          # environment.variables = let
-          #   makePluginPath = format:
-          #     (pkgs.lib.makeSearchPath format [
-          #       "$HOME/.nix-profile/lib"
-          #       "/run/current-system/sw/lib"
-          #       "/etc/profiles/per-user/$USER/lib"
-          #     ]) + ":$HOME/.${format}";
-          # in
-          #   LV2_PATH = makePluginPath "lv2";
-          #   VST3_PATH = makePluginPath "vst3";
-          #   CLAP_PATH = makePluginPath "clap";
-          #   };
+        # Plugin Search Paths
+        # environment.variables = let
+        #   makePluginPath = format:
+        #     (pkgs.lib.makeSearchPath format [
+        #       "$HOME/.nix-profile/lib"
+        #       "/run/current-system/sw/lib"
+        #       "/etc/profiles/per-user/$USER/lib"
+        #     ]) + ":$HOME/.${format}";
+        # in
+        #   LV2_PATH = makePluginPath "lv2";
+        #   VST3_PATH = makePluginPath "vst3";
+        #   CLAP_PATH = makePluginPath "clap";
+        #   };
       };
     };
   };

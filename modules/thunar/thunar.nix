@@ -21,6 +21,7 @@
     ffmpegthumbnailer
     file-roller
     rar
+    unrar
   ];
   home-manager.users.kirill = {
       xdg.configFile."Thunar/uca.xml".source = ./uca.xml;

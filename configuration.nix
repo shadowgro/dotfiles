@@ -27,6 +27,7 @@
       ./modules/specs/audio-specialisation.nix
       ./modules/thunar/thunar.nix
       ./modules/timeshift/timeshift.nix
+      ./modules/wine-d2d1/wine-d2d1.nix
       ./modules/yamis/yamis.nix
       ./modules/zed/zed.nix
       ./modules/zen/zen.nix

@@ -14,7 +14,7 @@
   environment.systemPackages = with pkgs; [
     pwvucontrol         # Modern native PipeWire volume control
     pavucontrol         # Fallback for Pro Audio profile selection
-    # qpwgraph            # Visual patchbay for PipeWire
-    # easyeffects         # System-wide real-time EQ and effects
+    qpwgraph            # Visual patchbay for PipeWire
+    easyeffects         # System-wide real-time EQ and effects
   ];
 }

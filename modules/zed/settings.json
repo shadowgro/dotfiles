@@ -20,6 +20,7 @@
   "inline_code_actions": true,
   "relative_line_numbers": "disabled",
   "soft_wrap": "editor_width",
+  "colorize_brackets": true,
   "gutter": {
     "git_gutter_width": "default",
     "folds": false,

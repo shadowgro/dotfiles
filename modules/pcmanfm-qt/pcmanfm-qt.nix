@@ -14,6 +14,10 @@
     file-roller
     xarchiver
     rar
+    unar
+    zip
+    unzip
+    p7zip
     # kdePackages.plasma-integration # for qt apps
   ];
 

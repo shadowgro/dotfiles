@@ -30,7 +30,6 @@ in
 
         Environment = [
           "DISPLAY=:0"
-          "WAYLAND_DISPLAY=wayland-0"
         ];
 
         Restart = "on-failure";

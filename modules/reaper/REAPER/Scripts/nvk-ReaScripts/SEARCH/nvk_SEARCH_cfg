@@ -1,0 +1,122 @@
+return {
+	config = {
+		MAINWIND = {
+			cursor_x = 8.0,
+			cursor_y = 600.0,
+			h = 600.0,
+			w = 800.0,
+			x = 545.0,
+			y = 173.0
+		},
+		SEARCH = "SELECT 56",
+		colors = {
+			default = {
+				guid = "default",
+				preset_name = "Default"
+			}
+		},
+		fav_order = {
+			
+		},
+		folders_sidebar_open = true,
+		font = "Verdana",
+		font_scales = {
+			results = 1,
+			search = 1
+		},
+		font_size = 12,
+		font_size_reinit = true,
+		fx_alt_mode = 0,
+		fx_order = {
+			"other",
+			"vst3",
+			"vst3i",
+			"vst",
+			"vsti",
+			"au",
+			"aui",
+			"jsfx",
+			"clap",
+			"clapi",
+			"lv2",
+			"lv2i",
+			disabled = {
+				
+			}
+		},
+		fx_sidebar_open = true,
+		keys = {
+			
+		},
+		last_cursor_context = 1,
+		palette = true,
+		pallette_close_if_unfocused = true,
+		project_directories = {
+			
+		},
+		project_directories_sort = "Name",
+		recent = {
+			{
+				id = "Track: Select track 18 (40956) (Main)",
+				type = "action"
+			},
+			{
+				id = "VST3:The Glue (Cytomic)",
+				type = "vst3"
+			},
+			{
+				id = "VST3:Pulsar MP-EQ (Pulsar)",
+				type = "vst3"
+			},
+			{
+				id = "VST3:Pulsar 8200 (Pulsar)",
+				type = "vst3"
+			},
+			{
+				id = "Track: Select track 56 (40994) (Main)",
+				type = "action"
+			}
+		},
+		recent_results_amount = 10,
+		results_order = {
+			"fx",
+			"chain",
+			"track template",
+			"action",
+			"project",
+			"project template",
+			"track",
+			"take",
+			"take marker",
+			"region",
+			"marker",
+			"folder item",
+			"subproject",
+			disabled = {
+				
+			}
+		},
+		scale = 1,
+		search_scale = 1,
+		selected_folders = {
+			"All"
+		},
+		show_fx = true,
+		show_sidebar = false,
+		sort_method = "Relevance",
+		style_vars = {
+			
+		},
+		version = "1.20.0"
+	},
+	fav = {
+		
+	},
+	folders = {
+		{
+			all = true,
+			id = "All",
+			name = "All"
+		}
+	}
+}

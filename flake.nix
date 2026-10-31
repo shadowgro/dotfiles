@@ -44,6 +44,10 @@
       url = "github:noctisynth/clip-bridge";
       flake = false;
     };
+    wine-d2d1-src = {
+      url = "github:giang17/wine/d2d1-dcomp-11.0";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs: {

@@ -5,7 +5,8 @@
 
   environment.systemPackages = with pkgs; [
 
-    wineWow64Packages.stable
+    # wineWow64Packages.stable
+    wine-d2d1
     winetricks
 
     keepassxc

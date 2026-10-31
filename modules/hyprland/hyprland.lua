@@ -216,8 +216,8 @@ hl.config({
     scrolling = {
         fullscreen_on_one_column = false,
         follow_min_visible = 0.01,
-        wrap_focus = true,
-        wrap_swapcol = true,
+        wrap_focus = false,
+        wrap_swapcol = false,
     },
 })
 
@@ -227,9 +227,9 @@ hl.config({
 
 hl.config({
     misc = {
-        force_default_wallpaper = 0,
+        disable_splash_rendering = true,
         disable_hyprland_logo   = true,
-        disable_autoreload = false,
+        force_default_wallpaper = 0,
     },
 })
 
@@ -307,8 +307,10 @@ hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
-hl.bind(mainMod .. " + mouse_up", hl.dsp.layout("move +col"))
-hl.bind(mainMod .. " + mouse_down", hl.dsp.layout("move -col"))
+-- hl.bind(mainMod .. " + mouse_up", hl.dsp.layout("move +col"))
+-- hl.bind(mainMod .. " + mouse_down", hl.dsp.layout("move -col"))
+hl.bind(mainMod .. " + mouse_up", hl.dsp.layout("focus r"))
+hl.bind(mainMod .. " + mouse_down", hl.dsp.layout("focus l"))
 hl.bind(mainMod .. " + W",hl.dsp.layout("colresize 1"))
 hl.bind(mainMod .. " + S",hl.dsp.layout("colresize 0.5"))
 

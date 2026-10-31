@@ -22,8 +22,8 @@ order = [ "my_noctalia" ]
         "clipboard",
         "keyboard_layout",
         "bluetooth",
-        "input_volume",
         "volume",
+        "input_volume",
         "power_profile",
         "battery",
         "brightness",
@@ -43,7 +43,6 @@ order = [ "my_noctalia" ]
     radius_top_left = 0
     radius_top_right = 0
     scale = 1.1499999999999999
-    shadow = false
     start = [
         "session",
         "control-center",
@@ -276,13 +275,13 @@ wallpaper_scheme = "vibrant"
 directory = "/home/kirill/Downloads/wallpapers"
 
     [wallpaper.default]
-    path = "/home/kirill/Downloads/wallpapers/wallhaven-01rvv9_1920x1080.png"
+    path = "/home/kirill/Downloads/wallpapers/Снимок экрана от 2026-06-22 22-13-59.png"
 
     [wallpaper.last]
-    path = "/home/kirill/Downloads/wallpapers/wallhaven-01rvv9_1920x1080.png"
+    path = "/home/kirill/Downloads/wallpapers/Снимок экрана от 2026-06-22 22-13-59.png"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/kirill/Downloads/wallpapers/wallhaven-01rvv9_1920x1080.png"
+    path = "/home/kirill/Downloads/wallpapers/Снимок экрана от 2026-06-22 22-13-59.png"
 
     [[wallpaper.favorite]]
     path = "/home/kirill/Downloads/wallpapers/869010-green-minimalist-wallpaper-top-free-green-minimalist-background.jpg"

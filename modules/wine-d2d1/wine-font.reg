@@ -1,0 +1,11 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Wine\Fonts\Replacements]
+"MS Shell Dlg"="Comfortaa"
+"MS Shell Dlg 2"="Comfortaa"
+"Tahoma"="Comfortaa"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes]
+"MS Shell Dlg"="Comfortaa"
+"MS Shell Dlg 2"="Comfortaa"
+"Tahoma"="Comfortaa"
