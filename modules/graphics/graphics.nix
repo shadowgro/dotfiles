@@ -1,10 +1,22 @@
+{ pkgs, ... }:
+
 {
-  hardware.graphics.enable = true;
-  hardware.graphics.enable32Bit = true;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+    extraPackages = with pkgs; [ intel-media-driver ];
+  };
+
   services.xserver.videoDrivers = [
     "modesetting"
     "nvidia"
   ];
+
+  environment = {
+    sessionVariables.LIBVA_DRIVER_NAME = "iHD";
+    systemPackages = with pkgs; [ libva-utils intel-gpu-tools ];
+  };
+
   hardware.nvidia = {
     modesetting.enable = true; # For Wayland
     open = true;

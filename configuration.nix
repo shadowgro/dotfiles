@@ -1,37 +1,10 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./modules/amnezia/amnezia.nix
-      ./modules/audio/audio.nix
-      ./modules/clippers/clip-bridge.nix
-      ./modules/fastfetch/fastfetch.nix
-      ./modules/foot/foot.nix
-      # ./modules/idle-lock.nix
-      ./modules/gtk/gtk.nix
-      ./modules/hyprland/hyprland.nix
-      ./modules/joplin/joplin.nix
-      ./modules/kitty/kitty.nix
-      ./modules/mango/mango.nix
-      ./modules/micro/micro.nix
-      ./modules/noctalia/noctalia.nix
-      ./modules/nvidia/nvidia.nix
-      ./modules/other-programs/other-programs.nix
-      ./modules/pcmanfm-qt/pcmanfm-qt.nix
-      ./modules/power/power.nix
-      ./modules/qt/qt.nix
-      ./modules/reaper/reaper.nix
-      ./modules/searxng/searxng.nix
-      ./modules/specs/audio-specialisation.nix
-      ./modules/thunar/thunar.nix
-      ./modules/timeshift/timeshift.nix
-      ./modules/wine-d2d1/wine-d2d1.nix
-      ./modules/yamis/yamis.nix
-      ./modules/zed/zed.nix
-      ./modules/zen/zen.nix
-      ./modules/zsh/zsh.nix
+      (inputs.import-tree ./modules)
     ];
 
   # Bootloader.
@@ -83,31 +56,15 @@
     LC_TIME = "ru_RU.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
   users.users."kirill" = {
     isNormalUser = true;
     description = "kirill";
     extraGroups = [ "networkmanager" "wheel" "audio" ];
   };
 
-  environment.shellAliases = {
-    nixf = "cd ~/.dotfiles && sudo nixos-rebuild switch --flake . && noctalia msg notification-show 'Rebuild finished' ";
-    nixfb = "cd ~/.dotfiles && sudo nixos-rebuild boot --flake . && noctalia msg notification-show 'Rebuild finished' ";
-    nixfu = "cd ~/.dotfiles && nix flake update && noctalia msg notification-show 'Update finished' ";
-    nixlg = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
-    nixdg = "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations";
-    nixcg = "nix-store --gc && noctalia msg notification-show 'Garbage collected' ";
-    nixo = "nix-store --optimise && noctalia msg notification-show 'Storage optimised' ";
-  };
-
   fonts.packages = with pkgs; [
     maple-mono.NF
     comfortaa
-    # roboto
-    # annotation-mono
-    # nerd-fonts.jetbrains-mono
   ];
 
   # Configure network proxy if necessary

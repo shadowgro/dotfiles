@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
+    import-tree.url = "github:denful/import-tree";
     # mangowm = {
     #   url = "github:mangowm/mango";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -44,10 +45,12 @@
       url = "github:noctisynth/clip-bridge";
       flake = false;
     };
-    wine-d2d1-src = {
-      url = "github:giang17/wine/d2d1-dcomp-11.0";
-      flake = false;
-    };
+    # wine-d2d1-src = {
+    #   url = "github:giang17/wine/8a627366c023fe7c4e42476fdb8cc6c7cafa9463";
+    #   # url = "github:giang17/wine/46f28deb1d44b2dd76198a40a24b596989c9ec6c";
+    #   # url = "github:giang17/wine/d2d1-dcomp-11.0";
+    #   flake = false;
+    # };
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs: {

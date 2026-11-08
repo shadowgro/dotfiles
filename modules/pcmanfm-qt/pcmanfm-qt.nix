@@ -1,4 +1,5 @@
 { pkgs, ... }:
+
 {
   services = {
     gvfs.enable = true; # Mount, trash, and other functionalities
@@ -12,12 +13,11 @@
     lxqt.lxqt-menu-data
     ffmpegthumbnailer
     file-roller
-    xarchiver
-    rar
-    unar
-    zip
-    unzip
-    p7zip
+    (pkgs.xarchiver.override { p7zip = pkgs.p7zip-rar; })
+    # rar
+    # stable.unrar
+    # zip
+    # unzip
     # kdePackages.plasma-integration # for qt apps
   ];
 

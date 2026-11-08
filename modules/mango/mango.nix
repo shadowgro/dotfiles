@@ -1,8 +1,9 @@
-{ ... }:
 {
   # imports = [
   #   inputs.mangowm.nixosModules.mango
   # ];
+
+  services.xserver.enable = true;
 
   programs.mango.enable = true;
 

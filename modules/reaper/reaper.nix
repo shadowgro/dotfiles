@@ -48,8 +48,6 @@
 
   environment.systemPackages = [
     stable.reaper
-    # reaper-sws-extension
-    # reaper-reapack-extension
     stable.yabridge
     stable.yabridgectl
 

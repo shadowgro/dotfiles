@@ -42,11 +42,11 @@
   home-manager.users.kirill = { config, ... }: {
     qt = {
       enable = true;
-      style.name = "kvantum";
-      kvantum = {
-        enable = true;
-        settings.General.theme = "OrchisDark";
-      };
+      # style.name = "kvantum";
+      # kvantum = {
+      #   enable = true;
+      #   settings.General.theme = "OrchisDark";
+      # };
     };
 
     xdg.configFile = {

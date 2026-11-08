@@ -1,5 +1,3 @@
-{ ... }:
-
 {
   home-manager.users.kirill = { pkgs, ... }: {
 
@@ -19,7 +17,7 @@
       enable = true;
       package = pkgs.bibata-cursors-translucent;
       name = "Bibata_Ghost";
-      # size = 36;
+      size = 36;
       # gtk.enable = true;
       # x11.enable = true;
     };
@@ -62,8 +60,8 @@
         @import 'colors.css';
         @import url("noctalia.css");
         window { background-color: rgba(44, 44, 44, 0.3); }
-        .content-pane { background-color: transparent }
-        .sidebar-pane { background-color: transparent }
+        .content-pane { background-color: transparent; }
+        .sidebar-pane { background-color: transparent; }
         dialog { background-color: rgba(44, 44, 44, 0.3); }
         .titlebar { background-color: transparent; }
         .sidebar { background-color: transparent; }

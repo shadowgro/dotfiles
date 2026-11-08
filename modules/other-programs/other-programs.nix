@@ -1,12 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, stable, ... }:
 
 {
   programs.firefox.enable = true;
 
   environment.systemPackages = with pkgs; [
 
-    # wineWow64Packages.stable
-    wine-d2d1
+    wineWow64Packages.stable
+    # wine-d2d1
     winetricks
 
     keepassxc
@@ -19,21 +19,26 @@
     hyprpicker
 
     #CLI
+    nh
     yazi
     superfile
     fzf
-    television
+    # television
     fd
+    eza
     btop
+    dysk
     bat
     git
     github-cli
-    nix-search-tv
+    # nix-search-tv
+    # nix-output-monitor
+    # dix
     ntfs3g # flash-drive care
     cliamp
     timr-tui
     tealdeer
-    yandex-disk
+    stable.yandex-disk
     # hashdeep
   ];
 }
