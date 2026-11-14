@@ -1,4 +1,5 @@
 { pkgs, ... }:
+
 {
   services = {
     gvfs.enable = true; # Mount, trash, and other functionalities
@@ -23,7 +24,6 @@
     rar
     unrar
   ];
-  home-manager.users.kirill = {
-      xdg.configFile."Thunar/uca.xml".source = ./uca.xml;
-  };
+  home-manager.users.kirill.xdg.configFile."Thunar/uca.xml".source = ./uca.xml;
+
 }

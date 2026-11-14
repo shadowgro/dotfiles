@@ -257,23 +257,20 @@ in
     };
   };
 
-  home-manager.users.kirill = {
-    home.file = {
-      ".local/share/applications/timeshift-gtk.desktop".text = ''
-          [Desktop Entry]
-          Name=Timeshift
-          Comment=System restore utility
-          Exec=sh -c "run0 --setenv=DISPLAY=$DISPLAY --setenv=XAUTHORITY=$XAUTHORITY --setenv=WAYLAND_DISPLAY=$WAYLAND_DISPLAY --setenv=XDG_RUNTIME_DIR=/run/user/$(id -u) timeshift-gtk"
-          Icon=timeshift
-          GenericName[ru_RU]=Программа для восстановления системы
-          GenericName=System Restore Utility
-          Keywords=backup;btrfs;rsync;
-          Terminal=false
-          Type=Application
-          Categories=System;
-        '';
-    };
-  };
+  home-manager.users.kirill.home.file.
+    ".local/share/applications/timeshift-gtk.desktop".text = ''
+       [Desktop Entry]
+       Name=Timeshift
+       Comment=System restore utility
+       Exec=sh -c "run0 --setenv=DISPLAY=$DISPLAY --setenv=XAUTHORITY=$XAUTHORITY --setenv=WAYLAND_DISPLAY=$WAYLAND_DISPLAY --setenv=XDG_RUNTIME_DIR=/run/user/$(id -u) timeshift-gtk"
+       Icon=timeshift
+       GenericName[ru_RU]=Программа для восстановления системы
+       GenericName=System Restore Utility
+       Keywords=backup;btrfs;rsync;
+       Terminal=false
+       Type=Application
+       Categories=System;
+    '';
 
   # services.cron = {
   #   enable = true;

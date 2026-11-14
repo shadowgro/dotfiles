@@ -1,5 +1,5 @@
 {
-  home-manager.users.kirill = { ... }: {
+  home-manager.users.kirill = {
 
     programs.micro = {
      	enable = true;
@@ -21,7 +21,11 @@
       ".config/micro/bindings.json".text = ''
         {
         "Ctrl-d": "lua:comment.comment",
-        "\u001b[122;6u": "Redo"
+        "\u001b[122;6u": "Redo",
+        "\u001b[122;6u": "Redo",
+        "CtrlH": "DeleteWordLeft",
+        "\u001b[1;7A": "SpawnMultiCursorUp",
+        "\u001b[1;7B": "SpawnMultiCursorDown"
         }
       '';
 

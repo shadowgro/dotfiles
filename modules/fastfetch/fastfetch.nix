@@ -1,5 +1,5 @@
 {
-  home-manager.users.kirill = { ... }: {
+  home-manager.users.kirill = {
     programs.fastfetch.enable = true;
 
     xdg.configFile = {

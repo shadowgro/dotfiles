@@ -1,7 +1,6 @@
 {
-  home-manager.users.kirill = { ... }: {
-    programs.kitty = {
-      enable = true;
+  home-manager.users.kirill.programs.kitty = {
+    enable = true;
       # package = pkgs.symlinkJoin {
       #   name = "kitty-nvidia";
       #   paths = [ pkgs.kitty ];
@@ -19,18 +18,36 @@
       #  '';
       # };
 
-      settings = {
-       	cursor_trail = 1;
-       	cursor_trail_decay = "0.1 0.4";
-       	cursor_trail_start_threshold = 2;
-       	background_opacity = "0.3";
-       	font_family = "Maple Mono NF";
-       	font_size = "14.0";
-       	scrollback_lines = 10000;
-       	enable_audio_bell = false;
-       	include = "themes/noctalia.conf";
-       	confirm_os_window_close = 0;
-      };
+    settings = {
+      cursor_trail = 1;
+      cursor_trail_decay = "0.1 0.4";
+      cursor_trail_start_threshold = 2;
+      background_opacity = "0.3";
+      font_family = "Maple Mono NF";
+      font_size = "14.0";
+      scrollback_lines = 10000;
+      enable_audio_bell = false;
+      include = "themes/noctalia.conf";
+      confirm_os_window_close = 0;
     };
+
+    extraConfig = ''
+      # Option A (Default): Ctrl+Shift+C = copy
+      map ctrl+shift+c send_text all \x1b[67;6u
+
+      # ── zsh-edit-select undo / redo ─────────────────────────
+      map ctrl+shift+z send_text all \x1b[90;6u
+
+      # ── zsh-edit-select selection shortcuts ─────────────────────
+      # Pass Shift and Ctrl+Shift keys through to Zsh for selection.
+      # These override any default or custom Kitty mappings on these keys.
+      map shift+left        no_op
+      map shift+right       no_op
+      map shift+up          no_op
+      map shift+down        no_op
+      # Ctrl+Shift+Left/Right default to previous_tab/next_tab in Kitty — disable them:
+      map ctrl+shift+left   no_op
+      map ctrl+shift+right  no_op
+    '';
   };
 }

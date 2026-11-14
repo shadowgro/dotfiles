@@ -8,7 +8,7 @@ return {
 			x = 545.0,
 			y = 173.0
 		},
-		SEARCH = "SELECT 56",
+		SEARCH = "480",
 		colors = {
 			default = {
 				guid = "default",
@@ -48,7 +48,7 @@ return {
 		keys = {
 			
 		},
-		last_cursor_context = 1,
+		last_cursor_context = 0,
 		palette = true,
 		pallette_close_if_unfocused = true,
 		project_directories = {
@@ -56,6 +56,58 @@ return {
 		},
 		project_directories_sort = "Name",
 		recent = {
+			{
+				id = "VST:LX480 Complete (Relab Development)",
+				type = "vst"
+			},
+			{
+				id = "VST3:Pro-C 2 (FabFilter)",
+				type = "vst3"
+			},
+			{
+				id = "VST3:Pulsar 8200 (Pulsar)",
+				type = "vst3"
+			},
+			{
+				id = "VST3:Vertigo Sound VSC-3 (Vertigo Sound)",
+				type = "vst3"
+			},
+			{
+				id = "VST3:KClip3 (Kazrog)",
+				type = "vst3"
+			},
+			{
+				id = "VST3:Phaser BI-TRON (Arturia)",
+				type = "vst3"
+			},
+			{
+				id = "VST3:MagicDeathEyeStereo (DDMF)",
+				type = "vst3"
+			},
+			{
+				id = "JS:Saturation",
+				type = "jsfx"
+			},
+			{
+				id = "VST3:MHB Red (Kazrog)",
+				type = "vst3"
+			},
+			{
+				id = "VST3:TR5 TASCAM 388 (IK Multimedia)",
+				type = "vst3"
+			},
+			{
+				id = "VST3:Unisum (Tone Projects)",
+				type = "vst3"
+			},
+			{
+				id = "VST3:UnFairchild 670 (Undertone Audio)",
+				type = "vst3"
+			},
+			{
+				id = "Track: Select track 11 (40949) (Main)",
+				type = "action"
+			},
 			{
 				id = "Track: Select track 18 (40956) (Main)",
 				type = "action"
@@ -66,10 +118,6 @@ return {
 			},
 			{
 				id = "VST3:Pulsar MP-EQ (Pulsar)",
-				type = "vst3"
-			},
-			{
-				id = "VST3:Pulsar 8200 (Pulsar)",
 				type = "vst3"
 			},
 			{

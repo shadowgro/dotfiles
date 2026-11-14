@@ -18,46 +18,22 @@ in
   ];
 
   systemd.user.services.clip-bridge = {
-      description = "X11/Wayland clipboard bridge";
+    description = "X11/Wayland clipboard bridge";
 
-      wantedBy = [ "graphical-session.target" ];
+    wantedBy = [ "graphical-session.target" ];
 
-      after = [ "graphical-session.target" ];
-      partOf = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    partOf = [ "graphical-session.target" ];
 
-      serviceConfig = {
-        ExecStart = "${clip-bridge}/bin/clip-bridge";
+    serviceConfig = {
+      ExecStart = "${clip-bridge}/bin/clip-bridge";
 
-        Environment = [
-          "DISPLAY=:0"
-        ];
+      Environment = [
+        "DISPLAY=:0"
+      ];
 
-        Restart = "on-failure";
-        RestartSec = 2;
-      };
+      Restart = "on-failure";
+      RestartSec = 2;
     };
-
-#   systemd.user.services.clip-bridge = {
-#     Unit = {
-#       Description = "X11/Wayland clipboard bridge";
-#       After = [ "graphical-session.target" ];
-#       PartOf = [ "graphical-session.target" ];
-#     };
-#
-#     Service = {
-#       ExecStart = "${clip-bridge}/bin/clip-bridge";
-#
-#       Environment = [
-#         "DISPLAY=:0"
-#         "WAYLAND_DISPLAY=wayland-0"
-#       ];
-#
-#       Restart = "on-failure";
-#       RestartSec = 2;
-#     };
-#
-#     Install = {
-#       WantedBy = [ "graphical-session.target" ];
-#     };
-#   };
+  };
 }

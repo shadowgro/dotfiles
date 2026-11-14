@@ -1,10 +1,8 @@
-{ ... }:
-
 {
   programs.amnezia-vpn.enable = true;
 
   # chandge icon
-  home-manager.users.kirill.home.file = {
+  home-manager.users.kirill.home.file.
     ".local/share/applications/AmneziaVPN.desktop".text = ''
         [Desktop Entry]
         Type=Application
@@ -15,6 +13,5 @@
         Icon=AmneziaVPN
         Categories=Network;Qt;Security;
         Terminal=false
-      '';
-  };
+    '';
 }

@@ -23,7 +23,7 @@
   "colorize_brackets": true,
   "gutter": {
     "git_gutter_width": "default",
-    "folds": false,
+    "folds": true,
     "min_line_number_digits": 0,
     "bookmarks": false,
     "breakpoints": false,

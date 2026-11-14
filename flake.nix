@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
+    import-tree.url = "github:denful/import-tree";
     # mangowm = {
     #   url = "github:mangowm/mango";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -17,11 +18,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
+      url = "github:0xc000022070/zen-browser-flake/2656d974602749ca5594b133e3022a241ab5d4e0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     musnix = {
       url = "github:musnix/musnix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    rom = {
+      url = "github:manic-systems/rom";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # nix-index-database = {
@@ -44,10 +49,15 @@
       url = "github:noctisynth/clip-bridge";
       flake = false;
     };
-    wine-d2d1-src = {
-      url = "github:giang17/wine/d2d1-dcomp-11.0";
+    zsh-edit-select-src = {
+      url = "github:Michael-Matta1/zsh-edit-select";
       flake = false;
     };
+    # wine-d2d1-src = {
+    #   url = "github:giang17/wine/8a627366c023fe7c4e42476fdb8cc6c7cafa9463";
+    #   # url = "github:giang17/wine/d2d1-dcomp-11.0";
+    #   flake = false;
+    # };
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs: {

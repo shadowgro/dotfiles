@@ -1,3 +1,7 @@
+-- Start script: Loop & record color (Reapertips)
+local loop_color_cmd_name = '_RSc563f21d6168a434599c8616442bc055d465ae46'
+reaper.Main_OnCommand(reaper.NamedCommandLookup(loop_color_cmd_name), 0)
+
 -- Start script: Lil Chordbox
 local chord_box_cmd_name = '_RSff0957acd908ac1a809c8b9aa70a0aa73d2ce162'
 -- reaper.Main_OnCommand(reaper.NamedCommandLookup(chord_box_cmd_name), 0)

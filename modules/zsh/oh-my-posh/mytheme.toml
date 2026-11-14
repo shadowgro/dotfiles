@@ -1,0 +1,77 @@
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
+version = 4
+final_space = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = "root"
+    style = "powerline"
+    foreground = "red"
+    background = "transparent"
+    template = 'root <white>🕱</> '
+
+  [[blocks.segments]]
+    type = "nix-shell"
+    style = "powerline"
+    foreground = "white"
+    background = "transparent"
+    template = '<darkGray>{{ if .Env.buildInputs }}{{ replace " " "," (regexReplaceAll "-[0-9][^ ]*" (regexReplaceAll "/nix/store/[a-z0-9]{32}-" .Env.buildInputs "") "") }}</>   {{ else if or (eq .Type "pure") (eq .Type "impure") }}{{ .Type }}   {{ end }}'
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    background = 'transparent'
+    foreground = 'blue'
+    template = '{{ replace "/" "<cyan>/</>" .Path }}'
+
+    [blocks.segments.properties]
+      style = 'full'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    background = 'transparent'
+    foreground = 'yellow'
+    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <red>{{ if gt .Behind 0 }}↓{{ end }}</> <green>{{ if gt .Ahead 0 }}↑{{ end }}</>'
+    [blocks.segments.properties]
+      branch_icon = ''
+      commit_icon = '@'
+      fetch_status = true
+
+[[blocks]]
+  type = 'rprompt'
+  overflow = 'hidden'
+
+  [[blocks.segments]]
+    type = 'executiontime'
+    style = 'plain'
+    background = 'transparent'
+    foreground = 'darkGray'
+    template = '{{ .FormattedMs }}'
+
+    [blocks.segments.properties]
+      style = 'round'
+      threshold = 5000
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    background = 'transparent'
+    foreground_templates = [
+        "{{if gt .Code 0}}red{{end}}",
+        "{{if eq .Code 0}}green{{end}}"
+    ]
+    template = '❯'
+
+[secondary_prompt]
+  background = 'transparent'
+  foreground = 'green'
+  template = '> '

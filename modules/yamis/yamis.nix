@@ -43,5 +43,6 @@
     kdePackages.breeze-icons
   ];
 
-  home-manager.users.kirill.home.file.".local/share/icons/yet-another-monochrome-icon-set".source = pkgs.yamis;
+  home-manager.users.kirill.home.file.
+    ".local/share/icons/yet-another-monochrome-icon-set".source = pkgs.yamis;
 }

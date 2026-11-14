@@ -28,6 +28,7 @@ order = [ "my_noctalia" ]
         "battery",
         "brightness",
         "network",
+        "updates",
         "spacer_1",
         "date",
         "spacer_1",
@@ -36,6 +37,7 @@ order = [ "my_noctalia" ]
     font_family = "Maple Mono NF"
     font_weight = 700
     margin_ends = 0
+    panel_overlap = 0
     position = "bottom"
     radius = 0
     radius_bottom_left = 0
@@ -43,6 +45,7 @@ order = [ "my_noctalia" ]
     radius_top_left = 0
     radius_top_right = 0
     scale = 1.1499999999999999
+    shadow = false
     start = [
         "session",
         "control-center",
@@ -108,15 +111,8 @@ shadow = false
 show_dots = true
 
 [idle]
-behavior_order = [ "idle-behavior", "lock", "suspend", "idle", "idle-behavior-2", "idle-behavior-3" ]
+behavior_order = [ "idle-behavior", "lock", "suspend" ]
 pre_action_fade_seconds = 0
-
-    [idle.behavior.idle]
-    action = "command"
-    command = "mmsg dispatch sleep_monitor,eDP-1"
-    enabled = false
-    resume_command = "mmsg dispatch wakeup_monitor,eDP-1"
-    timeout = 10.0
 
     [idle.behavior.idle-behavior]
     action = "screen_off"
@@ -124,21 +120,9 @@ pre_action_fade_seconds = 0
     locked_timeout = 30.0
     timeout = 300.0
 
-    [idle.behavior.idle-behavior-2]
-    action = "command"
-    command = "noctalia msg session lock"
-    enabled = false
-    timeout = 12.0
-
-    [idle.behavior.idle-behavior-3]
-    action = "command"
-    command = "systemctl suspend"
-    enabled = false
-    timeout = 15.0
-
     [idle.behavior.lock]
     action = "lock"
-    enabled = true
+    enabled = false
     timeout = 360.0
 
     [idle.behavior.suspend]
@@ -217,6 +201,10 @@ border_color = "primary"
 border_width = 2.0
 position = "bottom_right"
 
+[plugin_settings."dmopp/nixos-updates"]
+check_flatpak = false
+flake_dir = "/home/kirill/.dotfiles"
+
 [plugin_settings."noctalia/timer"]
 alarm = true
 panel_placement = "floating"
@@ -224,7 +212,7 @@ panel_placement = "floating"
 [plugin_settings."oldirtty/color_picker"]
 
 [plugins]
-enabled = [ "oldirtty/color_picker", "noctalia/timer" ]
+enabled = [ "oldirtty/color_picker", "noctalia/timer", "dmopp/nixos-updates" ]
 
     [[plugins.source]]
     kind = "git"
@@ -247,25 +235,28 @@ popup_shadows = false
 settings_window_translucent = true
 show_location = false
 
-    [shell.greeter_sync]
-    auto_sync = true
-
     [shell.launcher]
     compact = true
     default_view = "all"
 
     [shell.panel]
     borders = false
+    open_near_click_control_center = true
     shadow = false
     transparency_mode = "glass"
 
+    [shell.shadow]
+    alpha = 0.0
+
 [theme]
 builtin = "Ayu"
-community_palette = "Tokyo Night Storm"
-custom_palette = "my_noctalia.moon"
+community_palette = "Ayu Red"
+custom_palette = "my_noctalia"
 mode = "dark"
+shell_mode = "dark"
 source = "custom"
-wallpaper_scheme = "vibrant"
+sync_color_scheme = false
+wallpaper_scheme = "dysfunctional"
 
     [theme.templates]
     builtin_ids = [ "btop", "foot", "gtk3", "gtk4", "kitty", "mango", "qt" ]
@@ -273,47 +264,60 @@ wallpaper_scheme = "vibrant"
 
 [wallpaper]
 directory = "/home/kirill/Downloads/wallpapers"
+transition = [ "diamond", "disc", "fade", "golden", "honeycomb", "melt", "stripes", "vortex", "wipe", "zoom" ]
+transition_on_startup = true
 
     [wallpaper.default]
-    path = "/home/kirill/Downloads/wallpapers/Снимок экрана от 2026-06-22 22-13-59.png"
+    path = "/home/kirill/Downloads/wallpapers/wallhaven-mlgzzy_1920x1080.png"
 
     [wallpaper.last]
-    path = "/home/kirill/Downloads/wallpapers/Снимок экрана от 2026-06-22 22-13-59.png"
+    path = "/home/kirill/Downloads/wallpapers/wallhaven-mlgzzy_1920x1080.png"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/kirill/Downloads/wallpapers/Снимок экрана от 2026-06-22 22-13-59.png"
+    path = "/home/kirill/Downloads/wallpapers/wallhaven-mlgzzy_1920x1080.png"
 
     [[wallpaper.favorite]]
+    builtin_palette = "Ayu"
+    palette_source = "builtin"
     path = "/home/kirill/Downloads/wallpapers/869010-green-minimalist-wallpaper-top-free-green-minimalist-background.jpg"
-    theme_mode = "auto"
-
-    [[wallpaper.favorite]]
-    palette_source = "wallpaper"
-    path = "/home/kirill/Downloads/wallpapers/869013-minimalist-green-wallpaper-top-free-minimalist-green-background.jpg"
     theme_mode = "dark"
-    wallpaper_scheme = "m3-content"
 
     [[wallpaper.favorite]]
     path = "/home/kirill/Downloads/wallpapers/wallhaven-1p55dw_1920x1080.png"
     theme_mode = "auto"
 
     [[wallpaper.favorite]]
-    custom_palette = "my_noctalia"
+    custom_palette = "my_noctalia.moon"
     palette_source = "custom"
     path = "/home/kirill/Downloads/wallpapers/wallhaven-4lvxjy_1920x1080.png"
     theme_mode = "dark"
 
     [[wallpaper.favorite]]
-    custom_palette = "my_noctalia.moon"
+    custom_palette = "my_noctalia"
     palette_source = "custom"
     path = "/home/kirill/Downloads/wallpapers/wallhaven-mlgzzy_1920x1080.png"
     theme_mode = "dark"
 
     [[wallpaper.favorite]]
-    custom_palette = "my_noctalia.moon"
-    palette_source = "custom"
+    palette_source = "wallpaper"
     path = "/home/kirill/Downloads/wallpapers/wallhaven-qrp5wr_1920x1080.png"
     theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    custom_palette = "my_noctalia.moon"
+    palette_source = "custom"
+    path = "/home/kirill/Downloads/wallpapers/wallhaven-lyz3d2_1920x1080.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    custom_palette = "my_noctalia"
+    palette_source = "custom"
+    path = "/home/kirill/Downloads/wallpapers/wallhaven-8g8q32_1920x1080.png"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    path = "/home/kirill/Downloads/wallpapers/wallhaven-e83xz8_1920x1080.png"
 
 [weather]
 enabled = false
@@ -382,6 +386,12 @@ visualization = "graph"
 
 [widget.tray]
 hide_passive = false
+
+[widget.updates]
+highlight_color = "on_surface"
+scale = 0.80000000000000004
+show_count = false
+type = "dmopp/nixos-updates:updates"
 
 [widget.widget]
 type = "oldirtty/color_picker:widget"

@@ -20,17 +20,17 @@
       "normal": {
         "black": "#120f18",
         "red": "#D94A59",
-        "green": "#5FD700",
+        "green": "#A9D94B",
         "yellow": "#FFD400",
-        "blue": "#2094CE",
-        "magenta": "#a444c5",
+        "blue": "#5AC1FE",
+        "magenta": "#D2A6FF",
         "cyan": "#04a6c2",
         "white": "#D8DEE9"
       },
       "bright": {
         "black": "#928f98",
         "red": "#B46557",
-        "green": "#c6c3e6",
+        "green": "#5FD700",
         "yellow": "#c8c4d4",
         "blue": "#ddbcdb",
         "magenta": "#c6c3e6",
