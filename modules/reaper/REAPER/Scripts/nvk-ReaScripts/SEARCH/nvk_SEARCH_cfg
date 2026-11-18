@@ -8,7 +8,7 @@ return {
 			x = 545.0,
 			y = 173.0
 		},
-		SEARCH = "480",
+		SEARCH = "reae",
 		colors = {
 			default = {
 				guid = "default",
@@ -48,7 +48,7 @@ return {
 		keys = {
 			
 		},
-		last_cursor_context = 0,
+		last_cursor_context = 1,
 		palette = true,
 		pallette_close_if_unfocused = true,
 		project_directories = {
@@ -56,6 +56,18 @@ return {
 		},
 		project_directories_sort = "Name",
 		recent = {
+			{
+				id = "VST:ReaEQ (Cockos)",
+				type = "vst"
+			},
+			{
+				id = "VST:ReaPitch (Cockos)",
+				type = "vst"
+			},
+			{
+				id = "Item: Auto trim/split items (remove silence)... (40315) (Main)",
+				type = "action"
+			},
 			{
 				id = "VST:LX480 Complete (Relab Development)",
 				type = "vst"

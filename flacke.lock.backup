@@ -1,0 +1,219 @@
+{
+  "nodes": {
+    "clip-bridge-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1786353051,
+        "narHash": "sha256-HyofP8YyV6c2q/H2Qm44MoG8cihZU/E40ei6LG2Kar8=",
+        "owner": "noctisynth",
+        "repo": "clip-bridge",
+        "rev": "4f4ea8a7bf6112e23fe1d393064345288071712c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctisynth",
+        "repo": "clip-bridge",
+        "type": "github"
+      }
+    },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793757180,
+        "narHash": "sha256-gyV7AtCwLnOImcrfSETP4J3Ie96bz19DY47B7m7Y3HM=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "b787c48e2ec57a9d098f5c2721882a3bc1e16f97",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "master",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "home-manager_2": {
+      "inputs": {
+        "nixpkgs": [
+          "zen-browser",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792098797,
+        "narHash": "sha256-u4DIIZgznEGzByxXrxWCXK19VcMtTBmi/M9gZ7Jk9bM=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "640725978b99076e18e069f6e7d2959124584f8f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "import-tree": {
+      "locked": {
+        "lastModified": 1788467110,
+        "narHash": "sha256-ljEMTXP/rH0tOvDzc9gzwww6KcHRPRnEHzd9lK48V7s=",
+        "owner": "denful",
+        "repo": "import-tree",
+        "rev": "eb1b52eaecc57f7c136d07ae8a93e724dfecac46",
+        "type": "github"
+      },
+      "original": {
+        "owner": "denful",
+        "repo": "import-tree",
+        "type": "github"
+      }
+    },
+    "musnix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793578097,
+        "narHash": "sha256-tKyoZKrtruqH8EfgKd4tf/HGZDiaKBCr94oGYPn0MLk=",
+        "owner": "musnix",
+        "repo": "musnix",
+        "rev": "2a830cdf3af81326770a3d18ac7c71976744eb8d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "musnix",
+        "repo": "musnix",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1793726008,
+        "narHash": "sha256-jQp1wKvbwWdLBASTXkSi/VYmDJ5AbBi1WvcMt9HWJC8=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "1d060086d60cb76a40cf37109f979d88a5bd6396",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-stable": {
+      "locked": {
+        "lastModified": 1793633738,
+        "narHash": "sha256-tItrb9M8eYA6WhFgmT9tpGKueri3+wRuVA952o/2xSU=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "7dcdd87373d72e7a2173e4db02e20d3d7f495cfd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-26.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "rom": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794177944,
+        "narHash": "sha256-P8speTgdi6I4ChXY47Mk3tkHeEBssINphDYENf1hnbc=",
+        "owner": "manic-systems",
+        "repo": "rom",
+        "rev": "259902782d222a9460990fc2079a6d264927a73b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "manic-systems",
+        "repo": "rom",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "clip-bridge-src": "clip-bridge-src",
+        "home-manager": "home-manager",
+        "import-tree": "import-tree",
+        "musnix": "musnix",
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-stable": "nixpkgs-stable",
+        "rom": "rom",
+        "yet-another-monochrome-icon-set": "yet-another-monochrome-icon-set",
+        "zen-browser": "zen-browser",
+        "zsh-edit-select-src": "zsh-edit-select-src"
+      }
+    },
+    "yet-another-monochrome-icon-set": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1794060335,
+        "narHash": "sha256-ER1k0lFcj53cQZ6lV1RZw3uU/uekFNpNFZ1gFwbt+0k=",
+        "ref": "refs/heads/main",
+        "rev": "fd25f551c5c9cc272f21d2632ca4a570000da707",
+        "revCount": 66,
+        "type": "git",
+        "url": "https://bitbucket.org/dirn-typo/yet-another-monochrome-icon-set.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://bitbucket.org/dirn-typo/yet-another-monochrome-icon-set.git"
+      }
+    },
+    "zen-browser": {
+      "inputs": {
+        "home-manager": "home-manager_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793309674,
+        "narHash": "sha256-d1Tvbgn//HQ3f1PDh/iIMEpvuUu9Lc4lJqiwGl18cY8=",
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
+        "rev": "2656d974602749ca5594b133e3022a241ab5d4e0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
+        "rev": "2656d974602749ca5594b133e3022a241ab5d4e0",
+        "type": "github"
+      }
+    },
+    "zsh-edit-select-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793047401,
+        "narHash": "sha256-MTv0XsINIaMIplTeeHBV1DWL/2ZmrP/bydYKpQgydgY=",
+        "owner": "Michael-Matta1",
+        "repo": "zsh-edit-select",
+        "rev": "f95f0cce63550cf0a33c8848b9c5de3be7ef31fe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Michael-Matta1",
+        "repo": "zsh-edit-select",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

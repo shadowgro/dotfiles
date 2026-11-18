@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "document_symbols": "on",
+  "document_folding_ranges": "on",
+  "semantic_tokens": "combined",
   "auto_update": false,
   "cli_default_open_behavior": "existing_window",
   "default_open_behavior": "new_window",
@@ -53,7 +56,7 @@
   // Terminal Font Settings
   "terminal": {
     "font_family": "Maple Mono NF",
-    "font_size": 15,
+    "font_size": 14,
     // Terminal line height: comfortable (1.618), standard(1.3) or `{ "custom": 2 }`
     "line_height": "standard",
   },
@@ -82,7 +85,7 @@
           "element.disabled": "#00000000",
           "ghost_element.hover": "#2C2C2C4D",
           "ghost_element.active": "#2C2C2C4D",
-          "ghost_element.selected": "#2C2C2C4D",
+          "ghost_element.selected": "#4C4C4C",
           "ghost_element.disabled": "#2C2C2C66",
           "status_bar.background": "#2C2C2C4d",
           "title_bar.background": "#2C2C2C4D",

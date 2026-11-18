@@ -1,4 +1,4 @@
-{ pkgs, stable, inputs, ... }:
+{ pkgs, stable, ... }:
 
 {
   programs.firefox.enable = true;
@@ -33,7 +33,8 @@
     tealdeer
     stable.yandex-disk
     # hashdeep
-    inputs.rom.packages.${stdenv.hostPlatform.system}.default
+    rom
+    # inputs.rom.packages.${stdenv.hostPlatform.system}.default
 
     (pkgs.writeShellApplication {
       name = "ns";

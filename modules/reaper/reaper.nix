@@ -1,4 +1,4 @@
-{ pkgs, stable, ... }:
+{ pkgs, ... }:
 
 {
   home-manager.users.kirill = { config, ... }: {
@@ -15,8 +15,8 @@
         source = pkgs.symlinkJoin {
           name = "reaper-userplugins";
           paths = [
-            stable.reaper-sws-extension
-            stable.reaper-reapack-extension
+            pkgs.reaper-sws-extension
+            pkgs.reaper-reapack-extension
           ];
         };
         recursive = true;
@@ -46,10 +46,12 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = [
-    stable.reaper
-    stable.yabridge
-    stable.yabridgectl
+  environment.systemPackages = with pkgs; [
+    # stable.reaper
+    yabridge
+    yabridgectl
+
+    (callPackage ./_reaper_wrapped/_reaper_wrapped.nix { })
 
     # (pkgs.symlinkJoin {
     #   name = "reaper-nvidia-gtk";

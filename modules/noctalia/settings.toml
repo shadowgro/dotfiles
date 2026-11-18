@@ -1,6 +1,7 @@
-config_version = 16
+config_version = 20
 
 [audio]
+colorize_icons = true
 enable_overdrive = true
 enable_sounds = true
 sound_volume = 0.69999998435378075
@@ -101,6 +102,7 @@ auto_hide = true
 background_opacity = 0.29999999329447746
 border = "primary"
 border_width = 2.0
+colorize_icons = true
 concave_edge_corners = false
 icon_size = 32
 launcher_position = "start"
@@ -191,6 +193,7 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
 background_opacity = 0.29999999329447746
 border_color = "primary"
 border_width = 2.0
+colorize_icons = true
 filter_order = [ "filter" ]
 layer = "overlay"
 position = "bottom_right"
@@ -203,6 +206,7 @@ position = "bottom_right"
 
 [plugin_settings."dmopp/nixos-updates"]
 check_flatpak = false
+cleanup_button = false
 flake_dir = "/home/kirill/.dotfiles"
 
 [plugin_settings."noctalia/timer"]
@@ -226,16 +230,18 @@ enabled = [ "oldirtty/color_picker", "noctalia/timer", "dmopp/nixos-updates" ]
 
 [shell]
 app_icon_color = "#FFFFFF"
-app_icon_colorize = true
 button_borders = false
 font_family = "Comfortaa Medium"
 panel_anchor_bar = "my_noctalia"
 polkit_agent = true
+polkit_colorize_icons = true
 popup_shadows = false
+screen_time_colorize_icons = true
 settings_window_translucent = true
 show_location = false
 
     [shell.launcher]
+    colorize_icons = true
     compact = true
     default_view = "all"
 
@@ -248,15 +254,18 @@ show_location = false
     [shell.shadow]
     alpha = 0.0
 
+    [shell.window_switcher]
+    colorize_icons = true
+
 [theme]
 builtin = "Ayu"
-community_palette = "Ayu Red"
+community_palette = "SeaBed"
 custom_palette = "my_noctalia"
 mode = "dark"
 shell_mode = "dark"
 source = "custom"
 sync_color_scheme = false
-wallpaper_scheme = "dysfunctional"
+wallpaper_scheme = "m3-content"
 
     [theme.templates]
     builtin_ids = [ "btop", "foot", "gtk3", "gtk4", "kitty", "mango", "qt" ]
@@ -268,13 +277,13 @@ transition = [ "diamond", "disc", "fade", "golden", "honeycomb", "melt", "stripe
 transition_on_startup = true
 
     [wallpaper.default]
-    path = "/home/kirill/Downloads/wallpapers/wallhaven-mlgzzy_1920x1080.png"
+    path = "/home/kirill/Downloads/wallpapers/wallhaven-8g8q32_1920x1080.png"
 
     [wallpaper.last]
-    path = "/home/kirill/Downloads/wallpapers/wallhaven-mlgzzy_1920x1080.png"
+    path = "/home/kirill/Downloads/wallpapers/wallhaven-8g8q32_1920x1080.png"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/kirill/Downloads/wallpapers/wallhaven-mlgzzy_1920x1080.png"
+    path = "/home/kirill/Downloads/wallpapers/wallhaven-8g8q32_1920x1080.png"
 
     [[wallpaper.favorite]]
     builtin_palette = "Ayu"
@@ -322,6 +331,9 @@ transition_on_startup = true
 [weather]
 enabled = false
 
+[widget.active_window]
+colorize_icons = true
+
 [widget.audio_visualizer]
 bands = 48
 mirrored = false
@@ -368,9 +380,11 @@ show_label = false
 vpn_status = "both"
 
 [widget.network_rx]
+enabled = false
 stat = "gpu_usage"
 
 [widget.network_tx]
+enabled = false
 stat = "gpu_temp"
 
 [widget.ram]
@@ -384,7 +398,11 @@ enabled = false
 stat = "cpu_freq"
 visualization = "graph"
 
+[widget.taskbar]
+colorize_icons = true
+
 [widget.tray]
+colorize_icons = true
 hide_passive = false
 
 [widget.updates]
@@ -398,4 +416,5 @@ type = "oldirtty/color_picker:widget"
 
 [widget.workspaces]
 active_pill_size = 1.0
+colorize_icons = true
 hide_when_empty = true

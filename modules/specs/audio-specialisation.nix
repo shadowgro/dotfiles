@@ -7,7 +7,7 @@
 
   specialisation = {
     audio.configuration = {
-      enviroment.etc."specialisation".text = "audio";
+      environment.etc."specialisation".text = "audio";
 
       boot.kernelPackages = pkgs.lib.mkForce pkgs.linuxPackages_xanmod_latest;
       boot.kernelParams = [
